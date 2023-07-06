@@ -9,14 +9,17 @@
 3. [Levels](#levels)
 4. [Characters](#characters)
 5. [Aesthetics](#aesthetics)
-6. [Platforms](#platforms)
-7. [Monetization](#monetization)
+6. [Development Tools](#development-tools)
+7. [Resources](#resources)
+8. [Platforms](#platforms)
+9. [Monetization](#monetization)
+10. [Deadline](#deadline)
 
 ---
 
 ## Game Overview <a name="game-overview"></a>
 
-"Escaping Alderwood: Chapter One - The Cry Heard Through Alderwood," plunges players into the cold heart of the English witch trials of 1592, as they strive to navigate the spectral and psychological horrors of survival. Within the oppressive confines of Alderwood, a village consumed by fear and superstition, players become Mabel, a young mother unjustly accused of witchcraft, fighting not only for her life but for the safety of her innocent infant son, Thomas.
+"Escaping Alderwood: Chapter One - The Cry Heard Around Alderwood," plunges players into the cold heart of the English witch trials of 1592, as they strive to navigate the spectral and psychological horrors of survival. Within the oppressive confines of Alderwood, a village consumed by fear and superstition, players become Mabel, a young mother unjustly accused of witchcraft, fighting not only for her life but for the safety of her innocent infant son, Thomas.
 
 As Mabel, players awaken in the dank, gloom-ridden Alderwood jail, the chilling sound of Thomas' whimpering echoing against the stone walls. Each shuffling footstep, each whispering wind, a stark reminder of the terror that awaits. With execution imminent, Mabel must negotiate the treacherous path of escape, facing the horrors that skulk in Alderwood's shadows and the deadly stake-burning that promises a gruesome end.
 
@@ -34,54 +37,79 @@ Prepare to face your fears. The journey through Alderwood awaits, fraught with t
 
 ## Game Mechanics <a name="game-mechanics"></a>
 
-Players step into the lives of Mabel, a wrongfully accused mother, driven by the fierce love for her son and the resolve to survive. In the face of her husband's murder and her child's uncertain future, Mabel's survival depends on her ability to comprehend the villagers' terror and withstand their unrelenting witch hunts.
+Immersing you into the heart of the English witch trials of 1592, "Escaping Alderwood: Chapter One - The Cry Heard Through Alderwood," utilizes a collection of sophisticated game mechanics that bring the chilling narrative to life. As Mabel, a mother falsely accused of witchcraft, players must employ their wits and courage to navigate through Alderwood's perilous environment, evading its superstitious residents and the haunting spectral entities lurking in the village's shadowy corners.
 
-Using the VR controllers, players can manipulate objects, tend to baby Thomas, solve enigmas based on 16th-century superstitions, evade the fearful villagers, and quell the agitated spirits.
+The game utilizes a first-person perspective, providing an intimate connection to Mabel and her dire situation. Moving through Alderwood involves a combination of keyboard and mouse controls, with the WASD keys controlling movement and the mouse guiding Mabel's line of sight. Players must maneuver through the oppressive streets, using the stealth mechanic (crouch - Left CTRL, prone - Z) to avoid detection by the villagers and spectral entities. 
 
-With the relentless villagers and the eerie spirits posing a ceaseless threat, ensuring Mabel's survival and Thomas's well-being hinges on evading hostile villagers, executing protective rites, and attending to Thomas's urgent needs.
+An intriguing puzzle-solving element enhances the gameplay, challenging players to crack riddles steeped in 16th-century folklore and uncover hidden clues in the environment. Interaction with the game world is facilitated through the mouse's left-click function for picking up items or performing actions and the right-click for examining objects closely.
 
-Delve into the villager's terror-driven accusations by unearthing cryptic clues and solving multifaceted puzzles entrenched in historical superstitions, essential for revealing the truth and attaining your vindication.
+Central to the gameplay is a unique mechanic - a countdown timer symbolizing baby Thomas's restlessness. As this timer depletes, Mabel's objective becomes increasingly critical. Once the timer runs out, the silence shatters with Thomas's cries (Soothe - E key), alerting the villagers and the supernatural entities. Managing this countdown becomes crucial to maintain stealth and continue Mabel's desperate quest for freedom.
 
-Accumulate and manage crucial items such as protective charms, healing herbs, ritual instruments, and vital childcare items in Mabel's satchel, your only aid in this foreboding world.
+A resource management mechanic further heightens the game's tension. Players can use the TAB key to access Mabel's satchel, where a variety of crucial items can be stored and used strategically. From protective amulets to healing herbs, each item has its function and is assigned to hotkeys 1-5 for easy access during tense situations. This mechanic requires players to make careful decisions about which resources to keep, use, or discard as they traverse the hauntingly detailed environments crafted with Unreal Engine.
+
+In "Escaping Alderwood: Chapter One," players must also maintain a delicate balance between survival and motherhood, each decision carrying weight. From evading hostile villagers and performing protective rites (Spellcasting - F key) to attending to Thomas's needs, your choices can mean life or death in this ruthless environment where even the smallest sound can draw unwanted attention.
+
+Whether played via a mouse and keyboard or a traditional game controller, "Escaping Alderwood: Chapter One" provides a deep, immersive experience. Its intuitive controls, combined with complex survival mechanics, creates a tension-filled journey through history's darker chapters. Your survival depends on your ability to navigate this intricate maze of fear and suspicion. Can you withstand the spectral horrors and guide Mabel and Thomas safely out of Alderwood? Only the shadows know.
 
 ---
 
 ## Levels <a name="levels"></a>
 
-Embark on a perilous journey through the fear-stricken 16th-century village of Alderwood, haunted by superstitions and shrouded in horror under the ghastly pallor of All Hallows Eve.
+In "Escaping Alderwood: Chapter One - The Cry Heard Around Alderwood," players are plunged into the heart of Alderwood, a village that's as oppressive and dangerous as it is rich in history. The game unfolds over several meticulously designed levels that take players on a harrowing journey through this superstitious 16th-century English village.
 
-Mabel's fight for survival will guide her to haunting locales such as the village jail, the forbidding execution square, the homes of her accusers, and the shadowy heart of the haunted Alderwood forest.
+The Dungeon: The game begins in the dark, dreary dungeon of Alderwood jail, where Mabel and Thomas are being held captive. The cold stone, the dimly lit surroundings, and the echoes of despair make this an eerie introduction to the game's setting. Here, players learn basic controls and mechanics as they explore their surroundings, find initial clues, and plot an escape.
+
+The Jail Courtyard: This level takes players through the haunting jail courtyard during the witching hour, filled with hanging cages and ominous gallows, adding an extra layer of dread. Mabel must use stealth to avoid the patrolling guards and aggressive jailhouse animals while seeking escape routes.
+
+The Cobblestone Streets of Alderwood: A labyrinthine sprawl of narrow, winding streets under the ghostly glow of the moon. Players must navigate through while avoiding detection by the townsfolk. This level introduces a handful of puzzles that need to be solved to progress, incorporating elements of Alderwood's lore and superstitions.
+
+The Alderwood Forest: The final level is the forest that skirts Alderwood, a dense, foggy wilderness known for spectral apparitions and eerie whispers that play tricks on the mind. It is here that the countdown timer of baby Thomas' restlessness becomes crucial as spectral entities grow more active, making navigation and evasion more intense.
 
 ---
 
 ## Characters <a name="characters"></a>
 
-"The Accursed," spirits of innocently convicted witches, serve as a relentless reminder of Mabel's predicament, imposing a ceaseless, unseen threat to her and baby Thomas's survival.
+"Escaping Alderwood" presents a rich tapestry of characters steeped in the historical context of 16th-century England, adding depth and tension to the game's narrative.
 
-The villagers of Alderwood, fuelled by fear and driven to madness, are intent on seeing Mabel meet the same fate as her husband. Their fear of her alleged witchcraft often surpasses even their terror of the supernatural.
+Mabel: The protagonist of our story, Mabel, is a young, determined, and courageous mother accused of witchcraft. She is resolute in her mission to escape Alderwood and protect her son, Thomas. Mabel's husband, seen only in haunting flashbacks, was burned at the stake for witchcraft, and she's determined not to let the same fate befall her and her son.
+
+Thomas: Mabel's infant son, a symbol of hope and innocence amidst the bleak surroundings. He is the motivation behind Mabel's escape but also serves as a gameplay mechanic, with his cries potentially attracting attention if Mabel doesn't keep him calm.
+
+The Villagers: Once Mabel's friends and neighbors, the villagers are now her adversaries, driven to suspicion and hysteria by fear of witchcraft. These characters range from the vulnerable elderly to the zealous town guards, all of whom could spell doom for Mabel if they catch her.
+
+The Accursed: The spectral entities haunting Alderwood, these are the spirits of the innocent women unjustly accused and executed for witchcraft. They serve as a grim reminder of Mabel's predicament. These spirits, while not directly harmful, significantly affect the environment, and their presence can cause panic and alarm, attracting unwanted attention.
+
+The Constable: A significant secondary antagonist, the Alderwood Constable, is a menacing figure patrolling the streets, intent on maintaining law and order as he understands it. He's ever vigilant, ready to apprehend Mabel at any sign of her escape.
+
+The characters of "Escaping Alderwood: Chapter One" add to the game's rich historical tapestry and terrifying atmosphere, creating an immersive survival horror experience that plunges players into the chilling realities of the English witch trials.
 
 ---
 
 ## Aesthetics <a name="aesthetics"></a>
 
-Immerse yourself in the gritty, realistic world of 16th-century witch trials. The grim landscapes, frenzied mobs, spectral apparitions, and the tender presence of an infant paint a harrowing tale of perpetual tension and impending doom.
+"Escaping Alderwood" is a descent into the gritty, harsh realities of 16th-century England, gripped by the hysteria of witch trials. The game's aesthetic is a chillingly accurate portrayal of a dark and ominous world, crafted meticulously with Unreal Engine and Blender. The cold, dreary dungeons, haunting jail courtyard, labyrinthine streets of Alderwood, and the eerie forest bordering the village are designed to immerse players into the fear and desperation of Mabel's fight for survival.
 
-The chilling soundscape, featuring eerie ambient music, terrified screams, fervent accusations, and the innocent cries of baby Thomas, complements the game's terrifying atmosphere.
+Accompanying the grim visuals is a haunting soundscape designed to amplify the tension and fear. The eerie ambient music sets the tone, while terrified screams and fervent accusations echo through the village streets. An additional layer of tension is added by the innocent cries of baby Thomas, a constant reminder of the stakes and the urgency of Mabel's mission.
 
-Engage with Mabel's satchel in your VR space as your interactive inventory, a crucial ally stocked with objects tied to alleged witchcraft and essential childcare items.
+Players will navigate their journey through a user-friendly and immersive interface. Mabel's inventory, visually represented as her satchel, is key to survival, filled with objects of alleged witchcraft and essential items for childcare.
 
 ---
 
 ## Platforms <a name="platforms"></a>
 
-"Escaping Alderwood" is meticulously designed for VR platforms, with particular optimization for Meta Quest 3.
-
+"Escaping Alderwood" is meticulously designed for the PC platform, focusing on delivering a compelling narrative and survival horror experience. Our game is crafted to perform optimally on various PC configurations, ensuring that a wide range of players can immerse themselves in the haunting world of Alderwood. We're committed to launching the game on Steam, one of the most widely-used platforms for PC gaming, offering accessibility to a global player base.
 ---
 
 ## Monetization <a name="monetization"></a>
 
-"Escaping Alderwood" will be available for purchase on the Meta Quest Store, welcoming courageous players to embark on this spine-chilling historical horror journey.
+"Escaping Alderwood" is not just a game but a chilling journey through history's darkest era. To monetize this immersive experience, we have considered several revenue strategies:
 
----
+Initial Sales: The game will be available for purchase on the Steam platform. Given the rich narrative and unique gameplay, we believe there's substantial potential for strong initial sales.
 
-"Escaping Alderwood" intends to offer players a profound, haunting VR journey rooted in historical accuracy. This game plunges players into the fear-fueled heart of a 16th-century village, offering an immersive experience unlike any other.
+Downloadable Content (DLC): To continue the story beyond Chapter One and to add depth to the game world, we plan to develop and release DLCs that introduce new characters, quests, and locations, which players can purchase.
+
+Cosmetic Items: Although "Escaping Alderwood" is heavily story-driven, there's still scope for personalization. We plan to introduce purchasable cosmetic items such as different clothing or skins for Mabel, new designs for her satchel, etc.
+
+Collector's Edition: We also plan on releasing a Collector's Edition of the game, including additional content such as a digital artbook, the original soundtrack, and behind-the-scenes developer commentary, to appeal to the more dedicated fans.
+
+Merchandise: Leveraging the atmospheric and historical elements of the game, we can create and sell merchandise such as posters, clothing, or figurines, contributing to additional revenue.
