@@ -1,0 +1,16 @@
+# AI Art Generation Prompts for Alderwood Forest
+
+## Prompt 1: Alderwood Forest - The Natural Enigma
+Depict the Alderwood forest as a perplexing labyrinth of nature for the "Escaping Alderwood" PC game. The forest should be thick with towering alders and ancient oaks that veil the sky, creating an ominous ambiance. Design undergrowth to be lush and dense, punctuated by serpentine creeks. Incorporate a multitude of flora and fauna native to 16th-century English woodlands. To intensify the eeriness, have faint wisps of fog creeping along the forest floor and spectral lights flickering amidst the foliage. Use Unreal Engine's advanced foliage system for creating a hauntingly realistic forest environment.
+
+## Prompt 2: Alderwood Forest - The Witch's Refuge
+Design an intricate scene of the forest serving as a refuge for the accused witch, Agnes. Showcase her shelter hidden beneath a dense canopy of moss-laden trees and surrounded by various medicinal herbs. Visualize her interacting with the forest's bounty - picking herbs under the moonlight. For an added touch of supernatural, depict spectral apparitions lingering at the periphery, their luminescent eyes watching Agnes from the shadows. Utilize dynamic lighting and shadow effects in Unreal Engine to create a chilling atmosphere.
+
+## Prompt 3: Alderwood Forest - The Pursuit
+Create an electrifying scene in the Alderwood forest, capturing a tense moment of pursuit. Feature the protagonist Mabel, clutching her infant son Thomas, as she stealthily navigates the treacherous forest paths. Illuminate her path with the faint moonlight seeping through the dense foliage, casting long, menacing shadows. To heighten the dread, depict torch-bearing villagers on her trail, their faces contorted with fear and suspicion. Employ Unreal Engine's capabilities to render dynamic lighting and detailed textures, enhancing the ominous mood of the scene.
+
+## Prompt 4: Alderwood Forest - The Supernatural Gathering
+Illustrate a mythical scene of a supposed witches' gathering in the depths of the Alderwood forest. Visualize spectral figures huddled in a clearing, their ghostly glow casting eerie shadows on the surrounding trees. Depict a ritualistic formation on the forest floor, marked with strange symbols and encircled by flickering candles. Highlight an assortment of forest herbs and mysterious objects in the center. With the help of Unreal Engine's atmospheric and lighting effects, create a scene that encapsulates the villagers' deepest fears and superstitions.
+
+## Prompt 5: Alderwood Forest - The Forest's Impact on Daily Life
+Portray a sobering scene of the villagers' altered interaction with the forest due to prevailing fear and suspicion. Showcase characters hesitantly collecting firewood or foraging, their eyes darting anxiously amidst the trees. Incorporate spectral silhouettes lurking in the dense undergrowth, their presence symbolizing the fear infused in the villagers. Use Unreal Engine to establish a tense atmosphere, accentuating the stark contrast between the forest's natural beauty and the foreboding sense of terror associated with it.
