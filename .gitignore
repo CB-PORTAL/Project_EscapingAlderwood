@@ -6,6 +6,8 @@
 *.lo
 *.o
 *.obj
+*.blend
+*.blend1
 
 # Precompiled Headers
 *.gch
