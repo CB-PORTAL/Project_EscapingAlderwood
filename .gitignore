@@ -74,3 +74,12 @@ Plugins/*/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+
+# Exclude files for ModularDungeonSet
+/Chapter1_TheCryHeardAroundAlderwood/LEVELS/L1_Dungeon/ModularDungeonSet/
+
+# Exclude files for Medieval_Tool_&_Misc_Pack
+/Chapter1_TheCryHeardAroundAlderwood/LEVELS/L1_Dungeon/Medieval_Tool_&_Misc_Pack/
+
+# Exclude files for Alderwood_Dungeon
+/Chapter1_TheCryHeardAroundAlderwood/LEVELS/L1_Dungeon/Alderwood_Dungeon/
