@@ -84,4 +84,5 @@ DerivedDataCache/*
 # Exclude files for Alderwood_Dungeon
 /Chapter1_TheCryHeardAroundAlderwood/LEVELS/L1_Dungeon/Alderwood_Dungeon/
 
+# Exclude files from Unreal Engine and Blender
 /Game_EscapingAlderwood/
