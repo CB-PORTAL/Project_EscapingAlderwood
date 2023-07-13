@@ -83,3 +83,5 @@ DerivedDataCache/*
 
 # Exclude files for Alderwood_Dungeon
 /Chapter1_TheCryHeardAroundAlderwood/LEVELS/L1_Dungeon/Alderwood_Dungeon/
+
+/Game_EscapingAlderwood/
