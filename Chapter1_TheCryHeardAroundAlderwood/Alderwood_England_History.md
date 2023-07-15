@@ -1,0 +1,13 @@
+# Escaping Alderwood: A Glimpse into the Dark Past
+
+In the heart of the 16th century, **Alderwood**, a humble village quietly nestled within the heartland of the English Midlands, bore witness to a series of events that would indelibly mark its history. The deep-seated fear and paranoia that had taken hold in Alderwood was a mirror to the hysteria that spread across Europe during the era of the witch trials.
+
+Notably isolated from the burgeoning enlightenment in larger, distant cities, the rural settlement of Alderwood was a fertile breeding ground for fear and superstition. The tight-knit community was strongly influenced by Puritan beliefs, an austere form of Protestantism, and lived with the continual dread of the devil and the eternal damnation that he represented. Misfortunes of any kind — be it an unexpected crop failure, a sudden mysterious illness, or an inexplicable death — were quickly attributed to the nefarious work of witches.
+
+Alderwood's physical layout was as eerie as its inhabitants' beliefs. Thatched-roofed cottages were huddled closely together, as though seeking solace in each other's company, under the stern shadow of the village's harsh Puritan church. The unpaved streets and houses, constructed from timber and daub, were a testament to a community living in a perpetual state of fear and survival.
+
+Enveloping the village was the enigmatic Alderwood forest, an ominous presence in the lives of the villagers, perceived as nearly sentient. The forest was both a blessing and a curse: a source of resources for survival, yet also a chilling boundary that marked the transition from the known into the unknown. In the minds of the villagers, the forest was teeming with unseen spirits and became the backdrop for numerous tales of witches and their sinister deeds.
+
+The year of 1592 marked a turning point for Alderwood. A series of unexplained deaths occurred, and inexplicable phenomena—such as spectral apparitions and livestock discovered cruelly mutilated—stoked the villagers' fears. The community quickly concluded that they were under the spell of a powerful witch. The subsequent witch hunts were merciless, and the paranoia that swept the village led to the tragic loss of many innocent lives. Those accused were forever branded as the "accursed," a chilling reminder of a frenzied period in Alderwood's past.
+
+**Escaping Alderwood** seeks to bring these dark chapters of Alderwood's history to life. This game immerses players in a world gripped by fear, where survival is uncertain, and magic is perceived as an existential threat. By reconstructing this historical period, players can experience one of the most intriguing and darkest chapters of human history in an immersive way.
