@@ -39,7 +39,7 @@ namespace DuRound
         {
             for (int g = 0; g < guardList.Count; g++)
             {
-                guardList [g].isMoving = ConditionalAttribute;
+                guardList [g].isMoving = condiion;
             }
         }
     }

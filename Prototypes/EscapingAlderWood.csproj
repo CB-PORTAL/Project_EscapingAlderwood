@@ -57,14 +57,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Mabel\Mabel.cs" />
-    <Compile Include="Assets\Scripts\Guard\Guard.cs" />
-    <Compile Include="Assets\Scripts\UI\UpdateMabelUI.cs" />
-    <Compile Include="Assets\Scripts\MiniGame\GuardWalk.cs" />
-    <Compile Include="Assets\Scripts\MiniGame\PlayerWalk.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Fade\Fade.cs" />
+    <Compile Include="Assets\Scripts\MiniGame\GuardWalk.cs" />
     <Compile Include="Assets\Scripts\Guard\GuardController.cs" />
+    <Compile Include="Assets\Scripts\MiniGame\PlayerWalk.cs" />
+    <Compile Include="Assets\Scripts\Fade\Fade.cs" />
+    <Compile Include="Assets\Scripts\UI\UpdateMabelUI.cs" />
     <Compile Include="Assets\Scripts\Thomas\Thomas.cs" />
+    <Compile Include="Assets\Scripts\Guard\Guard.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\EscapingAlderWood.asmdef" />
