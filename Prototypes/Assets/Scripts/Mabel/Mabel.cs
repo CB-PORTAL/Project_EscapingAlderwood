@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,34 +10,34 @@ namespace DuRound
 {
     public class Mabel : MonoBehaviour
     {
-        
         protected Animator m_animator { get; set; }
         protected Rigidbody2D m_rigidBody2D { get; set; }
         private bool isPickUp { get; set; } = false;
         protected bool isCollide { get; set; } = false;
-        private PlayerInput m_playerInput;
+        public bool hasThomas { get { return m_hasThomas; } }
+        protected bool m_hasThomas { get; set; } = false;
 
         public float moveSpeed = 2f;
         private Vector2 m_movement { get; set; }
-
-        private InputAction m_inputAction { get; set; }
+        private Vector2 startPosition { get; set; }
+        public Action<bool> PickThomas,PickDagger;
+        public static  Mabel instance { get; set; }
 
         protected virtual void Awake()
         {
             m_animator = GetComponent<Animator>();
             m_rigidBody2D = GetComponent<Rigidbody2D>();
+            if (instance == null)
+                instance = this;
         
         }
         // Start is called before the first frame update
         void Start()
         {
-            m_playerInput = GetComponent<PlayerInput>();    
+            startPosition = this.transform.position;
             m_animator.SetFloat("IdleY", -1);
-          //var movement =  m_playerInput.actions.FindAction("Movement");
-          // m_inputAction = movement;
-          // movement.performed += MabelMovement;
-          // m_playerInput.ActivateInput();
-
+            PickThomas += UpdateMabelUI.instance.UpdateThomas;
+            PickDagger += UpdateMabelUI.instance.UpdateDagger;
         }
 
         // Update is called once per frame
@@ -104,23 +105,24 @@ namespace DuRound
             m_movement = context.ReadValue<Vector2>();
 
         }
-        public void MabelPickUp(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-            {
-                if (isCollide)
-                {
-                    //TODO Mabel pick thomas or something
-                }
-            }
-        }
-        public void MabelPickUp()
-        {
-            if (isCollide)
-            {
-                //TODO
-            }
-        }
+       // public void MabelPickUp(InputAction.CallbackContext context)
+       // {
+       //     if (context.performed)
+       //     {
+       //         if (isCollide)
+       //         {
+       //             //TODO Mabel pick thomas or something
+       //
+       //         }
+       //     }
+       // }
+       // public void MabelPickUp()
+       // {
+       //     if (isCollide)
+       //     {
+       //         //TODO
+       //     }
+       // }
         public void MoveLeftDown(BaseEventData data)
         {
             m_movement = new Vector2(-1, 0);
@@ -153,25 +155,48 @@ namespace DuRound
         {
             m_movement = Vector2.zero;
         }
-
+        public void RemoveThomas()
+        {
+            m_hasThomas = false;
+            PickThomas.Invoke(false);
+        }
+        public void AddThomas()
+        {
+            m_hasThomas = true;
+            PickThomas.Invoke(true);
+        }
         protected virtual void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag("Thomas"))
             {
-                isCollide = true;
+                collision.gameObject.SetActive(false);
+                PickThomas.Invoke(true);
             }
-            else if (collision.CompareTag("Mabel"))
+            else if (collision.CompareTag("Dagger"))
             {
-                //TODO check for Mabel has Thomas 
-                //sent him to prison or task Thomas from him
+                collision.gameObject.SetActive(false);
+                PickDagger.Invoke(true);
             }
         }
-        protected void OnTriggerExit2D(Collider2D collision)
+        private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.CompareTag("Thomas"))
+            if (collision.gameObject.CompareTag("Guard"))
             {
-                isCollide = false;
+                if (!m_hasThomas)
+                {
+                    UpdateMabelUI.instance.UpdateHealthMabel();
+                    GameManager.Instance.EnableThomas();
+                    StartFade();
+                }
+
             }
+        }
+        private async void StartFade()
+        {
+            await Fade.instance.StartFade(true);
+            transform.position = startPosition;
+            await Fade.instance.StartFade(false);
+
         }
 
     }

@@ -7,6 +7,9 @@ TagManager:
   - Mabel
   - Thomas
   - Guard
+  - Exit
+  - UIGuard
+  - Dagger
   layers:
   - Default
   - TransparentFX

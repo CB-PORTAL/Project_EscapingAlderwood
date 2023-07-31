@@ -56,8 +56,15 @@
     <Analyzer Include="D:\VisualCommunity2022\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Mabel.cs" />
-    <Compile Include="Assets\Scripts\Guard.cs" />
+    <Compile Include="Assets\Scripts\Mabel\Mabel.cs" />
+    <Compile Include="Assets\Scripts\Guard\Guard.cs" />
+    <Compile Include="Assets\Scripts\UI\UpdateMabelUI.cs" />
+    <Compile Include="Assets\Scripts\MiniGame\GuardWalk.cs" />
+    <Compile Include="Assets\Scripts\MiniGame\PlayerWalk.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Fade\Fade.cs" />
+    <Compile Include="Assets\Scripts\Guard\GuardController.cs" />
+    <Compile Include="Assets\Scripts\Thomas\Thomas.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\EscapingAlderWood.asmdef" />
@@ -716,6 +723,9 @@
     </Reference>
     <Reference Include="Unity.InputSystem">
       <HintPath>Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
