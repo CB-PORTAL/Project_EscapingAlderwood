@@ -14,6 +14,7 @@ namespace DuRound
         protected Rigidbody2D m_rigidBody2D { get; set; }
         private bool isPickUp { get; set; } = false;
         protected bool isCollide { get; set; } = false;
+        
         public bool hasThomas { get { return m_hasThomas; } }
         protected bool m_hasThomas { get; set; } = false;
 
@@ -21,31 +22,31 @@ namespace DuRound
         private Vector2 m_movement { get; set; }
         private Vector2 startPosition { get; set; }
         public Action<bool> PickThomas,PickDagger;
-        public static  Mabel instance { get; set; }
 
         protected virtual void Awake()
         {
             m_animator = GetComponent<Animator>();
-            m_rigidBody2D = GetComponent<Rigidbody2D>();
-            if (instance == null)
-                instance = this;
-        
+            m_rigidBody2D = GetComponent<Rigidbody2D>(); startPosition = this.transform.position;
+
         }
         // Start is called before the first frame update
         void Start()
         {
-            startPosition = this.transform.position;
+
             m_animator.SetFloat("IdleY", -1);
             PickThomas += UpdateMabelUI.instance.UpdateThomas;
             PickDagger += UpdateMabelUI.instance.UpdateDagger;
+            m_hasThomas = false;
         }
 
         // Update is called once per frame
         void Update()
         {
+
         }
         private void FixedUpdate()
         {
+
             MabelStartMove();
         }
         private void MabelStartMove()
@@ -105,24 +106,6 @@ namespace DuRound
             m_movement = context.ReadValue<Vector2>();
 
         }
-       // public void MabelPickUp(InputAction.CallbackContext context)
-       // {
-       //     if (context.performed)
-       //     {
-       //         if (isCollide)
-       //         {
-       //             //TODO Mabel pick thomas or something
-       //
-       //         }
-       //     }
-       // }
-       // public void MabelPickUp()
-       // {
-       //     if (isCollide)
-       //     {
-       //         //TODO
-       //     }
-       // }
         public void MoveLeftDown(BaseEventData data)
         {
             m_movement = new Vector2(-1, 0);
@@ -165,38 +148,17 @@ namespace DuRound
             m_hasThomas = true;
             PickThomas.Invoke(true);
         }
-        protected virtual void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (collision.CompareTag("Thomas"))
-            {
-                collision.gameObject.SetActive(false);
-                PickThomas.Invoke(true);
-            }
-            else if (collision.CompareTag("Dagger"))
-            {
-                collision.gameObject.SetActive(false);
-                PickDagger.Invoke(true);
-            }
-        }
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            if (collision.gameObject.CompareTag("Guard"))
-            {
-                if (!m_hasThomas)
-                {
-                    UpdateMabelUI.instance.UpdateHealthMabel();
-                    GameManager.Instance.EnableThomas();
-                    StartFade();
-                }
 
-            }
-        }
-        private async void StartFade()
+        public void AddDagger()
         {
+            PickDagger.Invoke(true);
+        }
+        public async virtual void StartFade()
+        {
+            m_rigidBody2D.position = startPosition;
             await Fade.instance.StartFade(true);
-            transform.position = startPosition;
-            await Fade.instance.StartFade(false);
-
+           await Fade.instance.StartFade(false);
+           
         }
 
     }

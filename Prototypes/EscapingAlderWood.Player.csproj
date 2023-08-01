@@ -56,13 +56,16 @@
     <Analyzer Include="D:\VisualCommunity2022\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Item\PickUp.cs" />
     <Compile Include="Assets\Scripts\Mabel\Mabel.cs" />
-    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Level\GameManager.cs" />
     <Compile Include="Assets\Scripts\MiniGame\GuardWalk.cs" />
     <Compile Include="Assets\Scripts\Guard\GuardController.cs" />
+    <Compile Include="Assets\Scripts\Level\PrisonGate.cs" />
     <Compile Include="Assets\Scripts\MiniGame\PlayerWalk.cs" />
-    <Compile Include="Assets\Scripts\Fade\Fade.cs" />
+    <Compile Include="Assets\Scripts\Level\Fade.cs" />
     <Compile Include="Assets\Scripts\UI\UpdateMabelUI.cs" />
+    <Compile Include="Assets\Scripts\Level\Exit.cs" />
     <Compile Include="Assets\Scripts\Thomas\Thomas.cs" />
     <Compile Include="Assets\Scripts\Guard\Guard.cs" />
   </ItemGroup>

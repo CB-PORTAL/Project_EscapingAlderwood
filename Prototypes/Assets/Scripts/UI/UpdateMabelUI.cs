@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,21 +21,23 @@ namespace DuRound
             m_Mabel = transform.GetChild(0).transform.GetChild(0).GetComponent<Image>();
             m_Thomas = transform.GetChild(0).transform.GetChild(1).GetComponent<Image>();
             m_Dagger = transform.GetChild(0).transform.GetChild(2).GetComponent<Image>();
+            health = 0; 
         }
-        // Start is called before the first frame update
-        void Start()
+        public async void UpdateHealthMabel()
         {
 
-        }
+            if (health >= maxHealth)
+            {
+                //TODO game over
+                await Fade.instance.StartFade(true);
+                var text = Fade.instance.gameObject.GetComponentInChildren<TextMeshProUGUI>();
+                text.enabled = true;
+                text.text = "Mabel to Old to continue this escape.";
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-        public void UpdateHealthMabel()
-        {
-            if(health <= maxHealth) 
+                return;
+            }
+            health++;
+            if (health <= maxHealth) 
             {
                 switch(health) 
                 {
@@ -53,7 +56,7 @@ namespace DuRound
                 }
             }
         }
-        public void UpdateThomas(bool condition) { m_Mabel.gameObject.SetActive(condition);}
+        public void UpdateThomas(bool condition) { m_Thomas.gameObject.SetActive(condition);}
         public void UpdateDagger(bool condition) { m_Dagger.gameObject.SetActive(condition); }
     }
 }

@@ -27,20 +27,26 @@ namespace DuRound.MiniGame
         // Update is called once per frame
         void Update()
         {
-            var newPosition = m_rigidBody2D.position.x + moveSpeed * Time.deltaTime;
-            m_rigidBody2D.transform.position = new Vector2(newPosition, m_rigidBody2D.position.y);
+            if (startMove)
+            {
+                var newPosition = m_rigidBody2D.position.x + moveSpeed * Time.deltaTime;
+                m_rigidBody2D.transform.position = new Vector2(newPosition, m_rigidBody2D.position.y);
+            }
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag("Exit"))
             {
-                //TODO player lost the guard
                 var cg = transform.parent.parent.GetComponent<CanvasGroup>();
                 cg.alpha = 0;
                 cg.interactable = false;
                 cg.blocksRaycasts = false;
                 ResetPosition();
                 m_playerWalk.ResetPosition();
+                var Mabel = GameObject.FindWithTag("Mabel").GetComponent<Mabel>();
+                Mabel.StartFade();
+                UpdateMabelUI.instance.UpdateHealthMabel();
+                GameManager.Instance.EnableThomas();
             }
         }
 

@@ -9,17 +9,21 @@ namespace DuRound.MiniGame
     {
         private Button m_moveBtn, m_daggerBtn;
         private GuardWalk m_guardWalk;
+        private Mabel m_Mabel;
+        private Animator m_animator { get; set; }
         protected override void Awake()
         {
             base.Awake();
+            m_Mabel = GameObject.FindWithTag("Mabel").GetComponent<Mabel>();
+            m_animator = GetComponent<Animator>();
         }
 
         // Start is called before the first frame update
         void Start()
         {
             m_rigidBody2D = GetComponent<Rigidbody2D>();
-            m_moveBtn = transform.parent.GetChild(4).transform.GetChild(0).GetComponent<Button>();
-            m_daggerBtn = transform.parent.GetChild(4).transform.GetChild(1).GetComponent<Button>();
+            m_moveBtn = transform.parent.GetChild(3).transform.GetChild(0).GetComponent<Button>();
+            m_daggerBtn = transform.parent.GetChild(3).transform.GetChild(1).GetComponent<Button>();
             m_moveBtn.onClick.AddListener(MoveForward);
             m_daggerBtn.onClick.AddListener(AttackingGuard);
         }
@@ -31,6 +35,7 @@ namespace DuRound.MiniGame
         }
         private void MoveForward()
         {
+            m_animator.SetTrigger("isWalk");
             m_rigidBody2D.transform.position = new Vector2(m_rigidBody2D.transform.position.x + moveSpeed, m_rigidBody2D.transform.position.y);
 
         }
@@ -54,11 +59,11 @@ namespace DuRound.MiniGame
         {
             ResetPosition();
             m_guardWalk.ResetPosition();
-           var cg =  transform.parent.parent.GetComponent<CanvasGroup>();
+            var cg =  transform.parent.parent.GetComponent<CanvasGroup>();
             cg.alpha = 0;
             cg.interactable = false;
             cg.blocksRaycasts = false;
-            Mabel.instance.AddThomas();
+            m_Mabel.AddThomas();
             GuardController.instance.GuardAction(true);
         }
         private void OnDestroy()
