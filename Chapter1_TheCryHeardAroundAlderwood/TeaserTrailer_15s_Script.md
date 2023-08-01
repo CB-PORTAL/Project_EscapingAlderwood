@@ -1,4 +1,4 @@
-FADE IN:
+# FADE IN:
 
 [SFX: HOWLING WINDS, DISTANT BABY CRYING]
 
@@ -24,14 +24,13 @@ FADE TO BLACK, Drone Shot ascending, offering a broad view and emphasizing the b
 
 [TEXT: "ESCAPING ALDERWOOD." Coming soon.]
 
-Explanation of Shots:
+## Explanation of Shots:
 
-Extreme Close Up (ECU): Tightly frames a person or an object, focusing on one particular element.
-Rack Focus: Focus changes from one subject to another, guiding attention between subjects.
-Whip Pan: Camera moves horizontally fast, used for dynamic transitions.
-Dolly Zoom Shot: Moving the camera forward or backward while zooming oppositely, conveying shock.
-Ground Level Shot: Shot from ground level, placing the viewer in the scene.
-Tracking Shot: Camera follows a moving subject, adding movement and energy.
-Drone Shot: Aerial shot from a drone, giving a broad view of the landscape.
-Medium Shot (MS): Frames a subject from the knees up, balancing the character and the environment.
-This revision builds upon Mabel's character, illustrating her desperation and courage, adding to the complexity of the emotional narrative within the "ESCAPING ALDERWOOD" teaser.
+- **Extreme Close Up (ECU):** Tightly frames a person or an object, focusing on one particular element.
+- **Rack Focus:** Focus changes from one subject to another, guiding attention between subjects.
+- **Whip Pan:** Camera moves horizontally fast, used for dynamic transitions.
+- **Dolly Zoom Shot:** Moving the camera forward or backward while zooming oppositely, conveying shock.
+- **Ground Level Shot:** Shot from ground level, placing the viewer in the scene.
+- **Tracking Shot:** Camera follows a moving subject, adding movement and energy.
+- **Drone Shot:** Aerial shot from a drone, giving a broad view of the landscape.
+- **Medium Shot (MS):** Frames a subject from the knees up, balancing the character and the environment.
