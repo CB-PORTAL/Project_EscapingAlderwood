@@ -2,31 +2,41 @@
 
 FADE IN:
 
-[SFX: HOWLING WINDS, DISTANT BABY CRYING]
+[SFX: HOWLING WINDS, DISTANT BABY CRYING, LOW DRONING STRINGS BUILDING INTO A CRESCENDO]
 
-[SETTING: A gloomy COURTYARD, surrounded by stone walls, dark shadows, and flickering torches. Crowds of fearful VILLAGERS gather, some weeping, some glaring. A foreboding gallows stands as a dark centerpiece. CONSTABLE HARROW presides over the proceedings, cold and authoritative.]
+[VISUAL: Flash of BLACK SCREEN, sharp sound like a blade cutting the air, building tension.]
 
-[VISUAL: Extreme Close Up (ECU) on CONSTABLE HARROW's eyes. ECU creates intense focus on her unfeeling expression. Rack Focus to VILLAGERS’ angry faces, showing the crowd's intensity.]
+[SETTING: A haunting and gloomy COURTYARD, surrounded by ancient, moss-covered stone walls. Shadows dance as flickering torches cast an eerie glow. Crowds of fearful VILLAGERS gather, their faces pale and twisted, some weeping, some glaring with cold fury. A foreboding gallows, worn with time, stands as a dark and menacing centerpiece. CONSTABLE HARROW, a figure of authority, presides over the proceedings, his eyes like ice.]
+
+[VISUAL: Flash of BLACK SCREEN, heartbeat sound effect.]
+
+[VISUAL: Extreme Close Up (ECU) on CONSTABLE HARROW's unfeeling eyes, reflecting the torchlight. The ECU creates intense focus, revealing a soul hardened by judgment. Rack Focus to VILLAGERS’ angry, desperate faces, eyes gleaming with a mixture of fear and hatred, illustrating the crowd's turbulent emotions.]
 
 HARROW (Coldly): He dies for his crimes.
 
-[VISUAL: Close Up (CU) of JOHN's face under crushing stones, CU emphasizes the pain and horror. Whip Pan to MABEL's horrified eyes. Soft Focus on the dark, mossy stones of the courtyard creates a dreamy effect.]
+[VISUAL: Flash of BLACK SCREEN, echoing sound of a distant bell.]
+
+[VISUAL: Close Up (CU) of JOHN's face, eyes bulging, sweat and tears mingling, under crushing stones. The CU emphasizes the terror and agony, his flesh marred by pain. Whip Pan to MABEL's horrified eyes, wide and shimmering with a mother's dread. Soft Focus on the dark, mossy stones and creeping vines of the courtyard, giving an otherworldly, nightmarish effect.]
 
 MABEL (Whisper, English motherly accent): Mama's coming, Thomas...
 
-[VISUAL: Mabel's POV, Low Angle Shot of baby THOMAS in a cage, crying, suspended from an ancient, twisted tree, making the baby seem vulnerable. Dolly Zoom Shot out to show the height of the cage against the overcast sky, creating disorientation and isolation.]
+[VISUAL: Flash of BLACK SCREEN, suspenseful music sting.]
 
-[VISUAL: Medium Shot (MS) of MABEL hurrying towards the cage, her cloak rustling on the cobblestone, MS emphasizes her determination and fear. Tracking Shot following her movement through the anxious crowd.]
+[VISUAL: Mabel's POV, Low Angle Shot of baby THOMAS in a wrought iron cage, crying, suspended from an ancient, twisted tree gnarled with age. His small hands clutching the bars, making the baby seem tragically vulnerable. Dolly Zoom Shot out to show the height of the cage against the foreboding, overcast sky filled with crows or ravens, adding a sense of disorientation and isolation.]
 
-HARROW (Shouting, Spotted MABEL): Get away from him! That's my child, Mabel! You witch!
+[VISUAL: Medium Shot (MS) of MABEL, determination etched on her face, hurrying towards the cage, her cloak rustling on the wet cobblestone, reflecting the torches' flames. The MS emphasizes her fear and resolve, the shadows clinging to her form. Tracking Shot following her movement through the anxious crowd, faces contorted with superstition.]
 
-[VISUAL: Whip Pan Shot to ACCURSED clawing at walls, quick movement emphasizes terror. Cut to a Ground Level Shot of MABEL waking in a mossy green dungeon cell, damp and rotting, adding realism. Tracking Shot to a DAGGER gleaming in an open doorway, a haunting glimmer in the dark.]
+HARROW (Shouting, Spotted MABEL): Get away from my child, Mabel! Witch! Get the witch!
 
-[SFX: ECHOING SCREAMS, HEARTBEAT POUNDING, STONES CRUSHING, CROWD SHOUTING - building the horror theme in the haunting courtyard scene.]
+[VISUAL: Flash of BLACK SCREEN, snarling sound effect.]
 
-FADE TO BLACK, Drone Shot ascending, offering a broad view of the bleak courtyard and the surrounding village, emphasizing the oppressive environment:
+[VISUAL: Whip Pan Shot to ACCURSED creatures clawing at crumbling walls, their twisted forms bathed in shadow, teeth gleaming. The quick movement emphasizes primal terror. Cut to a Ground Level Shot of MABEL waking on a slab of wood in a mossy green dungeon cell, damp and rotting, chains hanging, water dripping, adding a chilling realism. Tracking Shot to a DAGGER gleaming ominously in an open doorway, a haunting glimmer in the dark.]
 
-[TEXT: "ESCAPING ALDERWOOD." Coming soon.]
+[SFX: ECHOING SCREAMS, HEARTBEAT POUNDING, STONES CRUSHING, CROWD SHOUTING, THOMAS CRYING FROM ANOTHER DUNGEON CELL]
+
+FADE TO BLACK, Drone Shot ascending, offering a broad view of the bleak courtyard with its gothic architecture, and the surrounding village, suffocated by misty woods, emphasizing the oppressive, cursed environment, panning out to show just how big Alderwood actually is, even beyond the Forest.
+
+[TEXT: "ESCAPING ALDERWOOD." COMING SOON.]
 
 Explanation of Shots:
 
@@ -38,3 +48,4 @@ Explanation of Shots:
 - Tracking Shot: Camera follows a moving subject, adding movement and energy.
 - Drone Shot: Aerial shot from a drone, giving a broad view of the landscape.
 - Medium Shot (MS): Frames a subject from the knees up, balancing the character and the environment.
+- Flash of BLACK SCREEN: Quick flashes of black, used for creating suspense and rhythm.
