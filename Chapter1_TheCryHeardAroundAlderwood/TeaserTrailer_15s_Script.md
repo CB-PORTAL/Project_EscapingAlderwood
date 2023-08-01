@@ -22,7 +22,7 @@ MABEL (Whisper, English motherly accent): Mama's coming, Thomas...
 
 [VISUAL: Flash of BLACK SCREEN, suspenseful music sting.]
 
-[VISUAL: Mabel's POV, Low Angle Shot of baby THOMAS in a wrought iron cage, crying, suspended from an ancient, twisted tree gnarled with age. His small hands clutching the bars, making the baby seem tragically vulnerable. Dolly Zoom Shot out to show the height of the cage against the foreboding, overcast sky filled with crows or ravens, adding a sense of disorientation and isolation.]
+[VISUAL: Mabel's POV, Low Angle Shot of baby THOMAS in a wrought iron cage, crying, suspended from an ancient, twisted tree gnarled with age. His small hands clutching the bars, making the baby seem tragically vulnerable. Dolly Zoom Shot out to show the height of the cage against the foreboding, overcast sky filled with crows, adding a sense of disorientation and isolation.]
 
 [VISUAL: Medium Shot (MS) of MABEL, determination etched on her face, hurrying towards the cage, her cloak rustling on the wet cobblestone, reflecting the torches' flames. The MS emphasizes her fear and resolve, the shadows clinging to her form. Tracking Shot following her movement through the anxious crowd, faces contorted with superstition.]
 
