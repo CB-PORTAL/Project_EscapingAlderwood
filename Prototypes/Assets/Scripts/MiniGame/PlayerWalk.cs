@@ -43,26 +43,37 @@ namespace DuRound.MiniGame
         {
             if (collision.CompareTag("UIGuard"))
             {
-                m_daggerBtn.gameObject.SetActive(true);
-                if (m_guardWalk == null) m_guardWalk = collision.GetComponent<GuardWalk>();
+                if (UpdateMabelUI.instance.Dagger.gameObject.activeInHierarchy)
+                {
+                    m_daggerBtn.gameObject.SetActive(true);
+                    if (m_guardWalk == null) m_guardWalk = collision.GetComponent<GuardWalk>();
+                }
             }
         }
         private void OnTriggerExit2D(Collider2D collision)
         {
             if (collision.CompareTag("UIGuard"))
             {
-                m_daggerBtn.gameObject.SetActive(false);
-                m_guardWalk = null;
+                if (UpdateMabelUI.instance.Dagger.gameObject.activeInHierarchy)
+                {
+                    m_daggerBtn.gameObject.SetActive(false);
+                    m_guardWalk = null;
+                }
             }
         }
         private void AttackingGuard()
         {
+
             ResetPosition();
             m_guardWalk.ResetPosition();
             var cg =  transform.parent.parent.GetComponent<CanvasGroup>();
             cg.alpha = 0;
             cg.interactable = false;
             cg.blocksRaycasts = false;
+            var cgMiniP = transform.parent.GetComponent<CanvasGroup>();
+            cgMiniP.alpha = 0;
+            cgMiniP.interactable = false;
+            cgMiniP.blocksRaycasts = false;
             m_Mabel.AddThomas();
             GuardController.instance.GuardAction(true);
         }

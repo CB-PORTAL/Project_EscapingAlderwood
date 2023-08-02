@@ -9,8 +9,10 @@ namespace DuRound
     public class UpdateMabelUI : MonoBehaviour
     {
         private Image m_Mabel, m_Thomas, m_Dagger;
+        public Image Dagger { get { return m_Dagger; } }
         private int health { get; set; } = 0;
         public int maxHealth = 3;
+        public int _health { get { return health; } }
         public static UpdateMabelUI instance;
         public Sprite m_youngMabel, m_midMabel, m_oldMabel;
         private void Awake()
@@ -21,23 +23,11 @@ namespace DuRound
             m_Mabel = transform.GetChild(0).transform.GetChild(0).GetComponent<Image>();
             m_Thomas = transform.GetChild(0).transform.GetChild(1).GetComponent<Image>();
             m_Dagger = transform.GetChild(0).transform.GetChild(2).GetComponent<Image>();
-            health = 0; 
+            health = 1; 
         }
-        public async void UpdateHealthMabel()
+        public  void UpdateHealthMabel()
         {
-
-            if (health >= maxHealth)
-            {
-                //TODO game over
-                await Fade.instance.StartFade(true);
-                var text = Fade.instance.gameObject.GetComponentInChildren<TextMeshProUGUI>();
-                text.enabled = true;
-                text.text = "Mabel to Old to continue this escape.";
-
-                return;
-            }
-            health++;
-            if (health <= maxHealth) 
+            if (health < maxHealth) 
             {
                 switch(health) 
                 {

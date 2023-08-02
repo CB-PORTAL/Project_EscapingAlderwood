@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,18 +36,26 @@ namespace DuRound.MiniGame
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.CompareTag("Exit"))
+            if (collision.CompareTag("Exit2"))
             {
                 var cg = transform.parent.parent.GetComponent<CanvasGroup>();
                 cg.alpha = 0;
                 cg.interactable = false;
                 cg.blocksRaycasts = false;
+                var cgMiniP = transform.parent.GetComponent<CanvasGroup>();
+                cgMiniP.alpha = 0;
+                cgMiniP.interactable = false;
+                cgMiniP.blocksRaycasts = false;
                 ResetPosition();
                 m_playerWalk.ResetPosition();
-                var Mabel = GameObject.FindWithTag("Mabel").GetComponent<Mabel>();
-                Mabel.StartFade();
-                UpdateMabelUI.instance.UpdateHealthMabel();
-                GameManager.Instance.EnableThomas();
+
+                GuardController.instance.SetMovementSpeedAllGuard();
+                GuardController.instance.AddThomas();
+                //GuardController.instance.ResetCurrentGuard();
+                // var Mabel = GameObject.FindWithTag("Mabel").GetComponent<Mabel>();
+                //Mabel.StartFade();
+                //UpdateMabelUI.instance.UpdateHealthMabel();
+                //GameManager.Instance.EnableThomas();
             }
         }
 

@@ -43,12 +43,14 @@ namespace DuRound
                 m_canvasGroup.blocksRaycasts = true;
 
                 await FadingImageIn();
+                await Task.Delay(2000);
                 return Task.CompletedTask;
                 
 
             }
             else
             {
+                await Task.Delay(5000);
                 m_canvasGroup.alpha = 0;
                 m_canvasGroup.interactable = false;
                 m_canvasGroup.blocksRaycasts = false;
@@ -58,6 +60,7 @@ namespace DuRound
                 cg.alpha = 1;
                 cg.interactable = true;
                 cg.blocksRaycasts = true;
+
                 return Task.CompletedTask;
             }
         }
@@ -67,22 +70,32 @@ namespace DuRound
             while (increment <= 1f)
             {
                 m_image.color = new Color(m_image.color.r, m_image.color.g, m_image.color.b, increment);
-                increment += 0.1f + 0.2f * Time.deltaTime;
+                increment += 0.5f * Time.deltaTime;
+                
+                if (increment >= 1f)
+                {
+                    m_image.color = new Color(m_image.color.r, m_image.color.g, m_image.color.b, 1);
+                    return Task.CompletedTask;
+                }
                 await Task.Yield();
             }
-            m_image.color = new Color(m_image.color.r, m_image.color.g, m_image.color.b, 1);
             return Task.CompletedTask;
         }
         private async Task<Task> FadingImageOut()
         {
             var increment = 1f;
-            while (increment >= 0f)
+            while (increment <= 0f)
             {
                 m_image.color = new Color(m_image.color.r, m_image.color.g, m_image.color.b, increment);
-                increment -= 0.1f + 0.2f * Time.deltaTime;
-                await Task.Yield();
+                increment -= 0.5f  * Time.deltaTime;
+
+                if (increment == 0)
+                {
+                    m_image.color = new Color(m_image.color.r, m_image.color.g, m_image.color.b, 0);
+                    return Task.CompletedTask;
+                }
             }
-            m_image.color = new Color(m_image.color.r, m_image.color.g, m_image.color.b, 0);
+            await Task.Yield();
             return Task.CompletedTask;
         }
     }

@@ -10,11 +10,13 @@ namespace DuRound
     public class GuardController : MonoBehaviour
     {
         public List<Guard> guardList;
-        private CancellationToken ct;
         public static GuardController instance;
+        private Guard currentGuardHT;
+        private Mabel m_Mabel { get; set; }
         private void Awake()
         {
             if(instance == null) { instance = this; }
+            m_Mabel = GameObject.FindWithTag("Mabel").GetComponent<Mabel>();
         }
         // Start is called before the first frame update
         async void Start()
@@ -29,21 +31,20 @@ namespace DuRound
         }
         private void OnDestroy()
         {
+            currentGuardHT = null; 
+            guardList.Clear();
         }
-        private async Task<Task> GuardOut()
+        private async Task GuardOut()
         {
-            await Task.Delay(3000);
+            await Task.Delay(1000);
             for(int g = 0; g < guardList.Count; g++) 
             {
                 await guardList [g].Initialize();
-#pragma warning disable CS4014
-                 guardList [g].GuardMoveForwards();
+                guardList [g].GuardMoveForwards();
 
-#pragma warning restore CS4014
 
                 await Task.Delay(3000);
             }
-            return Task.CompletedTask;
         }
         public void GuardAction(bool condition)
         {
@@ -60,6 +61,29 @@ namespace DuRound
                 guardList [g].ResetPosition();
             }
             await GuardOut();
+        }
+        public void SetMovementSpeedAllGuard()
+        {
+            for (int g = 0; g < guardList.Count; g++)
+            {
+                guardList [g].isMoving = true;
+                guardList [g].moveSpeed = 1.2f;
+            }
+            m_Mabel.disableMovement = false;
+        }
+        public void CurrentGuardHasThomas(Guard guard)
+        {
+            currentGuardHT = null;
+            currentGuardHT = guard;
+        }
+        public void ResetCurrentGuard()
+        {
+            currentGuardHT.ResetPosition();
+            currentGuardHT.GuardMoveForwards();
+        }
+        public void AddThomas()
+        {
+            currentGuardHT.AddThomas();
         }
     }
 }

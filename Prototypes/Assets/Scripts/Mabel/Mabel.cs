@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -16,37 +17,39 @@ namespace DuRound
         protected bool isCollide { get; set; } = false;
         
         public bool hasThomas { get { return m_hasThomas; } }
+        public bool disableMovement { get; set; } = false;
         protected bool m_hasThomas { get; set; } = false;
 
         public float moveSpeed = 2f;
         private Vector2 m_movement { get; set; }
         private Vector2 startPosition { get; set; }
         public Action<bool> PickThomas,PickDagger;
-
+        protected CanvasGroup _miniCanvas;
         protected virtual void Awake()
         {
+            _miniCanvas = GameObject.FindWithTag("MiniGame").GetComponent<CanvasGroup>();
             m_animator = GetComponent<Animator>();
             m_rigidBody2D = GetComponent<Rigidbody2D>(); startPosition = this.transform.position;
 
         }
         // Start is called before the first frame update
-        void Start()
+        protected virtual void Start()
         {
-
             m_animator.SetFloat("IdleY", -1);
             PickThomas += UpdateMabelUI.instance.UpdateThomas;
             PickDagger += UpdateMabelUI.instance.UpdateDagger;
             m_hasThomas = false;
+            disableMovement = false;
         }
 
         // Update is called once per frame
-        void Update()
+        protected virtual void Update()
         {
 
         }
-        private void FixedUpdate()
+        protected virtual  void FixedUpdate()
         {
-
+            if (disableMovement) return;
             MabelStartMove();
         }
         private void MabelStartMove()
@@ -143,7 +146,7 @@ namespace DuRound
             m_hasThomas = false;
             PickThomas.Invoke(false);
         }
-        public void AddThomas()
+        public virtual void AddThomas()
         {
             m_hasThomas = true;
             PickThomas.Invoke(true);
@@ -155,10 +158,37 @@ namespace DuRound
         }
         public async virtual void StartFade()
         {
-            m_rigidBody2D.position = startPosition;
-            await Fade.instance.StartFade(true);
+           await Fade.instance.StartFade(true);
            await Fade.instance.StartFade(false);
            
+        }
+        public void ResetPosition()
+        {
+            m_rigidBody2D.position = startPosition;
+            m_animator.SetBool("isMove", false);
+            m_animator.SetFloat("MoveX", 0);
+            m_animator.SetFloat("MoveY", 0);
+            m_animator.SetFloat("IdleX", 0);
+            m_animator.SetFloat("IdleY", 1);
+        }
+        private async void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.collider.CompareTag("Exit"))
+            {
+                if (hasThomas)
+                {
+                    GuardController.instance.GuardAction(false);
+                    _miniCanvas.alpha = 1;
+                    var fadeIn = await Fade.instance.StartFade(true);
+                    if (fadeIn.IsCompleted)
+                    {
+                        var text = Fade.instance.gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+                        text.enabled = true;
+                        text.text = "You Just Save Thomas and Leave Dungeon";
+
+                    }
+                }
+            }
         }
 
     }

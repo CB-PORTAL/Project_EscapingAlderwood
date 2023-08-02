@@ -65,7 +65,6 @@
     <Compile Include="Assets\Scripts\MiniGame\PlayerWalk.cs" />
     <Compile Include="Assets\Scripts\Level\Fade.cs" />
     <Compile Include="Assets\Scripts\UI\UpdateMabelUI.cs" />
-    <Compile Include="Assets\Scripts\Level\Exit.cs" />
     <Compile Include="Assets\Scripts\Thomas\Thomas.cs" />
     <Compile Include="Assets\Scripts\Guard\Guard.cs" />
   </ItemGroup>
