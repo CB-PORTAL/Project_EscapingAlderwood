@@ -12,10 +12,11 @@ namespace DuRound.MiniGame
         public float moveSpeed = 2f;
         private PlayerWalk m_playerWalk;
         private bool startMove { get; set; } = false;
-
+        protected Mabel m_Mabel;
         protected virtual void Awake()
         {
             startPos = transform.position;
+            m_Mabel = GameObject.FindWithTag("Mabel").GetComponent<Mabel>();
         }
         // Start is called before the first frame update
         void Start()
@@ -49,8 +50,10 @@ namespace DuRound.MiniGame
                 ResetPosition();
                 m_playerWalk.ResetPosition();
 
+                m_Mabel.disableMovement = false;
                 GuardController.instance.SetMovementSpeedAllGuard();
                 GuardController.instance.AddThomas();
+                
                 //GuardController.instance.ResetCurrentGuard();
                 // var Mabel = GameObject.FindWithTag("Mabel").GetComponent<Mabel>();
                 //Mabel.StartFade();

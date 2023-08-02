@@ -9,12 +9,12 @@ namespace DuRound.MiniGame
     {
         private Button m_moveBtn, m_daggerBtn;
         private GuardWalk m_guardWalk;
-        private Mabel m_Mabel;
+
         private Animator m_animator { get; set; }
         protected override void Awake()
         {
             base.Awake();
-            m_Mabel = GameObject.FindWithTag("Mabel").GetComponent<Mabel>();
+
             m_animator = GetComponent<Animator>();
         }
 
@@ -75,6 +75,7 @@ namespace DuRound.MiniGame
             cgMiniP.interactable = false;
             cgMiniP.blocksRaycasts = false;
             m_Mabel.AddThomas();
+            m_Mabel.disableMovement = false;
             GuardController.instance.GuardAction(true);
         }
         private void OnDestroy()

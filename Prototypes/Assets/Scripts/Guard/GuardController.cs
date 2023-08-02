@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -57,8 +56,10 @@ namespace DuRound
         {
             for (int g = 0; g < guardList.Count; g++)
             {
+                guardList [g].RemoveThomas();
                 guardList [g].isMoving = false;
                 guardList [g].ResetPosition();
+                
             }
             await GuardOut();
         }
@@ -69,7 +70,6 @@ namespace DuRound
                 guardList [g].isMoving = true;
                 guardList [g].moveSpeed = 1.2f;
             }
-            m_Mabel.disableMovement = false;
         }
         public void CurrentGuardHasThomas(Guard guard)
         {

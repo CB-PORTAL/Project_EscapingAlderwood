@@ -17,7 +17,6 @@ namespace DuRound
         // private Transform [] exitPoints { get; set; }
         private int moveIncrement { get; set; } = 0;
         public bool isMoving { get; set; } = true;
-        private CanvasGroup miniGame { get; set; }
         private bool shouldDestroy { get; set; } = false;
         private bool shouldMoveBackward = false;
         private Vector2 m_lastPosition, m_currentPosition;
@@ -27,7 +26,6 @@ namespace DuRound
         protected override void Awake()
         {
             base.Awake();
-            miniGame = GameObject.Find("MiniGame").GetComponent<CanvasGroup>();
             var movePointLength = parentMovePoint.childCount;
             movePoints = new Transform [movePointLength];
             for (int p = 0; p < movePointLength; p++)
@@ -208,6 +206,8 @@ namespace DuRound
             isCollide = true; shouldDestroy = true;
             shouldMoveBackward = false;
             await Task.Delay(1000);
+            if (m_Mabel.disableMovement)
+                m_Mabel.disableMovement = false;
             shouldDestroy = false;
             while (isCollide && !shouldDestroy) 
             {
@@ -232,7 +232,6 @@ namespace DuRound
                     }
                     if (m_rigidBody2D.position == (Vector2)movePoints [0].position)
                     {
-
                         isCollide = false; shouldDestroy = true;shouldMoveBackward = false;
                         break;
                     }
@@ -244,6 +243,10 @@ namespace DuRound
         {
             m_hasThomas = true;
         }
+        public override void RemoveThomas()
+        {
+            m_hasThomas = false;
+        }
         protected async   void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag("Mabel"))
@@ -252,22 +255,25 @@ namespace DuRound
                 var m_Mabel = collision.gameObject.GetComponent<Mabel>();
                 if (this.hasThomas)
                 {
+                    if (m_Mabel.disableMovement)
+                        return;
                     this.m_hasThomas = false;
                     m_Mabel.disableMovement = true;
                     GuardController.instance.GuardAction(false);
-                    miniGame.alpha = 1;
-                    miniGame.interactable = true;
-                    miniGame.blocksRaycasts = true;
-                    var cgPanel = miniGame.transform.GetChild(0).GetComponent<CanvasGroup>();
+                    _miniCanvas.alpha = 1;
+                    _miniCanvas.interactable = true;
+                    _miniCanvas.blocksRaycasts = true;
+                    var cgPanel = _miniCanvas.transform.GetChild(0).GetComponent<CanvasGroup>();
                     cgPanel.alpha = 1;
                     cgPanel.blocksRaycasts = true;
                     cgPanel.interactable = true;
-                    miniGame.transform.GetChild(0).GetChild(0).GetComponent<GuardWalk>().StartMove();
+                    _miniCanvas.transform.GetChild(0).GetChild(0).GetComponent<GuardWalk>().StartMove();
                     GuardController.instance.CurrentGuardHasThomas(this);
                     return;
                 }
                 if (m_Mabel.hasThomas)
                 {
+                    m_Mabel.disableMovement = true;
                     moveSpeed = .8f;
                     m_Mabel.RemoveThomas();
                     this.m_hasThomas = true;
@@ -277,28 +283,35 @@ namespace DuRound
                 }
                 else
                 {
+                    if (m_Mabel.disableMovement)
+                        return;
+                    m_Mabel.disableMovement = true;
+                    GuardController.instance.GuardAction(false);
                     _miniCanvas.alpha = 1;
                     var fadeIn = await Fade.instance.StartFade(true);
                     if (fadeIn.IsCompleted)
                     {
+
                         var text = _miniCanvas.transform.GetChild(1).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
                         text.enabled = true;
 
 
-                        if (UpdateMabelUI.instance._health < UpdateMabelUI.instance.maxHealth)
+                        if (UpdateMabelUI.instance._health != UpdateMabelUI.instance.maxHealth)
                         {
                             text.text = "The Guard Caught Mabel";
                             UpdateMabelUI.instance.UpdateHealthMabel();
                             GameManager.Instance.EnableThomas();
+                            await Fade.instance.StartFade(false);
                             m_Mabel.ResetPosition();
 
                             GuardController.instance.ResetAllGuard();
-                            await Fade.instance.StartFade(false);
+                            GuardController.instance.SetMovementSpeedAllGuard();
                             _miniCanvas.alpha = 0;
                             text.enabled = false;
                         }
                         else
                         {
+                            
                             text.text = "Mabel to Old to continue this escape.";
                         }
 
@@ -309,25 +322,29 @@ namespace DuRound
             {
                 if (this.hasThomas)
                 {
+                    m_Mabel.disableMovement = true;
                     shouldDestroy = true; shouldMoveBackward = false;
                     m_hasThomas = false;
+                    GuardController.instance.GuardAction(false);
                     _miniCanvas.alpha = 1;
                     var fadeIn = await Fade.instance.StartFade(true);
                     if (fadeIn.IsCompleted)
                     {
+
                         var text = _miniCanvas.transform.GetChild(1).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
                         text.enabled = true;
 
 
-                        if (UpdateMabelUI.instance._health < UpdateMabelUI.instance.maxHealth)
+                        if (UpdateMabelUI.instance._health != UpdateMabelUI.instance.maxHealth)
                         {
                             text.text = "The Guard Has Exit and Lost Thomas";
                             UpdateMabelUI.instance.UpdateHealthMabel();
                             GameManager.Instance.EnableThomas();
+                            await Fade.instance.StartFade(false);
                             m_Mabel.ResetPosition();
 
                             GuardController.instance.ResetAllGuard();
-                            await Fade.instance.StartFade(false);
+                            GuardController.instance.SetMovementSpeedAllGuard();
                             _miniCanvas.alpha = 0;
                             text.enabled = false;
                         }
@@ -339,6 +356,7 @@ namespace DuRound
                     }
 
                 }
+                
             }
         }
     

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -141,7 +142,7 @@ namespace DuRound
         {
             m_movement = Vector2.zero;
         }
-        public void RemoveThomas()
+        public virtual void RemoveThomas()
         {
             m_hasThomas = false;
             PickThomas.Invoke(false);
@@ -162,7 +163,7 @@ namespace DuRound
            await Fade.instance.StartFade(false);
            
         }
-        public void ResetPosition()
+        public void  ResetPosition()
         {
             m_rigidBody2D.position = startPosition;
             m_animator.SetBool("isMove", false);
@@ -170,6 +171,8 @@ namespace DuRound
             m_animator.SetFloat("MoveY", 0);
             m_animator.SetFloat("IdleX", 0);
             m_animator.SetFloat("IdleY", 1);
+            disableMovement = false;
+
         }
         private async void OnCollisionEnter2D(Collision2D collision)
         {
