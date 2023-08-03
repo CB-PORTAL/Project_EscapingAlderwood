@@ -67,6 +67,8 @@
     <Compile Include="Assets\Scripts\UI\UpdateMabelUI.cs" />
     <Compile Include="Assets\Scripts\Thomas\Thomas.cs" />
     <Compile Include="Assets\Scripts\Guard\Guard.cs" />
+    <Compile Include="Assets\Scripts\Guard\PathPoint.cs" />
+    <Compile Include="Assets\Scripts\Item\Damage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\EscapingAlderWood.asmdef" />

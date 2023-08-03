@@ -46,6 +46,10 @@ namespace DuRound
             m_animator.SetBool("isMove", true);
             return Task.CompletedTask;
         }
+        private void CheckHasThomas(bool condition)
+        {
+            //TODO guard has thomas UI stuff
+        }
         public bool isDebug = false;
         // Update is called once per frame
         protected override void Update()
@@ -97,8 +101,40 @@ namespace DuRound
            //     m_animator.SetFloat("IdleY", 1);
            // }
         }
+        private async void CheckForDistance()
+        {
+            var distance = Vector2.Distance(m_rigidBody2D.transform.position, m_Mabel.transform.position);
+            if (distance < 2)
+            {
+                pursueMabel = true;
+                if (!currentlyPursue)
+                {
+                    currentlyPursue = false;
+                    await PursueMabel();
+                }
+            }
+            //else
+            //{
+            //    pursueMabel = false;
+            //}
+        }
+        private bool pursueMabel { get; set; } = false;
+        private bool currentlyPursue { get; set; } = false;
+        private async Task<Task> PursueMabel()
+        {
+            while (pursueMabel)
+            {
+                isCollide = false; shouldDestroy = true;
+                shouldMoveBackward = false;
+                m_rigidBody2D.transform.position = Vector2.MoveTowards(m_rigidBody2D.transform.position, m_Mabel.transform.position, moveSpeed * Time.fixedDeltaTime);
+                await Task.Yield();
+            }
+            currentlyPursue = false;
+            return Task.CompletedTask;
+        }
         protected override void FixedUpdate()
         {
+            CheckForDistance();
         }
         public override void StartFade()
         {
@@ -124,7 +160,7 @@ namespace DuRound
                         {
                             m_lastPosition = m_rigidBody2D.position;
                             m_rigidBody2D.position = 
-                                Vector2.MoveTowards(m_rigidBody2D.position, movePos.position, moveSpeed * Time.fixedDeltaTime);
+                                Vector2.MoveTowards(m_rigidBody2D.transform.position, movePos.position, moveSpeed * Time.fixedDeltaTime);
 
                             m_currentPosition = m_rigidBody2D.position;
 
@@ -150,7 +186,6 @@ namespace DuRound
                     moveIncrement--;
                     GuardMoveBackwards();             
                     break;
-
                 }
                 await Task.Yield();
 
@@ -169,11 +204,9 @@ namespace DuRound
                         {
                             m_lastPosition = m_rigidBody2D.position;
                             m_rigidBody2D.position =
-                            Vector2.MoveTowards(m_rigidBody2D.position, movePos.position, moveSpeed * Time.fixedDeltaTime);
+                            Vector2.MoveTowards(m_rigidBody2D.transform.position, movePos.position, moveSpeed * Time.fixedDeltaTime);
 
                             m_currentPosition = m_rigidBody2D.position;
-                            Mathf.RoundToInt(m_rigidBody2D.position.x);
-                            Mathf.RoundToInt(m_rigidBody2D.position.y);
                         }
                     }
                     else
@@ -211,7 +244,7 @@ namespace DuRound
             shouldDestroy = false;
             while (isCollide && !shouldDestroy) 
             {
-                if (moveIncrement >= 0 && moveIncrement < movePoints.Length)
+                if (moveIncrement >= 0)
                 {
                     var movePos = movePoints [moveIncrement]; 
                     if (m_rigidBody2D.position != (Vector2)movePos.position)
@@ -247,8 +280,9 @@ namespace DuRound
         {
             m_hasThomas = false;
         }
-        protected async   void OnTriggerEnter2D(Collider2D collision)
+        protected async void OnTriggerEnter2D(Collider2D collision)
         {
+            
             if (collision.CompareTag("Mabel"))
             { 
                 isCollide = true;
@@ -257,9 +291,10 @@ namespace DuRound
                 {
                     if (m_Mabel.disableMovement)
                         return;
+                    GuardController.instance.GuardAction(false);
                     this.m_hasThomas = false;
                     m_Mabel.disableMovement = true;
-                    GuardController.instance.GuardAction(false);
+
                     _miniCanvas.alpha = 1;
                     _miniCanvas.interactable = true;
                     _miniCanvas.blocksRaycasts = true;
@@ -274,11 +309,12 @@ namespace DuRound
                 if (m_Mabel.hasThomas)
                 {
                     m_Mabel.disableMovement = true;
-                    moveSpeed = .8f;
+                    moveSpeed = 0.8f;
                     m_Mabel.RemoveThomas();
                     this.m_hasThomas = true;
                     moveIncrement--;
-                    shouldMoveBackward = false;
+                    shouldMoveBackward = true;
+                   // GuardMoveBackwards();
                     GuardMoveExit();
                 }
                 else
@@ -303,11 +339,11 @@ namespace DuRound
                             GameManager.Instance.EnableThomas();
                             await Fade.instance.StartFade(false);
                             m_Mabel.ResetPosition();
-
-                            GuardController.instance.ResetAllGuard();
-                            GuardController.instance.SetMovementSpeedAllGuard();
                             _miniCanvas.alpha = 0;
                             text.enabled = false;
+                            GuardController.instance.ResetAllGuard();
+                            GuardController.instance.SetMovementSpeedAllGuard();
+
                         }
                         else
                         {
@@ -342,11 +378,12 @@ namespace DuRound
                             GameManager.Instance.EnableThomas();
                             await Fade.instance.StartFade(false);
                             m_Mabel.ResetPosition();
-
+                            _miniCanvas.alpha = 0;
+                            if (text != null)
+                                text.enabled = false;
                             GuardController.instance.ResetAllGuard();
                             GuardController.instance.SetMovementSpeedAllGuard();
-                            _miniCanvas.alpha = 0;
-                            text.enabled = false;
+
                         }
                         else
                         {
@@ -366,6 +403,12 @@ namespace DuRound
             m_rigidBody2D.position = (Vector2)movePoints [0].position;
             moveIncrement = 0;
         }
-        
+
+        public async void StopMoving()
+        {
+            isMoving = false;
+            await Task.Delay(5000);
+            isMoving = true;
+        }
     }
 }

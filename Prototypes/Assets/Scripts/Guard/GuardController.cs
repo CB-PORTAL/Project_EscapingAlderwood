@@ -12,17 +12,25 @@ namespace DuRound
         public static GuardController instance;
         private Guard currentGuardHT;
         private Mabel m_Mabel { get; set; }
+        public float resetMovement = 0.5f;
         private void Awake()
         {
             if(instance == null) { instance = this; }
             m_Mabel = GameObject.FindWithTag("Mabel").GetComponent<Mabel>();
         }
+
         // Start is called before the first frame update
-        async void Start()
+        public async void Start()
+        {
+            await GuardStart();
+        }
+        private async Task<Task> GuardStart()
         {
             await GuardOut();
+            await Task.Delay(3000);
+            SetMovementSpeedAllGuard();
+            return Task.CompletedTask;
         }
-
         // Update is called once per frame
         void Update()
         {
@@ -68,7 +76,7 @@ namespace DuRound
             for (int g = 0; g < guardList.Count; g++)
             {
                 guardList [g].isMoving = true;
-                guardList [g].moveSpeed = 1.2f;
+                guardList [g].moveSpeed = resetMovement;
             }
         }
         public void CurrentGuardHasThomas(Guard guard)

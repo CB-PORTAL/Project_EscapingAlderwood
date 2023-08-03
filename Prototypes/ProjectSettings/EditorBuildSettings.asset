@@ -4,6 +4,9 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TheDungeon.unity
+    guid: 38e91641345c1e549a0ec08b91f37554
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 3add5c29f1611b140b50e2d5ceb43cca, type: 2}
