@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5514750267364985313}
   - component: {fileID: 5514750267364985314}
   - component: {fileID: 5514750267364985318}
+  - component: {fileID: 1597177078}
   m_Layer: 8
   m_Name: Dagger
   m_TagString: Dagger
@@ -128,7 +129,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -144,5 +145,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d166433566232b543af5f750966adfb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1597177078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5514750267364985315}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daa76d334ca5921498729834cd63e1d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -8,22 +8,33 @@ namespace DuRound
 {
     public class UpdateMabelUI : MonoBehaviour
     {
-        private Image m_Mabel, m_Thomas, m_Dagger;
+        private Image m_Mabel, m_Thomas, m_Dagger,m_Indicator;
         public Image Dagger { get { return m_Dagger; } }
         private int health { get; set; } = 0;
         public int maxHealth = 3;
         public int _health { get { return health; } }
         public static UpdateMabelUI instance;
         public Sprite m_youngMabel, m_midMabel, m_oldMabel;
+
+        private Mabel _Mabel;
+        private Thomas _Thomas;
+        [SerializeField]
+        private float adjustCold, adjustWarm, adjustHot;
         private void Awake()
         {
             if(instance == null )
                 instance = this;
-
+            _Mabel = GameObject.FindWithTag("Mabel").GetComponent<Mabel>();
+            _Thomas = GameObject.FindWithTag("Thomas").GetComponent<Thomas>();
             m_Mabel = transform.GetChild(0).transform.GetChild(0).GetComponent<Image>();
             m_Thomas = transform.GetChild(0).transform.GetChild(1).GetComponent<Image>();
             m_Dagger = transform.GetChild(0).transform.GetChild(2).GetComponent<Image>();
+            m_Indicator = transform.GetChild(0).transform.GetChild(3).GetComponent<Image>();
             health = 1; 
+        }
+        private void Update()
+        {
+            IndicatorUpdate();
         }
         public  void UpdateHealthMabel()
         {
@@ -43,6 +54,30 @@ namespace DuRound
                         m_Mabel.sprite = m_oldMabel;
                         health = 3;
                         break;
+                }
+            }
+        }
+        private void IndicatorUpdate()
+        {
+            var distanceWithThomas = Vector2.Distance(m_Mabel.transform.position, m_Thomas.transform.position);
+            if (distanceWithThomas >= adjustCold)
+            {
+                m_Indicator.color = new Color(0, 0.2f, 1);
+            }
+            else if (distanceWithThomas < adjustCold)
+            {
+                if (distanceWithThomas >= adjustWarm)
+                {
+                    var distanceWarmColor = distanceWithThomas - adjustWarm;
+                    var newColor = distanceWarmColor / adjustWarm;
+                    m_Indicator.color = new Color(0, 0.2f, newColor);
+
+                }
+                else if (distanceWithThomas >= adjustHot)
+                {
+                    var distanceHotColor = distanceWithThomas - adjustHot;
+                    var newColor = distanceHotColor / adjustHot;
+                    m_Indicator.color = new Color(newColor, 0.2f, 0);
                 }
             }
         }

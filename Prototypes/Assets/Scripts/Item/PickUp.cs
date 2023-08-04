@@ -17,19 +17,19 @@ namespace DuRound
         {
 
         }
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.CompareTag("Mabel"))
+            if (collision.collider.CompareTag("Mabel"))
             {
                 if (tag == "Thomas")
                 {
                     gameObject.SetActive(false);
-                    collision.GetComponent<Mabel>().AddThomas();
+                    collision.collider.GetComponent<Mabel>().AddThomas();
                 }
                 else if (tag == "Dagger")
                 {
                     gameObject.SetActive(false);
-                    collision.GetComponent<Mabel>().AddDagger();
+                    collision.collider.GetComponent<Mabel>().AddDagger();
                 }
             }
         }

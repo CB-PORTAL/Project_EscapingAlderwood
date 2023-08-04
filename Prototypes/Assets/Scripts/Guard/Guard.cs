@@ -22,6 +22,8 @@ namespace DuRound
         private Vector2 m_lastPosition, m_currentPosition;
 
 
+
+
         private Mabel m_Mabel { get; set; }
         protected override void Awake()
         {
@@ -43,13 +45,13 @@ namespace DuRound
             moveIncrement = 0;
             isMoving = true;
             shouldDestroy = false;
-            m_animator.SetBool("isMove", true);
+            m_animator?.SetBool("isMove", true);
             return Task.CompletedTask;
         }
-        private void CheckHasThomas(bool condition)
-        {
-            //TODO guard has thomas UI stuff
-        }
+        //private void CheckHasThomas(bool condition)
+        //{
+        //    //TODO guard has thomas UI stuff
+        //}
         public bool isDebug = false;
         // Update is called once per frame
         protected override void Update()
@@ -93,48 +95,88 @@ namespace DuRound
                     m_animator.SetFloat("IdleX", 0);
                 }
             }
-           // else if(m_currentPosition == m_lastPosition)
-           // {
-           //     //TODO but the guard is always move no stop
-           //     m_animator.SetBool("isMove", false);
-           //     m_animator.SetFloat("MoveX", 0);
-           //     m_animator.SetFloat("IdleY", 1);
-           // }
+            // else if(m_currentPosition == m_lastPosition)
+            // {
+            //     //TODO but the guard is always move no stop
+            //     m_animator.SetBool("isMove", false);
+            //     m_animator.SetFloat("MoveX", 0);
+            //     m_animator.SetFloat("IdleY", 1);
+            // }
+            //if (lastIncrement != distanceIncrement)
+            //{
+            //    lastIncrement = distanceIncrement;
+            //}
+            CheckForDistance();
         }
+       // private int distanceIncrement;
+        private bool m_Pursue = false;
+        private List<Vector2> pathTrailAfterMabel = new List<Vector2>();
+        private Vector2 m_lastPositionBeforeTrail = new Vector2();
+        private int lastIncrement { get; set; } = 0;
         private async void CheckForDistance()
         {
             var distance = Vector2.Distance(m_rigidBody2D.transform.position, m_Mabel.transform.position);
-            if (distance < 2)
+            if (distance <= 0.55f)
             {
-                pursueMabel = true;
-                if (!currentlyPursue)
+                shouldDestroy = true;
+                if (!m_Pursue)
                 {
-                    currentlyPursue = false;
-                    await PursueMabel();
+                    m_Mabel.MabelBeingSee(true);
+                    m_Pursue = true;
+
+                    await StartPursuing();
                 }
+
             }
-            //else
-            //{
-            //    pursueMabel = false;
-            //}
         }
-        private bool pursueMabel { get; set; } = false;
-        private bool currentlyPursue { get; set; } = false;
-        private async Task<Task> PursueMabel()
+        private async Task StartPursuing()
         {
-            while (pursueMabel)
+            while (m_Pursue)
             {
-                isCollide = false; shouldDestroy = true;
-                shouldMoveBackward = false;
-                m_rigidBody2D.transform.position = Vector2.MoveTowards(m_rigidBody2D.transform.position, m_Mabel.transform.position, moveSpeed * Time.fixedDeltaTime);
+               var pursueTrail = m_Mabel.GetListTrailPath;
+               var distanceIncrement = m_Mabel.trailIncrement;
+               if (distanceIncrement >= 0 && distanceIncrement < m_Mabel.maxTrail)
+               {
+                    Debug.Log("DISTANCE INCREMENT");
+                    if (pursueTrail.Count > 0)
+                    {
+                        Debug.Log("pursueTrail " + pursueTrail [distanceIncrement]);
+                        var movePos = pursueTrail [distanceIncrement];
+                        if (m_rigidBody2D.position != movePos)
+                        {
+                            m_lastPosition = m_rigidBody2D.position;
+                            m_rigidBody2D.position =
+                                Vector2.MoveTowards(m_rigidBody2D.transform.position, movePos, moveSpeed * Time.fixedDeltaTime);
+
+                            m_currentPosition = m_rigidBody2D.position;
+                        }
+                        else
+                        {
+                            pathTrailAfterMabel.Add(movePos);
+                            m_Mabel.trailIncrement++;
+                        }
+                    }
+                }
                 await Task.Yield();
             }
-            currentlyPursue = false;
-            return Task.CompletedTask;
         }
+        //private bool pursueMabel { get; set; } = false;
+        //private bool currentlyPursue { get; set; } = false;
+        //private async Task<Task> PursueMabel()
+        //{
+        //    while (pursueMabel)
+        //    {
+        //        isCollide = false; shouldDestroy = true;
+        //        shouldMoveBackward = false;
+        //        m_rigidBody2D.transform.position = Vector2.MoveTowards(m_rigidBody2D.transform.position, m_Mabel.transform.position, moveSpeed * Time.fixedDeltaTime);
+        //        await Task.Yield();
+        //    }
+        //    currentlyPursue = false;
+        //    return Task.CompletedTask;
+        //}
         protected override void FixedUpdate()
         {
-            CheckForDistance();
+           // CheckForDistance();
         }
         public override void StartFade()
         {
@@ -144,7 +186,10 @@ namespace DuRound
         }
         private void OnDestroy()
         {
+            m_Pursue = false;
             shouldDestroy = true;
+            pathTrailAfterMabel.Clear();
+            //pursueMabel = false;
         }
         public async void GuardMoveForwards()
         {

@@ -7,12 +7,20 @@ namespace DuRound
 {
     public class Damage : MonoBehaviour
     {
-
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void Start()
         {
-            if (collision.CompareTag("Guard"))
+            
+        }
+        private void Update()
+        {
+            
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.collider.CompareTag("Guard"))
             {
-                collision.GetComponent<Guard>().StopMoving();
+                collision.collider.GetComponent<Guard>().StopMoving();
                 GetComponent<PickUp>().enabled = true;
             }
         }
