@@ -1,10 +1,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace DuRound
 {
+    [Serializable]
+    public class TilePoints
+    {
+        public bool Upper;
+        public bool Down;
+        public bool Left;
+        public bool Right;
+    }
     public class PathPoint : MonoBehaviour
     {
         [SerializeField]
@@ -13,144 +22,149 @@ namespace DuRound
         private int minXPos, maxXPos;
         [SerializeField]
         private int dungeonCellPos,exitPosition;
-        
-
+        [SerializeField]
         public List<Vector2> pathPoint { get; set; }
-        public Dictionary<Vector2,bool> pointMoveUpper = new Dictionary<Vector2, bool>();
-        public Dictionary<Vector2, bool> pointMoveLeft = new Dictionary<Vector2, bool>();
-        public Dictionary<Vector2, bool> pointMoveRight = new Dictionary<Vector2, bool>();
-        public Dictionary<Vector2, bool> pointMoveBottom = new Dictionary<Vector2, bool>();
 
-        public List<bool> moveUpper = new List<bool>();
-        public List<bool> moveLeft = new List<bool>();
-        public List<bool> moveRight = new List<bool>();
-        public List<bool> moveDown = new List<bool>();
-
-
-        [Serializable]
-        public class TilePoints
-        {
-            public bool Upper;
-            public bool Down;
-            public bool Left;
-            public bool Right;
-        }
         [SerializeField]
         public TilePoints [] m_tileList = new TilePoints [506];
 
+        public Dictionary<Vector2, TilePoints> listTilePoint = new Dictionary<Vector2, TilePoints>();
         // Start is called before the first frame update
         void Start()
         {
             pathPoint = new List<Vector2>();
             LayoutPathPoint();
+            LayoutTile();
+            AddingDictionaryTile();
+        }
+        private void LayoutTile()
+        {
+            LayoutFirstTileInY();
+            LayoutSecondTileInY();
+            LayoutThirdTileInY();
+            LayoutFourthTileInY();
+            LayoutFifthTileInY();
+            LayoutSixthTileInY();
+            LayoutSeventhTileInY();
+            LayoutEighthTileInY();
+            LayoutNinthTileInY();
+            LayoutTenthTileInY();
+            LayoutElevenTileInY();
+            LayoutTwelfthTileInY();
+            LayoutThirteenthTileInY();
+            LayoutFourteenthTileInY();
+            LayoutFifthteenthTileInY();
+            LayoutSixteenthTileInY();
+            LayoutSeventeenthTileInY();
+            LayoutEighteenthTileInY();
+            LayoutNineteenthTileInY();
+            LayoutTwentiesTileInY();
+            LayoutTwentiesOneTileInY();
+            LayoutTwentiesTwoTileInY();
         }
         private void LayoutTwentiesTwoTileInY()
         {
-            m_tileList [482].Left = true;
-            m_tileList [482].Right = false;
-            m_tileList [482].Down = false;
-            m_tileList [482].Upper = false;
-            m_tileList [483].Left = false;
+            m_tileList [483].Left = true;
             m_tileList [483].Right = false;
             m_tileList [483].Down = false;
             m_tileList [483].Upper = false;
-            m_tileList [484].Left = true;
+            m_tileList [484].Left = false;
             m_tileList [484].Right = false;
             m_tileList [484].Down = false;
-            m_tileList [484].Upper = true;
-            m_tileList [462].Left = false;
-            m_tileList [462].Right = true;
-            m_tileList [462].Down = true;
-            m_tileList [462].Upper = true;
-            m_tileList [463].Left = false;
-            m_tileList [463].Right = true;
-            m_tileList [463].Down = true;
-            m_tileList [463].Upper = true;
-            m_tileList [464].Left = false;
-            m_tileList [464].Right = true;
-            m_tileList [464].Down = true;
-            m_tileList [464].Upper = true;
-            m_tileList [465].Left = true;
-            m_tileList [465].Right = true;
-            m_tileList [465].Down = true;
-            m_tileList [465].Upper = false;
-            m_tileList [466].Left = true;
-            m_tileList [466].Right = true;
-            m_tileList [466].Down = false;
-            m_tileList [466].Upper = false;
-            m_tileList [467].Left = false;
-            m_tileList [467].Right = true;
-            m_tileList [467].Down = false;
-            m_tileList [467].Upper = true;
-            m_tileList [468].Left = false;
-            m_tileList [468].Right = true;
-            m_tileList [468].Down = true;
-            m_tileList [468].Upper = true;
-            m_tileList [469].Left = false;
-            m_tileList [469].Right = true;
-            m_tileList [469].Down = true;
-            m_tileList [469].Upper = true;
-            m_tileList [470].Left = false;
-            m_tileList [470].Right = true;
-            m_tileList [470].Down = true;
-            m_tileList [470].Upper = true;
-            m_tileList [471].Left = false;
-            m_tileList [471].Right = true;
-            m_tileList [471].Down = true;
-            m_tileList [471].Upper = true;
-            m_tileList [472].Left = false;
-            m_tileList [472].Right = false;
-            m_tileList [472].Down = true;
-            m_tileList [472].Upper = true;
-            m_tileList [473].Left = false;
-            m_tileList [473].Right = false;
-            m_tileList [473].Down = true;
-            m_tileList [473].Upper = true;
-            m_tileList [474].Left = false;
-            m_tileList [474].Right = false;
-            m_tileList [474].Down = true;
-            m_tileList [474].Upper = true;
-            m_tileList [475].Left = false;
-            m_tileList [475].Right = false;
-            m_tileList [475].Down = true;
-            m_tileList [475].Upper = true;
-            m_tileList [476].Left = false;
-            m_tileList [476].Right = false;
-            m_tileList [476].Down = true;
-            m_tileList [476].Upper = true;
-            m_tileList [477].Left = false;
-            m_tileList [477].Right = false;
-            m_tileList [477].Down = true;
-            m_tileList [477].Upper = true;
-            m_tileList [478].Left = false;
-            m_tileList [478].Right = false;
-            m_tileList [478].Down = true;
-            m_tileList [478].Upper = true;
-            m_tileList [479].Left = false;
-            m_tileList [479].Right = false;
-            m_tileList [479].Down = true;
-            m_tileList [479].Upper = true;
-            m_tileList [480].Left = false;
-            m_tileList [480].Right = true;
-            m_tileList [480].Down = true;
-            m_tileList [480].Upper = false;
-            m_tileList [481].Left = true;
-            m_tileList [481].Right = true;
-            m_tileList [481].Down = true;
-            m_tileList [481].Upper = false;
+            m_tileList [484].Upper = false;
+            m_tileList [485].Left = true;
+            m_tileList [485].Right = false;
+            m_tileList [485].Down = false;
+            m_tileList [485].Upper = true;
+            m_tileList [486].Left = true;
+            m_tileList [486].Right = false;
+            m_tileList [486].Down = true;
+            m_tileList [486].Upper = true;
+            m_tileList [487].Left = true;
+            m_tileList [487].Right = false;
+            m_tileList [487].Down = true;
+            m_tileList [487].Upper = true;
+            m_tileList [488].Left = true;
+            m_tileList [488].Right = false;
+            m_tileList [488].Down = true;
+            m_tileList [488].Upper = true;
+            m_tileList [489].Left = true;
+            m_tileList [489].Right = false;
+            m_tileList [489].Down = true;
+            m_tileList [489].Upper = false;
+            m_tileList [490].Left = true;
+            m_tileList [490].Right = false;
+            m_tileList [490].Down = false;
+            m_tileList [490].Upper = false;
+            m_tileList [491].Left = true;
+            m_tileList [491].Right = false;
+            m_tileList [491].Down = false;
+            m_tileList [491].Upper = true;
+            m_tileList [492].Left = true;
+            m_tileList [492].Right = false;
+            m_tileList [492].Down = true;
+            m_tileList [492].Upper = true;
+            m_tileList [493].Left = true;
+            m_tileList [493].Right = false;
+            m_tileList [493].Down = true;
+            m_tileList [493].Upper = true;
+            m_tileList [494].Left = true;
+            m_tileList [494].Right = false;
+            m_tileList [494].Down = true;
+            m_tileList [494].Upper = true;
+            m_tileList [495].Left = true;
+            m_tileList [495].Right = false;
+            m_tileList [495].Down = true;
+            m_tileList [495].Upper = false;
+            m_tileList [496].Left = false;
+            m_tileList [496].Right = true;
+            m_tileList [496].Down = false;
+            m_tileList [496].Upper = true;
+            m_tileList [497].Left = false;
+            m_tileList [497].Right = false;
+            m_tileList [497].Down = true;
+            m_tileList [497].Upper = true;
+            m_tileList [498].Left = false;
+            m_tileList [498].Right = false;
+            m_tileList [498].Down = true;
+            m_tileList [498].Upper = true;
+            m_tileList [499].Left = false;
+            m_tileList [499].Right = false;
+            m_tileList [499].Down = true;
+            m_tileList [499].Upper = true;
+            m_tileList [500].Left = false;
+            m_tileList [500].Right = false;
+            m_tileList [500].Down = true;
+            m_tileList [500].Upper = true;
+            m_tileList [501].Left = false;
+            m_tileList [501].Right = false;
+            m_tileList [501].Down = true;
+            m_tileList [501].Upper = true;
+            m_tileList [502].Left = false;
+            m_tileList [502].Right = false;
+            m_tileList [502].Down = true;
+            m_tileList [502].Upper = true;
+            m_tileList [503].Left = false;
+            m_tileList [503].Right = false;
+            m_tileList [503].Down = true;
+            m_tileList [503].Upper = true;
+            m_tileList [504].Left = true;
+            m_tileList [504].Right = true;
+            m_tileList [504].Down = true;
+            m_tileList [504].Upper = false;
+            m_tileList [505].Left = true;
+            m_tileList [505].Right = false;
+            m_tileList [505].Down = true;
+            m_tileList [505].Upper = false;
         }
         private void LayoutTwentiesOneTileInY()
         {
-            m_tileList [459].Left = true;
-            m_tileList [459].Right = true;
-            m_tileList [459].Down = false;
-            m_tileList [459].Upper = true;
-            m_tileList [460].Left = false;
-            m_tileList [460].Right = false;
-            m_tileList [460].Down = true;
+            m_tileList [460].Left = true;
+            m_tileList [460].Right = true;
+            m_tileList [460].Down = false;
             m_tileList [460].Upper = true;
             m_tileList [461].Left = false;
-            m_tileList [461].Right = true;
+            m_tileList [461].Right = false;
             m_tileList [461].Down = true;
             m_tileList [461].Upper = true;
             m_tileList [462].Left = false;
@@ -165,21 +179,21 @@ namespace DuRound
             m_tileList [464].Right = true;
             m_tileList [464].Down = true;
             m_tileList [464].Upper = true;
-            m_tileList [465].Left = true;
+            m_tileList [465].Left = false;
             m_tileList [465].Right = true;
             m_tileList [465].Down = true;
-            m_tileList [465].Upper = false;
+            m_tileList [465].Upper = true;
             m_tileList [466].Left = true;
             m_tileList [466].Right = true;
-            m_tileList [466].Down = false;
+            m_tileList [466].Down = true;
             m_tileList [466].Upper = false;
-            m_tileList [467].Left = false;
+            m_tileList [467].Left = true;
             m_tileList [467].Right = true;
             m_tileList [467].Down = false;
-            m_tileList [467].Upper = true;
+            m_tileList [467].Upper = false;
             m_tileList [468].Left = false;
             m_tileList [468].Right = true;
-            m_tileList [468].Down = true;
+            m_tileList [468].Down = false;
             m_tileList [468].Upper = true;
             m_tileList [469].Left = false;
             m_tileList [469].Right = true;
@@ -194,7 +208,7 @@ namespace DuRound
             m_tileList [471].Down = true;
             m_tileList [471].Upper = true;
             m_tileList [472].Left = false;
-            m_tileList [472].Right = false;
+            m_tileList [472].Right = true;
             m_tileList [472].Down = true;
             m_tileList [472].Upper = true;
             m_tileList [473].Left = false;
@@ -226,29 +240,29 @@ namespace DuRound
             m_tileList [479].Down = true;
             m_tileList [479].Upper = true;
             m_tileList [480].Left = false;
-            m_tileList [480].Right = true;
+            m_tileList [480].Right = false;
             m_tileList [480].Down = true;
-            m_tileList [480].Upper = false;
-            m_tileList [481].Left = true;
+            m_tileList [480].Upper = true;
+            m_tileList [481].Left = false;
             m_tileList [481].Right = true;
             m_tileList [481].Down = true;
             m_tileList [481].Upper = false;
+            m_tileList [482].Left = true;
+            m_tileList [482].Right = true;
+            m_tileList [482].Down = true;
+            m_tileList [482].Upper = false;
         }
         private void LayoutTwentiesTileInY()
         {
-            m_tileList [436].Left = true;
-            m_tileList [436].Right = true;
-            m_tileList [436].Down = false;
-            m_tileList [436].Upper = true;
             m_tileList [437].Left = true;
-            m_tileList [437].Right = false;
-            m_tileList [437].Down = true;
+            m_tileList [437].Right = true;
+            m_tileList [437].Down = false;
             m_tileList [437].Upper = true;
             m_tileList [438].Left = true;
             m_tileList [438].Right = false;
             m_tileList [438].Down = true;
             m_tileList [438].Upper = true;
-            m_tileList [439].Left = false;
+            m_tileList [439].Left = true;
             m_tileList [439].Right = false;
             m_tileList [439].Down = true;
             m_tileList [439].Upper = true;
@@ -259,18 +273,18 @@ namespace DuRound
             m_tileList [441].Left = false;
             m_tileList [441].Right = false;
             m_tileList [441].Down = true;
-            m_tileList [441].Upper = false;
-            m_tileList [442].Left = true;
-            m_tileList [442].Right = true;
-            m_tileList [442].Down = false;
+            m_tileList [441].Upper = true;
+            m_tileList [442].Left = false;
+            m_tileList [442].Right = false;
+            m_tileList [442].Down = true;
             m_tileList [442].Upper = false;
             m_tileList [443].Left = true;
             m_tileList [443].Right = true;
             m_tileList [443].Down = false;
-            m_tileList [443].Upper = true;
-            m_tileList [444].Left = false;
-            m_tileList [444].Right = false;
-            m_tileList [444].Down = true;
+            m_tileList [443].Upper = false;
+            m_tileList [444].Left = true;
+            m_tileList [444].Right = true;
+            m_tileList [444].Down = false;
             m_tileList [444].Upper = true;
             m_tileList [445].Left = false;
             m_tileList [445].Right = false;
@@ -280,17 +294,17 @@ namespace DuRound
             m_tileList [446].Right = false;
             m_tileList [446].Down = true;
             m_tileList [446].Upper = true;
-            m_tileList [447].Left = true;
+            m_tileList [447].Left = false;
             m_tileList [447].Right = false;
             m_tileList [447].Down = true;
             m_tileList [447].Upper = true;
             m_tileList [448].Left = true;
             m_tileList [448].Right = false;
-            m_tileList [448].Down = false;
+            m_tileList [448].Down = true;
             m_tileList [448].Upper = true;
-            m_tileList [449].Left = false;
+            m_tileList [449].Left = true;
             m_tileList [449].Right = false;
-            m_tileList [449].Down = true;
+            m_tileList [449].Down = false;
             m_tileList [449].Upper = true;
             m_tileList [450].Left = false;
             m_tileList [450].Right = false;
@@ -323,11 +337,15 @@ namespace DuRound
             m_tileList [457].Left = false;
             m_tileList [457].Right = false;
             m_tileList [457].Down = true;
-            m_tileList [457].Upper = false;
-            m_tileList [458].Left = true;
-            m_tileList [458].Right = true;
-            m_tileList [458].Down = false;
+            m_tileList [457].Upper = true;
+            m_tileList [458].Left = false;
+            m_tileList [458].Right = false;
+            m_tileList [458].Down = true;
             m_tileList [458].Upper = false;
+            m_tileList [459].Left = true;
+            m_tileList [459].Right = true;
+            m_tileList [459].Down = false;
+            m_tileList [459].Upper = false;
         }
         private void LayoutNineteenthTileInY()
         {
@@ -2153,9 +2171,32 @@ namespace DuRound
                     pathPoint.Add(vector2);
                 }
             }
-            for (int z = 0; z < pathPoint.Count; z++)
+            //for (int z = 0; z < pathPoint.Count; z++)
+            //{
+            //    Debug.Log(pathPoint [z].ToString());
+            //}
+        }
+        private void AddingDictionaryTile()
+        {
+            listTilePoint.Clear();
+            for (int p = 0; p < pathPoint.Count; p++)
             {
-                Debug.Log(pathPoint [z].ToString());
+                listTilePoint.Add(pathPoint [p], m_tileList [p]);
+            }
+            //foreach (var tilePoint in listTilePoint)
+            //{
+            //    Debug.Log(tilePoint.Key + "" + tilePoint.Value.Left);
+            //    Debug.Log(tilePoint.Key + "" + tilePoint.Value.Right);
+            //    Debug.Log(tilePoint.Key + "" + tilePoint.Value.Upper);
+            //    Debug.Log(tilePoint.Key + "" + tilePoint.Value.Down);
+            //}
+        }
+        private void SentDataMapToGuard()
+        {
+            var guardList = GuardController.instance.guardList;
+            for (int g = 0; g < guardList.Count; g++)
+            {
+                guardList [g].SentMapData(listTilePoint);
             }
         }
         private void OnDestroy()

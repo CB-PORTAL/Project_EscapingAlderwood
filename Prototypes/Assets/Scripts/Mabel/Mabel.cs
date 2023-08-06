@@ -29,7 +29,9 @@ namespace DuRound
         public Action<bool> PickThomas, PickDagger;
         private bool statUp, statRight, statDown, statLeft;
         protected CanvasGroup _miniCanvas;
-        private Vector2 currentPath { get; set; }
+        private Vector2 m_currentPath { get; set; }
+        public Vector2 currentPath { get { return m_currentPath; } }
+        public Vector2 currentPosition { get; set; }
         private Vector2 lastPath { get; set; }
         private List<Vector2> listTrailPath = new List<Vector2>();
 
@@ -54,10 +56,10 @@ namespace DuRound
             statLeft = false;
             statRight = false;
             var position = ConvertIntoInteger(m_rigidBody2D.position);
-            currentPath = position;
-            lastPath = currentPath;
+            m_currentPath = position;
+            lastPath = m_currentPath;
         }
-        private Vector2 ConvertIntoInteger(Vector2 currentPos)
+        protected Vector2 ConvertIntoInteger(Vector2 currentPos)
         {
             var x = Mathf.RoundToInt(currentPos.x);
             var y = Mathf.RoundToInt(currentPos.y);
@@ -69,11 +71,11 @@ namespace DuRound
         {
             if (disableMovement) return;
 
-            if (m_discovered)
-            {
-                CheckForTrail();
-                StartAddingTrail();
-            }
+            //if (m_discovered)
+            //{
+            //    CheckForTrail();
+            //    StartAddingTrail();
+            //}
         }
         private bool m_discovered { set; get; } = false;
         public void MabelBeingSee(bool status)
@@ -87,32 +89,33 @@ namespace DuRound
             MabelStartMove();
             Debug.Log(Mathf.RoundToInt(m_rigidBody2D.position.x) + "Mabel position X");
             Debug.Log(Mathf.RoundToInt(m_rigidBody2D.position.y) + "Mabel position Y");
-            if (currentPath != ConvertIntoInteger(m_rigidBody2D.position))
-            {
-                lastPath = currentPath;
-                currentPath = ConvertIntoInteger(m_rigidBody2D.position);
-
-            }
+            m_currentPath = ConvertIntoInteger(m_rigidBody2D.position);
+           // if (currentPath != ConvertIntoInteger(m_rigidBody2D.position))
+           // {
+           //     lastPath = currentPath;
+           //     currentPath = ConvertIntoInteger(m_rigidBody2D.position);
+           //
+           // }
         }
-        private void StartAddingTrail()
-        {
-            if (lastPath != currentPath)
-            {
-                listTrailPath.Add(lastPath);
-            }
-        }
-        public int trailIncrement { get; set; } = 0;
-        private void CheckForTrail()
-        {
-            if (listTrailPath.Count > maxTrail)
-            {
-                listTrailPath.RemoveAt(0);
-                if (trailIncrement > 0)
-                {
-                    trailIncrement--;
-                }
-            }
-        }
+       // private void StartAddingTrail()
+       // {
+       //     if (lastPath != currentPath)
+       //     {
+       //         listTrailPath.Add(lastPath);
+       //     }
+       // }
+       // public int trailIncrement { get; set; } = 0;
+       // private void CheckForTrail()
+       // {
+       //     if (listTrailPath.Count > maxTrail)
+       //     {
+       //         listTrailPath.RemoveAt(0);
+       //         if (trailIncrement > 0)
+       //         {
+       //             trailIncrement--;
+       //         }
+       //     }
+       // }
         private void MabelStartMove()
         {
             if (m_movement.x > 0)
