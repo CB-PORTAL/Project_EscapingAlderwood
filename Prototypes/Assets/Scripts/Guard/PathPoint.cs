@@ -2171,10 +2171,10 @@ namespace DuRound
                     pathPoint.Add(vector2);
                 }
             }
-            //for (int z = 0; z < pathPoint.Count; z++)
-            //{
-            //    Debug.Log(pathPoint [z].ToString());
-            //}
+            for (int z = 0; z < pathPoint.Count; z++)
+            {
+               // Debug.Log(pathPoint [z].ToString());
+            }
         }
         private void AddingDictionaryTile()
         {
@@ -2190,6 +2190,7 @@ namespace DuRound
             //    Debug.Log(tilePoint.Key + "" + tilePoint.Value.Upper);
             //    Debug.Log(tilePoint.Key + "" + tilePoint.Value.Down);
             //}
+            SentDataMapToGuard();
         }
         private void SentDataMapToGuard()
         {

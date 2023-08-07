@@ -14,7 +14,6 @@ namespace DuRound
     {
         protected Animator m_animator { get; set; }
         protected Rigidbody2D m_rigidBody2D { get; set; }
-        private bool isPickUp { get; set; } = false;
         protected bool isCollide { get; set; } = false;
 
         public bool hasThomas { get { return m_hasThomas; } }
@@ -23,19 +22,15 @@ namespace DuRound
 
         public float moveSpeed = 2f;
         public float throwDaggerStrength = 20f;
-        public int maxTrail = 10;
         private Vector2 m_movement { get; set; }
         private Vector2 startPosition { get; set; }
         public Action<bool> PickThomas, PickDagger;
         private bool statUp, statRight, statDown, statLeft;
+        private bool onGame { get; set; } = true;
         protected CanvasGroup _miniCanvas;
         private Vector2 m_currentPath { get; set; }
         public Vector2 currentPath { get { return m_currentPath; } }
-        public Vector2 currentPosition { get; set; }
-        private Vector2 lastPath { get; set; }
-        private List<Vector2> listTrailPath = new List<Vector2>();
 
-        public List<Vector2> GetListTrailPath { get { return listTrailPath; } }
         protected virtual void Awake()
         {
             _miniCanvas = GameObject.FindWithTag("MiniGame").GetComponent<CanvasGroup>();
@@ -57,7 +52,7 @@ namespace DuRound
             statRight = false;
             var position = ConvertIntoInteger(m_rigidBody2D.position);
             m_currentPath = position;
-            lastPath = m_currentPath;
+            MabelStartMove();
         }
         protected Vector2 ConvertIntoInteger(Vector2 currentPos)
         {
@@ -69,54 +64,20 @@ namespace DuRound
         // Update is called once per frame
         protected virtual void Update()
         {
-            if (disableMovement) return;
 
-            //if (m_discovered)
-            //{
-            //    CheckForTrail();
-            //    StartAddingTrail();
-            //}
-        }
-        private bool m_discovered { set; get; } = false;
-        public void MabelBeingSee(bool status)
-        {
-            m_discovered = status;
         }
         protected virtual  void FixedUpdate()
         {
-            if (disableMovement) return;
+
            
-            MabelStartMove();
-            Debug.Log(Mathf.RoundToInt(m_rigidBody2D.position.x) + "Mabel position X");
-            Debug.Log(Mathf.RoundToInt(m_rigidBody2D.position.y) + "Mabel position Y");
-            m_currentPath = ConvertIntoInteger(m_rigidBody2D.position);
-           // if (currentPath != ConvertIntoInteger(m_rigidBody2D.position))
-           // {
-           //     lastPath = currentPath;
-           //     currentPath = ConvertIntoInteger(m_rigidBody2D.position);
-           //
-           // }
         }
-       // private void StartAddingTrail()
-       // {
-       //     if (lastPath != currentPath)
-       //     {
-       //         listTrailPath.Add(lastPath);
-       //     }
-       // }
-       // public int trailIncrement { get; set; } = 0;
-       // private void CheckForTrail()
-       // {
-       //     if (listTrailPath.Count > maxTrail)
-       //     {
-       //         listTrailPath.RemoveAt(0);
-       //         if (trailIncrement > 0)
-       //         {
-       //             trailIncrement--;
-       //         }
-       //     }
-       // }
-        private void MabelStartMove()
+        private void OnDestroy()
+        {
+            onGame = false;
+            PickThomas -= UpdateMabelUI.instance.UpdateThomas;
+            PickDagger -= UpdateMabelUI.instance.UpdateDagger;
+        }
+        private void UpdateMabelAnimationAndMovement()
         {
             if (m_movement.x > 0)
             {
@@ -144,7 +105,7 @@ namespace DuRound
                 m_animator.SetFloat("IdleY", 0);
                 m_animator.SetFloat("MoveX", -1);
                 m_animator.SetFloat("MoveY", 0);
-                var currentPosition = m_rigidBody2D.position.x + -moveSpeed * Time.fixedDeltaTime ;
+                var currentPosition = m_rigidBody2D.position.x + -moveSpeed * Time.fixedDeltaTime;
                 var movement = new Vector2(currentPosition, m_rigidBody2D.position.y);
                 m_rigidBody2D.MovePosition(movement);
             }
@@ -181,6 +142,16 @@ namespace DuRound
             else
             {
                 m_animator.SetBool("isMove", false);
+            }
+        }
+        private async void MabelStartMove()
+        {
+            while (onGame)
+            {
+                if (disableMovement) return;
+                UpdateMabelAnimationAndMovement();
+                m_currentPath = ConvertIntoInteger(m_rigidBody2D.position);
+                await Task.Yield();
             }
            
         }

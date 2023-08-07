@@ -59,26 +59,25 @@ namespace DuRound
         }
         private void IndicatorUpdate()
         {
-            var distanceWithThomas = Vector2.Distance(m_Mabel.transform.position, m_Thomas.transform.position);
+            var distanceWithThomas = Vector2.Distance(_Mabel.transform.position, _Thomas.transform.position);
             if (distanceWithThomas >= adjustCold)
             {
                 m_Indicator.color = new Color(0, 0.2f, 1);
             }
-            else if (distanceWithThomas < adjustCold)
+            else if (distanceWithThomas <= adjustWarm  && distanceWithThomas > adjustHot)
             {
-                if (distanceWithThomas >= adjustWarm)
-                {
-                    var distanceWarmColor = distanceWithThomas - adjustWarm;
-                    var newColor = distanceWarmColor / adjustWarm;
-                    m_Indicator.color = new Color(0, 0.2f, newColor);
 
-                }
-                else if (distanceWithThomas >= adjustHot)
-                {
-                    var distanceHotColor = distanceWithThomas - adjustHot;
-                    var newColor = distanceHotColor / adjustHot;
-                    m_Indicator.color = new Color(newColor, 0.2f, 0);
-                }
+                var distanceWarmColor = distanceWithThomas - adjustWarm;
+                var newColor = Mathf.Abs(distanceWarmColor / adjustWarm);
+                m_Indicator.color = new Color(0, 0.2f, newColor);
+
+            }
+            else if (distanceWithThomas <= adjustHot)
+            {
+
+                var distanceHotColor = distanceWithThomas - adjustHot;
+                var newColor = Mathf.Abs(distanceHotColor / adjustHot);
+                m_Indicator.color = new Color(newColor, 0.2f, 0);
             }
         }
         public void UpdateThomas(bool condition) { m_Thomas.gameObject.SetActive(condition);}

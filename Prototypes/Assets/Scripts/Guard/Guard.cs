@@ -20,12 +20,8 @@ namespace DuRound
         private bool shouldDestroy { get; set; } = false;
         private bool shouldMoveBackward = false;
         private Vector2 m_lastPosition, m_currentPosition;
-
-
-
-
         private Mabel m_Mabel { get; set; }
-        protected override void Awake()
+        protected async override void Awake()
         {
             base.Awake();
             var movePointLength = parentMovePoint.childCount;
@@ -37,6 +33,8 @@ namespace DuRound
 
 
             m_Mabel = GameObject.FindWithTag("Mabel").GetComponent<Mabel>();
+
+            await CheckForDistance();
         }
         // Start is called before the first frame update
         public Task Initialize()
@@ -46,6 +44,8 @@ namespace DuRound
             isMoving = true;
             shouldDestroy = false;
             m_animator?.SetBool("isMove", true);
+            pathTrailAfterMabel.Clear();
+            lastPositionAfterTrack.Clear();
             return Task.CompletedTask;
         }
         //private void CheckHasThomas(bool condition)
@@ -106,333 +106,411 @@ namespace DuRound
             //{
             //    lastIncrement = distanceIncrement;
             //}
-            CheckForDistance();
         }
         // private int distanceIncrement;
         private bool m_foundMabel = false;
         private List<Vector2> pathTrailAfterMabel = new List<Vector2>();
-        private Vector2 m_lastPositionBeforeTrail = new Vector2();
+        private List<Vector2> lastPositionAfterTrack = new List<Vector2>();
+        private Vector2 m_MabelTrailPosition = new Vector2();
         public float guardLineSight = 2f;
         private int lastIncrement { get; set; } = 0;
-        private async void CheckForDistance()
+        private bool m_checkForDistance { get; set; } = true;
+        private bool m_moveToMabel { get; set; } = true;
+        private async Task CheckForDistance()
         {
-
-            var distance = Vector2.Distance(m_rigidBody2D.transform.position, m_Mabel.transform.position);
-            if (distance <= guardLineSight)
+            while (m_checkForDistance)
             {
-                //distance Guard can see Mabel
-                //guard check front,left,right, down tile with mabel position
-                //tile distance two position ahead after mabel
-                //  if (!m_foundMabel)
-                // {
-                //m_foundMabel = true;
-                isMoving = false;
-
-                //var found = mapTilePoints [guardPos];
-
-
-                // await MovePos();
-                //  }
-
-
-                // m_lastPositionBeforeTrail = m_Mabel.currentPosition;
-
-                //shouldDestroy = true;
-                //if (!m_Pursue)
-                //{
-                //    m_Mabel.MabelBeingSee(true);
-                //    m_Pursue = true;
-                //
-                //    await StartPursuing();
-                //}
-
-            }
-        }
-        private string firstTaskMove = "null";
-        private string secondTaskMove = "null";
-        private string moveLeft = "moveLeft";
-        private string moveRight = "moveRight";
-        private string moveUp = "moveUp";
-        private string moveDown = "moveDown";
-        private async Task<Task> CheckMinusXPosition()
-        {
-            var guardPos = ConvertIntoInteger(m_rigidBody2D.position);
-            var mPos = ConvertIntoInteger(m_Mabel.currentPath);
-            var distanceBetween = guardPos - mPos;
-            if (distanceBetween.x >= 2 || distanceBetween.y >= 2)
-            {
-                return Task.CompletedTask;
-            }
-            var movePlusPlus = 0; firstTaskMove = "null"; secondTaskMove = "null";
-            //var checkPosition = m_rigidBody2D.position.x + distanceBetween.x;
-            var canMove = mapTilePoints [guardPos];
-            if (guardPos.x < mPos.x)
-            {
-                for (int g = (int)guardPos.x; g <= mPos.x; g++)
+                var distance = Vector2.Distance(m_rigidBody2D.transform.position, m_Mabel.transform.position);
+                if (distance <= guardLineSight)
                 {
-                    canMove = mapTilePoints [guardPos];
-                    if (canMove.Left)
+                    //distance Guard can see Mabel
+                    //guard check front,left,right, down tile with mabel position
+                    //tile distance two position ahead after mabel
+                    //  if (!m_foundMabel)
+                    // {
+                    //m_foundMabel = true;
+                    shouldDestroy = true;
+                    //var found = mapTilePoints [guardPos];
+                    if (!m_foundMabel)
                     {
-                        movePlusPlus++;
-                        if (movePlusPlus == 1)
+                        m_foundMabel = true;
+                        var isComplete = CheckMinusXPosition();
+                        if (isComplete.IsCompleted)
                         {
-                            firstTaskMove = moveLeft;
-                        }
-                        else if (movePlusPlus == guardLineSight)
-                        {
-                            secondTaskMove = moveLeft;
-                        }
-                        //var tempXMove = m_rigidBody2D.position.x + distanceBetween.x;
-                        //var newMove = new Vector2(tempXMove, m_rigidBody2D.position.y);
-                        //while (m_rigidBody2D.position != newMove)
-                        //{
-                        //    m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.transform.position,
-                        //    newMove, moveSpeed * Time.fixedDeltaTime);
-                        //    if (m_rigidBody2D.position == newMove)
-                        //    {
-                        //        guardPos = ConvertIntoInteger(m_rigidBody2D.position);
-                        //        canMove = mapTilePoints [guardPos];
-                        //        break;
-                        //    }
-                        //}
-                    }
-                    else if (canMove.Upper)
-                    {
-                        //TODO
-                        movePlusPlus++;
-                        if (movePlusPlus == 1)
-                        {
-                            firstTaskMove = moveUp;
-                        }
-                        else if (movePlusPlus == guardLineSight)
-                        {
-                            secondTaskMove = moveUp;
-                        }
-                    }
-                    else if (canMove.Down)
-                    {
-                        movePlusPlus++;
-                        if (movePlusPlus == 1)
-                        {
-                            firstTaskMove = moveDown;
-                        }
-                        else if (movePlusPlus == guardLineSight)
-                        {
-                            secondTaskMove = moveDown;
-                        }
-                    }
-                    if (distanceBetween.x == guardLineSight)
-                    {
-                        var tempX = m_rigidBody2D.position.x + distanceBetween.x;
-                        var nePos = new Vector2(tempX, m_rigidBody2D.position.y);
-                        //guardPos = tempX;
-                    }
-
-                    await Task.Yield();
-                }
-            }
-            else if (guardPos.x > mPos.x)
-            {
-                for (int g = (int)guardPos.x; g >= mPos.x; g++)
-                {
-                    if (canMove.Right)
-                    {
-                        movePlusPlus++;
-                        if (movePlusPlus == 1)
-                        {
-                            firstTaskMove = moveRight;
-                        }
-                        else if (movePlusPlus == guardLineSight)
-                        {
-                            secondTaskMove = moveRight;
-                        }
-                        //var tempXMove = m_rigidBody2D.position.x + distanceBetween.x;
-                        //var newMove = new Vector2(tempXMove, m_rigidBody2D.position.y);
-                        //while (m_rigidBody2D.position != newMove)
-                        //{
-                        //    m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.transform.position,
-                        //        newMove, moveSpeed * Time.fixedDeltaTime);
-                        //    if (m_rigidBody2D.position == newMove)
-                        //    {
-                        //        guardPos = ConvertIntoInteger(m_rigidBody2D.position);
-                        //        canMove = mapTilePoints [guardPos];
-                        //        break;
-                        //    }
-                        //}
-                    }
-                    else if (canMove.Upper)
-                    {
-                        movePlusPlus++;
-                        if (movePlusPlus == 1)
-                        {
-                            firstTaskMove = moveUp;
-                        }
-                        else if (movePlusPlus == guardLineSight)
-                        {
-                            secondTaskMove = moveUp;
-                        }
-                    }
-                    else if (canMove.Down)
-                    {
-                        movePlusPlus++;
-                        if (movePlusPlus == 1)
-                        {
-                            firstTaskMove = moveDown;
-                        }
-                        else if (movePlusPlus == guardLineSight)
-                        {
-                            secondTaskMove = moveDown;
-                        }
-                        await Task.Yield();
-                    }
-                }
-                if (guardPos.y < mPos.y)
-                {
-                    for (int g = (int)guardPos.y; g <= mPos.y; g++)
-                    {
-                        if (canMove.Upper)
-                        {
-                            var tempYMove = m_rigidBody2D.position.y + distanceBetween.y;
-                            var newMove = new Vector2(m_rigidBody2D.position.y, tempYMove);
-                            while (m_rigidBody2D.position != newMove)
+                            //Debug.Log(firstMove);
+                            //Debug.Log(secondMove);
+                            m_foundMabel = false;
+                            if (firstMove != Vector2.zero && secondMove != Vector2.zero)
                             {
-                                m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.transform.position,
-                                    newMove, moveSpeed * Time.fixedDeltaTime);
-                                if (m_rigidBody2D.position == newMove)
+                                var tempBeforeFirst = ConvertIntoInteger(m_rigidBody2D.position);
+                                lastPositionAfterTrack.Add(tempBeforeFirst);
+                                Vector2 movePosition = firstMove;
+                                while (m_moveToMabel)
                                 {
-                                    guardPos = ConvertIntoInteger(m_rigidBody2D.position);
-                                    canMove = mapTilePoints [guardPos];
-                                    break;
+                                    if (isMoving)
+                                    {
+                                        //adding Mabel trail to guard memory
+                                        var currentMabelPath = m_Mabel.currentPath;
+                                        if (m_MabelTrailPosition == Vector2.zero || m_MabelTrailPosition != currentMabelPath)
+                                        {
+                                            m_MabelTrailPosition = currentMabelPath;
+                                            pathTrailAfterMabel.Add(m_MabelTrailPosition);
+                                        }
+                                        if (movePosition != Vector2.zero)
+                                        {
+                                            if (m_rigidBody2D.position != movePosition)
+                                            {
+                                                m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.position, movePosition, moveSpeed * Time.fixedDeltaTime);
+                                            }
+                                            else
+                                            {
+                                                var tempPos = ConvertIntoInteger(m_rigidBody2D.position);
+                                                lastPositionAfterTrack.Add(tempPos);
+                                                movePosition = secondMove;
+                                            }
+                                        }
+                                        if (m_rigidBody2D.position == secondMove)
+                                        {
+                                            var tempPos = ConvertIntoInteger(m_rigidBody2D.position);
+                                            lastPositionAfterTrack.Add(tempPos);
+                                            movePosition = Vector2.zero;
+                                        }
+                                        if (movePosition == Vector2.zero)
+                                        {
+                                            if (pathTrailAfterMabel.Count > 0)
+                                            {
+                                                var newPosition = pathTrailAfterMabel [0];
+                                                if (m_rigidBody2D.position != newPosition)
+                                                {
+                                                    m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.position, newPosition, moveSpeed * Time.fixedDeltaTime);
+                                                }
+                                                else
+                                                {
+                                                    var tempPos = ConvertIntoInteger(m_rigidBody2D.position);
+                                                    lastPositionAfterTrack.Add(tempPos);
+                                                    pathTrailAfterMabel.RemoveAt(0);
+                                                }
+                                            }
+                                        }
+                                    }
+                                    await Task.Yield();
                                 }
                             }
                         }
-                        await Task.Yield();
+                    }
+
+                    // await MovePos();
+                    //  }
+
+
+                    // m_lastPositionBeforeTrail = m_Mabel.currentPosition;
+
+                    //shouldDestroy = true;
+                    //if (!m_Pursue)
+                    //{
+                    //    m_Mabel.MabelBeingSee(true);
+                    //    m_Pursue = true;
+                    //
+                    //    await StartPursuing();
+                    //}
+
+                }
+
+                await Task.Yield();
+            }
+        }
+
+        private Vector2 firstMove, secondMove;
+        private Task CheckMinusXPosition()
+        {
+            //TODO FIX ALL
+            var guardPos = ConvertIntoInteger(m_rigidBody2D.position);
+            var mPos = ConvertIntoInteger(m_Mabel.currentPath);
+            //Mabel position
+            var distanceBetween = mPos - guardPos;
+
+            //should keep 1, 1 or 2,0 not more than 2
+            //if (distanceBetween.x == guardLineSight && distanceBetween.y != 0 || distanceBetween.x == -guardLineSight && distanceBetween.y != 0 ||
+            //    distanceBetween.y == guardLineSight && distanceBetween.x != 0 || distanceBetween.y == -guardLineSight && distanceBetween.x != 0)
+            //{
+            //    return Task.CompletedTask;
+            //}
+            if (distanceBetween.x == 0 && distanceBetween.y == 0)
+            {
+                return Task.CompletedTask;
+            }
+            //var checkPosition = m_rigidBody2D.position.x + distanceBetween.x;
+            //Debug.Log(distanceBetween.x + " distance X");
+            //Debug.Log(distanceBetween.y + " distance Y");
+            //Debug.Log(distanceBetween.y != -guardLineSight);
+            //Debug.Log(distanceBetween.y != guardLineSight);
+            //Debug.Log(distanceBetween.x != -guardLineSight);
+            //Debug.Log(distanceBetween.x != guardLineSight);
+            if (distanceBetween.x != guardLineSight && distanceBetween.y != guardLineSight && distanceBetween.x != -guardLineSight && distanceBetween.y != -guardLineSight)
+            {
+                //  Debug.Log("move L");
+                if (guardPos.x > mPos.x)
+                {
+                    var currentPosition = ConvertIntoInteger(m_rigidBody2D.position);
+                    var move = mapTilePoints [guardPos];
+                    if (move.Left)
+                    {
+                        var tempLeft = guardPos.x + distanceBetween.x;
+                        var newPosition = new Vector2(tempLeft, guardPos.y);
+                        firstMove = newPosition;
+                        var currentPosition1 = ConvertIntoInteger(newPosition);
+                        if (guardPos.y < mPos.y)
+                        {
+                            var move1 = mapTilePoints [currentPosition1];
+                            if (move1.Upper)
+                            {
+                                var tempDown = guardPos.y + distanceBetween.y;
+                                var newPosition1 = new Vector2(newPosition.x, tempDown);
+                                secondMove = newPosition1;
+                                return Task.CompletedTask;
+                            }
+                            else
+                            {
+                                Debug.Log("cannot move");
+                                return Task.CompletedTask;
+                            }
+                        }
+                        else if (guardPos.y > mPos.y)
+                        {
+                            var move1 = mapTilePoints [currentPosition1];
+                            if (move1.Down)
+                            {
+                                var tempUp = guardPos.y + distanceBetween.y;
+                                var newPosition1 = new Vector2(newPosition.x, tempUp);
+                                secondMove = newPosition1;
+                                return Task.CompletedTask;
+                            }
+                            else
+                            {
+                                Debug.Log("cannot move");
+                                return Task.CompletedTask;
+                            }
+                        }
+                    }
+                    else if (move.Upper)
+                    {
+                        var tempUpper = guardPos.y + distanceBetween.y;
+                        var newPosition = new Vector2(guardPos.x, tempUpper);
+                        firstMove = newPosition;
+                        var currentPosition1 = ConvertIntoInteger(newPosition);
+                        if (guardPos.x < mPos.x)
+                        {
+                            var move1 = mapTilePoints [currentPosition1];
+                            if (move1.Left)
+                            {
+                                var tempLeft = guardPos.x + distanceBetween.x;
+                                var newPosition1 = new Vector2(tempLeft, newPosition.y);
+                                secondMove = newPosition1;
+                                return Task.CompletedTask;
+                            }
+                            else
+                            {
+                                Debug.Log("cannot move");
+                                return Task.CompletedTask;
+                            }
+                        }
+                    }
+                    else if (move.Down)
+                    {
+                        var tempDown = guardPos.y + distanceBetween.y;
+                        var newPosition = new Vector2(guardPos.x, tempDown);
+                        firstMove = newPosition;
+                        var currentPosition1 = ConvertIntoInteger(newPosition);
+                        if (guardPos.x < mPos.x)
+                        {
+                            var move1 = mapTilePoints [currentPosition1];
+                            if (move1.Left)
+                            {
+                                var tempLeft = guardPos.x + distanceBetween.x;
+                                var newPosition1 = new Vector2(tempLeft, newPosition.y);
+                                secondMove = newPosition1;
+                                return Task.CompletedTask;
+                            }
+                            else
+                            {
+                                Debug.Log("cannot move");
+                                return Task.CompletedTask;
+                            }
+                        }
+                    }
+                }
+                else if (guardPos.x < mPos.x)
+                {
+                    var currentPosition = ConvertIntoInteger(m_rigidBody2D.position);
+                    var move = mapTilePoints [guardPos];
+                    if (move.Right)
+                    {
+                        var tempRight = guardPos.x + distanceBetween.x;
+                        var newPosition = new Vector2(tempRight, guardPos.y);
+                        firstMove = newPosition;
+                        var currentPosition1 = ConvertIntoInteger(newPosition);
+                        if (guardPos.y < mPos.y)
+                        {
+                            //new tilePoints
+                            var move1 = mapTilePoints [currentPosition1];
+                            if (move1.Upper)
+                            {
+                                var tempUpper = guardPos.y + distanceBetween.y;
+                                var newPosition1 = new Vector2(newPosition.x, tempUpper);
+                                secondMove = newPosition1;
+                                return Task.CompletedTask;
+                            }
+                            else
+                            {
+                                Debug.Log("cannot move");
+                                return Task.CompletedTask;
+                            }
+                        }
+                        else if (guardPos.y > mPos.y)
+                        {
+                            var move1 = mapTilePoints [currentPosition1];
+                            if (move1.Down)
+                            {
+                                var tempDown = guardPos.y + distanceBetween.y;
+                                var newPosition1 = new Vector2(newPosition.x, tempDown);
+                                secondMove = newPosition1;
+                                return Task.CompletedTask;
+                            }
+                            else
+                            {
+                                Debug.Log("cannot move");
+                                return Task.CompletedTask;
+                            }
+                        }
+                    }
+                    else if (move.Upper)
+                    {
+                        var tempUpper = guardPos.y + distanceBetween.y;
+                        var newPosition = new Vector2(guardPos.x, tempUpper);
+                        firstMove = newPosition;
+                        var currentPosition1 = ConvertIntoInteger(newPosition);
+                        if (guardPos.x > mPos.x)
+                        {
+                            var move1 = mapTilePoints [currentPosition1];
+                            if (move1.Right)
+                            {
+                                var tempRight = guardPos.x + distanceBetween.x;
+                                var newPosition1 = new Vector2(tempRight, newPosition.y);
+                                secondMove = newPosition1;
+                                return Task.CompletedTask;
+                            }
+                            else
+                            {
+                                Debug.Log("cannot move");
+                                return Task.CompletedTask;
+                            }
+                        }
+                    }
+                    else if (move.Down)
+                    {
+                        var tempDown = guardPos.y + distanceBetween.y;
+                        var newPosition = new Vector2(guardPos.x, tempDown);
+                        firstMove = newPosition;
+                        var currentPosition1 = ConvertIntoInteger(newPosition);
+                        if (guardPos.x > mPos.x)
+                        {
+                            var move1 = mapTilePoints [currentPosition1];
+                            if (move1.Right)
+                            {
+                                var tempRight = guardPos.x + distanceBetween.x;
+                                var newPosition1 = new Vector2(tempRight, newPosition.y);
+                                secondMove = newPosition1;
+                                return Task.CompletedTask;
+                            }
+                            else
+                            {
+                                Debug.Log("cannot move");
+                                return Task.CompletedTask;
+                            }
+                        }
+                    }
+                }
+                return Task.CompletedTask;
+            }
+            else if (distanceBetween.x == guardLineSight || distanceBetween.y == guardLineSight || distanceBetween.x == -guardLineSight || distanceBetween.y == -guardLineSight)
+            {
+                // Debug.Log("move straight");
+                if (guardPos.x < mPos.x)
+                {
+                    var move = mapTilePoints [guardPos];
+                    if (move.Right)
+                    {
+                        var calculatePos = guardPos.x + distanceBetween.x;
+                        var newPosition = new Vector2(calculatePos, guardPos.y);
+                        var move1 = mapTilePoints [newPosition];
+                        firstMove = newPosition;
+                        if (move1.Right)
+                        {
+                            var calculatePos1 = guardPos.x + distanceBetween.x;
+                            var newPosition1 = new Vector2(calculatePos1, newPosition.y);
+                            secondMove = newPosition1;
+                            return Task.CompletedTask;
+                        }
+                    }
+
+                }
+                else if (guardPos.x > mPos.x)
+                {
+                    var move = mapTilePoints [guardPos];
+                    if (move.Left)
+                    {
+                        var calculatePos = guardPos.x + distanceBetween.x;
+                        var newPosition = new Vector2(calculatePos, guardPos.y);
+                        var move1 = mapTilePoints [newPosition];
+                        firstMove = newPosition;
+                        if (move1.Left)
+                        {
+                            var calculatePos1 = guardPos.x + distanceBetween.x;
+                            var newPosition1 = new Vector2(calculatePos1, newPosition.y);
+                            secondMove = newPosition1;
+                            return Task.CompletedTask;
+                        }
                     }
                 }
                 else if (guardPos.y > mPos.y)
                 {
-                    for (int g = (int)guardPos.y; g >= mPos.y; g++)
+                    var move = mapTilePoints [guardPos];
+                    if (move.Down)
                     {
-                        if (canMove.Down)
+                        var calculatePos = guardPos.y + distanceBetween.y;
+                        var newPosition = new Vector2(guardPos.x, calculatePos);
+                        var move1 = mapTilePoints [newPosition];
+                        firstMove = newPosition;
+                        if (move1.Down)
                         {
-                            var tempYMove = m_rigidBody2D.position.y + distanceBetween.y;
-                            var newMove = new Vector2(m_rigidBody2D.position.y, tempYMove);
-                            while (m_rigidBody2D.position != newMove)
-                            {
-                                m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.transform.position,
-                                    newMove, moveSpeed * Time.fixedDeltaTime);
-                                if (m_rigidBody2D.position == newMove)
-                                {
-                                    guardPos = ConvertIntoInteger(m_rigidBody2D.position);
-                                    break;
-                                }
-                            }
+                            var calculatePos1 = guardPos.y + distanceBetween.y;
+                            var newPosition1 = new Vector2(newPosition.x, calculatePos1);
+                            secondMove = newPosition1;
+                            return Task.CompletedTask;
                         }
-                        await Task.Yield();
                     }
                 }
-
+                else if (guardPos.y < mPos.y)
+                {
+                    var move = mapTilePoints [guardPos];
+                    if (move.Upper)
+                    {
+                        var calculatePos = guardPos.y + distanceBetween.y;
+                        var newPosition = new Vector2(guardPos.x, calculatePos);
+                        var move1 = mapTilePoints [newPosition];
+                        firstMove = newPosition;
+                        if (move1.Upper)
+                        {
+                            var calculatePos1 = guardPos.y + distanceBetween.y;
+                            var newPosition1 = new Vector2(newPosition.x, calculatePos1);
+                            secondMove = newPosition1;
+                            return Task.CompletedTask;
+                        }
+                    }
+                }
+                return Task.CompletedTask;
             }
             return Task.CompletedTask;
-        }
-    
-        private void PredictMovement()
-        {
-            
-        }
-        private async Task MoveXStraight(Vector2 MabelPath)
-        {
-            var movePos = new Vector2(MabelPath.x, m_rigidBody2D.position.y);
-            while (m_rigidBody2D.position != movePos)
-            {
-                if (m_rigidBody2D.position == movePos)
-                {
-                    break;
-                }
-                else
-                {
-                    m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.transform.position, movePos, moveSpeed * Time.fixedDeltaTime);
-                }
-                await Task.Yield();
-            }
-        }
-        private async Task MoveYStraight(Vector2 MabelPath)
-        {
-            var movePos = new Vector2(m_rigidBody2D.position.x, MabelPath.y);
-            while(m_rigidBody2D.position != movePos) 
-            {
-                if (m_rigidBody2D.position == movePos)
-                {
-                    break;
-                }
-                else
-                {
-                    m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.transform.position, movePos, moveSpeed * Time.fixedDeltaTime);
-                }
-                await Task.Yield();
-            }
-        }
-        private async Task MoveYAxis(Vector2 minusStraightDistance, Vector2 MabelPath)
-        {
-            var absX = Mathf.Abs(minusStraightDistance.x);
-            var absY = Mathf.Abs(minusStraightDistance.y);
-            var guardPos = ConvertIntoInteger(m_rigidBody2D.position);
-            var found = mapTilePoints [guardPos];
-            if (absY <= 2 || absX <= 2)
-            {
-                if (minusStraightDistance.y < 0)
-                {
-                    if (found.Down)
-                    {
-                        Vector2 yPos = new Vector2(m_rigidBody2D.position.x, minusStraightDistance.y);
-                        while (m_rigidBody2D.position != yPos)
-                        {
-                            if (m_rigidBody2D.position == yPos)
-                            {
-                                if (minusStraightDistance.x != 0)
-                                {
-                                   // await MoveXPos(minusStraightDistance);
-                                }
-                                break;
-
-                            }
-                            else
-                            {
-                                m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.transform.position, yPos, moveSpeed * Time.fixedDeltaTime);
-                            }
-                            await Task.Yield();
-                        }
-                    }
-                }
-                else if (minusStraightDistance.y > 0)
-                {
-                    if (found.Upper)
-                    {
-                        Vector2 yPos = new Vector2(m_rigidBody2D.position.x, minusStraightDistance.y);
-                        while (m_rigidBody2D.position != yPos)
-                        {
-                            if (m_rigidBody2D.position == yPos)
-                            {
-                                if (minusStraightDistance.x != 0)
-                                {
-                                   // await MoveXPos(minusStraightDistance);
-                                }
-                                break;
-                            }
-                            else
-                            {
-                                m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.transform.position, yPos, moveSpeed * Time.fixedDeltaTime);
-                            }
-                            await Task.Yield();
-                        }
-                    }
-                }
-            }
-        }
-        private async Task  PursueMabel()
-        {
-
-            await Task.Yield();
         }
         private Dictionary<Vector2,TilePoints>mapTilePoints = new Dictionary<Vector2,TilePoints>(); 
         public void SentMapData(Dictionary<Vector2,TilePoints> mapTile)
@@ -499,6 +577,9 @@ namespace DuRound
             m_foundMabel = false;
             shouldDestroy = true;
             pathTrailAfterMabel.Clear();
+            lastPositionAfterTrack.Clear();
+            m_moveToMabel = false;
+            m_checkForDistance = false;
             //pursueMabel = false;
         }
         public async void GuardMoveForwards()
@@ -635,6 +716,32 @@ namespace DuRound
         {
             m_hasThomas = false;
         }
+        private async Task<Task> MoveToLastPatrolPosition()
+        {
+           for (int p = lastPositionAfterTrack.Count-1; p > 0 ; p--)
+           {
+                Debug.Log(lastPositionAfterTrack [p]);
+               // if (isMoving)
+               // {
+               //     var newPosition = lastPositionAfterTrack [p];
+               //     if (m_rigidBody2D.position != newPosition)
+               //     {
+               //         m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.position,
+               //             newPosition, moveSpeed * Time.fixedDeltaTime);
+               //     }
+               //     else
+               //     {
+               //         continue;
+               //     }
+               //     if (p == 0)
+               //     {
+               //         return Task.CompletedTask;
+               //     }
+               // }
+                await Task.Yield();
+            }
+            return Task.CompletedTask;
+        }
         protected async void OnTriggerEnter2D(Collider2D collision)
         {
             
@@ -664,25 +771,43 @@ namespace DuRound
                 if (m_Mabel.hasThomas)
                 {
                     m_Mabel.disableMovement = true;
-                    moveSpeed = 0.8f;
+                  //  moveSpeed = 0.8f;
                     m_Mabel.RemoveThomas();
                     this.m_hasThomas = true;
+                    if (m_checkForDistance)
+                    {
+                        m_checkForDistance = false;
+                    }
+                    if (m_moveToMabel)
+                    {
+                        m_moveToMabel = false;
+                        var isComplete = await MoveToLastPatrolPosition();
+                        if (isComplete.IsCompleted)
+                        {
+                            //TODO
+                            moveIncrement--;
+                            shouldMoveBackward = true;
+                            // GuardMoveBackwards();
+                            //GuardMoveExit();
+                            return;
+                        }
+                    }
                     moveIncrement--;
                     shouldMoveBackward = true;
                    // GuardMoveBackwards();
                     GuardMoveExit();
+                    return;
                 }
                 else
                 {
-                    if (m_Mabel.disableMovement)
-                        return;
-                    m_Mabel.disableMovement = true;
+                    if (beingCaught) return;
+                    if (!beingCaught)
+                        beingCaught = true;
                     GuardController.instance.GuardAction(false);
                     _miniCanvas.alpha = 1;
                     var fadeIn = await Fade.instance.StartFade(true);
                     if (fadeIn.IsCompleted)
                     {
-
                         var text = _miniCanvas.transform.GetChild(1).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
                         text.enabled = true;
 
@@ -698,7 +823,7 @@ namespace DuRound
                             text.enabled = false;
                             GuardController.instance.ResetAllGuard();
                             GuardController.instance.SetMovementSpeedAllGuard();
-
+                            beingCaught = false;
                         }
                         else
                         {
@@ -751,7 +876,7 @@ namespace DuRound
                 
             }
         }
-    
+        private bool beingCaught { get; set; } = false;
         public new void ResetPosition()
         {
             shouldDestroy = true; shouldMoveBackward = false; isCollide = false;
