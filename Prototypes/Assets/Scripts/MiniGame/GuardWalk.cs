@@ -49,7 +49,7 @@ namespace DuRound.MiniGame
                 cgMiniP.blocksRaycasts = false;
                 ResetPosition();
                 m_playerWalk.ResetPosition();
-
+           
                 m_Mabel.disableMovement = false;
                 GuardController.instance.SetMovementSpeedAllGuard();
                 GuardController.instance.AddThomas();

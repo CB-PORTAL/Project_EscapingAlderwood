@@ -9,7 +9,7 @@ namespace DuRound
     {
         private void Start()
         {
-            
+            Invoke("DestroySelf", 5f);
         }
         private void Update()
         {
@@ -21,8 +21,14 @@ namespace DuRound
             if (collision.collider.CompareTag("Guard"))
             {
                 collision.collider.GetComponent<Guard>().StopMoving();
+                collision.gameObject.SetActive(false);
+                gameObject.SetActive(false);
                 GetComponent<PickUp>().enabled = true;
             }
+        }
+        private void DestroySelf()
+        {
+            gameObject.SetActive(false);
         }
     }
 }

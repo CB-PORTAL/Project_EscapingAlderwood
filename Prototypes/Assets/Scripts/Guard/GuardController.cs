@@ -28,6 +28,7 @@ namespace DuRound
         {
             await GuardOut();
             await Task.Delay(3000);
+            //TODO UNDO
             SetMovementSpeedAllGuard();
             return Task.CompletedTask;
         }
@@ -67,10 +68,12 @@ namespace DuRound
                 guardList [g].RemoveThomas();
                 guardList [g].isMoving = false;
                 guardList [g].ResetPosition();
+                guardList [g].gameObject.SetActive(true);
                 
             }
             await GuardOut();
         }
+
         public void SetMovementSpeedAllGuard()
         {
             for (int g = 0; g < guardList.Count; g++)

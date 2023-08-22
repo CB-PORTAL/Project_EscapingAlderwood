@@ -19,7 +19,7 @@ namespace DuRound
         private Mabel _Mabel;
         private Thomas _Thomas;
         [SerializeField]
-        private float adjustCold, adjustWarm, adjustHot;
+        private float adjustCold, adjustWarm, adjustHot,normal;
         private void Awake()
         {
             if(instance == null )
@@ -34,7 +34,10 @@ namespace DuRound
         }
         private void Update()
         {
-            IndicatorUpdate();
+            if (m_Indicator.enabled)
+            {
+                IndicatorUpdate();
+            }
         }
         public  void UpdateHealthMabel()
         {
@@ -60,11 +63,15 @@ namespace DuRound
         private void IndicatorUpdate()
         {
             var distanceWithThomas = Vector2.Distance(_Mabel.transform.position, _Thomas.transform.position);
-            if (distanceWithThomas >= adjustCold)
+            if (distanceWithThomas >= normal)
+            {
+                m_Indicator.color = new Color(1, 1, 1);
+            }
+            else if (distanceWithThomas >= adjustCold && distanceWithThomas < normal)
             {
                 m_Indicator.color = new Color(0, 0.2f, 1);
             }
-            else if (distanceWithThomas <= adjustWarm  && distanceWithThomas > adjustHot)
+            else if (distanceWithThomas <= adjustWarm && distanceWithThomas > adjustHot)
             {
 
                 var distanceWarmColor = distanceWithThomas - adjustWarm;
@@ -80,7 +87,8 @@ namespace DuRound
                 m_Indicator.color = new Color(newColor, 0.2f, 0);
             }
         }
-        public void UpdateThomas(bool condition) { m_Thomas.gameObject.SetActive(condition);}
+        public void UpdateThomas(bool condition) { m_Thomas.gameObject.SetActive(condition);m_Indicator.enabled = condition; if (!condition) UpdateIndicator(); }
         public void UpdateDagger(bool condition) { m_Dagger.gameObject.SetActive(condition); }
+        public void UpdateIndicator() { m_Indicator.enabled = false; }
     }
 }

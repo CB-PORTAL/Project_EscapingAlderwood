@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Android;
+using UnityEngine.UIElements;
 
 namespace DuRound
 {
@@ -47,6 +48,10 @@ namespace DuRound
             pathTrailAfterMabel.Clear();
             lastPositionAfterTrack.Clear();
             return Task.CompletedTask;
+        }
+        public void ResetMoveIncrement()
+        {
+            moveIncrement = 0;
         }
         //private void CheckHasThomas(bool condition)
         //{
@@ -97,7 +102,6 @@ namespace DuRound
             }
             // else if(m_currentPosition == m_lastPosition)
             // {
-            //     //TODO but the guard is always move no stop
             //     m_animator.SetBool("isMove", false);
             //     m_animator.SetFloat("MoveX", 0);
             //     m_animator.SetFloat("IdleY", 1);
@@ -116,6 +120,7 @@ namespace DuRound
         private int lastIncrement { get; set; } = 0;
         private bool m_checkForDistance { get; set; } = true;
         private bool m_moveToMabel { get; set; } = true;
+        private bool trailMoving { get; set; } = false;
         private async Task CheckForDistance()
         {
             while (m_checkForDistance)
@@ -129,17 +134,20 @@ namespace DuRound
                     //  if (!m_foundMabel)
                     // {
                     //m_foundMabel = true;
-                    shouldDestroy = true;
+
                     //var found = mapTilePoints [guardPos];
                     if (!m_foundMabel)
                     {
                         m_foundMabel = true;
+                        trailMoving = true;
                         var isComplete = CheckMinusXPosition();
-                        if (isComplete.IsCompleted)
+                        if (isComplete.Result == true)
                         {
+                            isMoving = false;
+                            shouldDestroy = true;
                             //Debug.Log(firstMove);
                             //Debug.Log(secondMove);
-                            m_foundMabel = false;
+                            //m_foundMabel = false;
                             if (firstMove != Vector2.zero && secondMove != Vector2.zero)
                             {
                                 var tempBeforeFirst = ConvertIntoInteger(m_rigidBody2D.position);
@@ -147,7 +155,7 @@ namespace DuRound
                                 Vector2 movePosition = firstMove;
                                 while (m_moveToMabel)
                                 {
-                                    if (isMoving)
+                                    if (trailMoving)
                                     {
                                         //adding Mabel trail to guard memory
                                         var currentMabelPath = m_Mabel.currentPath;
@@ -197,6 +205,13 @@ namespace DuRound
                                 }
                             }
                         }
+                       else if(isComplete.Result == false)
+                        {
+                            firstMove = Vector2.zero;
+                            secondMove = Vector2.zero;
+                            isMoving = true;
+                            m_foundMabel = false;
+                        }
                     }
 
                     // await MovePos();
@@ -221,7 +236,7 @@ namespace DuRound
         }
 
         private Vector2 firstMove, secondMove;
-        private Task CheckMinusXPosition()
+        private Task<bool> CheckMinusXPosition()
         {
             //TODO FIX ALL
             var guardPos = ConvertIntoInteger(m_rigidBody2D.position);
@@ -237,7 +252,7 @@ namespace DuRound
             //}
             if (distanceBetween.x == 0 && distanceBetween.y == 0)
             {
-                return Task.CompletedTask;
+                return Task.FromResult(false);
             }
             //var checkPosition = m_rigidBody2D.position.x + distanceBetween.x;
             //Debug.Log(distanceBetween.x + " distance X");
@@ -251,9 +266,9 @@ namespace DuRound
                 //  Debug.Log("move L");
                 if (guardPos.x > mPos.x)
                 {
-                    var currentPosition = ConvertIntoInteger(m_rigidBody2D.position);
+                   // var currentPosition = ConvertIntoInteger(m_rigidBody2D.position);
                     var move = mapTilePoints [guardPos];
-                    if (move.Left)
+                   if (move.Left)
                     {
                         var tempLeft = guardPos.x + distanceBetween.x;
                         var newPosition = new Vector2(tempLeft, guardPos.y);
@@ -267,12 +282,11 @@ namespace DuRound
                                 var tempDown = guardPos.y + distanceBetween.y;
                                 var newPosition1 = new Vector2(newPosition.x, tempDown);
                                 secondMove = newPosition1;
-                                return Task.CompletedTask;
+                                return Task.FromResult(true);
                             }
                             else
                             {
-                                Debug.Log("cannot move");
-                                return Task.CompletedTask;
+                                return Task.FromResult(false);
                             }
                         }
                         else if (guardPos.y > mPos.y)
@@ -283,13 +297,16 @@ namespace DuRound
                                 var tempUp = guardPos.y + distanceBetween.y;
                                 var newPosition1 = new Vector2(newPosition.x, tempUp);
                                 secondMove = newPosition1;
-                                return Task.CompletedTask;
+                                return Task.FromResult(true);
                             }
                             else
                             {
-                                Debug.Log("cannot move");
-                                return Task.CompletedTask;
+                                return Task.FromResult(false);
                             }
+                        }
+                        else
+                        {
+                            return Task.FromResult(false);
                         }
                     }
                     else if (move.Upper)
@@ -306,13 +323,16 @@ namespace DuRound
                                 var tempLeft = guardPos.x + distanceBetween.x;
                                 var newPosition1 = new Vector2(tempLeft, newPosition.y);
                                 secondMove = newPosition1;
-                                return Task.CompletedTask;
+                                return Task.FromResult(true);
                             }
                             else
                             {
-                                Debug.Log("cannot move");
-                                return Task.CompletedTask;
+                                return Task.FromResult(false);
                             }
+                        }
+                        else
+                        {
+                            return Task.FromResult(false);
                         }
                     }
                     else if (move.Down)
@@ -329,14 +349,21 @@ namespace DuRound
                                 var tempLeft = guardPos.x + distanceBetween.x;
                                 var newPosition1 = new Vector2(tempLeft, newPosition.y);
                                 secondMove = newPosition1;
-                                return Task.CompletedTask;
+                                return Task.FromResult(true);
                             }
                             else
                             {
-                                Debug.Log("cannot move");
-                                return Task.CompletedTask;
+                                return Task.FromResult(false);
                             }
                         }
+                        else
+                        {
+                            return Task.FromResult(false);
+                        }
+                    }
+                    else
+                    {
+                        return Task.FromResult(false);
                     }
                 }
                 else if (guardPos.x < mPos.x)
@@ -358,12 +385,11 @@ namespace DuRound
                                 var tempUpper = guardPos.y + distanceBetween.y;
                                 var newPosition1 = new Vector2(newPosition.x, tempUpper);
                                 secondMove = newPosition1;
-                                return Task.CompletedTask;
+                                return Task.FromResult(true);
                             }
                             else
                             {
-                                Debug.Log("cannot move");
-                                return Task.CompletedTask;
+                                return Task.FromResult(false);
                             }
                         }
                         else if (guardPos.y > mPos.y)
@@ -374,13 +400,16 @@ namespace DuRound
                                 var tempDown = guardPos.y + distanceBetween.y;
                                 var newPosition1 = new Vector2(newPosition.x, tempDown);
                                 secondMove = newPosition1;
-                                return Task.CompletedTask;
+                                return Task.FromResult(true);
                             }
                             else
                             {
-                                Debug.Log("cannot move");
-                                return Task.CompletedTask;
+                                return Task.FromResult(false);
                             }
+                        }
+                        else
+                        {
+                            return Task.FromResult(false);
                         }
                     }
                     else if (move.Upper)
@@ -397,13 +426,16 @@ namespace DuRound
                                 var tempRight = guardPos.x + distanceBetween.x;
                                 var newPosition1 = new Vector2(tempRight, newPosition.y);
                                 secondMove = newPosition1;
-                                return Task.CompletedTask;
+                                return Task.FromResult(true);
                             }
                             else
                             {
-                                Debug.Log("cannot move");
-                                return Task.CompletedTask;
+                                return Task.FromResult(false);
                             }
+                        }
+                        else
+                        {
+                            return Task.FromResult(false);
                         }
                     }
                     else if (move.Down)
@@ -420,19 +452,28 @@ namespace DuRound
                                 var tempRight = guardPos.x + distanceBetween.x;
                                 var newPosition1 = new Vector2(tempRight, newPosition.y);
                                 secondMove = newPosition1;
-                                return Task.CompletedTask;
+                                return Task.FromResult(true);
                             }
                             else
                             {
-                                Debug.Log("cannot move");
-                                return Task.CompletedTask;
+                                return Task.FromResult(false);
                             }
                         }
+                        else
+                        {
+                            return Task.FromResult(false);
+                        }
+                    }
+                    else
+                    {
+                        return Task.FromResult(false);
                     }
                 }
-                return Task.CompletedTask;
             }
-            else if (distanceBetween.x == guardLineSight || distanceBetween.y == guardLineSight || distanceBetween.x == -guardLineSight || distanceBetween.y == -guardLineSight)
+            else if (distanceBetween.x == guardLineSight && distanceBetween.y == 0
+                || distanceBetween.y == guardLineSight && distanceBetween.x == 0
+                || distanceBetween.x == -guardLineSight && distanceBetween.y == 0
+                || distanceBetween.y == -guardLineSight && distanceBetween.x == 0)
             {
                 // Debug.Log("move straight");
                 if (guardPos.x < mPos.x)
@@ -440,36 +481,54 @@ namespace DuRound
                     var move = mapTilePoints [guardPos];
                     if (move.Right)
                     {
-                        var calculatePos = guardPos.x + distanceBetween.x;
+                        var calculatePos = guardPos.x + distanceBetween.x -1;
                         var newPosition = new Vector2(calculatePos, guardPos.y);
                         var move1 = mapTilePoints [newPosition];
                         firstMove = newPosition;
                         if (move1.Right)
                         {
-                            var calculatePos1 = guardPos.x + distanceBetween.x;
+                            var calculatePos1 = newPosition.x + distanceBetween.x -1;
                             var newPosition1 = new Vector2(calculatePos1, newPosition.y);
                             secondMove = newPosition1;
-                            return Task.CompletedTask;
+                            return Task.FromResult(true);
                         }
+                        else
+                        {
+                            return Task.FromResult(false);
+                        }
+
+                    }
+                    else
+                    {
+                        return Task.FromResult(false);
                     }
 
                 }
                 else if (guardPos.x > mPos.x)
                 {
                     var move = mapTilePoints [guardPos];
-                    if (move.Left)
+                   if (move.Left)
                     {
-                        var calculatePos = guardPos.x + distanceBetween.x;
+                        var calculatePos = guardPos.x + distanceBetween.x+1;
                         var newPosition = new Vector2(calculatePos, guardPos.y);
                         var move1 = mapTilePoints [newPosition];
                         firstMove = newPosition;
                         if (move1.Left)
                         {
-                            var calculatePos1 = guardPos.x + distanceBetween.x;
+                            var calculatePos1 = newPosition.x + distanceBetween.x+1;
                             var newPosition1 = new Vector2(calculatePos1, newPosition.y);
                             secondMove = newPosition1;
-                            return Task.CompletedTask;
+                            return Task.FromResult(true);
+
                         }
+                        else
+                        {
+                            return Task.FromResult(false);
+                        }
+                    }
+                    else
+                    {
+                        return Task.FromResult(false);
                     }
                 }
                 else if (guardPos.y > mPos.y)
@@ -477,40 +536,59 @@ namespace DuRound
                     var move = mapTilePoints [guardPos];
                     if (move.Down)
                     {
-                        var calculatePos = guardPos.y + distanceBetween.y;
+                        var calculatePos = guardPos.y + distanceBetween.y +1;
                         var newPosition = new Vector2(guardPos.x, calculatePos);
                         var move1 = mapTilePoints [newPosition];
                         firstMove = newPosition;
                         if (move1.Down)
                         {
-                            var calculatePos1 = guardPos.y + distanceBetween.y;
+                            var calculatePos1 = newPosition.y + distanceBetween.y +1;
                             var newPosition1 = new Vector2(newPosition.x, calculatePos1);
                             secondMove = newPosition1;
-                            return Task.CompletedTask;
+                            return Task.FromResult(true);
                         }
+                        else
+                        {
+                            return Task.FromResult(false);
+                        }
+                    }
+                    else
+                    {
+                        return Task.FromResult(false);
                     }
                 }
                 else if (guardPos.y < mPos.y)
-                {
+               {
                     var move = mapTilePoints [guardPos];
                     if (move.Upper)
                     {
-                        var calculatePos = guardPos.y + distanceBetween.y;
+                        var calculatePos = guardPos.y + distanceBetween.y -1;
                         var newPosition = new Vector2(guardPos.x, calculatePos);
                         var move1 = mapTilePoints [newPosition];
                         firstMove = newPosition;
                         if (move1.Upper)
                         {
-                            var calculatePos1 = guardPos.y + distanceBetween.y;
+                            var calculatePos1 = newPosition.y + distanceBetween.y -1;
                             var newPosition1 = new Vector2(newPosition.x, calculatePos1);
                             secondMove = newPosition1;
-                            return Task.CompletedTask;
+                            return Task.FromResult(true);
+                        }
+                        else
+                        {
+                            return Task.FromResult(false);
                         }
                     }
+                    else
+                    {
+                        return Task.FromResult(false);
+                    }
                 }
-                return Task.CompletedTask;
+                else
+                {
+                    return Task.FromResult(false);
+                }
             }
-            return Task.CompletedTask;
+            return Task.FromResult(false);
         }
         private Dictionary<Vector2,TilePoints>mapTilePoints = new Dictionary<Vector2,TilePoints>(); 
         public void SentMapData(Dictionary<Vector2,TilePoints> mapTile)
@@ -744,74 +822,75 @@ namespace DuRound
         }
         protected async void OnTriggerEnter2D(Collider2D collision)
         {
-            
             if (collision.CompareTag("Mabel"))
             { 
                 isCollide = true;
                 var m_Mabel = collision.gameObject.GetComponent<Mabel>();
-                if (this.hasThomas)
-                {
-                    if (m_Mabel.disableMovement)
-                        return;
-                    GuardController.instance.GuardAction(false);
-                    this.m_hasThomas = false;
-                    m_Mabel.disableMovement = true;
-
-                    _miniCanvas.alpha = 1;
-                    _miniCanvas.interactable = true;
-                    _miniCanvas.blocksRaycasts = true;
-                    var cgPanel = _miniCanvas.transform.GetChild(0).GetComponent<CanvasGroup>();
-                    cgPanel.alpha = 1;
-                    cgPanel.blocksRaycasts = true;
-                    cgPanel.interactable = true;
-                    _miniCanvas.transform.GetChild(0).GetChild(0).GetComponent<GuardWalk>().StartMove();
-                    GuardController.instance.CurrentGuardHasThomas(this);
-                    return;
-                }
+                //TODO guard has Thomas
+                //if (this.hasThomas)
+                //{
+                //    if (m_Mabel.disableMovement)
+                //        return;
+                //    GuardController.instance.GuardAction(false);
+                //    this.m_hasThomas = false;
+                //    m_Mabel.disableMovement = true;
+                //
+                //    _miniCanvas.alpha = 1;
+                //    _miniCanvas.interactable = true;
+                //    _miniCanvas.blocksRaycasts = true;
+                //    var cgPanel = _miniCanvas.transform.GetChild(0).GetComponent<CanvasGroup>();
+                //    cgPanel.alpha = 1;
+                //    cgPanel.blocksRaycasts = true;
+                //    cgPanel.interactable = true;
+                //    _miniCanvas.transform.GetChild(0).GetChild(0).GetComponent<GuardWalk>().StartMove();
+                //    GuardController.instance.CurrentGuardHasThomas(this);
+                //    return;
+                //}
                 if (m_Mabel.hasThomas)
                 {
                     m_Mabel.disableMovement = true;
                   //  moveSpeed = 0.8f;
                     m_Mabel.RemoveThomas();
                     this.m_hasThomas = true;
-                    if (m_checkForDistance)
-                    {
-                        m_checkForDistance = false;
-                    }
-                    if (m_moveToMabel)
-                    {
-                        m_moveToMabel = false;
-                        var isComplete = await MoveToLastPatrolPosition();
-                        if (isComplete.IsCompleted)
-                        {
-                            //TODO
-                            moveIncrement--;
-                            shouldMoveBackward = true;
-                            // GuardMoveBackwards();
-                            //GuardMoveExit();
-                            return;
-                        }
-                    }
-                    moveIncrement--;
-                    shouldMoveBackward = true;
+                    //TODO remove guard going back exit
+                   // if (m_checkForDistance)
+                   // {
+                   //     m_checkForDistance = false;
+                   // }
+                   // if (m_moveToMabel)
+                    //{
+                    //    m_moveToMabel = false;
+                    //    var isComplete = await MoveToLastPatrolPosition();
+                    //    if (isComplete.IsCompleted)
+                    //    {
+                    //        //TODO
+                    //        moveIncrement--;
+                    //        shouldMoveBackward = true;
+                    //        // GuardMoveBackwards();
+                    //        //GuardMoveExit();
+                    //        return;
+                    //    }
+                    //}
+                   // moveIncrement--;
+                   // shouldMoveBackward = true;
                    // GuardMoveBackwards();
-                    GuardMoveExit();
+                   // GuardMoveExit();
                     return;
                 }
                 else
                 {
+                    var beingCaught = m_Mabel.beingCaught;
                     if (beingCaught) return;
                     if (!beingCaught)
-                        beingCaught = true;
+                        m_Mabel.beingCaught  = true;
                     GuardController.instance.GuardAction(false);
                     _miniCanvas.alpha = 1;
+                    trailMoving = false;
                     var fadeIn = await Fade.instance.StartFade(true);
                     if (fadeIn.IsCompleted)
                     {
                         var text = _miniCanvas.transform.GetChild(1).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
                         text.enabled = true;
-
-
                         if (UpdateMabelUI.instance._health != UpdateMabelUI.instance.maxHealth)
                         {
                             text.text = "The Guard Caught Mabel";
@@ -823,12 +902,11 @@ namespace DuRound
                             text.enabled = false;
                             GuardController.instance.ResetAllGuard();
                             GuardController.instance.SetMovementSpeedAllGuard();
-                            beingCaught = false;
                         }
                         else
                         {
-                            
-                            text.text = "Mabel to Old to continue this escape.";
+                            Fade.instance.transform.GetChild(1).gameObject.SetActive(true);
+                            text.text = "Mabel lost to escape";
                         }
 
                     }
@@ -846,11 +924,11 @@ namespace DuRound
                     var fadeIn = await Fade.instance.StartFade(true);
                     if (fadeIn.IsCompleted)
                     {
-
+                
                         var text = _miniCanvas.transform.GetChild(1).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
                         text.enabled = true;
-
-
+                
+                
                         if (UpdateMabelUI.instance._health != UpdateMabelUI.instance.maxHealth)
                         {
                             text.text = "The Guard Has Exit and Lost Thomas";
@@ -863,20 +941,19 @@ namespace DuRound
                                 text.enabled = false;
                             GuardController.instance.ResetAllGuard();
                             GuardController.instance.SetMovementSpeedAllGuard();
-
+                
                         }
                         else
                         {
                             text.text = "Mabel to Old to continue this escape.";
                         }
-
+                
                     }
-
+                
                 }
                 
             }
         }
-        private bool beingCaught { get; set; } = false;
         public new void ResetPosition()
         {
             shouldDestroy = true; shouldMoveBackward = false; isCollide = false;

@@ -76,6 +76,7 @@ namespace DuRound
             onGame = false;
             PickThomas -= UpdateMabelUI.instance.UpdateThomas;
             PickDagger -= UpdateMabelUI.instance.UpdateDagger;
+            
         }
         private void UpdateMabelAnimationAndMovement()
         {
@@ -202,6 +203,7 @@ namespace DuRound
         public GameObject dagger;
         private void ThrowDagger()
         {
+            UpdateMabelUI.instance.UpdateDagger(false);
             if (statUp)
             {
                 var m_dagger = Instantiate(dagger, transform.position, Quaternion.Euler(0, 0, 0));
@@ -258,6 +260,7 @@ namespace DuRound
            await Fade.instance.StartFade(false);
            
         }
+        public bool beingCaught { get; set; } = false;
         public void  ResetPosition()
         {
             disableMovement = false;
@@ -267,6 +270,7 @@ namespace DuRound
             m_animator.SetFloat("MoveY", 0);
             m_animator.SetFloat("IdleX", 0);
             m_animator.SetFloat("IdleY", -1);
+            beingCaught = false;
 
         }
         private async void OnCollisionEnter2D(Collision2D collision)
