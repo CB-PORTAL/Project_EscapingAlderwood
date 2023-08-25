@@ -891,9 +891,10 @@ namespace DuRound
                     {
                         var text = _miniCanvas.transform.GetChild(1).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
                         text.enabled = true;
-                        if (UpdateMabelUI.instance._health != UpdateMabelUI.instance.maxHealth)
+                        if (UpdateMabelUI.instance._health >=0)
                         {
                             text.text = "The Guard Caught Mabel";
+                            m_Mabel.m_hitPoints -= 1;
                             UpdateMabelUI.instance.UpdateHealthMabel();
                             GameManager.Instance.EnableThomas();
                             await Fade.instance.StartFade(false);
@@ -912,47 +913,47 @@ namespace DuRound
                     }
                 }
             }
-            else if (collision.CompareTag("Exit"))
-            {
-                if (this.hasThomas)
-                {
-                    m_Mabel.disableMovement = true;
-                    shouldDestroy = true; shouldMoveBackward = false;
-                    m_hasThomas = false;
-                    GuardController.instance.GuardAction(false);
-                    _miniCanvas.alpha = 1;
-                    var fadeIn = await Fade.instance.StartFade(true);
-                    if (fadeIn.IsCompleted)
-                    {
-                
-                        var text = _miniCanvas.transform.GetChild(1).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-                        text.enabled = true;
-                
-                
-                        if (UpdateMabelUI.instance._health != UpdateMabelUI.instance.maxHealth)
-                        {
-                            text.text = "The Guard Has Exit and Lost Thomas";
-                            UpdateMabelUI.instance.UpdateHealthMabel();
-                            GameManager.Instance.EnableThomas();
-                            await Fade.instance.StartFade(false);
-                            m_Mabel.ResetPosition();
-                            _miniCanvas.alpha = 0;
-                            if (text != null)
-                                text.enabled = false;
-                            GuardController.instance.ResetAllGuard();
-                            GuardController.instance.SetMovementSpeedAllGuard();
-                
-                        }
-                        else
-                        {
-                            text.text = "Mabel to Old to continue this escape.";
-                        }
-                
-                    }
-                
-                }
-                
-            }
+           // else if (collision.CompareTag("Exit"))
+           // {
+           //     if (this.hasThomas)
+           //     {
+           //         m_Mabel.disableMovement = true;
+           //         shouldDestroy = true; shouldMoveBackward = false;
+           //         m_hasThomas = false;
+           //         GuardController.instance.GuardAction(false);
+           //         _miniCanvas.alpha = 1;
+           //         var fadeIn = await Fade.instance.StartFade(true);
+           //         if (fadeIn.IsCompleted)
+           //         {
+           //     
+           //             var text = _miniCanvas.transform.GetChild(1).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+           //             text.enabled = true;
+           //     
+           //     
+           //             if (UpdateMabelUI.instance._health >= 0)
+           //             {
+           //                 text.text = "The Guard Has Exit and Lost Thomas";
+           //                 UpdateMabelUI.instance.UpdateHealthMabel();
+           //                 GameManager.Instance.EnableThomas();
+           //                 await Fade.instance.StartFade(false);
+           //                 m_Mabel.ResetPosition();
+           //                 _miniCanvas.alpha = 0;
+           //                 if (text != null)
+           //                     text.enabled = false;
+           //                 GuardController.instance.ResetAllGuard();
+           //                 GuardController.instance.SetMovementSpeedAllGuard();
+           //     
+           //             }
+           //             else
+           //             {
+           //                 text.text = "Mabel to Old to continue this escape.";
+           //             }
+           //     
+           //         }
+           //     
+           //     }
+           //     
+           // }
         }
         public new void ResetPosition()
         {
@@ -960,12 +961,119 @@ namespace DuRound
             m_rigidBody2D.position = (Vector2)movePoints [0].position;
             moveIncrement = 0;
         }
-
+        private bool isAccursed { get; set; } = false;
         public async void StopMoving()
         {
+            m_hitPoints--;
             isMoving = false;
-            await Task.Delay(5000);
+            await Task.Delay(2000);
+            if (m_hitPoints == 0)
+            {
+                if (!isAccursed)
+                {
+                    isAccursed = true;
+                    if (trailMoving)
+                        trailMoving = false;
+                    shouldDestroy = true;
+                    m_spriteRenderer.color = new Color(1, 1, 1, 0);
+                    gameObject.SetActive(false);
+                    var isDone = EmergeFromWall();
+                    if (isDone.Result == true)
+                    {
+                        if (!trailMoving)
+                            trailMoving = true;
+
+                        return;
+                    }
+                }
+            }
             isMoving = true;
+        }
+        public Task<bool> EmergeFromWall()
+        {
+            var GoPos = m_Mabel.currentPath;
+            var CheckWall = mapTilePoints [GoPos];
+            if (CheckWall.Upper == false)
+            {
+                var spawnPos = new Vector2(GoPos.x, GoPos.y + .5f);
+                m_rigidBody2D.MovePosition(spawnPos);
+                gameObject.SetActive(true);
+                var increment = 0f;
+                while (m_rigidBody2D.position != GoPos)
+                {
+                    increment += 0.2f * Time.fixedDeltaTime;
+                    m_spriteRenderer.color = new Color(1, 1, 1, increment);
+                    m_rigidBody2D.position = new Vector2(m_rigidBody2D.position.x, m_rigidBody2D.position.y - moveSpeed * Time.fixedDeltaTime);
+                    Task.Yield();
+                    if (m_rigidBody2D.position == GoPos)
+                    {
+                        m_spriteRenderer.color = new Color(1, 1, 1, 1);
+                        m_hitPoints = 1;
+                        return Task.FromResult(true);
+                    }
+                }
+            }
+            else if (CheckWall.Down == false)
+            {
+                var spawnPos = new Vector2(GoPos.x, GoPos.y - .5f);
+                m_rigidBody2D.MovePosition(spawnPos);
+                gameObject.SetActive(true);
+                var increment = 0f;
+                while (m_rigidBody2D.position != GoPos)
+                {
+                    increment += 0.2f * Time.fixedDeltaTime;
+                    m_spriteRenderer.color = new Color(1, 1, 1, increment);
+                    m_rigidBody2D.position = new Vector2(m_rigidBody2D.position.x, m_rigidBody2D.position.y + moveSpeed * Time.fixedDeltaTime);
+                    Task.Yield();
+                    if (m_rigidBody2D.position == GoPos)
+                    {
+                        m_spriteRenderer.color = new Color(1, 1, 1, 1);
+                        m_hitPoints = 1;
+                        return Task.FromResult(true);
+                    }
+                }
+            }
+            else if (CheckWall.Right == false)
+            {
+                var spawnPos = new Vector2(GoPos.x + .5f, GoPos.y);
+                m_rigidBody2D.MovePosition(spawnPos);
+                gameObject.SetActive(true);
+                var increment = 0f;
+                while (m_rigidBody2D.position != GoPos)
+                {
+                    increment += 0.2f * Time.fixedDeltaTime;
+                    m_spriteRenderer.color = new Color(1, 1, 1, increment);
+                    m_rigidBody2D.position = new Vector2(m_rigidBody2D.position.x - moveSpeed * Time.fixedDeltaTime, m_rigidBody2D.position.y);
+                    Task.Yield();
+                    if (m_rigidBody2D.position == GoPos)
+                    {
+                        m_spriteRenderer.color = new Color(1, 1, 1, 1);
+                        m_hitPoints = 1;
+                        return Task.FromResult(true);
+                    }
+                }
+            }
+            else if (CheckWall.Left == false)
+            {
+                var spawnPos = new Vector2(GoPos.x - .5f, GoPos.y);
+                m_rigidBody2D.MovePosition(spawnPos);
+                gameObject.SetActive(true);
+                var increment = 0f;
+                while (m_rigidBody2D.position != GoPos)
+                {
+                    increment += 0.2f * Time.fixedDeltaTime;
+                    m_spriteRenderer.color = new Color(1, 1, 1, increment);
+                    m_rigidBody2D.position = new Vector2(m_rigidBody2D.position.x + moveSpeed * Time.fixedDeltaTime, m_rigidBody2D.position.y);
+                    Task.Yield();
+                    if (m_rigidBody2D.position == GoPos)
+                    {
+                        m_spriteRenderer.color = new Color(1, 1, 1, 1);
+                        m_hitPoints = 1;
+                        return Task.FromResult(true);
+                    }
+                }
+            }
+            return Task.FromResult(false);
         }
     }
 }

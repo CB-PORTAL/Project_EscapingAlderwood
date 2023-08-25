@@ -8,13 +8,18 @@ namespace DuRound
 {
     public class UpdateMabelUI : MonoBehaviour
     {
-        private Image m_Mabel, m_Thomas, m_Dagger,m_Indicator;
+        private Image m_Thomas, m_Dagger,m_Indicator;
+        private GameObject hitPoint0, hitPoint1, hitPoint2;
         public Image Dagger { get { return m_Dagger; } }
-        private int health { get; set; } = 0;
-        public int maxHealth = 3;
-        public int _health { get { return health; } }
+
+        private int GetHit()
+        {
+            return _Mabel.m_hitPoints;
+        }
+
+        public int _health { get { return GetHit(); } }
         public static UpdateMabelUI instance;
-        public Sprite m_youngMabel, m_midMabel, m_oldMabel;
+       // public Sprite m_youngMabel, m_midMabel, m_oldMabel;
 
         private Mabel _Mabel;
         private Thomas _Thomas;
@@ -26,11 +31,13 @@ namespace DuRound
                 instance = this;
             _Mabel = GameObject.FindWithTag("Mabel").GetComponent<Mabel>();
             _Thomas = GameObject.FindWithTag("Thomas").GetComponent<Thomas>();
-            m_Mabel = transform.GetChild(0).transform.GetChild(0).GetComponent<Image>();
+            var parentMabelHit = transform.GetChild(0).GetChild(0);
+            hitPoint0 = parentMabelHit.GetChild(0).gameObject;
+            hitPoint1 = parentMabelHit.GetChild(0).gameObject;
+            hitPoint2 = parentMabelHit.GetChild(0).gameObject;
             m_Thomas = transform.GetChild(0).transform.GetChild(1).GetComponent<Image>();
             m_Dagger = transform.GetChild(0).transform.GetChild(2).GetComponent<Image>();
             m_Indicator = transform.GetChild(0).transform.GetChild(3).GetComponent<Image>();
-            health = 1; 
         }
         private void Update()
         {
@@ -41,21 +48,18 @@ namespace DuRound
         }
         public  void UpdateHealthMabel()
         {
-            if (health < maxHealth) 
+            if (GetHit() >= 0) 
             {
-                switch(health) 
+                switch(GetHit()) 
                 {
                     case 0:
-                        m_Mabel.sprite = m_youngMabel;
-                        health = 1;
+                        hitPoint0.gameObject.SetActive(false);
                         break;
                     case 1:
-                        m_Mabel.sprite = m_midMabel;
-                        health = 2;
+                        hitPoint1.gameObject.SetActive(false);
                         break;
                     case 2:
-                        m_Mabel.sprite = m_oldMabel;
-                        health = 3;
+                        hitPoint2.gameObject.SetActive(false);
                         break;
                 }
             }

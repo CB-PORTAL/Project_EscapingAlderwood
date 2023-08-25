@@ -17,6 +17,7 @@ namespace DuRound
         {
 
         }
+        private bool tempIsPickWeapon { get; set; } = false;
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.collider.CompareTag("Mabel"))
@@ -28,6 +29,14 @@ namespace DuRound
                 }
                 else if (tag == "Dagger")
                 {
+                    if (!tempIsPickWeapon)
+                    {
+                        if (GameManager.Instance.isBegin)
+                        {
+                            tempIsPickWeapon = true;
+                            Instruction.instance.SetPickWeapon();
+                        }
+                    }
                     gameObject.SetActive(false);
                     collision.collider.GetComponent<Mabel>().AddDagger();
                 }
