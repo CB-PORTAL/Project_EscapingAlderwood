@@ -9,4 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/TheDungeon.unity
     guid: 38e91641345c1e549a0ec08b91f37554
   m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: e1589532b9bceaa49b37c747b9b7cb76, type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: b65e1ff7d44abc64b9cf39e9a6a03144, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: c8b25d528fb848e4a835297fb7779e12, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 3add5c29f1611b140b50e2d5ceb43cca, type: 2}
