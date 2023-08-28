@@ -223,6 +223,7 @@ UnityEngine.Application::get_isFocused
 UnityEngine.Application::get_isPlaying
 UnityEngine.Application::get_runInBackground
 UnityEngine.Application::get_platform
+UnityEngine.AsyncOperation::InternalDestroy
 UnityEngine.Audio.AudioClipPlayable::InternalCreateAudioClipPlayable
 UnityEngine.Audio.AudioClipPlayable::SetPauseDelayInternal
 UnityEngine.Audio.AudioClipPlayable::SetSpatialBlendInternal
@@ -268,6 +269,7 @@ UnityEngine.Camera::ResetAspect
 UnityEngine.Camera::ResetWorldToCameraMatrix
 UnityEngine.Camera::ScreenPointToRay_Injected
 UnityEngine.Camera::ScreenToViewportPoint_Injected
+UnityEngine.Camera::ScreenToWorldPoint_Injected
 UnityEngine.Camera::WorldToScreenPoint_Injected
 UnityEngine.Camera::get_lensShift_Injected
 UnityEngine.Camera::get_pixelRect_Injected
@@ -448,6 +450,7 @@ UnityEngine.GameObject::GetComponentInChildren
 UnityEngine.GameObject::GetComponentInParent
 UnityEngine.GameObject::Internal_AddComponentWithType
 UnityEngine.GameObject::FindGameObjectWithTag
+UnityEngine.GameObject::FindGameObjectsWithTag
 UnityEngine.GameObject::get_transform
 UnityEngine.Gizmos::DrawLine_Injected
 UnityEngine.Gizmos::set_color_Injected
@@ -769,6 +772,9 @@ UnityEngine.PlayerConnectionInternal::PollInternal
 UnityEngine.PlayerConnectionInternal::RegisterInternal
 UnityEngine.PlayerConnectionInternal::SendMessage
 UnityEngine.PlayerConnectionInternal::UnregisterInternal
+UnityEngine.PlayerPrefs::TrySetInt
+UnityEngine.PlayerPrefs::GetInt
+UnityEngine.PlayerPrefs::DeleteAll
 UnityEngine.PolygonCollider2D::GetTotalPointCount
 UnityEngine.PolygonCollider2D::get_pathCount
 UnityEngine.PolygonCollider2D::GetPath_Internal
@@ -862,6 +868,11 @@ UnityEngine.Rigidbody2D::MovePosition_Injected
 UnityEngine.Rigidbody2D::get_position_Injected
 UnityEngine.Rigidbody2D::get_velocity_Injected
 UnityEngine.Rigidbody2D::set_position_Injected
+UnityEngine.SceneManagement.Scene::GetBuildIndexInternal
+UnityEngine.SceneManagement.SceneManager::get_sceneCount
+UnityEngine.SceneManagement.SceneManager::GetActiveScene_Injected
+UnityEngine.SceneManagement.SceneManager::GetSceneAt_Injected
+UnityEngine.SceneManagement.SceneManagerAPIInternal::LoadSceneAsyncNameIndexInternal_Injected
 UnityEngine.Screen::get_fullScreen
 UnityEngine.Screen::get_height
 UnityEngine.Screen::get_width
@@ -892,6 +903,8 @@ UnityEngine.Sprite::get_associatedAlphaSplitTexture
 UnityEngine.Sprite::get_texture
 UnityEngine.Sprite::get_uv
 UnityEngine.Sprite::get_vertices
+UnityEngine.SpriteRenderer::set_color_Injected
+UnityEngine.SpriteRenderer::get_sprite
 UnityEngine.SubsystemDescriptorBindings::GetId
 UnityEngine.SubsystemManager::StaticConstructScriptingClassMap
 UnityEngine.SubsystemsImplementation.SubsystemDescriptorStore::ReportSingleSubsystemAnalytics
@@ -964,8 +977,10 @@ UnityEngine.Time::get_fixedUnscaledTime
 UnityEngine.Time::get_maximumDeltaTime
 UnityEngine.Time::get_realtimeSinceStartup
 UnityEngine.Time::get_time
+UnityEngine.Time::get_timeScale
 UnityEngine.Time::get_unscaledDeltaTime
 UnityEngine.Time::get_unscaledTime
+UnityEngine.Time::set_timeScale
 UnityEngine.TouchScreenKeyboard::IsInPlaceEditingAllowed
 UnityEngine.TouchScreenKeyboard::get_active
 UnityEngine.TouchScreenKeyboard::get_canGetSelection

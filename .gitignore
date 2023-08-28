@@ -90,3 +90,6 @@ DerivedDataCache/*
 Prototypes/Library/
 Prototypes/Logs
 Prototypes/Temp
+Prototypes/Library/Bee/backend_profiler0.traceevents
+Prototypes/Library/Bee/TundraBuildState.state
+Prototypes/Logs/shadercompiler-UnityShaderCompiler.exe0.log
