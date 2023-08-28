@@ -36,7 +36,7 @@ namespace DuRound
             hitPoint1 = parentMabelHit.GetChild(1).gameObject;
             hitPoint2 = parentMabelHit.GetChild(2).gameObject;
             m_Thomas = transform.GetChild(0).transform.GetChild(1).GetComponent<Image>();
-            m_Dagger = transform.GetChild(0).transform.GetChild(2).GetComponent<Image>();
+            m_Dagger = transform.Find("Weapon").GetComponentInChildren<Image>();
             m_Indicator = transform.GetChild(0).transform.GetChild(3).GetComponent<Image>();
         }
         private void Update()

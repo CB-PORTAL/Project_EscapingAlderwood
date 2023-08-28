@@ -183,10 +183,10 @@ TextureImporter:
       name: MabelRight0
       rect:
         serializedVersion: 2
-        x: 277
+        x: 267
         y: 1805
-        width: 330
-        height: 886
+        width: 552
+        height: 940
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,8 +206,8 @@ TextureImporter:
         serializedVersion: 2
         x: 1403
         y: 1805
-        width: 378
-        height: 886
+        width: 552
+        height: 940
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,8 +227,8 @@ TextureImporter:
         serializedVersion: 2
         x: 2449
         y: 1793
-        width: 386
-        height: 910
+        width: 552
+        height: 940
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,8 +248,8 @@ TextureImporter:
         serializedVersion: 2
         x: 173
         y: 551
-        width: 550
-        height: 888
+        width: 552
+        height: 940
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -270,7 +270,7 @@ TextureImporter:
         x: 1267
         y: 555
         width: 552
-        height: 880
+        height: 940
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -291,7 +291,7 @@ TextureImporter:
         x: 2225
         y: 551
         width: 552
-        height: 888
+        height: 940
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

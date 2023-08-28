@@ -17,7 +17,7 @@ namespace DuRound
         protected Animator m_animator { get; set; }
         protected Rigidbody2D m_rigidBody2D { get; set; }
         protected bool isCollide { get; set; } = false;
-        public  int  m_hitPoints { get; set; } = 3;
+        public int m_hitPoints { get; set; } = 3;
         public bool hasThomas { get { return m_hasThomas; } }
         public bool disableMovement { get; set; } = false;
         protected bool m_hasThomas { get; set; } = false;
@@ -43,12 +43,12 @@ namespace DuRound
         private GameObject [] guardList { get; set; }
         protected virtual void Awake()
         {
-           // _miniCanvas = GameObject.FindWithTag("MiniGame").GetComponent<CanvasGroup>();
+            // _miniCanvas = GameObject.FindWithTag("MiniGame").GetComponent<CanvasGroup>();
             m_animator = GetComponent<Animator>();
             m_rigidBody2D = GetComponent<Rigidbody2D>(); startPosition = this.transform.position;
-            m_spriteRenderer = GetComponent<SpriteRenderer>();m_boxCollider2D = GetComponent<BoxCollider2D>();
+            m_spriteRenderer = GetComponent<SpriteRenderer>(); m_boxCollider2D = GetComponent<BoxCollider2D>();
             m_hitPoints = 3;
-            
+
         }
         // Start is called before the first frame update
         protected virtual void Start()
@@ -67,15 +67,15 @@ namespace DuRound
             m_currentPath = position;
             MabelStartMove();
             guardList = GameObject.FindGameObjectsWithTag("Guard");
-            Touch.onFingerDown += SwipeIn;
-            Touch.onFingerUp += SwipeOut;
+            //Touch.onFingerDown += SwipeIn;
+            //Touch.onFingerUp += SwipeOut;
             moveSpeed = walkSpeed;
             if (GameManager.Instance.isBegin)
             {
                 tempDetectGuard = false;
             }
         }
-        private void SwipeIn(Finger action) 
+        private void SwipeIn(Finger action)
         {
             var s = action.screen.position.value;
             var c = Camera.main.ScreenToWorldPoint(s);
@@ -84,16 +84,16 @@ namespace DuRound
             {
                 tempSwipe = true;
             }
-            
+
         }
-        private void SwipeOut(Finger action) 
+        private void SwipeOut(Finger action)
         {
             var s = action.screen.delta.value;
-           // Debug.LogWarning(tempSwipe + "swipe" + s);
+            // Debug.LogWarning(tempSwipe + "swipe" + s);
             if (tempSwipe)
             {
                 tempSwipe = false;
-                if (s.x > 0 &&  s.x > 50)
+                if (s.x > 0 && s.x > 50)
                 {
                     //if (WeaponArsenal.instance.currentWeapon == WeaponArsenal.CurrentWeapon.Range)
                     //{
@@ -160,7 +160,7 @@ namespace DuRound
                     //}
                 }
             }
-            
+
         }
         private bool tempSwipe = false;
         protected Vector2 ConvertIntoInteger(Vector2 currentPos)
@@ -254,7 +254,7 @@ namespace DuRound
                     foreach (var g in guardList)
                     {
                         var distance = Vector2.Distance(this.transform.position, g.transform.position);
-                        if (distance >= 3)
+                        if (distance <= 3)
                         {
                             tempDetectGuard = true;
                             Instruction.instance.SetAvoidingGuardText();
@@ -270,12 +270,12 @@ namespace DuRound
             MabelDetectGuard();
             var touch = Touch.activeFingers;
             //UpdateWeapon(touch);
-           ActivateSpeed(touch);
+            ActivateSpeed(touch);
 
         }
         private async Task IncreaseSpeed()
         {
-            
+
             await Task.Delay(70000);
             while (moveSpeed >= walkSpeed)
             {
@@ -301,7 +301,7 @@ namespace DuRound
             //{
             //    moveSpeed = runSpeed;
             //}
-            
+
             //foreach (var t in touch)
             //{
             //    var position = t.screenPosition;
@@ -326,7 +326,7 @@ namespace DuRound
             //    lastPosition = tPosition;
             //}
         }
-        protected virtual  void FixedUpdate()
+        protected virtual void FixedUpdate()
         {
         }
         private void OnDestroy()
@@ -334,8 +334,8 @@ namespace DuRound
             onGame = false;
             PickThomas -= UpdateMabelUI.instance.UpdateThomas;
             PickDagger -= UpdateMabelUI.instance.UpdateDagger;
-            Touch.onFingerDown -= SwipeIn;
-            Touch.onFingerUp -= SwipeOut;
+            //Touch.onFingerDown -= SwipeIn;
+            //Touch.onFingerUp -= SwipeOut;
 
         }
         private bool tempTouch = false;
@@ -353,7 +353,7 @@ namespace DuRound
                     //}
                     if (t.phase == UnityEngine.InputSystem.TouchPhase.Moved)
                     {
-                       m_movement = t.delta;
+                        m_movement = t.delta;
                         tempTouch = true;
                     }
                     if (t.phase == UnityEngine.InputSystem.TouchPhase.Ended)
@@ -370,73 +370,77 @@ namespace DuRound
             {
                 if (disableMovement) return;
                 UpdateMabelAnimationAndMovement();
-                if (tempTouch)
+                // if (tempTouch)
+                // {
+                if (m_movement.x > 0 && m_movement.y < m_movement.x)
                 {
-                    if (m_movement.x > 0 && m_movement.y < m_movement.x)
-                  {
-                      //statRight = true;
-                      //statLeft = false;
-                      //statUp = false;
-                      //statDown = false;
-                      m_animator.SetBool("isMove", true);
-                      m_animator.SetFloat("IdleX", 1);
-                      m_animator.SetFloat("IdleY", 0);
-                      m_animator.SetFloat("MoveX", 1);
-                      m_animator.SetFloat("MoveY", 0);
-                      var newPosition = m_rigidBody2D.position.x + moveSpeed * Time.fixedDeltaTime;
-                      var movement = new Vector2(newPosition, m_rigidBody2D.transform.position.y);
-                      m_rigidBody2D.MovePosition(movement);
-                  }
-                    else if (m_movement.x < 0 && m_movement.y > m_movement.x)
-                    {
-                        //statLeft = true;
-                        //statRight = false;
-                        //statUp = false;
-                        //statDown = false;
-                        m_animator.SetBool("isMove", true);
-                        m_animator.SetFloat("IdleX", -1);
-                        m_animator.SetFloat("IdleY", 0);
-                        m_animator.SetFloat("MoveX", -1);
-                        m_animator.SetFloat("MoveY", 0);
-                        var currentPosition = m_rigidBody2D.position.x + -moveSpeed * Time.fixedDeltaTime;
-                        var movement = new Vector2(currentPosition, m_rigidBody2D.position.y);
-                        m_rigidBody2D.MovePosition(movement);
-                    }
-                    else if (m_movement.y > 0 && m_movement.x < m_movement.y)
-                    {
-                        //statUp = true;
-                        //statDown = false;
-                        //statRight = false;
-                        //statLeft = false;
-                        m_animator.SetBool("isMove", true);
-                        m_animator.SetFloat("IdleX", 0);
-                        m_animator.SetFloat("IdleY", 1);
-                        m_animator.SetFloat("MoveY", 1);
-                        m_animator.SetFloat("MoveX", 0);
-                        var currentPosition = m_rigidBody2D.position.y + moveSpeed * Time.fixedDeltaTime;
-                        var movement = new Vector2(m_rigidBody2D.position.x, currentPosition);
-                        m_rigidBody2D.MovePosition(movement);
-                    }
-                    else if (m_movement.y < 0 && m_movement.x > m_movement.y)
-                    {
-                        //statDown = true;
-                        //statUp = false;
-                        //statLeft = false;
-                        //statRight = false;
-                        m_animator.SetBool("isMove", true);
-                        m_animator.SetFloat("IdleX", 0);
-                        m_animator.SetFloat("IdleY", -1);
-                        m_animator.SetFloat("MoveY", -1);
-                        m_animator.SetFloat("MoveX", 0);
-                        var currentPosition = m_rigidBody2D.position.y + -moveSpeed * Time.fixedDeltaTime;
-                        var movement = new Vector2(m_rigidBody2D.position.x, currentPosition);
-                        m_rigidBody2D.MovePosition(movement);
-                    }
+                    statRight = true;
+                    statLeft = false;
+                    statUp = false;
+                    statDown = false;
+                    m_animator.SetBool("isMove", true);
+                    m_animator.SetFloat("IdleX", 1);
+                    m_animator.SetFloat("IdleY", 0);
+                    m_animator.SetFloat("MoveX", 1);
+                    m_animator.SetFloat("MoveY", 0);
+                    var newPosition = m_rigidBody2D.position.x + moveSpeed * Time.fixedDeltaTime;
+                    var movement = new Vector2(newPosition, m_rigidBody2D.transform.position.y);
+                    m_rigidBody2D.MovePosition(movement);
                 }
+                else if (m_movement.x < 0 && m_movement.y > m_movement.x)
+                {
+                    statLeft = true;
+                    statRight = false;
+                    statUp = false;
+                    statDown = false;
+                    m_animator.SetBool("isMove", true);
+                    m_animator.SetFloat("IdleX", -1);
+                    m_animator.SetFloat("IdleY", 0);
+                    m_animator.SetFloat("MoveX", -1);
+                    m_animator.SetFloat("MoveY", 0);
+                    var currentPosition = m_rigidBody2D.position.x + -moveSpeed * Time.fixedDeltaTime;
+                    var movement = new Vector2(currentPosition, m_rigidBody2D.position.y);
+                    m_rigidBody2D.MovePosition(movement);
+                }
+                else if (m_movement.y > 0 && m_movement.x < m_movement.y)
+                {
+                    statUp = true;
+                    statDown = false;
+                    statRight = false;
+                    statLeft = false;
+                    m_animator.SetBool("isMove", true);
+                    m_animator.SetFloat("IdleX", 0);
+                    m_animator.SetFloat("IdleY", 1);
+                    m_animator.SetFloat("MoveY", 1);
+                    m_animator.SetFloat("MoveX", 0);
+                    var currentPosition = m_rigidBody2D.position.y + moveSpeed * Time.fixedDeltaTime;
+                    var movement = new Vector2(m_rigidBody2D.position.x, currentPosition);
+                    m_rigidBody2D.MovePosition(movement);
+                }
+                else if (m_movement.y < 0 && m_movement.x > m_movement.y)
+                {
+                    statDown = true;
+                    statUp = false;
+                    statLeft = false;
+                    statRight = false;
+                    m_animator.SetBool("isMove", true);
+                    m_animator.SetFloat("IdleX", 0);
+                    m_animator.SetFloat("IdleY", -1);
+                    m_animator.SetFloat("MoveY", -1);
+                    m_animator.SetFloat("MoveX", 0);
+                    var currentPosition = m_rigidBody2D.position.y + -moveSpeed * Time.fixedDeltaTime;
+                    var movement = new Vector2(m_rigidBody2D.position.x, currentPosition);
+                    m_rigidBody2D.MovePosition(movement);
+                }
+                else
+                {
+                    m_animator.SetBool("isMove", false);
+                }
+             //   }
                 m_currentPath = ConvertIntoInteger(m_rigidBody2D.position);
                 await Task.Yield();
             }
-           
+
         }
         public void MabelMovement(InputAction.CallbackContext context)
         {
@@ -480,6 +484,33 @@ namespace DuRound
             if (UpdateMabelUI.instance.Dagger.gameObject.activeInHierarchy)
             {
                 ThrowDagger();
+            }
+        }
+        public void MeleeAttack(BaseEventData data)
+        {
+            if (statRight)
+            {
+                m_animator.SetTrigger("isAttack");
+                m_animator.SetFloat("MeleeX", 1);
+                m_animator.SetFloat("MeleeY", 0);
+            }
+            else if (statLeft)
+            {
+                m_animator.SetTrigger("isAttack");
+                m_animator.SetFloat("MeleeX", -1);
+                m_animator.SetFloat("MeleeY", 0);
+            }
+            else if (statUp)
+            {
+                m_animator.SetTrigger("isAttack");
+                m_animator.SetFloat("MeleeY", 1);
+                m_animator.SetFloat("MeleeX", 0);
+            }
+            else if (statDown)
+            {
+                m_animator.SetTrigger("isAttack");
+                m_animator.SetFloat("MeleeY", -1);
+                m_animator.SetFloat("MeleeX", 0);
             }
         }
         public GameObject dagger;
@@ -538,12 +569,12 @@ namespace DuRound
         public async virtual void StartFade()
         {
 
-           await Fade.instance.StartFade(true);
-           await Fade.instance.StartFade(false);
-           
+            await Fade.instance.StartFade(true);
+            await Fade.instance.StartFade(false);
+
         }
         public bool beingCaught { get; set; } = false;
-        public void  ResetPosition()
+        public void ResetPosition()
         {
             disableMovement = false;
             m_rigidBody2D.position = startPosition;

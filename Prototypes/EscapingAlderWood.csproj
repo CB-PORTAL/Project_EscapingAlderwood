@@ -59,20 +59,21 @@
     <Compile Include="Assets\Scripts\Item\PickUp.cs" />
     <Compile Include="Assets\Scripts\Mabel\Mabel.cs" />
     <Compile Include="Assets\Scripts\Level\GameManager.cs" />
+    <Compile Include="Assets\Scripts\UI\Slot.cs" />
     <Compile Include="Assets\Scripts\MiniGame\GuardWalk.cs" />
     <Compile Include="Assets\Scripts\Guard\GuardController.cs" />
+    <Compile Include="Assets\Scripts\Mabel\MeleeAttack.cs" />
     <Compile Include="Assets\Scripts\Level\PrisonGate.cs" />
     <Compile Include="Assets\Scripts\MiniGame\PlayerWalk.cs" />
+    <Compile Include="Assets\Scripts\UI\Instruction.cs" />
     <Compile Include="Assets\Scripts\Level\Fade.cs" />
     <Compile Include="Assets\Scripts\Guard\PathPoint.cs" />
     <Compile Include="Assets\Scripts\UI\GamePaused.cs" />
     <Compile Include="Assets\Scripts\UI\UpdateMabelUI.cs" />
     <Compile Include="Assets\Scripts\Item\Damage.cs" />
+    <Compile Include="Assets\Scripts\UI\WeaponArsenal.cs" />
     <Compile Include="Assets\Scripts\Thomas\Thomas.cs" />
     <Compile Include="Assets\Scripts\Guard\Guard.cs" />
-    <Compile Include="Assets\Scripts\UI\WeaponArsenal.cs" />
-    <Compile Include="Assets\Scripts\UI\Slot.cs" />
-    <Compile Include="Assets\Scripts\UI\Instruction.cs" />
     <Compile Include="Assets\Scripts\Data\GameData.cs" />
   </ItemGroup>
   <ItemGroup>
