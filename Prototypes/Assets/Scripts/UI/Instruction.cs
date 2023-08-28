@@ -20,6 +20,7 @@ namespace DuRound
                 instance = this;
             }
             m_Text = GetComponentInChildren<TextMeshProUGUI>();
+            m_Canvas = GetComponent<CanvasGroup>();
         }
         // Start is called before the first frame update
         void Start()

@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     }
     private void CheckBeginner()
     {
+        PlayerPrefs.DeleteAll();
         var checkBegin = PlayerPrefs.GetInt(GameData.BEGIN_GAME);
         if (checkBegin == 0)
         {

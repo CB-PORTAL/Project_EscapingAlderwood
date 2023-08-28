@@ -11,7 +11,7 @@ namespace DuRound
 
         private void Awake()
         {
-            _canvasGroup = transform.GetChild(2).GetComponent<CanvasGroup>();
+            _canvasGroup = transform.Find("GamePause").GetComponent<CanvasGroup>();
         }
         // Start is called before the first frame update
         void Start()

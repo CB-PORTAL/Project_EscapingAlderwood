@@ -33,8 +33,8 @@ namespace DuRound
             _Thomas = GameObject.FindWithTag("Thomas").GetComponent<Thomas>();
             var parentMabelHit = transform.GetChild(0).GetChild(0);
             hitPoint0 = parentMabelHit.GetChild(0).gameObject;
-            hitPoint1 = parentMabelHit.GetChild(0).gameObject;
-            hitPoint2 = parentMabelHit.GetChild(0).gameObject;
+            hitPoint1 = parentMabelHit.GetChild(1).gameObject;
+            hitPoint2 = parentMabelHit.GetChild(2).gameObject;
             m_Thomas = transform.GetChild(0).transform.GetChild(1).GetComponent<Image>();
             m_Dagger = transform.GetChild(0).transform.GetChild(2).GetComponent<Image>();
             m_Indicator = transform.GetChild(0).transform.GetChild(3).GetComponent<Image>();
@@ -67,6 +67,7 @@ namespace DuRound
         private void IndicatorUpdate()
         {
             var distanceWithThomas = Vector2.Distance(_Mabel.transform.position, _Thomas.transform.position);
+            //Debug.Log(distanceWithThomas);
             if (distanceWithThomas >= normal)
             {
                 m_Indicator.color = new Color(1, 1, 1);
@@ -92,7 +93,7 @@ namespace DuRound
             }
         }
         public void UpdateThomas(bool condition) { m_Thomas.gameObject.SetActive(condition);m_Indicator.enabled = condition; if (!condition) UpdateIndicator(); }
-        public void UpdateDagger(bool condition) { m_Dagger.gameObject.SetActive(condition); }
+        public void UpdateDagger(bool condition) { m_Dagger.gameObject.SetActive(condition); _Mabel.SetMabelHasDagger(true); }
         public void UpdateIndicator() { m_Indicator.enabled = false; }
     }
 }

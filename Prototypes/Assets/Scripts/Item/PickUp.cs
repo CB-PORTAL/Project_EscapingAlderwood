@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace DuRound
 {
@@ -9,7 +10,10 @@ namespace DuRound
         // Start is called before the first frame update
         void Start()
         {
-
+            if (GameManager.Instance.isBegin)
+            {
+                tempIsPickWeapon = false;
+            }
         }
 
         // Update is called once per frame
@@ -29,6 +33,7 @@ namespace DuRound
                 }
                 else if (tag == "Dagger")
                 {
+                    var sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
                     if (!tempIsPickWeapon)
                     {
                         if (GameManager.Instance.isBegin)
@@ -38,7 +43,8 @@ namespace DuRound
                         }
                     }
                     gameObject.SetActive(false);
-                    collision.collider.GetComponent<Mabel>().AddDagger();
+                    WeaponArsenal.instance.InsetSlot1(sprite);
+                    //collision.collider.GetComponent<Mabel>().AddDagger();
                 }
             }
         }

@@ -31,8 +31,6 @@ namespace DuRound
             {
                 movePoints [p] = parentMovePoint.GetChild(p);
             }
-
-
             m_Mabel = GameObject.FindWithTag("Mabel").GetComponent<Mabel>();
 
             await CheckForDistance();
@@ -40,6 +38,7 @@ namespace DuRound
         // Start is called before the first frame update
         public Task Initialize()
         {
+            m_hitPoints = 3;
             isCollide = false;
             moveIncrement = 0;
             isMoving = true;
@@ -822,6 +821,7 @@ namespace DuRound
         }
         protected async void OnTriggerEnter2D(Collider2D collision)
         {
+            Debug.Log(collision.name);
             if (collision.CompareTag("Mabel"))
             { 
                 isCollide = true;
@@ -884,12 +884,12 @@ namespace DuRound
                     if (!beingCaught)
                         m_Mabel.beingCaught  = true;
                     GuardController.instance.GuardAction(false);
-                    _miniCanvas.alpha = 1;
-                    trailMoving = false;
+                   // _miniCanvas.alpha = 1;
+                    trailMoving = false;isMoving = false;
                     var fadeIn = await Fade.instance.StartFade(true);
                     if (fadeIn.IsCompleted)
                     {
-                        var text = _miniCanvas.transform.GetChild(1).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+                        var text = Fade.instance.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
                         text.enabled = true;
                         if (UpdateMabelUI.instance._health >=0)
                         {
@@ -899,7 +899,7 @@ namespace DuRound
                             GameManager.Instance.EnableThomas();
                             await Fade.instance.StartFade(false);
                             m_Mabel.ResetPosition();
-                            _miniCanvas.alpha = 0;
+                           // _miniCanvas.alpha = 0;
                             text.enabled = false;
                             GuardController.instance.ResetAllGuard();
                             GuardController.instance.SetMovementSpeedAllGuard();
@@ -966,8 +966,9 @@ namespace DuRound
         {
             m_hitPoints--;
             isMoving = false;
+            trailMoving = false;
             await Task.Delay(2000);
-            if (m_hitPoints == 0)
+            if (m_hitPoints <= 0)
             {
                 if (!isAccursed)
                 {
@@ -977,103 +978,116 @@ namespace DuRound
                     shouldDestroy = true;
                     m_spriteRenderer.color = new Color(1, 1, 1, 0);
                     gameObject.SetActive(false);
-                    var isDone = EmergeFromWall();
-                    if (isDone.Result == true)
+                    var isDone = await EmergeFromWall();
+                    if (isDone == true)
                     {
                         if (!trailMoving)
                             trailMoving = true;
-
                         return;
                     }
                 }
+                else
+                {
+                    isMoving = false;
+                    trailMoving = false;
+                    gameObject.SetActive(false);
+                }
             }
             isMoving = true;
+            trailMoving = true;
         }
-        public Task<bool> EmergeFromWall()
+        public async Task<bool> EmergeFromWall()
         {
             var GoPos = m_Mabel.currentPath;
             var CheckWall = mapTilePoints [GoPos];
             if (CheckWall.Upper == false)
             {
                 var spawnPos = new Vector2(GoPos.x, GoPos.y + .5f);
-                m_rigidBody2D.MovePosition(spawnPos);
+                m_rigidBody2D.position = spawnPos;
                 gameObject.SetActive(true);
                 var increment = 0f;
-                while (m_rigidBody2D.position != GoPos)
+                while (m_rigidBody2D.position.y >= GoPos.y)
                 {
                     increment += 0.2f * Time.fixedDeltaTime;
                     m_spriteRenderer.color = new Color(1, 1, 1, increment);
-                    m_rigidBody2D.position = new Vector2(m_rigidBody2D.position.x, m_rigidBody2D.position.y - moveSpeed * Time.fixedDeltaTime);
-                    Task.Yield();
-                    if (m_rigidBody2D.position == GoPos)
+                    m_rigidBody2D.position = new Vector2(m_rigidBody2D.position.x, m_rigidBody2D.position.y - .5f * Time.fixedDeltaTime);
+                   await  Task.Yield();
+                    if (m_rigidBody2D.position.y <= GoPos.y)
                     {
                         m_spriteRenderer.color = new Color(1, 1, 1, 1);
                         m_hitPoints = 1;
-                        return Task.FromResult(true);
+                        m_rigidBody2D.position = GoPos;
+                        return await Task.FromResult(true);
                     }
                 }
             }
             else if (CheckWall.Down == false)
             {
                 var spawnPos = new Vector2(GoPos.x, GoPos.y - .5f);
-                m_rigidBody2D.MovePosition(spawnPos);
+                m_rigidBody2D.position = spawnPos;
                 gameObject.SetActive(true);
                 var increment = 0f;
-                while (m_rigidBody2D.position != GoPos)
+                while (m_rigidBody2D.position.y <= GoPos.y)
                 {
                     increment += 0.2f * Time.fixedDeltaTime;
                     m_spriteRenderer.color = new Color(1, 1, 1, increment);
-                    m_rigidBody2D.position = new Vector2(m_rigidBody2D.position.x, m_rigidBody2D.position.y + moveSpeed * Time.fixedDeltaTime);
-                    Task.Yield();
-                    if (m_rigidBody2D.position == GoPos)
+                    m_rigidBody2D.position = new Vector2(m_rigidBody2D.position.x, m_rigidBody2D.position.y + .5f * Time.fixedDeltaTime);
+                    await Task.Yield();
+                    if (m_rigidBody2D.position.y >= GoPos.y)
                     {
                         m_spriteRenderer.color = new Color(1, 1, 1, 1);
                         m_hitPoints = 1;
-                        return Task.FromResult(true);
+                        return await Task.FromResult(true);
                     }
                 }
             }
             else if (CheckWall.Right == false)
             {
                 var spawnPos = new Vector2(GoPos.x + .5f, GoPos.y);
-                m_rigidBody2D.MovePosition(spawnPos);
+
                 gameObject.SetActive(true);
+                m_rigidBody2D.position = spawnPos;
                 var increment = 0f;
-                while (m_rigidBody2D.position != GoPos)
+                while (m_rigidBody2D.position.x >= GoPos.x)
                 {
                     increment += 0.2f * Time.fixedDeltaTime;
                     m_spriteRenderer.color = new Color(1, 1, 1, increment);
-                    m_rigidBody2D.position = new Vector2(m_rigidBody2D.position.x - moveSpeed * Time.fixedDeltaTime, m_rigidBody2D.position.y);
-                    Task.Yield();
-                    if (m_rigidBody2D.position == GoPos)
+                    //m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.position, GoPos, -1f * Time.fixedDeltaTime);
+                     m_rigidBody2D.position = new Vector2(m_rigidBody2D.position.x - .5f * Time.fixedDeltaTime, m_rigidBody2D.position.y);
+
+                    if (m_rigidBody2D.position.x <= GoPos.x)
                     {
                         m_spriteRenderer.color = new Color(1, 1, 1, 1);
                         m_hitPoints = 1;
-                        return Task.FromResult(true);
+                        m_rigidBody2D.position = GoPos;
+                        return await Task.FromResult(true);
                     }
+                    await Task.Yield();
                 }
             }
             else if (CheckWall.Left == false)
             {
                 var spawnPos = new Vector2(GoPos.x - .5f, GoPos.y);
-                m_rigidBody2D.MovePosition(spawnPos);
+                m_rigidBody2D.position = spawnPos;
                 gameObject.SetActive(true);
                 var increment = 0f;
-                while (m_rigidBody2D.position != GoPos)
+                while (m_rigidBody2D.position.x <= GoPos.x)
                 {
                     increment += 0.2f * Time.fixedDeltaTime;
                     m_spriteRenderer.color = new Color(1, 1, 1, increment);
-                    m_rigidBody2D.position = new Vector2(m_rigidBody2D.position.x + moveSpeed * Time.fixedDeltaTime, m_rigidBody2D.position.y);
-                    Task.Yield();
-                    if (m_rigidBody2D.position == GoPos)
+                    m_rigidBody2D.position = new Vector2(m_rigidBody2D.position.x + .5f * Time.fixedDeltaTime, m_rigidBody2D.position.y);
+
+                    if (m_rigidBody2D.position.x >= GoPos.x)
                     {
                         m_spriteRenderer.color = new Color(1, 1, 1, 1);
                         m_hitPoints = 1;
-                        return Task.FromResult(true);
+                        m_rigidBody2D.position = GoPos;
+                        return await Task.FromResult(true);
                     }
+                    await Task.Yield();
                 }
             }
-            return Task.FromResult(false);
+            return await Task.FromResult(false);
         }
     }
 }
