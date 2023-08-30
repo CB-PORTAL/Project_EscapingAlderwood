@@ -336,18 +336,22 @@ struct Mabel_tEB25A5BA355347BD351BD4DF0DB1C214BE78D6F2  : public MonoBehaviour_t
 	BoxCollider2D_tF860C7737FFB062CEC06577E0CD8364EEC1D4EDA* ___U3Cm_boxCollider2DU3Ek__BackingField_26;
 	// System.Boolean DuRound.Mabel::<m_hasDagger>k__BackingField
 	bool ___U3Cm_hasDaggerU3Ek__BackingField_27;
+	// UnityEngine.CanvasGroup DuRound.Mabel::<instructionArrow>k__BackingField
+	CanvasGroup_t048C1461B14628CFAEBE6E7353093ADB04EBC094* ___U3CinstructionArrowU3Ek__BackingField_28;
 	// UnityEngine.GameObject[] DuRound.Mabel::<guardList>k__BackingField
-	GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF* ___U3CguardListU3Ek__BackingField_28;
+	GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF* ___U3CguardListU3Ek__BackingField_29;
 	// System.Boolean DuRound.Mabel::tempSwipe
-	bool ___tempSwipe_29;
+	bool ___tempSwipe_30;
 	// System.Boolean DuRound.Mabel::<tempDetectGuard>k__BackingField
-	bool ___U3CtempDetectGuardU3Ek__BackingField_30;
+	bool ___U3CtempDetectGuardU3Ek__BackingField_31;
 	// System.Boolean DuRound.Mabel::tempTouch
-	bool ___tempTouch_31;
+	bool ___tempTouch_32;
+	// System.Int32 DuRound.Mabel::<isAnalog>k__BackingField
+	int32_t ___U3CisAnalogU3Ek__BackingField_33;
 	// UnityEngine.GameObject DuRound.Mabel::dagger
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___dagger_32;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___dagger_34;
 	// System.Boolean DuRound.Mabel::<beingCaught>k__BackingField
-	bool ___U3CbeingCaughtU3Ek__BackingField_33;
+	bool ___U3CbeingCaughtU3Ek__BackingField_35;
 };
 
 // DuRound.PathPoint
@@ -377,51 +381,57 @@ struct PathPoint_tB31D916E786790D882550CC2ADA2E44DE9A38809  : public MonoBehavio
 struct Guard_t89D49EFEBFA443F3FC4B83A00409FBDAAFEE5145  : public Mabel_tEB25A5BA355347BD351BD4DF0DB1C214BE78D6F2
 {
 	// UnityEngine.Transform[] DuRound.Guard::movePoints
-	TransformU5BU5D_tBB9C5F5686CAE82E3D97D43DF0F3D68ABF75EC24* ___movePoints_34;
+	TransformU5BU5D_tBB9C5F5686CAE82E3D97D43DF0F3D68ABF75EC24* ___movePoints_36;
 	// UnityEngine.Transform DuRound.Guard::parentMovePoint
-	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___parentMovePoint_35;
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___parentMovePoint_37;
 	// System.Int32 DuRound.Guard::<moveIncrement>k__BackingField
-	int32_t ___U3CmoveIncrementU3Ek__BackingField_36;
+	int32_t ___U3CmoveIncrementU3Ek__BackingField_38;
 	// System.Boolean DuRound.Guard::<isMoving>k__BackingField
-	bool ___U3CisMovingU3Ek__BackingField_37;
+	bool ___U3CisMovingU3Ek__BackingField_39;
 	// System.Boolean DuRound.Guard::<shouldDestroy>k__BackingField
-	bool ___U3CshouldDestroyU3Ek__BackingField_38;
+	bool ___U3CshouldDestroyU3Ek__BackingField_40;
 	// System.Boolean DuRound.Guard::shouldMoveBackward
-	bool ___shouldMoveBackward_39;
+	bool ___shouldMoveBackward_41;
 	// UnityEngine.Vector2 DuRound.Guard::m_lastPosition
-	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___m_lastPosition_40;
+	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___m_lastPosition_42;
 	// UnityEngine.Vector2 DuRound.Guard::m_currentPosition
-	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___m_currentPosition_41;
+	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___m_currentPosition_43;
 	// DuRound.Mabel DuRound.Guard::<m_Mabel>k__BackingField
-	Mabel_tEB25A5BA355347BD351BD4DF0DB1C214BE78D6F2* ___U3Cm_MabelU3Ek__BackingField_42;
+	Mabel_tEB25A5BA355347BD351BD4DF0DB1C214BE78D6F2* ___U3Cm_MabelU3Ek__BackingField_44;
 	// System.Boolean DuRound.Guard::isDebug
-	bool ___isDebug_43;
+	bool ___isDebug_45;
 	// System.Boolean DuRound.Guard::m_foundMabel
-	bool ___m_foundMabel_44;
+	bool ___m_foundMabel_46;
 	// System.Collections.Generic.List`1<UnityEngine.Vector2> DuRound.Guard::pathTrailAfterMabel
-	List_1_t8F3790B7F8C471B3A1336522C7415FB0AC36D47B* ___pathTrailAfterMabel_45;
+	List_1_t8F3790B7F8C471B3A1336522C7415FB0AC36D47B* ___pathTrailAfterMabel_47;
 	// System.Collections.Generic.List`1<UnityEngine.Vector2> DuRound.Guard::lastPositionAfterTrack
-	List_1_t8F3790B7F8C471B3A1336522C7415FB0AC36D47B* ___lastPositionAfterTrack_46;
+	List_1_t8F3790B7F8C471B3A1336522C7415FB0AC36D47B* ___lastPositionAfterTrack_48;
 	// UnityEngine.Vector2 DuRound.Guard::m_MabelTrailPosition
-	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___m_MabelTrailPosition_47;
+	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___m_MabelTrailPosition_49;
 	// System.Single DuRound.Guard::guardLineSight
-	float ___guardLineSight_48;
+	float ___guardLineSight_50;
 	// System.Int32 DuRound.Guard::<lastIncrement>k__BackingField
-	int32_t ___U3ClastIncrementU3Ek__BackingField_49;
+	int32_t ___U3ClastIncrementU3Ek__BackingField_51;
 	// System.Boolean DuRound.Guard::<m_checkForDistance>k__BackingField
-	bool ___U3Cm_checkForDistanceU3Ek__BackingField_50;
+	bool ___U3Cm_checkForDistanceU3Ek__BackingField_52;
 	// System.Boolean DuRound.Guard::<m_moveToMabel>k__BackingField
-	bool ___U3Cm_moveToMabelU3Ek__BackingField_51;
+	bool ___U3Cm_moveToMabelU3Ek__BackingField_53;
 	// System.Boolean DuRound.Guard::<trailMoving>k__BackingField
-	bool ___U3CtrailMovingU3Ek__BackingField_52;
+	bool ___U3CtrailMovingU3Ek__BackingField_54;
+	// System.Boolean DuRound.Guard::<b_finishLastMove>k__BackingField
+	bool ___U3Cb_finishLastMoveU3Ek__BackingField_55;
 	// UnityEngine.Vector2 DuRound.Guard::firstMove
-	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___firstMove_53;
+	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___firstMove_56;
 	// UnityEngine.Vector2 DuRound.Guard::secondMove
-	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___secondMove_54;
+	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___secondMove_57;
 	// System.Collections.Generic.Dictionary`2<UnityEngine.Vector2,DuRound.TilePoints> DuRound.Guard::mapTilePoints
-	Dictionary_2_t42764BC3C8578171BCA2DF2356B446C4A43A9492* ___mapTilePoints_55;
+	Dictionary_2_t42764BC3C8578171BCA2DF2356B446C4A43A9492* ___mapTilePoints_58;
+	// UnityEngine.Vector2 DuRound.Guard::<finishLastMove>k__BackingField
+	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___U3CfinishLastMoveU3Ek__BackingField_59;
+	// System.Boolean DuRound.Guard::<invisible>k__BackingField
+	bool ___U3CinvisibleU3Ek__BackingField_60;
 	// System.Boolean DuRound.Guard::<isAccursed>k__BackingField
-	bool ___U3CisAccursedU3Ek__BackingField_56;
+	bool ___U3CisAccursedU3Ek__BackingField_61;
 };
 
 // System.Collections.Generic.Dictionary`2<UnityEngine.Vector2,DuRound.TilePoints>
@@ -2101,13 +2111,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PathPoint_LayoutTwentiesOneTileInY_m3955
 		TilePoints_t55C793C2E18866416D447D910D022FCD0D1C508C* L_260 = (L_258)->GetAt(static_cast<il2cpp_array_size_t>(L_259));
 		NullCheck(L_260);
 		L_260->___Down_1 = (bool)1;
-		// m_tileList [481].Upper = false;
+		// m_tileList [481].Upper = true;
 		TilePointsU5BU5D_t89530DF8224F08C5F93306E03672B81D01750B48* L_261 = __this->___m_tileList_11;
 		NullCheck(L_261);
 		int32_t L_262 = ((int32_t)481);
 		TilePoints_t55C793C2E18866416D447D910D022FCD0D1C508C* L_263 = (L_261)->GetAt(static_cast<il2cpp_array_size_t>(L_262));
 		NullCheck(L_263);
-		L_263->___Upper_0 = (bool)0;
+		L_263->___Upper_0 = (bool)1;
 		// m_tileList [482].Left = true;
 		TilePointsU5BU5D_t89530DF8224F08C5F93306E03672B81D01750B48* L_264 = __this->___m_tileList_11;
 		NullCheck(L_264);
@@ -15498,8 +15508,8 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Guard_SentMapData_m4B3BCD949
 	{
 		// mapTilePoints = mapTile;
 		Dictionary_2_t42764BC3C8578171BCA2DF2356B446C4A43A9492* L_0 = ___0_mapTile;
-		__this->___mapTilePoints_55 = L_0;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___mapTilePoints_55), (void*)L_0);
+		__this->___mapTilePoints_58 = L_0;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___mapTilePoints_58), (void*)L_0);
 		// }
 		return;
 	}

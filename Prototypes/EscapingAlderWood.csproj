@@ -59,12 +59,14 @@
     <Compile Include="Assets\Scripts\Item\PickUp.cs" />
     <Compile Include="Assets\Scripts\Mabel\Mabel.cs" />
     <Compile Include="Assets\Scripts\Level\GameManager.cs" />
+    <Compile Include="Assets\Scripts\UI\Controller\Analog.cs" />
     <Compile Include="Assets\Scripts\UI\Slot.cs" />
     <Compile Include="Assets\Scripts\MiniGame\GuardWalk.cs" />
     <Compile Include="Assets\Scripts\Guard\GuardController.cs" />
     <Compile Include="Assets\Scripts\Mabel\MeleeAttack.cs" />
     <Compile Include="Assets\Scripts\Level\PrisonGate.cs" />
     <Compile Include="Assets\Scripts\MiniGame\PlayerWalk.cs" />
+    <Compile Include="Assets\Scripts\Music\AudioManager.cs" />
     <Compile Include="Assets\Scripts\UI\Instruction.cs" />
     <Compile Include="Assets\Scripts\Level\Fade.cs" />
     <Compile Include="Assets\Scripts\Guard\PathPoint.cs" />

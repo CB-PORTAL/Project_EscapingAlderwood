@@ -251,10 +251,6 @@ struct IComparer_1_tFDB0B934337DF4DC2367C1B24FB3247B40F049E1;
 struct IComparer_1_t56F8CE7C6F56BB755322EC41EEF4092C027F5E1E;
 // System.Collections.Generic.IComparer`1<UnityEngine.InputSystem.XR.XRFeatureDescriptor>
 struct IComparer_1_t12FDD9882EC7ECD970F65BAE66029647C62E55C5;
-// System.Collections.Generic.IComparer`1<UnityEngine.Timeline.AnimationOutputWeightProcessor/WeightInfo>
-struct IComparer_1_t7FC52FE45B0AD22E081CA2681C0C6F8554DA9D00;
-// System.Collections.Generic.IComparer`1<UnityEngine.BeforeRenderHelper/OrderBlock>
-struct IComparer_1_t5C8ADB6DF803417A1731826FA07541C9E165AB71;
 // System.Collections.Generic.IEnumerable`1<System.Collections.Generic.KeyValuePair`2<System.Object,UnityEngine.InputSystem.Utilities.JsonParser/JsonValue>>
 struct IEnumerable_1_t3A7203FE421755DA60088F8BC5852780C0A08743;
 // System.Collections.Generic.IEnumerable`1<UnityEngine.TextCore.LowLevel.GlyphPairAdjustmentRecord>
@@ -565,10 +561,6 @@ struct Vector4U5BU5D_tC0F3A7115F85007510F6D173968200CD31BCF7AD;
 struct XRFeatureDescriptorU5BU5D_tBB735747E74DA05050B124BFE3525E40EC4114A7;
 // UnityEngine.jvalue[]
 struct jvalueU5BU5D_t2232DC04C2D2643358141038962889D92D3B5E6F;
-// UnityEngine.Timeline.AnimationOutputWeightProcessor/WeightInfo[]
-struct WeightInfoU5BU5D_tA309FB0796574412C67FC42ACC7519BC99AC7A80;
-// UnityEngine.BeforeRenderHelper/OrderBlock[]
-struct OrderBlockU5BU5D_tD67C39FB212889AFAAB991BE1AE144ED8D35EE88;
 // UnityEngine.InputSystem.InputDevice/ControlBitRangeNode[]
 struct ControlBitRangeNodeU5BU5D_t912A404149DE6D350D1735A026182C409C510F27;
 // UnityEngine.InputSystem.Utilities.JsonParser/JsonValue[]
@@ -681,8 +673,6 @@ struct TaskScheduler_t3F0550EBEF7C41F74EC8C08FF4BED0D8CE66006E;
 struct Thread_t0A773B9DE873D2DCAA7D229EAB36757B500E207F;
 // System.Type
 struct Type_t;
-// UnityEngine.Events.UnityAction
-struct UnityAction_t11A1F3B953B365C072A5DCC32677EE1796A962A7;
 // UnityEngine.UIElements.UxmlTypeRestriction
 struct UxmlTypeRestriction_t2C4CE1ED76502CDF80010880E058AF0582910A92;
 // UnityEngine.UIElements.VisualElement
@@ -795,7 +785,6 @@ IL2CPP_EXTERN_C const RuntimeMethod* Array_BinarySearch_TisNameAndParameters_t8F
 IL2CPP_EXTERN_C const RuntimeMethod* Array_BinarySearch_TisNamedValue_t1D89B1ACD11D2B5284666865014E67683742B8ED_mB56A38E6CD820E5AD4DB22AAC1D952C66AFB6A49_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Array_BinarySearch_TisNativeArray_1_t275C00CC374DEA66C69B3BB3992116F315A8E934_m45C8D93D4953450A8E06550BF7CC7E4800F631CE_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Array_BinarySearch_TisNativeArray_1_tB60512C6E4578B7CC8EB79321680E495E69ABF81_m9E5B1E0EA0164A0158171A70E1B1AC2D0F2E804E_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* Array_BinarySearch_TisOrderBlock_t62FD6F6544F34B5298DEF2F77AAE446F269B7837_mD97987A6223479E02D026B1D81268848C313482B_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Array_BinarySearch_TisPlayableBinding_tB68B3BAC47F4F4C559640472174D5BEF93CB6AB4_m473C3E8744AADF7E58C1E88F1137A884F9073C26_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Array_BinarySearch_TisPlayable_t95C6B795846BA0C7D96E4DA14897CCCF2554334F_m6E91613B309978F58B932CA8654D6874D97B60E4_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Array_BinarySearch_TisRaycastHit2D_t3EAAA06E6603C6BC61AC1291DD881C5C1E23BDFA_m528C620453102757401F0F8B55B330C2087E42E4_RuntimeMethod_var;
@@ -825,14 +814,13 @@ IL2CPP_EXTERN_C const RuntimeMethod* Array_BinarySearch_TisUsageHint_tFD7259AF9E
 IL2CPP_EXTERN_C const RuntimeMethod* Array_BinarySearch_TisVector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7_m83B1C60B8124766F6EBE2167D55BD79E668386A2_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Array_BinarySearch_TisVector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2_m4B1BD2C264CE071640953D019BE7DA3B63DDF06F_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Array_BinarySearch_TisVector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3_mCF69FB022FF37FC83FCCA53C1D648929F23D783C_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* Array_BinarySearch_TisWeightInfo_t9942B0D2C77A00A5C9824732AEAA0AB0A55620B0_mF87C294E9FC4D8FF1307E2EB9EA87171DA824427_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Array_BinarySearch_TisXRFeatureDescriptor_t690E672A6BBBEFBB8AF221485C1884507EAFB5B2_m469FFB0730A2E7136D62A2AE6D197A1858EC6CFE_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* AsyncTaskMethodBuilder_1_Start_TisRuntimeObject_m4CC6B9A3F0DD032BDFC0B8416CE27980382ED173_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* AsyncTaskMethodBuilder_1_Start_TisU3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C_m164C68BE84143A5C31EE542AFC920ADE561EAF87_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* AsyncTaskMethodBuilder_1_Start_TisU3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB_mFD58FCBCF8F95FD921C8197F28231C5749089D0D_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* AsyncTaskMethodBuilder_1_Start_TisU3CFadingImageInU3Ed__7_tD38A912F9133A10A95A1661D4CA257610CB5CF76_mC4CEB335D0A0A4432AEAFAED0B3491BC9A4EF72D_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* AsyncTaskMethodBuilder_1_Start_TisU3CFadingImageOutU3Ed__8_tDD3E83D10EC8146C237E05A802C0E6DFD7E4373D_mC0E3EA3CBCD72FBB8965C5549E28277AC5A06380_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* AsyncTaskMethodBuilder_1_Start_TisU3CGuardStartU3Ed__10_tF1C8A6018DDA98062CE2564C5A17A8A34A3CCC7A_mAF43CBA00BAC4021CD422D59F88C6A61A1291605_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* AsyncTaskMethodBuilder_1_Start_TisU3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6_mACA62F719AF1259EE7EAD8F63B7298C72FD478FC_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* AsyncTaskMethodBuilder_1_Start_TisU3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1_m8375A335CC7C5EA5A6D36467DFF94A962B3BDFF0_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* AsyncTaskMethodBuilder_1_Start_TisU3CStartFadeU3Ed__6_t2E3610BAA22B101CA5D4A99B2BD36747316DD88F_mBC0F41B1AED7F4FD1EA0FA9BEC1439117274B1A6_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* AsyncTaskMethodBuilder_1_Start_TisU3CWaitUntilCountOrTimeoutAsyncU3Ed__32_t87F5A3FBBFCAB3C02B17359F408AF51C6FEAA016_m27EE6FB45FF3E4BA5BE0FA5EDEAF224798D63B05_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* InputControlList_1_AddSlice_TisReadOnlyArray_1_t40B8DDDCD6ACBA3B2C0AF1387BE23D68DAEF77B5_mB956FD2A807ACE1F117820B61FAECA37BE58630F_RuntimeMethod_var;
@@ -916,8 +904,6 @@ struct Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C;
 struct Vector4U5BU5D_tC0F3A7115F85007510F6D173968200CD31BCF7AD;
 struct XRFeatureDescriptorU5BU5D_tBB735747E74DA05050B124BFE3525E40EC4114A7;
 struct jvalueU5BU5D_t2232DC04C2D2643358141038962889D92D3B5E6F;
-struct WeightInfoU5BU5D_tA309FB0796574412C67FC42ACC7519BC99AC7A80;
-struct OrderBlockU5BU5D_tD67C39FB212889AFAAB991BE1AE144ED8D35EE88;
 struct JsonValueU5BU5D_tCC9BDCF1DE43F923B72BEF6FE9AB4FBAEF445DB3;
 
 IL2CPP_EXTERN_C_BEGIN
@@ -1171,16 +1157,6 @@ struct ArraySortHelper_1_t0CDA459DB613A6F80CB8724C0DDF11BF3F969F35  : public Run
 
 // System.Collections.Generic.ArraySortHelper`1<UnityEngine.InputSystem.XR.XRFeatureDescriptor>
 struct ArraySortHelper_1_t4B075AB37B58696E782BF82DA623BED712B12741  : public RuntimeObject
-{
-};
-
-// System.Collections.Generic.ArraySortHelper`1<UnityEngine.Timeline.AnimationOutputWeightProcessor/WeightInfo>
-struct ArraySortHelper_1_tE3F22500AEFC13011F0AFE7E35FB1BE3970EDA9A  : public RuntimeObject
-{
-};
-
-// System.Collections.Generic.ArraySortHelper`1<UnityEngine.BeforeRenderHelper/OrderBlock>
-struct ArraySortHelper_1_t0F2FF6657C3D7C0BB394799529E0A071AA36C14C  : public RuntimeObject
 {
 };
 
@@ -3488,27 +3464,6 @@ struct XRFeatureDescriptor_t690E672A6BBBEFBB8AF221485C1884507EAFB5B2_marshaled_c
 	uint32_t ___customSize_3;
 };
 
-// UnityEngine.BeforeRenderHelper/OrderBlock
-struct OrderBlock_t62FD6F6544F34B5298DEF2F77AAE446F269B7837 
-{
-	// System.Int32 UnityEngine.BeforeRenderHelper/OrderBlock::order
-	int32_t ___order_0;
-	// UnityEngine.Events.UnityAction UnityEngine.BeforeRenderHelper/OrderBlock::callback
-	UnityAction_t11A1F3B953B365C072A5DCC32677EE1796A962A7* ___callback_1;
-};
-// Native definition for P/Invoke marshalling of UnityEngine.BeforeRenderHelper/OrderBlock
-struct OrderBlock_t62FD6F6544F34B5298DEF2F77AAE446F269B7837_marshaled_pinvoke
-{
-	int32_t ___order_0;
-	Il2CppMethodPointer ___callback_1;
-};
-// Native definition for COM marshalling of UnityEngine.BeforeRenderHelper/OrderBlock
-struct OrderBlock_t62FD6F6544F34B5298DEF2F77AAE446F269B7837_marshaled_com
-{
-	int32_t ___order_0;
-	Il2CppMethodPointer ___callback_1;
-};
-
 // System.Threading.ExecutionContext/Reader
 struct Reader_tFD6FCF261BBDF95B67147E0E1A8FD60D82333E5E 
 {
@@ -5581,37 +5536,37 @@ struct U3CStartFadeU3Ed__6_t2E3610BAA22B101CA5D4A99B2BD36747316DD88F
 	TaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833 ___U3CU3Eu__2_5;
 };
 
-// DuRound.Guard/<EmergeFromWall>d__70
-struct U3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C 
+// DuRound.Guard/<EmergeFromWall>d__82
+struct U3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB 
 {
-	// System.Int32 DuRound.Guard/<EmergeFromWall>d__70::<>1__state
+	// System.Int32 DuRound.Guard/<EmergeFromWall>d__82::<>1__state
 	int32_t ___U3CU3E1__state_0;
-	// System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Boolean> DuRound.Guard/<EmergeFromWall>d__70::<>t__builder
+	// System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Boolean> DuRound.Guard/<EmergeFromWall>d__82::<>t__builder
 	AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA ___U3CU3Et__builder_1;
-	// DuRound.Guard DuRound.Guard/<EmergeFromWall>d__70::<>4__this
+	// DuRound.Guard DuRound.Guard/<EmergeFromWall>d__82::<>4__this
 	Guard_t89D49EFEBFA443F3FC4B83A00409FBDAAFEE5145* ___U3CU3E4__this_2;
-	// UnityEngine.Vector2 DuRound.Guard/<EmergeFromWall>d__70::<GoPos>5__2
+	// UnityEngine.Vector2 DuRound.Guard/<EmergeFromWall>d__82::<GoPos>5__2
 	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___U3CGoPosU3E5__2_3;
-	// System.Single DuRound.Guard/<EmergeFromWall>d__70::<increment>5__3
+	// System.Single DuRound.Guard/<EmergeFromWall>d__82::<increment>5__3
 	float ___U3CincrementU3E5__3_4;
-	// System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter DuRound.Guard/<EmergeFromWall>d__70::<>u__1
-	YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A ___U3CU3Eu__1_5;
-	// System.Runtime.CompilerServices.TaskAwaiter`1<System.Boolean> DuRound.Guard/<EmergeFromWall>d__70::<>u__2
-	TaskAwaiter_1_t1F3F1A2BD44A71ED705D6586CA2594868672DE35 ___U3CU3Eu__2_6;
+	// System.Runtime.CompilerServices.TaskAwaiter`1<System.Boolean> DuRound.Guard/<EmergeFromWall>d__82::<>u__1
+	TaskAwaiter_1_t1F3F1A2BD44A71ED705D6586CA2594868672DE35 ___U3CU3Eu__1_5;
+	// System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter DuRound.Guard/<EmergeFromWall>d__82::<>u__2
+	YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A ___U3CU3Eu__2_6;
 };
 
-// DuRound.Guard/<MoveToLastPatrolPosition>d__62
-struct U3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6 
+// DuRound.Guard/<MoveToLastPatrolPosition>d__70
+struct U3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1 
 {
-	// System.Int32 DuRound.Guard/<MoveToLastPatrolPosition>d__62::<>1__state
+	// System.Int32 DuRound.Guard/<MoveToLastPatrolPosition>d__70::<>1__state
 	int32_t ___U3CU3E1__state_0;
-	// System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Threading.Tasks.Task> DuRound.Guard/<MoveToLastPatrolPosition>d__62::<>t__builder
+	// System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Threading.Tasks.Task> DuRound.Guard/<MoveToLastPatrolPosition>d__70::<>t__builder
 	AsyncTaskMethodBuilder_1_t24C62DD4022D2AEAC1CDED8665221836AEF0D3A2 ___U3CU3Et__builder_1;
-	// DuRound.Guard DuRound.Guard/<MoveToLastPatrolPosition>d__62::<>4__this
+	// DuRound.Guard DuRound.Guard/<MoveToLastPatrolPosition>d__70::<>4__this
 	Guard_t89D49EFEBFA443F3FC4B83A00409FBDAAFEE5145* ___U3CU3E4__this_2;
-	// System.Int32 DuRound.Guard/<MoveToLastPatrolPosition>d__62::<p>5__2
+	// System.Int32 DuRound.Guard/<MoveToLastPatrolPosition>d__70::<p>5__2
 	int32_t ___U3CpU3E5__2_3;
-	// System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter DuRound.Guard/<MoveToLastPatrolPosition>d__62::<>u__1
+	// System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter DuRound.Guard/<MoveToLastPatrolPosition>d__70::<>u__1
 	YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A ___U3CU3Eu__1_4;
 };
 
@@ -5973,30 +5928,21 @@ struct TypeInfo_tC4F59663C70D17D50BC99D53DCE74BFB9701012D  : public Type_t
 {
 };
 
-// UnityEngine.Timeline.AnimationOutputWeightProcessor/WeightInfo
-struct WeightInfo_t9942B0D2C77A00A5C9824732AEAA0AB0A55620B0 
+// DuRound.Guard/<CheckForDistance>d__51
+struct U3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A 
 {
-	// UnityEngine.Playables.Playable UnityEngine.Timeline.AnimationOutputWeightProcessor/WeightInfo::mixer
-	Playable_t95C6B795846BA0C7D96E4DA14897CCCF2554334F ___mixer_0;
-	// UnityEngine.Playables.Playable UnityEngine.Timeline.AnimationOutputWeightProcessor/WeightInfo::parentMixer
-	Playable_t95C6B795846BA0C7D96E4DA14897CCCF2554334F ___parentMixer_1;
-	// System.Int32 UnityEngine.Timeline.AnimationOutputWeightProcessor/WeightInfo::port
-	int32_t ___port_2;
-};
-
-// DuRound.Guard/<CheckForDistance>d__47
-struct U3CCheckForDistanceU3Ed__47_t75A86FB363450EBF049FDDD716D7EF8A14B68A8A 
-{
-	// System.Int32 DuRound.Guard/<CheckForDistance>d__47::<>1__state
+	// System.Int32 DuRound.Guard/<CheckForDistance>d__51::<>1__state
 	int32_t ___U3CU3E1__state_0;
-	// System.Runtime.CompilerServices.AsyncTaskMethodBuilder DuRound.Guard/<CheckForDistance>d__47::<>t__builder
+	// System.Runtime.CompilerServices.AsyncTaskMethodBuilder DuRound.Guard/<CheckForDistance>d__51::<>t__builder
 	AsyncTaskMethodBuilder_t7A5128C134547B5918EB1AA24FE47ED4C1DF3F06 ___U3CU3Et__builder_1;
-	// DuRound.Guard DuRound.Guard/<CheckForDistance>d__47::<>4__this
+	// DuRound.Guard DuRound.Guard/<CheckForDistance>d__51::<>4__this
 	Guard_t89D49EFEBFA443F3FC4B83A00409FBDAAFEE5145* ___U3CU3E4__this_2;
-	// UnityEngine.Vector2 DuRound.Guard/<CheckForDistance>d__47::<movePosition>5__2
+	// UnityEngine.Vector2 DuRound.Guard/<CheckForDistance>d__51::<movePosition>5__2
 	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___U3CmovePositionU3E5__2_3;
-	// System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter DuRound.Guard/<CheckForDistance>d__47::<>u__1
-	YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A ___U3CU3Eu__1_4;
+	// System.Runtime.CompilerServices.TaskAwaiter DuRound.Guard/<CheckForDistance>d__51::<>u__1
+	TaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833 ___U3CU3Eu__1_4;
+	// System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter DuRound.Guard/<CheckForDistance>d__51::<>u__2
+	YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A ___U3CU3Eu__2_5;
 };
 
 // DuRound.GuardController/<GuardOut>d__13
@@ -6014,16 +5960,16 @@ struct U3CGuardOutU3Ed__13_tFB925835F3E3F7004EA1571F678663D52F123CC3
 	int32_t ___U3CgU3E5__2_4;
 };
 
-// DuRound.Mabel/<IncreaseSpeed>d__85
-struct U3CIncreaseSpeedU3Ed__85_t15A880B95CE219CA677677AC0DDEB902FEE38E0B 
+// DuRound.Mabel/<IncreaseSpeed>d__88
+struct U3CIncreaseSpeedU3Ed__88_tB794C10B9CB6AD66AF1BD527B611E72987D2187D 
 {
-	// System.Int32 DuRound.Mabel/<IncreaseSpeed>d__85::<>1__state
+	// System.Int32 DuRound.Mabel/<IncreaseSpeed>d__88::<>1__state
 	int32_t ___U3CU3E1__state_0;
-	// System.Runtime.CompilerServices.AsyncTaskMethodBuilder DuRound.Mabel/<IncreaseSpeed>d__85::<>t__builder
+	// System.Runtime.CompilerServices.AsyncTaskMethodBuilder DuRound.Mabel/<IncreaseSpeed>d__88::<>t__builder
 	AsyncTaskMethodBuilder_t7A5128C134547B5918EB1AA24FE47ED4C1DF3F06 ___U3CU3Et__builder_1;
-	// DuRound.Mabel DuRound.Mabel/<IncreaseSpeed>d__85::<>4__this
+	// DuRound.Mabel DuRound.Mabel/<IncreaseSpeed>d__88::<>4__this
 	Mabel_tEB25A5BA355347BD351BD4DF0DB1C214BE78D6F2* ___U3CU3E4__this_2;
-	// System.Runtime.CompilerServices.TaskAwaiter DuRound.Mabel/<IncreaseSpeed>d__85::<>u__1
+	// System.Runtime.CompilerServices.TaskAwaiter DuRound.Mabel/<IncreaseSpeed>d__88::<>u__1
 	TaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833 ___U3CU3Eu__1_3;
 };
 
@@ -6597,24 +6543,6 @@ struct ArraySortHelper_1_t4B075AB37B58696E782BF82DA623BED712B12741_StaticFields
 };
 
 // System.Collections.Generic.ArraySortHelper`1<UnityEngine.InputSystem.XR.XRFeatureDescriptor>
-
-// System.Collections.Generic.ArraySortHelper`1<UnityEngine.Timeline.AnimationOutputWeightProcessor/WeightInfo>
-struct ArraySortHelper_1_tE3F22500AEFC13011F0AFE7E35FB1BE3970EDA9A_StaticFields
-{
-	// System.Collections.Generic.ArraySortHelper`1<T> System.Collections.Generic.ArraySortHelper`1::s_defaultArraySortHelper
-	ArraySortHelper_1_tE3F22500AEFC13011F0AFE7E35FB1BE3970EDA9A* ___s_defaultArraySortHelper_0;
-};
-
-// System.Collections.Generic.ArraySortHelper`1<UnityEngine.Timeline.AnimationOutputWeightProcessor/WeightInfo>
-
-// System.Collections.Generic.ArraySortHelper`1<UnityEngine.BeforeRenderHelper/OrderBlock>
-struct ArraySortHelper_1_t0F2FF6657C3D7C0BB394799529E0A071AA36C14C_StaticFields
-{
-	// System.Collections.Generic.ArraySortHelper`1<T> System.Collections.Generic.ArraySortHelper`1::s_defaultArraySortHelper
-	ArraySortHelper_1_t0F2FF6657C3D7C0BB394799529E0A071AA36C14C* ___s_defaultArraySortHelper_0;
-};
-
-// System.Collections.Generic.ArraySortHelper`1<UnityEngine.BeforeRenderHelper/OrderBlock>
 
 // UnityEngine.UIElements.UQuery/IsOfType`1<System.Object>
 struct IsOfType_1_tAD57152B527BA8DDBDA8E8C388140620049ADBE4_StaticFields
@@ -7228,10 +7156,6 @@ struct Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3_StaticFields
 
 // UnityEngine.InputSystem.XR.XRFeatureDescriptor
 
-// UnityEngine.BeforeRenderHelper/OrderBlock
-
-// UnityEngine.BeforeRenderHelper/OrderBlock
-
 // System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter
 struct YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_StaticFields
 {
@@ -7607,13 +7531,13 @@ struct VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115_StaticFields
 
 // DuRound.Fade/<StartFade>d__6
 
-// DuRound.Guard/<EmergeFromWall>d__70
+// DuRound.Guard/<EmergeFromWall>d__82
 
-// DuRound.Guard/<EmergeFromWall>d__70
+// DuRound.Guard/<EmergeFromWall>d__82
 
-// DuRound.Guard/<MoveToLastPatrolPosition>d__62
+// DuRound.Guard/<MoveToLastPatrolPosition>d__70
 
-// DuRound.Guard/<MoveToLastPatrolPosition>d__62
+// DuRound.Guard/<MoveToLastPatrolPosition>d__70
 
 // DuRound.GuardController/<GuardStart>d__10
 
@@ -7771,21 +7695,17 @@ struct VisualElement_t2667F9D19E62C7A315927506C06F223AB9234115_StaticFields
 
 // UnityEngine.InputSystem.InputDevice
 
-// UnityEngine.Timeline.AnimationOutputWeightProcessor/WeightInfo
+// DuRound.Guard/<CheckForDistance>d__51
 
-// UnityEngine.Timeline.AnimationOutputWeightProcessor/WeightInfo
-
-// DuRound.Guard/<CheckForDistance>d__47
-
-// DuRound.Guard/<CheckForDistance>d__47
+// DuRound.Guard/<CheckForDistance>d__51
 
 // DuRound.GuardController/<GuardOut>d__13
 
 // DuRound.GuardController/<GuardOut>d__13
 
-// DuRound.Mabel/<IncreaseSpeed>d__85
+// DuRound.Mabel/<IncreaseSpeed>d__88
 
-// DuRound.Mabel/<IncreaseSpeed>d__85
+// DuRound.Mabel/<IncreaseSpeed>d__88
 
 // System.Func`2<System.Collections.Generic.KeyValuePair`2<System.Object,UnityEngine.InputSystem.Utilities.JsonParser/JsonValue>,System.Boolean>
 
@@ -9893,74 +9813,6 @@ struct XRFeatureDescriptorU5BU5D_tBB735747E74DA05050B124BFE3525E40EC4114A7  : pu
 		#endif
 	}
 };
-// UnityEngine.Timeline.AnimationOutputWeightProcessor/WeightInfo[]
-struct WeightInfoU5BU5D_tA309FB0796574412C67FC42ACC7519BC99AC7A80  : public RuntimeArray
-{
-	ALIGN_FIELD (8) WeightInfo_t9942B0D2C77A00A5C9824732AEAA0AB0A55620B0 m_Items[1];
-
-	inline WeightInfo_t9942B0D2C77A00A5C9824732AEAA0AB0A55620B0 GetAt(il2cpp_array_size_t index) const
-	{
-		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
-		return m_Items[index];
-	}
-	inline WeightInfo_t9942B0D2C77A00A5C9824732AEAA0AB0A55620B0* GetAddressAt(il2cpp_array_size_t index)
-	{
-		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
-		return m_Items + index;
-	}
-	inline void SetAt(il2cpp_array_size_t index, WeightInfo_t9942B0D2C77A00A5C9824732AEAA0AB0A55620B0 value)
-	{
-		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
-		m_Items[index] = value;
-	}
-	inline WeightInfo_t9942B0D2C77A00A5C9824732AEAA0AB0A55620B0 GetAtUnchecked(il2cpp_array_size_t index) const
-	{
-		return m_Items[index];
-	}
-	inline WeightInfo_t9942B0D2C77A00A5C9824732AEAA0AB0A55620B0* GetAddressAtUnchecked(il2cpp_array_size_t index)
-	{
-		return m_Items + index;
-	}
-	inline void SetAtUnchecked(il2cpp_array_size_t index, WeightInfo_t9942B0D2C77A00A5C9824732AEAA0AB0A55620B0 value)
-	{
-		m_Items[index] = value;
-	}
-};
-// UnityEngine.BeforeRenderHelper/OrderBlock[]
-struct OrderBlockU5BU5D_tD67C39FB212889AFAAB991BE1AE144ED8D35EE88  : public RuntimeArray
-{
-	ALIGN_FIELD (8) OrderBlock_t62FD6F6544F34B5298DEF2F77AAE446F269B7837 m_Items[1];
-
-	inline OrderBlock_t62FD6F6544F34B5298DEF2F77AAE446F269B7837 GetAt(il2cpp_array_size_t index) const
-	{
-		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
-		return m_Items[index];
-	}
-	inline OrderBlock_t62FD6F6544F34B5298DEF2F77AAE446F269B7837* GetAddressAt(il2cpp_array_size_t index)
-	{
-		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
-		return m_Items + index;
-	}
-	inline void SetAt(il2cpp_array_size_t index, OrderBlock_t62FD6F6544F34B5298DEF2F77AAE446F269B7837 value)
-	{
-		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
-		m_Items[index] = value;
-		Il2CppCodeGenWriteBarrier((void**)&((m_Items + index)->___callback_1), (void*)NULL);
-	}
-	inline OrderBlock_t62FD6F6544F34B5298DEF2F77AAE446F269B7837 GetAtUnchecked(il2cpp_array_size_t index) const
-	{
-		return m_Items[index];
-	}
-	inline OrderBlock_t62FD6F6544F34B5298DEF2F77AAE446F269B7837* GetAddressAtUnchecked(il2cpp_array_size_t index)
-	{
-		return m_Items + index;
-	}
-	inline void SetAtUnchecked(il2cpp_array_size_t index, OrderBlock_t62FD6F6544F34B5298DEF2F77AAE446F269B7837 value)
-	{
-		m_Items[index] = value;
-		Il2CppCodeGenWriteBarrier((void**)&((m_Items + index)->___callback_1), (void*)NULL);
-	}
-};
 
 
 // System.Threading.Tasks.Task`1<TResult> System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Boolean>::get_Task()
@@ -9975,12 +9827,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ConfiguredTaskAwaiter_UnsafeOnCompleted_
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisConfiguredTaskAwaiter_t28A5A60199BBE7F1F31159301DD211EFDCF955E2_TisU3CWaitUntilCountOrTimeoutAsyncU3Ed__32_t87F5A3FBBFCAB3C02B17359F408AF51C6FEAA016_m825558BCD9F80EC4E0684E46C382144CC6C773B1_gshared (AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA* __this, ConfiguredTaskAwaiter_t28A5A60199BBE7F1F31159301DD211EFDCF955E2* ___0_awaiter, U3CWaitUntilCountOrTimeoutAsyncU3Ed__32_t87F5A3FBBFCAB3C02B17359F408AF51C6FEAA016* ___1_stateMachine, const RuntimeMethod* method) ;
 // System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Boolean>::UnsafeOnCompleted(System.Action)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TaskAwaiter_1_UnsafeOnCompleted_m965C37C2941D7A49D29CB61604815FF2CB675030_gshared (TaskAwaiter_1_t1F3F1A2BD44A71ED705D6586CA2594868672DE35* __this, Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* ___0_continuation, const RuntimeMethod* method) ;
-// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Boolean>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.TaskAwaiter`1<System.Boolean>,DuRound.Guard/<EmergeFromWall>d__70>(TAwaiter&,TStateMachine&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_1_t1F3F1A2BD44A71ED705D6586CA2594868672DE35_TisU3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C_m7269980DD4CAAC62F9A8DC24CAC79B70420D4813_gshared (AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA* __this, TaskAwaiter_1_t1F3F1A2BD44A71ED705D6586CA2594868672DE35* ___0_awaiter, U3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C* ___1_stateMachine, const RuntimeMethod* method) ;
-// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Boolean>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter,DuRound.Guard/<EmergeFromWall>d__70>(TAwaiter&,TStateMachine&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C_m6DEF7FA0C7D1164C48DC4F7579B908B50B6C6BB7_gshared (AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA* __this, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A* ___0_awaiter, U3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C* ___1_stateMachine, const RuntimeMethod* method) ;
-// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Boolean>::Start<DuRound.Guard/<EmergeFromWall>d__70>(TStateMachine&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_Start_TisU3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C_m164C68BE84143A5C31EE542AFC920ADE561EAF87_gshared (AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA* __this, U3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C* ___0_stateMachine, const RuntimeMethod* method) ;
+// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Boolean>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.TaskAwaiter`1<System.Boolean>,DuRound.Guard/<EmergeFromWall>d__82>(TAwaiter&,TStateMachine&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_1_t1F3F1A2BD44A71ED705D6586CA2594868672DE35_TisU3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB_m461ABF8CCB13D6260154FA0382845AA186986D66_gshared (AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA* __this, TaskAwaiter_1_t1F3F1A2BD44A71ED705D6586CA2594868672DE35* ___0_awaiter, U3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB* ___1_stateMachine, const RuntimeMethod* method) ;
+// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Boolean>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter,DuRound.Guard/<EmergeFromWall>d__82>(TAwaiter&,TStateMachine&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB_mD0FD786BB8CAE9E4058AA3BA929AC2ACEC5ADE77_gshared (AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA* __this, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A* ___0_awaiter, U3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB* ___1_stateMachine, const RuntimeMethod* method) ;
+// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Boolean>::Start<DuRound.Guard/<EmergeFromWall>d__82>(TStateMachine&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_Start_TisU3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB_mFD58FCBCF8F95FD921C8197F28231C5749089D0D_gshared (AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA* __this, U3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB* ___0_stateMachine, const RuntimeMethod* method) ;
 // System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Boolean>::Start<System.Threading.SemaphoreSlim/<WaitUntilCountOrTimeoutAsync>d__32>(TStateMachine&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_Start_TisU3CWaitUntilCountOrTimeoutAsyncU3Ed__32_t87F5A3FBBFCAB3C02B17359F408AF51C6FEAA016_m27EE6FB45FF3E4BA5BE0FA5EDEAF224798D63B05_gshared (AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA* __this, U3CWaitUntilCountOrTimeoutAsyncU3Ed__32_t87F5A3FBBFCAB3C02B17359F408AF51C6FEAA016* ___0_stateMachine, const RuntimeMethod* method) ;
 // System.Threading.Tasks.Task`1<TResult> System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Object>::get_Task()
@@ -9999,8 +9851,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCo
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CFadingImageInU3Ed__7_tD38A912F9133A10A95A1661D4CA257610CB5CF76_m97181B1BA70B9CEAAE4B3EE8965A9FC89C50C84E_gshared (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0* __this, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A* ___0_awaiter, U3CFadingImageInU3Ed__7_tD38A912F9133A10A95A1661D4CA257610CB5CF76* ___1_stateMachine, const RuntimeMethod* method) ;
 // System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Object>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter,DuRound.Fade/<FadingImageOut>d__8>(TAwaiter&,TStateMachine&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CFadingImageOutU3Ed__8_tDD3E83D10EC8146C237E05A802C0E6DFD7E4373D_m43B9E3F30D68657E878DC1F794CB58A4E7ED41EE_gshared (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0* __this, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A* ___0_awaiter, U3CFadingImageOutU3Ed__8_tDD3E83D10EC8146C237E05A802C0E6DFD7E4373D* ___1_stateMachine, const RuntimeMethod* method) ;
-// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Object>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter,DuRound.Guard/<MoveToLastPatrolPosition>d__62>(TAwaiter&,TStateMachine&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6_mFD0B66BEB3C9E9C8D5161CBD7B75BC33254609DE_gshared (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0* __this, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A* ___0_awaiter, U3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6* ___1_stateMachine, const RuntimeMethod* method) ;
+// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Object>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter,DuRound.Guard/<MoveToLastPatrolPosition>d__70>(TAwaiter&,TStateMachine&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1_m9B4BF9A2CB96A04BCBC5F581C3BA0CF2A9541A91_gshared (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0* __this, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A* ___0_awaiter, U3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1* ___1_stateMachine, const RuntimeMethod* method) ;
 // System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Object>::Start<System.Object>(TStateMachine&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_Start_TisRuntimeObject_m4CC6B9A3F0DD032BDFC0B8416CE27980382ED173_gshared (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0* __this, RuntimeObject** ___0_stateMachine, const RuntimeMethod* method) ;
 // System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Object>::Start<DuRound.Fade/<FadingImageIn>d__7>(TStateMachine&)
@@ -10009,20 +9861,22 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_Start_TisU3CFad
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_Start_TisU3CFadingImageOutU3Ed__8_tDD3E83D10EC8146C237E05A802C0E6DFD7E4373D_mC0E3EA3CBCD72FBB8965C5549E28277AC5A06380_gshared (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0* __this, U3CFadingImageOutU3Ed__8_tDD3E83D10EC8146C237E05A802C0E6DFD7E4373D* ___0_stateMachine, const RuntimeMethod* method) ;
 // System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Object>::Start<DuRound.Fade/<StartFade>d__6>(TStateMachine&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_Start_TisU3CStartFadeU3Ed__6_t2E3610BAA22B101CA5D4A99B2BD36747316DD88F_mBC0F41B1AED7F4FD1EA0FA9BEC1439117274B1A6_gshared (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0* __this, U3CStartFadeU3Ed__6_t2E3610BAA22B101CA5D4A99B2BD36747316DD88F* ___0_stateMachine, const RuntimeMethod* method) ;
-// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Object>::Start<DuRound.Guard/<MoveToLastPatrolPosition>d__62>(TStateMachine&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_Start_TisU3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6_mACA62F719AF1259EE7EAD8F63B7298C72FD478FC_gshared (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0* __this, U3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6* ___0_stateMachine, const RuntimeMethod* method) ;
+// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Object>::Start<DuRound.Guard/<MoveToLastPatrolPosition>d__70>(TStateMachine&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_Start_TisU3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1_m8375A335CC7C5EA5A6D36467DFF94A962B3BDFF0_gshared (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0* __this, U3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1* ___0_stateMachine, const RuntimeMethod* method) ;
 // System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Object>::Start<DuRound.GuardController/<GuardStart>d__10>(TStateMachine&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_Start_TisU3CGuardStartU3Ed__10_tF1C8A6018DDA98062CE2564C5A17A8A34A3CCC7A_mAF43CBA00BAC4021CD422D59F88C6A61A1291605_gshared (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0* __this, U3CGuardStartU3Ed__10_tF1C8A6018DDA98062CE2564C5A17A8A34A3CCC7A* ___0_stateMachine, const RuntimeMethod* method) ;
 // System.Threading.Tasks.Task`1<TResult> System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Threading.Tasks.VoidTaskResult>::get_Task()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Task_1_tE41CFF640EB7C045550D9D0D92BE67533B084C17* AsyncTaskMethodBuilder_1_get_Task_mA17A31C6B9A4FF42F72DD1373841DFA541BE1813_gshared (AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC* __this, const RuntimeMethod* method) ;
 // System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Threading.Tasks.VoidTaskResult>::AwaitUnsafeOnCompleted<System.Object,System.Object>(TAwaiter&,TStateMachine&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisRuntimeObject_TisRuntimeObject_m2832CBAB80B32116F8392899D3E469AE0EEC8406_gshared (AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC* __this, RuntimeObject** ___0_awaiter, RuntimeObject** ___1_stateMachine, const RuntimeMethod* method) ;
+// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Threading.Tasks.VoidTaskResult>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.TaskAwaiter,DuRound.Guard/<CheckForDistance>d__51>(TAwaiter&,TStateMachine&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833_TisU3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A_mF38418CE87EEDB82DA7661987CF2CD2A65C22CF5_gshared (AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC* __this, TaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833* ___0_awaiter, U3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A* ___1_stateMachine, const RuntimeMethod* method) ;
 // System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Threading.Tasks.VoidTaskResult>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.TaskAwaiter,DuRound.GuardController/<GuardOut>d__13>(TAwaiter&,TStateMachine&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833_TisU3CGuardOutU3Ed__13_tFB925835F3E3F7004EA1571F678663D52F123CC3_mBBF5D01B09B3F524D328B826014ECC9BC17D3359_gshared (AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC* __this, TaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833* ___0_awaiter, U3CGuardOutU3Ed__13_tFB925835F3E3F7004EA1571F678663D52F123CC3* ___1_stateMachine, const RuntimeMethod* method) ;
-// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Threading.Tasks.VoidTaskResult>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.TaskAwaiter,DuRound.Mabel/<IncreaseSpeed>d__85>(TAwaiter&,TStateMachine&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833_TisU3CIncreaseSpeedU3Ed__85_t15A880B95CE219CA677677AC0DDEB902FEE38E0B_m1C065C41A49C84B2CBB297F7BE8CCBF334E6399F_gshared (AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC* __this, TaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833* ___0_awaiter, U3CIncreaseSpeedU3Ed__85_t15A880B95CE219CA677677AC0DDEB902FEE38E0B* ___1_stateMachine, const RuntimeMethod* method) ;
-// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Threading.Tasks.VoidTaskResult>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter,DuRound.Guard/<CheckForDistance>d__47>(TAwaiter&,TStateMachine&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CCheckForDistanceU3Ed__47_t75A86FB363450EBF049FDDD716D7EF8A14B68A8A_m429F05F46910D6D99A06C1B600C73C9E239F7E4E_gshared (AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC* __this, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A* ___0_awaiter, U3CCheckForDistanceU3Ed__47_t75A86FB363450EBF049FDDD716D7EF8A14B68A8A* ___1_stateMachine, const RuntimeMethod* method) ;
+// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Threading.Tasks.VoidTaskResult>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.TaskAwaiter,DuRound.Mabel/<IncreaseSpeed>d__88>(TAwaiter&,TStateMachine&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833_TisU3CIncreaseSpeedU3Ed__88_tB794C10B9CB6AD66AF1BD527B611E72987D2187D_mE4B6DD9C43DDFA90EAF0D716245CB8BACD210C3E_gshared (AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC* __this, TaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833* ___0_awaiter, U3CIncreaseSpeedU3Ed__88_tB794C10B9CB6AD66AF1BD527B611E72987D2187D* ___1_stateMachine, const RuntimeMethod* method) ;
+// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Threading.Tasks.VoidTaskResult>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter,DuRound.Guard/<CheckForDistance>d__51>(TAwaiter&,TStateMachine&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A_mB2B809B92CB20DC503F75DFD1DA2B00B92C2FC9D_gshared (AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC* __this, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A* ___0_awaiter, U3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A* ___1_stateMachine, const RuntimeMethod* method) ;
 // TValue UnityEngine.InputSystem.Utilities.InlinedArray`1<UnityEngine.InputSystem.Utilities.InternedString>::get_Item(System.Int32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR InternedString_t8D62A48CB7D85AAE9CFCCCFB0A77AC2844905735 InlinedArray_1_get_Item_m0DC6E89FD175B28015115C99793A82B4F3B9026C_gshared (InlinedArray_1_tAFDFE0972A71B9760077CFA9D4A1DBD7BE435800* __this, int32_t ___0_index, const RuntimeMethod* method) ;
 // TOther[] UnityEngine.InputSystem.Utilities.InlinedArray`1<UnityEngine.InputSystem.Utilities.InternedString>::ToArray<System.Object>(System.Func`2<TValue,TOther>)
@@ -10114,17 +9968,17 @@ inline void TaskAwaiter_1_UnsafeOnCompleted_m965C37C2941D7A49D29CB61604815FF2CB6
 {
 	((  void (*) (TaskAwaiter_1_t1F3F1A2BD44A71ED705D6586CA2594868672DE35*, Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07*, const RuntimeMethod*))TaskAwaiter_1_UnsafeOnCompleted_m965C37C2941D7A49D29CB61604815FF2CB675030_gshared)(__this, ___0_continuation, method);
 }
-// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Boolean>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.TaskAwaiter`1<System.Boolean>,DuRound.Guard/<EmergeFromWall>d__70>(TAwaiter&,TStateMachine&)
-inline void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_1_t1F3F1A2BD44A71ED705D6586CA2594868672DE35_TisU3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C_m7269980DD4CAAC62F9A8DC24CAC79B70420D4813 (AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA* __this, TaskAwaiter_1_t1F3F1A2BD44A71ED705D6586CA2594868672DE35* ___0_awaiter, U3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C* ___1_stateMachine, const RuntimeMethod* method)
+// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Boolean>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.TaskAwaiter`1<System.Boolean>,DuRound.Guard/<EmergeFromWall>d__82>(TAwaiter&,TStateMachine&)
+inline void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_1_t1F3F1A2BD44A71ED705D6586CA2594868672DE35_TisU3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB_m461ABF8CCB13D6260154FA0382845AA186986D66 (AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA* __this, TaskAwaiter_1_t1F3F1A2BD44A71ED705D6586CA2594868672DE35* ___0_awaiter, U3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB* ___1_stateMachine, const RuntimeMethod* method)
 {
-	((  void (*) (AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA*, TaskAwaiter_1_t1F3F1A2BD44A71ED705D6586CA2594868672DE35*, U3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C*, const RuntimeMethod*))AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_1_t1F3F1A2BD44A71ED705D6586CA2594868672DE35_TisU3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C_m7269980DD4CAAC62F9A8DC24CAC79B70420D4813_gshared)(__this, ___0_awaiter, ___1_stateMachine, method);
+	((  void (*) (AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA*, TaskAwaiter_1_t1F3F1A2BD44A71ED705D6586CA2594868672DE35*, U3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB*, const RuntimeMethod*))AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_1_t1F3F1A2BD44A71ED705D6586CA2594868672DE35_TisU3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB_m461ABF8CCB13D6260154FA0382845AA186986D66_gshared)(__this, ___0_awaiter, ___1_stateMachine, method);
 }
 // System.Void System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter::UnsafeOnCompleted(System.Action)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void YieldAwaiter_UnsafeOnCompleted_mD2F8DC9A9836C16F605974566DB1622D0F7B1702 (YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A* __this, Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* ___0_continuation, const RuntimeMethod* method) ;
-// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Boolean>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter,DuRound.Guard/<EmergeFromWall>d__70>(TAwaiter&,TStateMachine&)
-inline void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C_m6DEF7FA0C7D1164C48DC4F7579B908B50B6C6BB7 (AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA* __this, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A* ___0_awaiter, U3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C* ___1_stateMachine, const RuntimeMethod* method)
+// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Boolean>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter,DuRound.Guard/<EmergeFromWall>d__82>(TAwaiter&,TStateMachine&)
+inline void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB_mD0FD786BB8CAE9E4058AA3BA929AC2ACEC5ADE77 (AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA* __this, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A* ___0_awaiter, U3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB* ___1_stateMachine, const RuntimeMethod* method)
 {
-	((  void (*) (AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA*, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A*, U3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C*, const RuntimeMethod*))AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C_m6DEF7FA0C7D1164C48DC4F7579B908B50B6C6BB7_gshared)(__this, ___0_awaiter, ___1_stateMachine, method);
+	((  void (*) (AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA*, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A*, U3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB*, const RuntimeMethod*))AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB_mD0FD786BB8CAE9E4058AA3BA929AC2ACEC5ADE77_gshared)(__this, ___0_awaiter, ___1_stateMachine, method);
 }
 // System.Void System.ArgumentNullException::.ctor(System.String)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ArgumentNullException__ctor_m444AE141157E333844FC1A9500224C2F9FD24F4B (ArgumentNullException_t327031E412FAB2351B0022DD5DAD47E67E597129* __this, String_t* ___0_paramName, const RuntimeMethod* method) ;
@@ -10134,12 +9988,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RuntimeHelpers_PrepareConstrainedRegions
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ExecutionContextSwitcher_Undo_m683D21973AF9E2E19D0662BBC9F266D79EC53886 (ExecutionContextSwitcher_tC30FBBA37AF7939CED1F80BF8A63BA1DFD07D708* __this, const RuntimeMethod* method) ;
 // System.Void System.Threading.ExecutionContext::EstablishCopyOnWriteScope(System.Threading.ExecutionContextSwitcher&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ExecutionContext_EstablishCopyOnWriteScope_mE8BF2610B2AD4835A14D4FF78E16B8E132C4E759 (ExecutionContextSwitcher_tC30FBBA37AF7939CED1F80BF8A63BA1DFD07D708* ___0_ecsw, const RuntimeMethod* method) ;
-// System.Void DuRound.Guard/<EmergeFromWall>d__70::MoveNext()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CEmergeFromWallU3Ed__70_MoveNext_mB737F95D8EA39AEC54A4ED26860992FE88DA7187 (U3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C* __this, const RuntimeMethod* method) ;
-// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Boolean>::Start<DuRound.Guard/<EmergeFromWall>d__70>(TStateMachine&)
-inline void AsyncTaskMethodBuilder_1_Start_TisU3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C_m164C68BE84143A5C31EE542AFC920ADE561EAF87 (AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA* __this, U3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C* ___0_stateMachine, const RuntimeMethod* method)
+// System.Void DuRound.Guard/<EmergeFromWall>d__82::MoveNext()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CEmergeFromWallU3Ed__82_MoveNext_m4AC4605C15A1E009DF4DC215460E4BEF99185961 (U3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB* __this, const RuntimeMethod* method) ;
+// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Boolean>::Start<DuRound.Guard/<EmergeFromWall>d__82>(TStateMachine&)
+inline void AsyncTaskMethodBuilder_1_Start_TisU3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB_mFD58FCBCF8F95FD921C8197F28231C5749089D0D (AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA* __this, U3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB* ___0_stateMachine, const RuntimeMethod* method)
 {
-	((  void (*) (AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA*, U3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C*, const RuntimeMethod*))AsyncTaskMethodBuilder_1_Start_TisU3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C_m164C68BE84143A5C31EE542AFC920ADE561EAF87_gshared)(__this, ___0_stateMachine, method);
+	((  void (*) (AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA*, U3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB*, const RuntimeMethod*))AsyncTaskMethodBuilder_1_Start_TisU3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB_mFD58FCBCF8F95FD921C8197F28231C5749089D0D_gshared)(__this, ___0_stateMachine, method);
 }
 // System.Void System.Threading.SemaphoreSlim/<WaitUntilCountOrTimeoutAsync>d__32::MoveNext()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CWaitUntilCountOrTimeoutAsyncU3Ed__32_MoveNext_m3E35FF6E73163F3DF54766C17613C332943C6574 (U3CWaitUntilCountOrTimeoutAsyncU3Ed__32_t87F5A3FBBFCAB3C02B17359F408AF51C6FEAA016* __this, const RuntimeMethod* method) ;
@@ -10190,10 +10044,10 @@ inline void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0
 {
 	((  void (*) (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0*, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A*, U3CFadingImageOutU3Ed__8_tDD3E83D10EC8146C237E05A802C0E6DFD7E4373D*, const RuntimeMethod*))AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CFadingImageOutU3Ed__8_tDD3E83D10EC8146C237E05A802C0E6DFD7E4373D_m43B9E3F30D68657E878DC1F794CB58A4E7ED41EE_gshared)(__this, ___0_awaiter, ___1_stateMachine, method);
 }
-// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Object>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter,DuRound.Guard/<MoveToLastPatrolPosition>d__62>(TAwaiter&,TStateMachine&)
-inline void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6_mFD0B66BEB3C9E9C8D5161CBD7B75BC33254609DE (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0* __this, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A* ___0_awaiter, U3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6* ___1_stateMachine, const RuntimeMethod* method)
+// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Object>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter,DuRound.Guard/<MoveToLastPatrolPosition>d__70>(TAwaiter&,TStateMachine&)
+inline void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1_m9B4BF9A2CB96A04BCBC5F581C3BA0CF2A9541A91 (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0* __this, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A* ___0_awaiter, U3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1* ___1_stateMachine, const RuntimeMethod* method)
 {
-	((  void (*) (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0*, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A*, U3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6*, const RuntimeMethod*))AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6_mFD0B66BEB3C9E9C8D5161CBD7B75BC33254609DE_gshared)(__this, ___0_awaiter, ___1_stateMachine, method);
+	((  void (*) (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0*, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A*, U3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1*, const RuntimeMethod*))AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1_m9B4BF9A2CB96A04BCBC5F581C3BA0CF2A9541A91_gshared)(__this, ___0_awaiter, ___1_stateMachine, method);
 }
 // System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Object>::Start<System.Object>(TStateMachine&)
 inline void AsyncTaskMethodBuilder_1_Start_TisRuntimeObject_m4CC6B9A3F0DD032BDFC0B8416CE27980382ED173 (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0* __this, RuntimeObject** ___0_stateMachine, const RuntimeMethod* method)
@@ -10221,12 +10075,12 @@ inline void AsyncTaskMethodBuilder_1_Start_TisU3CStartFadeU3Ed__6_t2E3610BAA22B1
 {
 	((  void (*) (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0*, U3CStartFadeU3Ed__6_t2E3610BAA22B101CA5D4A99B2BD36747316DD88F*, const RuntimeMethod*))AsyncTaskMethodBuilder_1_Start_TisU3CStartFadeU3Ed__6_t2E3610BAA22B101CA5D4A99B2BD36747316DD88F_mBC0F41B1AED7F4FD1EA0FA9BEC1439117274B1A6_gshared)(__this, ___0_stateMachine, method);
 }
-// System.Void DuRound.Guard/<MoveToLastPatrolPosition>d__62::MoveNext()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CMoveToLastPatrolPositionU3Ed__62_MoveNext_mCDA97E7E007161D941D171697CAE72FA759DD8AF (U3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6* __this, const RuntimeMethod* method) ;
-// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Object>::Start<DuRound.Guard/<MoveToLastPatrolPosition>d__62>(TStateMachine&)
-inline void AsyncTaskMethodBuilder_1_Start_TisU3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6_mACA62F719AF1259EE7EAD8F63B7298C72FD478FC (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0* __this, U3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6* ___0_stateMachine, const RuntimeMethod* method)
+// System.Void DuRound.Guard/<MoveToLastPatrolPosition>d__70::MoveNext()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CMoveToLastPatrolPositionU3Ed__70_MoveNext_m42E3255B3AED76FE2E33896309B0BEE62CE42E25 (U3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1* __this, const RuntimeMethod* method) ;
+// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Object>::Start<DuRound.Guard/<MoveToLastPatrolPosition>d__70>(TStateMachine&)
+inline void AsyncTaskMethodBuilder_1_Start_TisU3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1_m8375A335CC7C5EA5A6D36467DFF94A962B3BDFF0 (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0* __this, U3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1* ___0_stateMachine, const RuntimeMethod* method)
 {
-	((  void (*) (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0*, U3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6*, const RuntimeMethod*))AsyncTaskMethodBuilder_1_Start_TisU3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6_mACA62F719AF1259EE7EAD8F63B7298C72FD478FC_gshared)(__this, ___0_stateMachine, method);
+	((  void (*) (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0*, U3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1*, const RuntimeMethod*))AsyncTaskMethodBuilder_1_Start_TisU3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1_m8375A335CC7C5EA5A6D36467DFF94A962B3BDFF0_gshared)(__this, ___0_stateMachine, method);
 }
 // System.Void DuRound.GuardController/<GuardStart>d__10::MoveNext()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CGuardStartU3Ed__10_MoveNext_mAC17C255D329ED9335C3DEFC01592B6B64CC55C1 (U3CGuardStartU3Ed__10_tF1C8A6018DDA98062CE2564C5A17A8A34A3CCC7A* __this, const RuntimeMethod* method) ;
@@ -10245,20 +10099,25 @@ inline void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisRuntimeObject_Tis
 {
 	((  void (*) (AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC*, RuntimeObject**, RuntimeObject**, const RuntimeMethod*))AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisRuntimeObject_TisRuntimeObject_m2832CBAB80B32116F8392899D3E469AE0EEC8406_gshared)(__this, ___0_awaiter, ___1_stateMachine, method);
 }
+// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Threading.Tasks.VoidTaskResult>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.TaskAwaiter,DuRound.Guard/<CheckForDistance>d__51>(TAwaiter&,TStateMachine&)
+inline void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833_TisU3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A_mF38418CE87EEDB82DA7661987CF2CD2A65C22CF5 (AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC* __this, TaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833* ___0_awaiter, U3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A* ___1_stateMachine, const RuntimeMethod* method)
+{
+	((  void (*) (AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC*, TaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833*, U3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A*, const RuntimeMethod*))AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833_TisU3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A_mF38418CE87EEDB82DA7661987CF2CD2A65C22CF5_gshared)(__this, ___0_awaiter, ___1_stateMachine, method);
+}
 // System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Threading.Tasks.VoidTaskResult>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.TaskAwaiter,DuRound.GuardController/<GuardOut>d__13>(TAwaiter&,TStateMachine&)
 inline void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833_TisU3CGuardOutU3Ed__13_tFB925835F3E3F7004EA1571F678663D52F123CC3_mBBF5D01B09B3F524D328B826014ECC9BC17D3359 (AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC* __this, TaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833* ___0_awaiter, U3CGuardOutU3Ed__13_tFB925835F3E3F7004EA1571F678663D52F123CC3* ___1_stateMachine, const RuntimeMethod* method)
 {
 	((  void (*) (AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC*, TaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833*, U3CGuardOutU3Ed__13_tFB925835F3E3F7004EA1571F678663D52F123CC3*, const RuntimeMethod*))AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833_TisU3CGuardOutU3Ed__13_tFB925835F3E3F7004EA1571F678663D52F123CC3_mBBF5D01B09B3F524D328B826014ECC9BC17D3359_gshared)(__this, ___0_awaiter, ___1_stateMachine, method);
 }
-// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Threading.Tasks.VoidTaskResult>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.TaskAwaiter,DuRound.Mabel/<IncreaseSpeed>d__85>(TAwaiter&,TStateMachine&)
-inline void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833_TisU3CIncreaseSpeedU3Ed__85_t15A880B95CE219CA677677AC0DDEB902FEE38E0B_m1C065C41A49C84B2CBB297F7BE8CCBF334E6399F (AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC* __this, TaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833* ___0_awaiter, U3CIncreaseSpeedU3Ed__85_t15A880B95CE219CA677677AC0DDEB902FEE38E0B* ___1_stateMachine, const RuntimeMethod* method)
+// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Threading.Tasks.VoidTaskResult>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.TaskAwaiter,DuRound.Mabel/<IncreaseSpeed>d__88>(TAwaiter&,TStateMachine&)
+inline void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833_TisU3CIncreaseSpeedU3Ed__88_tB794C10B9CB6AD66AF1BD527B611E72987D2187D_mE4B6DD9C43DDFA90EAF0D716245CB8BACD210C3E (AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC* __this, TaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833* ___0_awaiter, U3CIncreaseSpeedU3Ed__88_tB794C10B9CB6AD66AF1BD527B611E72987D2187D* ___1_stateMachine, const RuntimeMethod* method)
 {
-	((  void (*) (AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC*, TaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833*, U3CIncreaseSpeedU3Ed__85_t15A880B95CE219CA677677AC0DDEB902FEE38E0B*, const RuntimeMethod*))AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833_TisU3CIncreaseSpeedU3Ed__85_t15A880B95CE219CA677677AC0DDEB902FEE38E0B_m1C065C41A49C84B2CBB297F7BE8CCBF334E6399F_gshared)(__this, ___0_awaiter, ___1_stateMachine, method);
+	((  void (*) (AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC*, TaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833*, U3CIncreaseSpeedU3Ed__88_tB794C10B9CB6AD66AF1BD527B611E72987D2187D*, const RuntimeMethod*))AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833_TisU3CIncreaseSpeedU3Ed__88_tB794C10B9CB6AD66AF1BD527B611E72987D2187D_mE4B6DD9C43DDFA90EAF0D716245CB8BACD210C3E_gshared)(__this, ___0_awaiter, ___1_stateMachine, method);
 }
-// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Threading.Tasks.VoidTaskResult>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter,DuRound.Guard/<CheckForDistance>d__47>(TAwaiter&,TStateMachine&)
-inline void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CCheckForDistanceU3Ed__47_t75A86FB363450EBF049FDDD716D7EF8A14B68A8A_m429F05F46910D6D99A06C1B600C73C9E239F7E4E (AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC* __this, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A* ___0_awaiter, U3CCheckForDistanceU3Ed__47_t75A86FB363450EBF049FDDD716D7EF8A14B68A8A* ___1_stateMachine, const RuntimeMethod* method)
+// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Threading.Tasks.VoidTaskResult>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter,DuRound.Guard/<CheckForDistance>d__51>(TAwaiter&,TStateMachine&)
+inline void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A_mB2B809B92CB20DC503F75DFD1DA2B00B92C2FC9D (AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC* __this, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A* ___0_awaiter, U3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A* ___1_stateMachine, const RuntimeMethod* method)
 {
-	((  void (*) (AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC*, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A*, U3CCheckForDistanceU3Ed__47_t75A86FB363450EBF049FDDD716D7EF8A14B68A8A*, const RuntimeMethod*))AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CCheckForDistanceU3Ed__47_t75A86FB363450EBF049FDDD716D7EF8A14B68A8A_m429F05F46910D6D99A06C1B600C73C9E239F7E4E_gshared)(__this, ___0_awaiter, ___1_stateMachine, method);
+	((  void (*) (AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC*, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A*, U3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A*, const RuntimeMethod*))AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A_mB2B809B92CB20DC503F75DFD1DA2B00B92C2FC9D_gshared)(__this, ___0_awaiter, ___1_stateMachine, method);
 }
 // TValue UnityEngine.InputSystem.Utilities.InlinedArray`1<UnityEngine.InputSystem.Utilities.InternedString>::get_Item(System.Int32)
 inline InternedString_t8D62A48CB7D85AAE9CFCCCFB0A77AC2844905735 InlinedArray_1_get_Item_m0DC6E89FD175B28015115C99793A82B4F3B9026C (InlinedArray_1_tAFDFE0972A71B9760077CFA9D4A1DBD7BE435800* __this, int32_t ___0_index, const RuntimeMethod* method)
@@ -10776,8 +10635,8 @@ IL2CPP_EXTERN_C  void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisConfigu
 	_thisAdjusted = reinterpret_cast<AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA*>(__this + _offset);
 	AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisConfiguredTaskAwaiter_t28A5A60199BBE7F1F31159301DD211EFDCF955E2_TisU3CWaitUntilCountOrTimeoutAsyncU3Ed__32_t87F5A3FBBFCAB3C02B17359F408AF51C6FEAA016_m825558BCD9F80EC4E0684E46C382144CC6C773B1(_thisAdjusted, ___0_awaiter, ___1_stateMachine, method);
 }
-// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Boolean>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.TaskAwaiter`1<System.Boolean>,DuRound.Guard/<EmergeFromWall>d__70>(TAwaiter&,TStateMachine&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_1_t1F3F1A2BD44A71ED705D6586CA2594868672DE35_TisU3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C_m7269980DD4CAAC62F9A8DC24CAC79B70420D4813_gshared (AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA* __this, TaskAwaiter_1_t1F3F1A2BD44A71ED705D6586CA2594868672DE35* ___0_awaiter, U3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C* ___1_stateMachine, const RuntimeMethod* method) 
+// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Boolean>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.TaskAwaiter`1<System.Boolean>,DuRound.Guard/<EmergeFromWall>d__82>(TAwaiter&,TStateMachine&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_1_t1F3F1A2BD44A71ED705D6586CA2594868672DE35_TisU3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB_m461ABF8CCB13D6260154FA0382845AA186986D66_gshared (AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA* __this, TaskAwaiter_1_t1F3F1A2BD44A71ED705D6586CA2594868672DE35* ___0_awaiter, U3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB* ___1_stateMachine, const RuntimeMethod* method) 
 {
 	MoveNextRunner_t57DA5A6E2423AE86889DAA6D20097BBE3C75101E* V_0 = NULL;
 	Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* V_1 = NULL;
@@ -10832,9 +10691,9 @@ IL_0018_1:
 			L_6 = AsyncTaskMethodBuilder_1_get_Task_m09169C120A259AF1F267F54C09A92B84D9832943(__this, il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 0));
 			V_2 = L_6;
 			AsyncMethodBuilderCore_tD5ABB3A2536319A3345B32A5481E37E23DD8CEDF* L_7 = (AsyncMethodBuilderCore_tD5ABB3A2536319A3345B32A5481E37E23DD8CEDF*)(&__this->___m_coreState_1);
-			U3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C* L_8 = ___1_stateMachine;
-			U3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C L_9 = (*(U3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C*)L_8);
-			U3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C L_10 = L_9;
+			U3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB* L_8 = ___1_stateMachine;
+			U3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB L_9 = (*(U3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB*)L_8);
+			U3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB L_10 = L_9;
 			RuntimeObject* L_11 = Box(il2cpp_rgctx_data(method->rgctx_data, 0), &L_10);
 			MoveNextRunner_t57DA5A6E2423AE86889DAA6D20097BBE3C75101E* L_12 = V_0;
 			Task_1_t824317F4B958F7512E8F7300511752937A6C6043* L_13 = V_2;
@@ -10871,15 +10730,15 @@ IL_0063:
 		return;
 	}
 }
-IL2CPP_EXTERN_C  void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_1_t1F3F1A2BD44A71ED705D6586CA2594868672DE35_TisU3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C_m7269980DD4CAAC62F9A8DC24CAC79B70420D4813_AdjustorThunk (RuntimeObject* __this, TaskAwaiter_1_t1F3F1A2BD44A71ED705D6586CA2594868672DE35* ___0_awaiter, U3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C* ___1_stateMachine, const RuntimeMethod* method)
+IL2CPP_EXTERN_C  void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_1_t1F3F1A2BD44A71ED705D6586CA2594868672DE35_TisU3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB_m461ABF8CCB13D6260154FA0382845AA186986D66_AdjustorThunk (RuntimeObject* __this, TaskAwaiter_1_t1F3F1A2BD44A71ED705D6586CA2594868672DE35* ___0_awaiter, U3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB* ___1_stateMachine, const RuntimeMethod* method)
 {
 	AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA* _thisAdjusted;
 	int32_t _offset = 1;
 	_thisAdjusted = reinterpret_cast<AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA*>(__this + _offset);
-	AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_1_t1F3F1A2BD44A71ED705D6586CA2594868672DE35_TisU3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C_m7269980DD4CAAC62F9A8DC24CAC79B70420D4813(_thisAdjusted, ___0_awaiter, ___1_stateMachine, method);
+	AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_1_t1F3F1A2BD44A71ED705D6586CA2594868672DE35_TisU3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB_m461ABF8CCB13D6260154FA0382845AA186986D66(_thisAdjusted, ___0_awaiter, ___1_stateMachine, method);
 }
-// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Boolean>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter,DuRound.Guard/<EmergeFromWall>d__70>(TAwaiter&,TStateMachine&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C_m6DEF7FA0C7D1164C48DC4F7579B908B50B6C6BB7_gshared (AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA* __this, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A* ___0_awaiter, U3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C* ___1_stateMachine, const RuntimeMethod* method) 
+// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Boolean>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter,DuRound.Guard/<EmergeFromWall>d__82>(TAwaiter&,TStateMachine&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB_mD0FD786BB8CAE9E4058AA3BA929AC2ACEC5ADE77_gshared (AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA* __this, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A* ___0_awaiter, U3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB* ___1_stateMachine, const RuntimeMethod* method) 
 {
 	MoveNextRunner_t57DA5A6E2423AE86889DAA6D20097BBE3C75101E* V_0 = NULL;
 	Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* V_1 = NULL;
@@ -10934,9 +10793,9 @@ IL_0018_1:
 			L_6 = AsyncTaskMethodBuilder_1_get_Task_m09169C120A259AF1F267F54C09A92B84D9832943(__this, il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 0));
 			V_2 = L_6;
 			AsyncMethodBuilderCore_tD5ABB3A2536319A3345B32A5481E37E23DD8CEDF* L_7 = (AsyncMethodBuilderCore_tD5ABB3A2536319A3345B32A5481E37E23DD8CEDF*)(&__this->___m_coreState_1);
-			U3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C* L_8 = ___1_stateMachine;
-			U3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C L_9 = (*(U3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C*)L_8);
-			U3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C L_10 = L_9;
+			U3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB* L_8 = ___1_stateMachine;
+			U3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB L_9 = (*(U3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB*)L_8);
+			U3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB L_10 = L_9;
 			RuntimeObject* L_11 = Box(il2cpp_rgctx_data(method->rgctx_data, 0), &L_10);
 			MoveNextRunner_t57DA5A6E2423AE86889DAA6D20097BBE3C75101E* L_12 = V_0;
 			Task_1_t824317F4B958F7512E8F7300511752937A6C6043* L_13 = V_2;
@@ -10973,15 +10832,15 @@ IL_0063:
 		return;
 	}
 }
-IL2CPP_EXTERN_C  void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C_m6DEF7FA0C7D1164C48DC4F7579B908B50B6C6BB7_AdjustorThunk (RuntimeObject* __this, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A* ___0_awaiter, U3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C* ___1_stateMachine, const RuntimeMethod* method)
+IL2CPP_EXTERN_C  void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB_mD0FD786BB8CAE9E4058AA3BA929AC2ACEC5ADE77_AdjustorThunk (RuntimeObject* __this, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A* ___0_awaiter, U3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB* ___1_stateMachine, const RuntimeMethod* method)
 {
 	AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA* _thisAdjusted;
 	int32_t _offset = 1;
 	_thisAdjusted = reinterpret_cast<AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA*>(__this + _offset);
-	AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C_m6DEF7FA0C7D1164C48DC4F7579B908B50B6C6BB7(_thisAdjusted, ___0_awaiter, ___1_stateMachine, method);
+	AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB_mD0FD786BB8CAE9E4058AA3BA929AC2ACEC5ADE77(_thisAdjusted, ___0_awaiter, ___1_stateMachine, method);
 }
-// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Boolean>::Start<DuRound.Guard/<EmergeFromWall>d__70>(TStateMachine&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_Start_TisU3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C_m164C68BE84143A5C31EE542AFC920ADE561EAF87_gshared (AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA* __this, U3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C* ___0_stateMachine, const RuntimeMethod* method) 
+// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Boolean>::Start<DuRound.Guard/<EmergeFromWall>d__82>(TStateMachine&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_Start_TisU3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB_mFD58FCBCF8F95FD921C8197F28231C5749089D0D_gshared (AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA* __this, U3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB* ___0_stateMachine, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
@@ -10998,7 +10857,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_Start_TisU3CEme
 		ArgumentNullException_t327031E412FAB2351B0022DD5DAD47E67E597129* L_1 = (ArgumentNullException_t327031E412FAB2351B0022DD5DAD47E67E597129*)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ArgumentNullException_t327031E412FAB2351B0022DD5DAD47E67E597129_il2cpp_TypeInfo_var)));
 		NullCheck(L_1);
 		ArgumentNullException__ctor_m444AE141157E333844FC1A9500224C2F9FD24F4B(L_1, ((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteralC70965A7D491520CA8D04D4EA01613EFED3309E0)), NULL);
-		IL2CPP_RAISE_MANAGED_EXCEPTION(L_1, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&AsyncTaskMethodBuilder_1_Start_TisU3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C_m164C68BE84143A5C31EE542AFC920ADE561EAF87_RuntimeMethod_var)));
+		IL2CPP_RAISE_MANAGED_EXCEPTION(L_1, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&AsyncTaskMethodBuilder_1_Start_TisU3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB_mFD58FCBCF8F95FD921C8197F28231C5749089D0D_RuntimeMethod_var)));
 	}
 
 IL_0018:
@@ -11020,8 +10879,8 @@ FINALLY_003a:
 		{// begin try (depth: 1)
 			il2cpp_codegen_runtime_class_init_inline(ExecutionContext_t9D6EDFD92F0B2D391751963E2D77A8B03CB81710_il2cpp_TypeInfo_var);
 			ExecutionContext_EstablishCopyOnWriteScope_mE8BF2610B2AD4835A14D4FF78E16B8E132C4E759((&V_0), NULL);
-			U3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C* L_2 = ___0_stateMachine;
-			U3CEmergeFromWallU3Ed__70_MoveNext_mB737F95D8EA39AEC54A4ED26860992FE88DA7187(L_2, il2cpp_rgctx_method(method->rgctx_data, 1));
+			U3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB* L_2 = ___0_stateMachine;
+			U3CEmergeFromWallU3Ed__82_MoveNext_m4AC4605C15A1E009DF4DC215460E4BEF99185961(L_2, il2cpp_rgctx_method(method->rgctx_data, 1));
 			goto IL_0042;
 		}// end try (depth: 1)
 		catch(Il2CppExceptionWrapper& e)
@@ -11035,12 +10894,12 @@ IL_0042:
 		return;
 	}
 }
-IL2CPP_EXTERN_C  void AsyncTaskMethodBuilder_1_Start_TisU3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C_m164C68BE84143A5C31EE542AFC920ADE561EAF87_AdjustorThunk (RuntimeObject* __this, U3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C* ___0_stateMachine, const RuntimeMethod* method)
+IL2CPP_EXTERN_C  void AsyncTaskMethodBuilder_1_Start_TisU3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB_mFD58FCBCF8F95FD921C8197F28231C5749089D0D_AdjustorThunk (RuntimeObject* __this, U3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB* ___0_stateMachine, const RuntimeMethod* method)
 {
 	AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA* _thisAdjusted;
 	int32_t _offset = 1;
 	_thisAdjusted = reinterpret_cast<AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA*>(__this + _offset);
-	AsyncTaskMethodBuilder_1_Start_TisU3CEmergeFromWallU3Ed__70_tC1F4E071894E17D63D1319CD1E6F159A1C73497C_m164C68BE84143A5C31EE542AFC920ADE561EAF87(_thisAdjusted, ___0_stateMachine, method);
+	AsyncTaskMethodBuilder_1_Start_TisU3CEmergeFromWallU3Ed__82_t7CD859F7403B5200BBF444EC6891AD4CFB3879BB_mFD58FCBCF8F95FD921C8197F28231C5749089D0D(_thisAdjusted, ___0_stateMachine, method);
 }
 // System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Boolean>::Start<System.Threading.SemaphoreSlim/<WaitUntilCountOrTimeoutAsync>d__32>(TStateMachine&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_Start_TisU3CWaitUntilCountOrTimeoutAsyncU3Ed__32_t87F5A3FBBFCAB3C02B17359F408AF51C6FEAA016_m27EE6FB45FF3E4BA5BE0FA5EDEAF224798D63B05_gshared (AsyncTaskMethodBuilder_1_t651E7BA5C7209C40335555F361280911CF711AAA* __this, U3CWaitUntilCountOrTimeoutAsyncU3Ed__32_t87F5A3FBBFCAB3C02B17359F408AF51C6FEAA016* ___0_stateMachine, const RuntimeMethod* method) 
@@ -11721,8 +11580,8 @@ IL2CPP_EXTERN_C  void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAw
 	_thisAdjusted = reinterpret_cast<AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0*>(__this + _offset);
 	AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CFadingImageOutU3Ed__8_tDD3E83D10EC8146C237E05A802C0E6DFD7E4373D_m43B9E3F30D68657E878DC1F794CB58A4E7ED41EE(_thisAdjusted, ___0_awaiter, ___1_stateMachine, method);
 }
-// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Object>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter,DuRound.Guard/<MoveToLastPatrolPosition>d__62>(TAwaiter&,TStateMachine&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6_mFD0B66BEB3C9E9C8D5161CBD7B75BC33254609DE_gshared (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0* __this, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A* ___0_awaiter, U3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6* ___1_stateMachine, const RuntimeMethod* method) 
+// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Object>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter,DuRound.Guard/<MoveToLastPatrolPosition>d__70>(TAwaiter&,TStateMachine&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1_m9B4BF9A2CB96A04BCBC5F581C3BA0CF2A9541A91_gshared (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0* __this, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A* ___0_awaiter, U3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1* ___1_stateMachine, const RuntimeMethod* method) 
 {
 	MoveNextRunner_t57DA5A6E2423AE86889DAA6D20097BBE3C75101E* V_0 = NULL;
 	Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* V_1 = NULL;
@@ -11777,9 +11636,9 @@ IL_0018_1:
 			L_6 = AsyncTaskMethodBuilder_1_get_Task_mEA092EC6F1324A9D694CF6056FA8583F2A2BDC89(__this, il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 0));
 			V_2 = L_6;
 			AsyncMethodBuilderCore_tD5ABB3A2536319A3345B32A5481E37E23DD8CEDF* L_7 = (AsyncMethodBuilderCore_tD5ABB3A2536319A3345B32A5481E37E23DD8CEDF*)(&__this->___m_coreState_1);
-			U3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6* L_8 = ___1_stateMachine;
-			U3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6 L_9 = (*(U3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6*)L_8);
-			U3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6 L_10 = L_9;
+			U3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1* L_8 = ___1_stateMachine;
+			U3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1 L_9 = (*(U3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1*)L_8);
+			U3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1 L_10 = L_9;
 			RuntimeObject* L_11 = Box(il2cpp_rgctx_data(method->rgctx_data, 0), &L_10);
 			MoveNextRunner_t57DA5A6E2423AE86889DAA6D20097BBE3C75101E* L_12 = V_0;
 			Task_1_t0C4CD3A5BB93A184420D73218644C56C70FDA7E2* L_13 = V_2;
@@ -11816,12 +11675,12 @@ IL_0063:
 		return;
 	}
 }
-IL2CPP_EXTERN_C  void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6_mFD0B66BEB3C9E9C8D5161CBD7B75BC33254609DE_AdjustorThunk (RuntimeObject* __this, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A* ___0_awaiter, U3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6* ___1_stateMachine, const RuntimeMethod* method)
+IL2CPP_EXTERN_C  void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1_m9B4BF9A2CB96A04BCBC5F581C3BA0CF2A9541A91_AdjustorThunk (RuntimeObject* __this, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A* ___0_awaiter, U3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1* ___1_stateMachine, const RuntimeMethod* method)
 {
 	AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0* _thisAdjusted;
 	int32_t _offset = 1;
 	_thisAdjusted = reinterpret_cast<AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0*>(__this + _offset);
-	AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6_mFD0B66BEB3C9E9C8D5161CBD7B75BC33254609DE(_thisAdjusted, ___0_awaiter, ___1_stateMachine, method);
+	AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1_m9B4BF9A2CB96A04BCBC5F581C3BA0CF2A9541A91(_thisAdjusted, ___0_awaiter, ___1_stateMachine, method);
 }
 // System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Object>::Start<System.Object>(TStateMachine&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_Start_TisRuntimeObject_m4CC6B9A3F0DD032BDFC0B8416CE27980382ED173_gshared (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0* __this, RuntimeObject** ___0_stateMachine, const RuntimeMethod* method) 
@@ -12078,8 +11937,8 @@ IL2CPP_EXTERN_C  void AsyncTaskMethodBuilder_1_Start_TisU3CStartFadeU3Ed__6_t2E3
 	_thisAdjusted = reinterpret_cast<AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0*>(__this + _offset);
 	AsyncTaskMethodBuilder_1_Start_TisU3CStartFadeU3Ed__6_t2E3610BAA22B101CA5D4A99B2BD36747316DD88F_mBC0F41B1AED7F4FD1EA0FA9BEC1439117274B1A6(_thisAdjusted, ___0_stateMachine, method);
 }
-// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Object>::Start<DuRound.Guard/<MoveToLastPatrolPosition>d__62>(TStateMachine&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_Start_TisU3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6_mACA62F719AF1259EE7EAD8F63B7298C72FD478FC_gshared (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0* __this, U3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6* ___0_stateMachine, const RuntimeMethod* method) 
+// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Object>::Start<DuRound.Guard/<MoveToLastPatrolPosition>d__70>(TStateMachine&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_Start_TisU3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1_m8375A335CC7C5EA5A6D36467DFF94A962B3BDFF0_gshared (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0* __this, U3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1* ___0_stateMachine, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
@@ -12096,7 +11955,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_Start_TisU3CMov
 		ArgumentNullException_t327031E412FAB2351B0022DD5DAD47E67E597129* L_1 = (ArgumentNullException_t327031E412FAB2351B0022DD5DAD47E67E597129*)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ArgumentNullException_t327031E412FAB2351B0022DD5DAD47E67E597129_il2cpp_TypeInfo_var)));
 		NullCheck(L_1);
 		ArgumentNullException__ctor_m444AE141157E333844FC1A9500224C2F9FD24F4B(L_1, ((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteralC70965A7D491520CA8D04D4EA01613EFED3309E0)), NULL);
-		IL2CPP_RAISE_MANAGED_EXCEPTION(L_1, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&AsyncTaskMethodBuilder_1_Start_TisU3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6_mACA62F719AF1259EE7EAD8F63B7298C72FD478FC_RuntimeMethod_var)));
+		IL2CPP_RAISE_MANAGED_EXCEPTION(L_1, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&AsyncTaskMethodBuilder_1_Start_TisU3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1_m8375A335CC7C5EA5A6D36467DFF94A962B3BDFF0_RuntimeMethod_var)));
 	}
 
 IL_0018:
@@ -12118,8 +11977,8 @@ FINALLY_003a:
 		{// begin try (depth: 1)
 			il2cpp_codegen_runtime_class_init_inline(ExecutionContext_t9D6EDFD92F0B2D391751963E2D77A8B03CB81710_il2cpp_TypeInfo_var);
 			ExecutionContext_EstablishCopyOnWriteScope_mE8BF2610B2AD4835A14D4FF78E16B8E132C4E759((&V_0), NULL);
-			U3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6* L_2 = ___0_stateMachine;
-			U3CMoveToLastPatrolPositionU3Ed__62_MoveNext_mCDA97E7E007161D941D171697CAE72FA759DD8AF(L_2, il2cpp_rgctx_method(method->rgctx_data, 1));
+			U3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1* L_2 = ___0_stateMachine;
+			U3CMoveToLastPatrolPositionU3Ed__70_MoveNext_m42E3255B3AED76FE2E33896309B0BEE62CE42E25(L_2, il2cpp_rgctx_method(method->rgctx_data, 1));
 			goto IL_0042;
 		}// end try (depth: 1)
 		catch(Il2CppExceptionWrapper& e)
@@ -12133,12 +11992,12 @@ IL_0042:
 		return;
 	}
 }
-IL2CPP_EXTERN_C  void AsyncTaskMethodBuilder_1_Start_TisU3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6_mACA62F719AF1259EE7EAD8F63B7298C72FD478FC_AdjustorThunk (RuntimeObject* __this, U3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6* ___0_stateMachine, const RuntimeMethod* method)
+IL2CPP_EXTERN_C  void AsyncTaskMethodBuilder_1_Start_TisU3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1_m8375A335CC7C5EA5A6D36467DFF94A962B3BDFF0_AdjustorThunk (RuntimeObject* __this, U3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1* ___0_stateMachine, const RuntimeMethod* method)
 {
 	AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0* _thisAdjusted;
 	int32_t _offset = 1;
 	_thisAdjusted = reinterpret_cast<AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0*>(__this + _offset);
-	AsyncTaskMethodBuilder_1_Start_TisU3CMoveToLastPatrolPositionU3Ed__62_t39426179DDA9462B3DAAC7E9BFC2EF748EFB3BD6_mACA62F719AF1259EE7EAD8F63B7298C72FD478FC(_thisAdjusted, ___0_stateMachine, method);
+	AsyncTaskMethodBuilder_1_Start_TisU3CMoveToLastPatrolPositionU3Ed__70_t8D530C00869779E6409C2FD236A114A9B61332D1_m8375A335CC7C5EA5A6D36467DFF94A962B3BDFF0(_thisAdjusted, ___0_stateMachine, method);
 }
 // System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Object>::Start<DuRound.GuardController/<GuardStart>d__10>(TStateMachine&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_Start_TisU3CGuardStartU3Ed__10_tF1C8A6018DDA98062CE2564C5A17A8A34A3CCC7A_mAF43CBA00BAC4021CD422D59F88C6A61A1291605_gshared (AsyncTaskMethodBuilder_1_tE810F083929D7952F192036D298085BD4B048AD0* __this, U3CGuardStartU3Ed__10_tF1C8A6018DDA98062CE2564C5A17A8A34A3CCC7A* ___0_stateMachine, const RuntimeMethod* method) 
@@ -12309,6 +12168,108 @@ IL2CPP_EXTERN_C  void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisRuntime
 	_thisAdjusted = reinterpret_cast<AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC*>(__this + _offset);
 	AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisRuntimeObject_TisRuntimeObject_m2832CBAB80B32116F8392899D3E469AE0EEC8406(_thisAdjusted, ___0_awaiter, ___1_stateMachine, method);
 }
+// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Threading.Tasks.VoidTaskResult>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.TaskAwaiter,DuRound.Guard/<CheckForDistance>d__51>(TAwaiter&,TStateMachine&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833_TisU3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A_mF38418CE87EEDB82DA7661987CF2CD2A65C22CF5_gshared (AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC* __this, TaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833* ___0_awaiter, U3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A* ___1_stateMachine, const RuntimeMethod* method) 
+{
+	MoveNextRunner_t57DA5A6E2423AE86889DAA6D20097BBE3C75101E* V_0 = NULL;
+	Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* V_1 = NULL;
+	Task_1_tE41CFF640EB7C045550D9D0D92BE67533B084C17* V_2 = NULL;
+	il2cpp::utils::ExceptionSupportStack<RuntimeObject*, 1> __active_exceptions;
+	AsyncMethodBuilderCore_tD5ABB3A2536319A3345B32A5481E37E23DD8CEDF* G_B2_0 = NULL;
+	AsyncMethodBuilderCore_tD5ABB3A2536319A3345B32A5481E37E23DD8CEDF* G_B1_0 = NULL;
+	Task_1_tE41CFF640EB7C045550D9D0D92BE67533B084C17* G_B3_0 = NULL;
+	AsyncMethodBuilderCore_tD5ABB3A2536319A3345B32A5481E37E23DD8CEDF* G_B3_1 = NULL;
+	try
+	{// begin try (depth: 1)
+		{
+			V_0 = (MoveNextRunner_t57DA5A6E2423AE86889DAA6D20097BBE3C75101E*)NULL;
+			AsyncMethodBuilderCore_tD5ABB3A2536319A3345B32A5481E37E23DD8CEDF* L_0 = (AsyncMethodBuilderCore_tD5ABB3A2536319A3345B32A5481E37E23DD8CEDF*)(&__this->___m_coreState_1);
+			bool L_1;
+			L_1 = AsyncCausalityTracer_get_LoggingOn_m7C26C0F4409E43D8FBC226A6413BBFAB3BF23EAF(NULL);
+			G_B1_0 = L_0;
+			if (L_1)
+			{
+				G_B2_0 = L_0;
+				goto IL_0012_1;
+			}
+		}
+		{
+			G_B3_0 = ((Task_1_tE41CFF640EB7C045550D9D0D92BE67533B084C17*)(NULL));
+			G_B3_1 = G_B1_0;
+			goto IL_0018_1;
+		}
+
+IL_0012_1:
+		{
+			Task_1_tE41CFF640EB7C045550D9D0D92BE67533B084C17* L_2;
+			L_2 = AsyncTaskMethodBuilder_1_get_Task_mA17A31C6B9A4FF42F72DD1373841DFA541BE1813(__this, il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 0));
+			G_B3_0 = L_2;
+			G_B3_1 = G_B2_0;
+		}
+
+IL_0018_1:
+		{
+			Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* L_3;
+			L_3 = AsyncMethodBuilderCore_GetCompletionAction_mC8FA54136A05CD45BA09560748F864AF93DDFDFD(G_B3_1, (Task_t751C4CC3ECD055BABA8A0B6A5DFBB4283DCA8572*)G_B3_0, (&V_0), NULL);
+			V_1 = L_3;
+			AsyncMethodBuilderCore_tD5ABB3A2536319A3345B32A5481E37E23DD8CEDF* L_4 = (AsyncMethodBuilderCore_tD5ABB3A2536319A3345B32A5481E37E23DD8CEDF*)(&__this->___m_coreState_1);
+			RuntimeObject* L_5 = L_4->___m_stateMachine_0;
+			if (L_5)
+			{
+				goto IL_004c_1;
+			}
+		}
+		{
+			Task_1_tE41CFF640EB7C045550D9D0D92BE67533B084C17* L_6;
+			L_6 = AsyncTaskMethodBuilder_1_get_Task_mA17A31C6B9A4FF42F72DD1373841DFA541BE1813(__this, il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 0));
+			V_2 = L_6;
+			AsyncMethodBuilderCore_tD5ABB3A2536319A3345B32A5481E37E23DD8CEDF* L_7 = (AsyncMethodBuilderCore_tD5ABB3A2536319A3345B32A5481E37E23DD8CEDF*)(&__this->___m_coreState_1);
+			U3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A* L_8 = ___1_stateMachine;
+			U3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A L_9 = (*(U3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A*)L_8);
+			U3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A L_10 = L_9;
+			RuntimeObject* L_11 = Box(il2cpp_rgctx_data(method->rgctx_data, 0), &L_10);
+			MoveNextRunner_t57DA5A6E2423AE86889DAA6D20097BBE3C75101E* L_12 = V_0;
+			Task_1_tE41CFF640EB7C045550D9D0D92BE67533B084C17* L_13 = V_2;
+			AsyncMethodBuilderCore_PostBoxInitialization_mB531930E3F2FE5A9D31E4233429FAD0AFA6E8E9A(L_7, (RuntimeObject*)L_11, L_12, (Task_t751C4CC3ECD055BABA8A0B6A5DFBB4283DCA8572*)L_13, NULL);
+		}
+
+IL_004c_1:
+		{
+			TaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833* L_14 = ___0_awaiter;
+			Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* L_15 = V_1;
+			TaskAwaiter_UnsafeOnCompleted_mF1081A8F37EBEA02847BAE72365A1F65DAA932D7(L_14, L_15, il2cpp_rgctx_method(method->rgctx_data, 2));
+			goto IL_0063;
+		}
+	}// end try (depth: 1)
+	catch(Il2CppExceptionWrapper& e)
+	{
+		if(il2cpp_codegen_class_is_assignable_from (((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&Exception_t_il2cpp_TypeInfo_var)), il2cpp_codegen_object_class(e.ex)))
+		{
+			IL2CPP_PUSH_ACTIVE_EXCEPTION(e.ex);
+			goto CATCH_005b;
+		}
+		throw e;
+	}
+
+CATCH_005b:
+	{// begin catch(System.Exception)
+		AsyncMethodBuilderCore_ThrowAsync_m07C1067BBFF7C572C5DCEBD96C7327D94DE67330(((Exception_t*)IL2CPP_GET_ACTIVE_EXCEPTION(Exception_t*)), (SynchronizationContext_tCDB842BBE53B050802CBBB59C6E6DC45B5B06DC0*)NULL, NULL);
+		IL2CPP_POP_ACTIVE_EXCEPTION();
+		goto IL_0063;
+	}// end catch (depth: 1)
+
+IL_0063:
+	{
+		return;
+	}
+}
+IL2CPP_EXTERN_C  void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833_TisU3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A_mF38418CE87EEDB82DA7661987CF2CD2A65C22CF5_AdjustorThunk (RuntimeObject* __this, TaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833* ___0_awaiter, U3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A* ___1_stateMachine, const RuntimeMethod* method)
+{
+	AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC* _thisAdjusted;
+	int32_t _offset = 1;
+	_thisAdjusted = reinterpret_cast<AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC*>(__this + _offset);
+	AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833_TisU3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A_mF38418CE87EEDB82DA7661987CF2CD2A65C22CF5(_thisAdjusted, ___0_awaiter, ___1_stateMachine, method);
+}
 // System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Threading.Tasks.VoidTaskResult>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.TaskAwaiter,DuRound.GuardController/<GuardOut>d__13>(TAwaiter&,TStateMachine&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833_TisU3CGuardOutU3Ed__13_tFB925835F3E3F7004EA1571F678663D52F123CC3_mBBF5D01B09B3F524D328B826014ECC9BC17D3359_gshared (AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC* __this, TaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833* ___0_awaiter, U3CGuardOutU3Ed__13_tFB925835F3E3F7004EA1571F678663D52F123CC3* ___1_stateMachine, const RuntimeMethod* method) 
 {
@@ -12411,8 +12372,8 @@ IL2CPP_EXTERN_C  void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwa
 	_thisAdjusted = reinterpret_cast<AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC*>(__this + _offset);
 	AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833_TisU3CGuardOutU3Ed__13_tFB925835F3E3F7004EA1571F678663D52F123CC3_mBBF5D01B09B3F524D328B826014ECC9BC17D3359(_thisAdjusted, ___0_awaiter, ___1_stateMachine, method);
 }
-// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Threading.Tasks.VoidTaskResult>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.TaskAwaiter,DuRound.Mabel/<IncreaseSpeed>d__85>(TAwaiter&,TStateMachine&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833_TisU3CIncreaseSpeedU3Ed__85_t15A880B95CE219CA677677AC0DDEB902FEE38E0B_m1C065C41A49C84B2CBB297F7BE8CCBF334E6399F_gshared (AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC* __this, TaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833* ___0_awaiter, U3CIncreaseSpeedU3Ed__85_t15A880B95CE219CA677677AC0DDEB902FEE38E0B* ___1_stateMachine, const RuntimeMethod* method) 
+// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Threading.Tasks.VoidTaskResult>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.TaskAwaiter,DuRound.Mabel/<IncreaseSpeed>d__88>(TAwaiter&,TStateMachine&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833_TisU3CIncreaseSpeedU3Ed__88_tB794C10B9CB6AD66AF1BD527B611E72987D2187D_mE4B6DD9C43DDFA90EAF0D716245CB8BACD210C3E_gshared (AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC* __this, TaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833* ___0_awaiter, U3CIncreaseSpeedU3Ed__88_tB794C10B9CB6AD66AF1BD527B611E72987D2187D* ___1_stateMachine, const RuntimeMethod* method) 
 {
 	MoveNextRunner_t57DA5A6E2423AE86889DAA6D20097BBE3C75101E* V_0 = NULL;
 	Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* V_1 = NULL;
@@ -12467,9 +12428,9 @@ IL_0018_1:
 			L_6 = AsyncTaskMethodBuilder_1_get_Task_mA17A31C6B9A4FF42F72DD1373841DFA541BE1813(__this, il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 0));
 			V_2 = L_6;
 			AsyncMethodBuilderCore_tD5ABB3A2536319A3345B32A5481E37E23DD8CEDF* L_7 = (AsyncMethodBuilderCore_tD5ABB3A2536319A3345B32A5481E37E23DD8CEDF*)(&__this->___m_coreState_1);
-			U3CIncreaseSpeedU3Ed__85_t15A880B95CE219CA677677AC0DDEB902FEE38E0B* L_8 = ___1_stateMachine;
-			U3CIncreaseSpeedU3Ed__85_t15A880B95CE219CA677677AC0DDEB902FEE38E0B L_9 = (*(U3CIncreaseSpeedU3Ed__85_t15A880B95CE219CA677677AC0DDEB902FEE38E0B*)L_8);
-			U3CIncreaseSpeedU3Ed__85_t15A880B95CE219CA677677AC0DDEB902FEE38E0B L_10 = L_9;
+			U3CIncreaseSpeedU3Ed__88_tB794C10B9CB6AD66AF1BD527B611E72987D2187D* L_8 = ___1_stateMachine;
+			U3CIncreaseSpeedU3Ed__88_tB794C10B9CB6AD66AF1BD527B611E72987D2187D L_9 = (*(U3CIncreaseSpeedU3Ed__88_tB794C10B9CB6AD66AF1BD527B611E72987D2187D*)L_8);
+			U3CIncreaseSpeedU3Ed__88_tB794C10B9CB6AD66AF1BD527B611E72987D2187D L_10 = L_9;
 			RuntimeObject* L_11 = Box(il2cpp_rgctx_data(method->rgctx_data, 0), &L_10);
 			MoveNextRunner_t57DA5A6E2423AE86889DAA6D20097BBE3C75101E* L_12 = V_0;
 			Task_1_tE41CFF640EB7C045550D9D0D92BE67533B084C17* L_13 = V_2;
@@ -12506,15 +12467,15 @@ IL_0063:
 		return;
 	}
 }
-IL2CPP_EXTERN_C  void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833_TisU3CIncreaseSpeedU3Ed__85_t15A880B95CE219CA677677AC0DDEB902FEE38E0B_m1C065C41A49C84B2CBB297F7BE8CCBF334E6399F_AdjustorThunk (RuntimeObject* __this, TaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833* ___0_awaiter, U3CIncreaseSpeedU3Ed__85_t15A880B95CE219CA677677AC0DDEB902FEE38E0B* ___1_stateMachine, const RuntimeMethod* method)
+IL2CPP_EXTERN_C  void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833_TisU3CIncreaseSpeedU3Ed__88_tB794C10B9CB6AD66AF1BD527B611E72987D2187D_mE4B6DD9C43DDFA90EAF0D716245CB8BACD210C3E_AdjustorThunk (RuntimeObject* __this, TaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833* ___0_awaiter, U3CIncreaseSpeedU3Ed__88_tB794C10B9CB6AD66AF1BD527B611E72987D2187D* ___1_stateMachine, const RuntimeMethod* method)
 {
 	AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC* _thisAdjusted;
 	int32_t _offset = 1;
 	_thisAdjusted = reinterpret_cast<AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC*>(__this + _offset);
-	AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833_TisU3CIncreaseSpeedU3Ed__85_t15A880B95CE219CA677677AC0DDEB902FEE38E0B_m1C065C41A49C84B2CBB297F7BE8CCBF334E6399F(_thisAdjusted, ___0_awaiter, ___1_stateMachine, method);
+	AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisTaskAwaiter_t9B661AC8C2EFA6BAB94C77BB24A5DDA82D61F833_TisU3CIncreaseSpeedU3Ed__88_tB794C10B9CB6AD66AF1BD527B611E72987D2187D_mE4B6DD9C43DDFA90EAF0D716245CB8BACD210C3E(_thisAdjusted, ___0_awaiter, ___1_stateMachine, method);
 }
-// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Threading.Tasks.VoidTaskResult>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter,DuRound.Guard/<CheckForDistance>d__47>(TAwaiter&,TStateMachine&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CCheckForDistanceU3Ed__47_t75A86FB363450EBF049FDDD716D7EF8A14B68A8A_m429F05F46910D6D99A06C1B600C73C9E239F7E4E_gshared (AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC* __this, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A* ___0_awaiter, U3CCheckForDistanceU3Ed__47_t75A86FB363450EBF049FDDD716D7EF8A14B68A8A* ___1_stateMachine, const RuntimeMethod* method) 
+// System.Void System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<System.Threading.Tasks.VoidTaskResult>::AwaitUnsafeOnCompleted<System.Runtime.CompilerServices.YieldAwaitable/YieldAwaiter,DuRound.Guard/<CheckForDistance>d__51>(TAwaiter&,TStateMachine&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A_mB2B809B92CB20DC503F75DFD1DA2B00B92C2FC9D_gshared (AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC* __this, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A* ___0_awaiter, U3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A* ___1_stateMachine, const RuntimeMethod* method) 
 {
 	MoveNextRunner_t57DA5A6E2423AE86889DAA6D20097BBE3C75101E* V_0 = NULL;
 	Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* V_1 = NULL;
@@ -12569,9 +12530,9 @@ IL_0018_1:
 			L_6 = AsyncTaskMethodBuilder_1_get_Task_mA17A31C6B9A4FF42F72DD1373841DFA541BE1813(__this, il2cpp_rgctx_method(InitializedTypeInfo(method->klass)->rgctx_data, 0));
 			V_2 = L_6;
 			AsyncMethodBuilderCore_tD5ABB3A2536319A3345B32A5481E37E23DD8CEDF* L_7 = (AsyncMethodBuilderCore_tD5ABB3A2536319A3345B32A5481E37E23DD8CEDF*)(&__this->___m_coreState_1);
-			U3CCheckForDistanceU3Ed__47_t75A86FB363450EBF049FDDD716D7EF8A14B68A8A* L_8 = ___1_stateMachine;
-			U3CCheckForDistanceU3Ed__47_t75A86FB363450EBF049FDDD716D7EF8A14B68A8A L_9 = (*(U3CCheckForDistanceU3Ed__47_t75A86FB363450EBF049FDDD716D7EF8A14B68A8A*)L_8);
-			U3CCheckForDistanceU3Ed__47_t75A86FB363450EBF049FDDD716D7EF8A14B68A8A L_10 = L_9;
+			U3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A* L_8 = ___1_stateMachine;
+			U3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A L_9 = (*(U3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A*)L_8);
+			U3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A L_10 = L_9;
 			RuntimeObject* L_11 = Box(il2cpp_rgctx_data(method->rgctx_data, 0), &L_10);
 			MoveNextRunner_t57DA5A6E2423AE86889DAA6D20097BBE3C75101E* L_12 = V_0;
 			Task_1_tE41CFF640EB7C045550D9D0D92BE67533B084C17* L_13 = V_2;
@@ -12608,12 +12569,12 @@ IL_0063:
 		return;
 	}
 }
-IL2CPP_EXTERN_C  void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CCheckForDistanceU3Ed__47_t75A86FB363450EBF049FDDD716D7EF8A14B68A8A_m429F05F46910D6D99A06C1B600C73C9E239F7E4E_AdjustorThunk (RuntimeObject* __this, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A* ___0_awaiter, U3CCheckForDistanceU3Ed__47_t75A86FB363450EBF049FDDD716D7EF8A14B68A8A* ___1_stateMachine, const RuntimeMethod* method)
+IL2CPP_EXTERN_C  void AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A_mB2B809B92CB20DC503F75DFD1DA2B00B92C2FC9D_AdjustorThunk (RuntimeObject* __this, YieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A* ___0_awaiter, U3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A* ___1_stateMachine, const RuntimeMethod* method)
 {
 	AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC* _thisAdjusted;
 	int32_t _offset = 1;
 	_thisAdjusted = reinterpret_cast<AsyncTaskMethodBuilder_1_tE88892A6B2F97B5D44B7C3EE2DBEED85743412AC*>(__this + _offset);
-	AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CCheckForDistanceU3Ed__47_t75A86FB363450EBF049FDDD716D7EF8A14B68A8A_m429F05F46910D6D99A06C1B600C73C9E239F7E4E(_thisAdjusted, ___0_awaiter, ___1_stateMachine, method);
+	AsyncTaskMethodBuilder_1_AwaitUnsafeOnCompleted_TisYieldAwaiter_t5F0A81DC85227C01FFC38D53139B5C19D920B52A_TisU3CCheckForDistanceU3Ed__51_tD32A1CDBA23DD041AE821133701BCFFCFBB1B07A_mB2B809B92CB20DC503F75DFD1DA2B00B92C2FC9D(_thisAdjusted, ___0_awaiter, ___1_stateMachine, method);
 }
 // TOther[] UnityEngine.InputSystem.Utilities.InlinedArray`1<UnityEngine.InputSystem.Utilities.InternedString>::ToArray<System.Object>(System.Func`2<TValue,TOther>)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918* InlinedArray_1_ToArray_TisRuntimeObject_m55E036D5E6132DB8F77958D0DEFB5BB9031AF4BA_gshared (InlinedArray_1_tAFDFE0972A71B9760077CFA9D4A1DBD7BE435800* __this, Func_2_t63BCD2DEBA7363CAD4DAAF9703EF65C11A4C7BBB* ___0_mapFunction, const RuntimeMethod* method) 
@@ -30336,194 +30297,6 @@ IL_0044:
 		NullCheck(L_10);
 		int32_t L_16;
 		L_16 = ((  int32_t (*) (ArraySortHelper_1_t4B075AB37B58696E782BF82DA623BED712B12741*, XRFeatureDescriptorU5BU5D_tBB735747E74DA05050B124BFE3525E40EC4114A7*, int32_t, int32_t, XRFeatureDescriptor_t690E672A6BBBEFBB8AF221485C1884507EAFB5B2, RuntimeObject*, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 3)))(L_10, L_11, L_12, L_13, L_14, L_15, il2cpp_rgctx_method(method->rgctx_data, 3));
-		return L_16;
-	}
-}
-// System.Int32 System.Array::BinarySearch<UnityEngine.Timeline.AnimationOutputWeightProcessor/WeightInfo>(T[],System.Int32,System.Int32,T,System.Collections.Generic.IComparer`1<T>)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Array_BinarySearch_TisWeightInfo_t9942B0D2C77A00A5C9824732AEAA0AB0A55620B0_mF87C294E9FC4D8FF1307E2EB9EA87171DA824427_gshared (WeightInfoU5BU5D_tA309FB0796574412C67FC42ACC7519BC99AC7A80* ___0_array, int32_t ___1_index, int32_t ___2_length, WeightInfo_t9942B0D2C77A00A5C9824732AEAA0AB0A55620B0 ___3_value, RuntimeObject* ___4_comparer, const RuntimeMethod* method) 
-{
-	String_t* G_B7_0 = NULL;
-	{
-		WeightInfoU5BU5D_tA309FB0796574412C67FC42ACC7519BC99AC7A80* L_0 = ___0_array;
-		if (L_0)
-		{
-			goto IL_000e;
-		}
-	}
-	{
-		ArgumentNullException_t327031E412FAB2351B0022DD5DAD47E67E597129* L_1 = (ArgumentNullException_t327031E412FAB2351B0022DD5DAD47E67E597129*)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ArgumentNullException_t327031E412FAB2351B0022DD5DAD47E67E597129_il2cpp_TypeInfo_var)));
-		NullCheck(L_1);
-		ArgumentNullException__ctor_m444AE141157E333844FC1A9500224C2F9FD24F4B(L_1, ((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteralB829404B947F7E1629A30B5E953A49EB21CCD2ED)), NULL);
-		IL2CPP_RAISE_MANAGED_EXCEPTION(L_1, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&Array_BinarySearch_TisWeightInfo_t9942B0D2C77A00A5C9824732AEAA0AB0A55620B0_mF87C294E9FC4D8FF1307E2EB9EA87171DA824427_RuntimeMethod_var)));
-	}
-
-IL_000e:
-	{
-		int32_t L_2 = ___1_index;
-		if ((((int32_t)L_2) < ((int32_t)0)))
-		{
-			goto IL_0016;
-		}
-	}
-	{
-		int32_t L_3 = ___2_length;
-		if ((((int32_t)L_3) >= ((int32_t)0)))
-		{
-			goto IL_0031;
-		}
-	}
-
-IL_0016:
-	{
-		int32_t L_4 = ___1_index;
-		if ((((int32_t)L_4) < ((int32_t)0)))
-		{
-			goto IL_0021;
-		}
-	}
-	{
-		G_B7_0 = ((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteralE8744A8B8BD390EB66CA0CAE2376C973E6904FFB));
-		goto IL_0026;
-	}
-
-IL_0021:
-	{
-		G_B7_0 = ((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteral2B6D6F48C27C60C3B55391AB377D9DC8F5639AA1));
-	}
-
-IL_0026:
-	{
-		ArgumentOutOfRangeException_tEA2822DAF62B10EEED00E0E3A341D4BAF78CF85F* L_5 = (ArgumentOutOfRangeException_tEA2822DAF62B10EEED00E0E3A341D4BAF78CF85F*)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ArgumentOutOfRangeException_tEA2822DAF62B10EEED00E0E3A341D4BAF78CF85F_il2cpp_TypeInfo_var)));
-		NullCheck(L_5);
-		ArgumentOutOfRangeException__ctor_mE5B2755F0BEA043CACF915D5CE140859EE58FA66(L_5, G_B7_0, ((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteral38E3DBC7FC353425EF3A98DC8DAC6689AF5FD1BE)), NULL);
-		IL2CPP_RAISE_MANAGED_EXCEPTION(L_5, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&Array_BinarySearch_TisWeightInfo_t9942B0D2C77A00A5C9824732AEAA0AB0A55620B0_mF87C294E9FC4D8FF1307E2EB9EA87171DA824427_RuntimeMethod_var)));
-	}
-
-IL_0031:
-	{
-		WeightInfoU5BU5D_tA309FB0796574412C67FC42ACC7519BC99AC7A80* L_6 = ___0_array;
-		NullCheck(L_6);
-		int32_t L_7 = ___1_index;
-		int32_t L_8 = ___2_length;
-		if ((((int32_t)((int32_t)il2cpp_codegen_subtract(((int32_t)(((RuntimeArray*)L_6)->max_length)), L_7))) >= ((int32_t)L_8)))
-		{
-			goto IL_0044;
-		}
-	}
-	{
-		ArgumentException_tAD90411542A20A9C72D5CDA3A84181D8B947A263* L_9 = (ArgumentException_tAD90411542A20A9C72D5CDA3A84181D8B947A263*)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ArgumentException_tAD90411542A20A9C72D5CDA3A84181D8B947A263_il2cpp_TypeInfo_var)));
-		NullCheck(L_9);
-		ArgumentException__ctor_m026938A67AF9D36BB7ED27F80425D7194B514465(L_9, ((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteral7F4C724BD10943E8B0B17A6E069F992E219EF5E8)), NULL);
-		IL2CPP_RAISE_MANAGED_EXCEPTION(L_9, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&Array_BinarySearch_TisWeightInfo_t9942B0D2C77A00A5C9824732AEAA0AB0A55620B0_mF87C294E9FC4D8FF1307E2EB9EA87171DA824427_RuntimeMethod_var)));
-	}
-
-IL_0044:
-	{
-		il2cpp_codegen_runtime_class_init_inline(il2cpp_rgctx_data(method->rgctx_data, 1));
-		ArraySortHelper_1_tE3F22500AEFC13011F0AFE7E35FB1BE3970EDA9A* L_10;
-		L_10 = ((  ArraySortHelper_1_tE3F22500AEFC13011F0AFE7E35FB1BE3970EDA9A* (*) (const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 0)))(il2cpp_rgctx_method(method->rgctx_data, 0));
-		WeightInfoU5BU5D_tA309FB0796574412C67FC42ACC7519BC99AC7A80* L_11 = ___0_array;
-		int32_t L_12 = ___1_index;
-		int32_t L_13 = ___2_length;
-		WeightInfo_t9942B0D2C77A00A5C9824732AEAA0AB0A55620B0 L_14 = ___3_value;
-		RuntimeObject* L_15 = ___4_comparer;
-		NullCheck(L_10);
-		int32_t L_16;
-		L_16 = ((  int32_t (*) (ArraySortHelper_1_tE3F22500AEFC13011F0AFE7E35FB1BE3970EDA9A*, WeightInfoU5BU5D_tA309FB0796574412C67FC42ACC7519BC99AC7A80*, int32_t, int32_t, WeightInfo_t9942B0D2C77A00A5C9824732AEAA0AB0A55620B0, RuntimeObject*, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 3)))(L_10, L_11, L_12, L_13, L_14, L_15, il2cpp_rgctx_method(method->rgctx_data, 3));
-		return L_16;
-	}
-}
-// System.Int32 System.Array::BinarySearch<UnityEngine.BeforeRenderHelper/OrderBlock>(T[],System.Int32,System.Int32,T,System.Collections.Generic.IComparer`1<T>)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Array_BinarySearch_TisOrderBlock_t62FD6F6544F34B5298DEF2F77AAE446F269B7837_mD97987A6223479E02D026B1D81268848C313482B_gshared (OrderBlockU5BU5D_tD67C39FB212889AFAAB991BE1AE144ED8D35EE88* ___0_array, int32_t ___1_index, int32_t ___2_length, OrderBlock_t62FD6F6544F34B5298DEF2F77AAE446F269B7837 ___3_value, RuntimeObject* ___4_comparer, const RuntimeMethod* method) 
-{
-	String_t* G_B7_0 = NULL;
-	{
-		OrderBlockU5BU5D_tD67C39FB212889AFAAB991BE1AE144ED8D35EE88* L_0 = ___0_array;
-		if (L_0)
-		{
-			goto IL_000e;
-		}
-	}
-	{
-		ArgumentNullException_t327031E412FAB2351B0022DD5DAD47E67E597129* L_1 = (ArgumentNullException_t327031E412FAB2351B0022DD5DAD47E67E597129*)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ArgumentNullException_t327031E412FAB2351B0022DD5DAD47E67E597129_il2cpp_TypeInfo_var)));
-		NullCheck(L_1);
-		ArgumentNullException__ctor_m444AE141157E333844FC1A9500224C2F9FD24F4B(L_1, ((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteralB829404B947F7E1629A30B5E953A49EB21CCD2ED)), NULL);
-		IL2CPP_RAISE_MANAGED_EXCEPTION(L_1, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&Array_BinarySearch_TisOrderBlock_t62FD6F6544F34B5298DEF2F77AAE446F269B7837_mD97987A6223479E02D026B1D81268848C313482B_RuntimeMethod_var)));
-	}
-
-IL_000e:
-	{
-		int32_t L_2 = ___1_index;
-		if ((((int32_t)L_2) < ((int32_t)0)))
-		{
-			goto IL_0016;
-		}
-	}
-	{
-		int32_t L_3 = ___2_length;
-		if ((((int32_t)L_3) >= ((int32_t)0)))
-		{
-			goto IL_0031;
-		}
-	}
-
-IL_0016:
-	{
-		int32_t L_4 = ___1_index;
-		if ((((int32_t)L_4) < ((int32_t)0)))
-		{
-			goto IL_0021;
-		}
-	}
-	{
-		G_B7_0 = ((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteralE8744A8B8BD390EB66CA0CAE2376C973E6904FFB));
-		goto IL_0026;
-	}
-
-IL_0021:
-	{
-		G_B7_0 = ((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteral2B6D6F48C27C60C3B55391AB377D9DC8F5639AA1));
-	}
-
-IL_0026:
-	{
-		ArgumentOutOfRangeException_tEA2822DAF62B10EEED00E0E3A341D4BAF78CF85F* L_5 = (ArgumentOutOfRangeException_tEA2822DAF62B10EEED00E0E3A341D4BAF78CF85F*)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ArgumentOutOfRangeException_tEA2822DAF62B10EEED00E0E3A341D4BAF78CF85F_il2cpp_TypeInfo_var)));
-		NullCheck(L_5);
-		ArgumentOutOfRangeException__ctor_mE5B2755F0BEA043CACF915D5CE140859EE58FA66(L_5, G_B7_0, ((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteral38E3DBC7FC353425EF3A98DC8DAC6689AF5FD1BE)), NULL);
-		IL2CPP_RAISE_MANAGED_EXCEPTION(L_5, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&Array_BinarySearch_TisOrderBlock_t62FD6F6544F34B5298DEF2F77AAE446F269B7837_mD97987A6223479E02D026B1D81268848C313482B_RuntimeMethod_var)));
-	}
-
-IL_0031:
-	{
-		OrderBlockU5BU5D_tD67C39FB212889AFAAB991BE1AE144ED8D35EE88* L_6 = ___0_array;
-		NullCheck(L_6);
-		int32_t L_7 = ___1_index;
-		int32_t L_8 = ___2_length;
-		if ((((int32_t)((int32_t)il2cpp_codegen_subtract(((int32_t)(((RuntimeArray*)L_6)->max_length)), L_7))) >= ((int32_t)L_8)))
-		{
-			goto IL_0044;
-		}
-	}
-	{
-		ArgumentException_tAD90411542A20A9C72D5CDA3A84181D8B947A263* L_9 = (ArgumentException_tAD90411542A20A9C72D5CDA3A84181D8B947A263*)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ArgumentException_tAD90411542A20A9C72D5CDA3A84181D8B947A263_il2cpp_TypeInfo_var)));
-		NullCheck(L_9);
-		ArgumentException__ctor_m026938A67AF9D36BB7ED27F80425D7194B514465(L_9, ((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteral7F4C724BD10943E8B0B17A6E069F992E219EF5E8)), NULL);
-		IL2CPP_RAISE_MANAGED_EXCEPTION(L_9, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&Array_BinarySearch_TisOrderBlock_t62FD6F6544F34B5298DEF2F77AAE446F269B7837_mD97987A6223479E02D026B1D81268848C313482B_RuntimeMethod_var)));
-	}
-
-IL_0044:
-	{
-		il2cpp_codegen_runtime_class_init_inline(il2cpp_rgctx_data(method->rgctx_data, 1));
-		ArraySortHelper_1_t0F2FF6657C3D7C0BB394799529E0A071AA36C14C* L_10;
-		L_10 = ((  ArraySortHelper_1_t0F2FF6657C3D7C0BB394799529E0A071AA36C14C* (*) (const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 0)))(il2cpp_rgctx_method(method->rgctx_data, 0));
-		OrderBlockU5BU5D_tD67C39FB212889AFAAB991BE1AE144ED8D35EE88* L_11 = ___0_array;
-		int32_t L_12 = ___1_index;
-		int32_t L_13 = ___2_length;
-		OrderBlock_t62FD6F6544F34B5298DEF2F77AAE446F269B7837 L_14 = ___3_value;
-		RuntimeObject* L_15 = ___4_comparer;
-		NullCheck(L_10);
-		int32_t L_16;
-		L_16 = ((  int32_t (*) (ArraySortHelper_1_t0F2FF6657C3D7C0BB394799529E0A071AA36C14C*, OrderBlockU5BU5D_tD67C39FB212889AFAAB991BE1AE144ED8D35EE88*, int32_t, int32_t, OrderBlock_t62FD6F6544F34B5298DEF2F77AAE446F269B7837, RuntimeObject*, const RuntimeMethod*))il2cpp_codegen_get_method_pointer(il2cpp_rgctx_method(method->rgctx_data, 3)))(L_10, L_11, L_12, L_13, L_14, L_15, il2cpp_rgctx_method(method->rgctx_data, 3));
 		return L_16;
 	}
 }

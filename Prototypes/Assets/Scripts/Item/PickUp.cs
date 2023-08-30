@@ -42,8 +42,9 @@ namespace DuRound
                             Instruction.instance.SetPickWeapon();
                         }
                     }
+                    collision.gameObject.GetComponent<Mabel>().AddDagger();
                     gameObject.SetActive(false);
-                    WeaponArsenal.instance.InsetSlot1(sprite);
+                    //WeaponArsenal.instance.InsetSlot1(sprite);
                     //collision.collider.GetComponent<Mabel>().AddDagger();
                 }
             }

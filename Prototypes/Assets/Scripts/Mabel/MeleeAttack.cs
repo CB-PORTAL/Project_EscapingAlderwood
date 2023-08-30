@@ -11,8 +11,7 @@ namespace DuRound
         {
             if (collision.CompareTag("Guard"))
             {
-                Debug.Log("Melee attack");
-                //collision.GetComponent<Guard>().StopMoving();
+                collision.GetComponent<Guard>().StopMoving();
             }
         }
     }

@@ -246,7 +246,7 @@ namespace DuRound
             m_tileList [481].Left = false;
             m_tileList [481].Right = true;
             m_tileList [481].Down = true;
-            m_tileList [481].Upper = false;
+            m_tileList [481].Upper = true;
             m_tileList [482].Left = true;
             m_tileList [482].Right = true;
             m_tileList [482].Down = true;

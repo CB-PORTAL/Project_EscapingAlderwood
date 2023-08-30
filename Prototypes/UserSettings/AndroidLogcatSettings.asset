@@ -3,10 +3,10 @@
     "m_SelectedPackage": {
         "deviceId": "R58R13JXENA",
         "name": "com.DefaultCompany.Prototypes",
-        "processId": 6982,
+        "processId": 10366,
         "exited": false
     },
-    "m_SelectedPriority": 0,
+    "m_SelectedPriority": 1,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "R58R13JXENA",
@@ -17,31 +17,49 @@
         {
             "deviceId": "R58R13JXENA",
             "name": "com.DefaultCompany.Prototypes",
-            "processId": 3963,
+            "processId": 30442,
             "exited": true
         },
         {
             "deviceId": "R58R13JXENA",
             "name": "com.DefaultCompany.Prototypes",
-            "processId": 4742,
+            "processId": 31272,
             "exited": true
         },
         {
             "deviceId": "R58R13JXENA",
             "name": "com.DefaultCompany.Prototypes",
-            "processId": 5398,
+            "processId": 988,
             "exited": true
         },
         {
             "deviceId": "R58R13JXENA",
             "name": "com.DefaultCompany.Prototypes",
-            "processId": 6333,
+            "processId": 1850,
             "exited": true
         },
         {
             "deviceId": "R58R13JXENA",
             "name": "com.DefaultCompany.Prototypes",
-            "processId": 6982,
+            "processId": 7200,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 7796,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 8441,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 10366,
             "exited": false
         }
     ],
