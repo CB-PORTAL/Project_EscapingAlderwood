@@ -3,7 +3,11 @@
     "m_SelectedPackage": {
         "deviceId": "R58R13JXENA",
         "name": "com.DefaultCompany.Prototypes",
+<<<<<<< Updated upstream
         "processId": 6982,
+=======
+        "processId": 19628,
+>>>>>>> Stashed changes
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -17,31 +21,585 @@
         {
             "deviceId": "R58R13JXENA",
             "name": "com.DefaultCompany.Prototypes",
+<<<<<<< Updated upstream
             "processId": 3963,
+=======
+            "processId": 23663,
+>>>>>>> Stashed changes
             "exited": true
         },
         {
             "deviceId": "R58R13JXENA",
             "name": "com.DefaultCompany.Prototypes",
+<<<<<<< Updated upstream
             "processId": 4742,
+=======
+            "processId": 24118,
+>>>>>>> Stashed changes
             "exited": true
         },
         {
             "deviceId": "R58R13JXENA",
             "name": "com.DefaultCompany.Prototypes",
+<<<<<<< Updated upstream
             "processId": 5398,
+=======
+            "processId": 24778,
+>>>>>>> Stashed changes
             "exited": true
         },
         {
             "deviceId": "R58R13JXENA",
             "name": "com.DefaultCompany.Prototypes",
+<<<<<<< Updated upstream
             "processId": 6333,
+=======
+            "processId": 25463,
+>>>>>>> Stashed changes
             "exited": true
         },
         {
             "deviceId": "R58R13JXENA",
             "name": "com.DefaultCompany.Prototypes",
+<<<<<<< Updated upstream
             "processId": 6982,
+=======
+            "processId": 1827,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 2422,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 3295,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 3684,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 4092,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 4521,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 4952,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 5741,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 6145,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 6649,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 7046,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 7431,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 7763,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 8186,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 8525,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 8873,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 9328,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 9696,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 10187,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 10936,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 11574,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 11951,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 15461,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 16482,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 24289,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 24938,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 25363,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 28224,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 29397,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 30007,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 31440,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 32078,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 839,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 2842,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 3689,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 4192,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 4658,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 5226,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 5630,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 6112,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 6498,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 7004,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 7403,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 7725,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 8092,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 8445,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 9108,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 10312,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 11076,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 11846,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 12271,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 12768,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 13387,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 14184,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 14541,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 14871,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 15576,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 15864,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 16425,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 16813,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 17182,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 17847,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 18147,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 19932,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 20395,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 20834,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 21404,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 21938,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 25297,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 26216,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 26736,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 27026,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 27403,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 28598,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 506,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 1569,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 2421,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 6433,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 7855,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 8600,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 9104,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 11040,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 12106,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 12806,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 13285,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 14219,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 14566,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 15142,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 15566,
+            "exited": false
+        },
+        {
+            "deviceId": "R58R13JXENA",
+            "name": "com.DefaultCompany.Prototypes",
+            "processId": 19628,
+>>>>>>> Stashed changes
             "exited": false
         }
     ],

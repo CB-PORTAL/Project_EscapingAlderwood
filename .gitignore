@@ -87,3 +87,4 @@ DerivedDataCache/*
 # Exclude files from Unreal Engine and Blender
 /Game_EscapingAlderwood/
 *.zip
+Prototypes/Library

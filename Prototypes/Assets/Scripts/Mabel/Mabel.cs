@@ -60,8 +60,21 @@ namespace DuRound
             EnhancedTouchSupport.Enable();
             var position = ConvertIntoInteger(m_rigidBody2D.position);
             m_currentPath = position;
+            m_movement = Vector2.zero;
             MabelStartMove();
             guardList = GameObject.FindGameObjectsWithTag("Guard");
+<<<<<<< Updated upstream
+=======
+            //Touch.onFingerDown += SwipeIn;
+            //Touch.onFingerUp += SwipeOut;
+            moveSpeed = walkSpeed;
+            if (GameManager.Instance.isBegin)
+            {
+                tempDetectGuard = false;
+            }
+
+            isAnalog = 0;
+>>>>>>> Stashed changes
         }
         protected Vector2 ConvertIntoInteger(Vector2 currentPos)
         {
@@ -242,10 +255,92 @@ namespace DuRound
                     var movement = new Vector2(m_rigidBody2D.position.x, currentPosition);
                     m_rigidBody2D.MovePosition(movement);
                 }
+<<<<<<< Updated upstream
                 else
                 {
                     m_animator.SetBool("isMove", false);
                 }
+=======
+            }
+        }
+       
+        private void HorizontalMovement()
+        {
+            if (m_movement.x > 0)
+            {
+                statRight = true;
+                statLeft = false;
+                statUp = false;
+                statDown = false;
+                m_animator.SetBool("isMove", true);
+                m_animator.SetFloat("IdleX", 1);
+                m_animator.SetFloat("IdleY", 0);
+                m_animator.SetFloat("MoveX", 1);
+                m_animator.SetFloat("MoveY", 0);
+                var newPosition = m_rigidBody2D.position.x + moveSpeed * Time.fixedDeltaTime;
+                var movement = new Vector2(newPosition, m_rigidBody2D.transform.position.y);
+                m_rigidBody2D.MovePosition(movement);
+            }
+            else if (m_movement.x < 0)
+            {
+                statLeft = true;
+                statRight = false;
+                statUp = false;
+                statDown = false;
+                m_animator.SetBool("isMove", true);
+                m_animator.SetFloat("IdleX", -1);
+                m_animator.SetFloat("IdleY", 0);
+                m_animator.SetFloat("MoveX", -1);
+                m_animator.SetFloat("MoveY", 0);
+                var currentPosition = m_rigidBody2D.position.x + -moveSpeed * Time.fixedDeltaTime;
+                var movement = new Vector2(currentPosition, m_rigidBody2D.position.y);
+                m_rigidBody2D.MovePosition(movement);
+            }
+            else if (m_movement.y > 0)
+            {
+                statUp = true;
+                statDown = false;
+                statRight = false;
+                statLeft = false;
+                m_animator.SetBool("isMove", true);
+                m_animator.SetFloat("IdleX", 0);
+                m_animator.SetFloat("IdleY", 1);
+                m_animator.SetFloat("MoveY", 1);
+                m_animator.SetFloat("MoveX", 0);
+                var currentPosition = m_rigidBody2D.position.y + moveSpeed * Time.fixedDeltaTime;
+                var movement = new Vector2(m_rigidBody2D.position.x, currentPosition);
+                m_rigidBody2D.MovePosition(movement);
+            }
+            else if (m_movement.y < 0)
+            {
+                statDown = true;
+                statUp = false;
+                statLeft = false;
+                statRight = false;
+                m_animator.SetBool("isMove", true);
+                m_animator.SetFloat("IdleX", 0);
+                m_animator.SetFloat("IdleY", -1);
+                m_animator.SetFloat("MoveY", -1);
+                m_animator.SetFloat("MoveX", 0);
+                var currentPosition = m_rigidBody2D.position.y + -moveSpeed * Time.fixedDeltaTime;
+                var movement = new Vector2(m_rigidBody2D.position.x, currentPosition);
+                m_rigidBody2D.MovePosition(movement);
+            }
+            else
+            {
+                m_animator.SetBool("isMove", false);
+            }
+        }
+        public void SetMovement(Vector2 movement)
+        {
+            m_movement = movement;
+
+           // Debug.LogWarning(xTemp + ", " + yTemp);
+            //m_rigidBody2D.transform.position = new Vector2(xTemp, yTemp);
+            if (GameManager.Instance.isBegin)
+            {
+                instructionArrow.alpha = 0;
+>>>>>>> Stashed changes
             }
         }
         private async void MabelStartMove()
@@ -303,6 +398,52 @@ namespace DuRound
                 ThrowDagger();
             }
         }
+<<<<<<< Updated upstream
+=======
+        public int isAnalog { get; set; } = -1;
+        public void OnPointerEnter(BaseEventData data)
+        {
+            isAnalog = 1;
+        }
+        public void OnPointerExit(BaseEventData data)
+        {
+            isAnalog = 0;
+        }
+        public void OnPointerUp(BaseEventData eventData)
+        {
+            isAnalog = -1;
+            m_movement = Vector2.zero;
+        }
+        
+        public void MeleeAttack(BaseEventData data)
+        {
+            if (!m_hasDagger) return;
+            if (statRight)
+            {
+                m_animator.SetTrigger("isAttack");
+                m_animator.SetFloat("MeleeX", 1);
+                m_animator.SetFloat("MeleeY", 0);
+            }
+            else if (statLeft)
+            {
+                m_animator.SetTrigger("isAttack");
+                m_animator.SetFloat("MeleeX", -1);
+                m_animator.SetFloat("MeleeY", 0);
+            }
+            else if (statUp)
+            {
+                m_animator.SetTrigger("isAttack");
+                m_animator.SetFloat("MeleeY", 1);
+                m_animator.SetFloat("MeleeX", 0);
+            }
+            else if (statDown)
+            {
+                m_animator.SetTrigger("isAttack");
+                m_animator.SetFloat("MeleeY", -1);
+                m_animator.SetFloat("MeleeX", 0);
+            }
+        }
+>>>>>>> Stashed changes
         public GameObject dagger;
         private void ThrowDagger()
         {

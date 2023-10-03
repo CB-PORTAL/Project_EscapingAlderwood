@@ -136,9 +136,14 @@ PlayerSettings:
     Others: 1
   bundleVersion: 1.2.0
   preloadedAssets:
+<<<<<<< Updated upstream
   - {fileID: 5823920632467501459, guid: e1589532b9bceaa49b37c747b9b7cb76, type: 2}
   - {fileID: 11400000, guid: 3add5c29f1611b140b50e2d5ceb43cca, type: 2}
   - {fileID: 11400000, guid: b65e1ff7d44abc64b9cf39e9a6a03144, type: 2}
+=======
+  - {fileID: 0}
+  - {fileID: 0}
+>>>>>>> Stashed changes
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1

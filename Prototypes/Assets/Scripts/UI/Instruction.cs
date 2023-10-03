@@ -47,15 +47,24 @@ namespace DuRound
                 m_Canvas.blocksRaycasts = false;
             }
         }
-        public void SetAvoidingGuardText()
+        public async void SetAvoidingGuardText()
         {
             m_Text.text = AvoidingText;
             EnableCanvas(true);
+            await WaitingTime();
+            EnableCanvas(false);
         }
-        public void SetPickWeapon()
+        public async void SetPickWeapon()
         {
             m_Text.text = WeaponText;
             EnableCanvas(true);
+            await WaitingTime();
+            EnableCanvas(false);
+        }
+        private async Task<Task> WaitingTime()
+        {
+            await Task.Delay(5000);
+            return Task.CompletedTask;
         }
     }
 }
