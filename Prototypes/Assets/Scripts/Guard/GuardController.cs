@@ -27,7 +27,7 @@ namespace DuRound
         private async Task<Task> GuardStart()
         {
             await GuardOut();
-            await Task.Delay(3000);
+            await Task.Delay(2000);
             //TODO UNDO
             SetMovementSpeedAllGuard();
             return Task.CompletedTask;
@@ -47,11 +47,9 @@ namespace DuRound
             await Task.Delay(1000);
             for(int g = 0; g < guardList.Count; g++) 
             {
-                await guardList [g].Initialize();
+                guardList [g].Initialize();
                 guardList [g].GuardMoveForwards();
-
-
-                await Task.Delay(3000);
+                await Task.Delay(1000);
             }
         }
         public void GuardAction(bool condition)
@@ -73,7 +71,6 @@ namespace DuRound
             }
             await GuardOut();
         }
-
         public void SetMovementSpeedAllGuard()
         {
             for (int g = 0; g < guardList.Count; g++)
@@ -82,16 +79,16 @@ namespace DuRound
                 guardList [g].moveSpeed = resetMovement;
             }
         }
-        public void CurrentGuardHasThomas(Guard guard)
-        {
-            currentGuardHT = null;
-            currentGuardHT = guard;
-        }
-        public void ResetCurrentGuard()
-        {
-            currentGuardHT.ResetPosition();
-            currentGuardHT.GuardMoveForwards();
-        }
+        //public void CurrentGuardHasThomas(Guard guard)
+        //{
+        //    currentGuardHT = null;
+        //    currentGuardHT = guard;
+        //}
+        //public void ResetCurrentGuard()
+        //{
+        //    currentGuardHT.ResetPosition();
+        //    currentGuardHT.GuardMoveForwards();
+        //}
         public void AddThomas()
         {
             currentGuardHT.AddThomas();
