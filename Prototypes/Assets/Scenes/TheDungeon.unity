@@ -1125,7 +1125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &138195422
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2620,6 +2620,82 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!1 &368234556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 368234557}
+  - component: {fileID: 368234559}
+  - component: {fileID: 368234558}
+  m_Layer: 5
+  m_Name: AnalogTemp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &368234557
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368234556}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1630605841}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &368234558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368234556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -1152839076, guid: 67c4d3b09cb7bdc4d8e6701b2d63bffa, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &368234559
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368234556}
+  m_CullTransparentMesh: 1
 --- !u!1 &372149141
 GameObject:
   m_ObjectHideFlags: 0
@@ -3479,7 +3555,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &467049389
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6166,7 +6242,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 821443758}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -7006,12 +7082,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c569f8a2acf98448fe9039a0b191f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.75
+  moveSpeed: 1
   throwDaggerStrength: 20
   dagger: {fileID: 0}
   parentMovePoint: {fileID: 472342211}
   isDebug: 0
-  guardLineSight: 2
+  farLineSight: 5
+  nearLineSight: 2
 --- !u!61 &900885397
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7036,7 +7113,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.3}
+  m_Size: {x: 0.2, y: 0.3}
   m_EdgeRadius: 0
 --- !u!50 &900885398
 Rigidbody2D:
@@ -14350,7 +14427,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024875390}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.17, y: -2, z: 0}
+  m_LocalPosition: {x: -6.19, y: -1.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14420,7 +14497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3071ce8d67497ed40a28676e412d92f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 1.6
   throwDaggerStrength: 35
   dagger: {fileID: 5514750267364985315, guid: 1eeca63af1f8a7b4796d442082c2eab2, type: 3}
 --- !u!114 &1024875398
@@ -15116,7 +15193,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1116092732}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.17, y: -2, z: -10}
+  m_LocalPosition: {x: -6.19, y: -1.98, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15203,12 +15280,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c569f8a2acf98448fe9039a0b191f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.75
+  moveSpeed: 1
   throwDaggerStrength: 20
   dagger: {fileID: 0}
   parentMovePoint: {fileID: 1365928888}
   isDebug: 0
-  guardLineSight: 2
+  farLineSight: 5
+  nearLineSight: 2
 --- !u!61 &1130151284
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15233,7 +15311,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.3}
+  m_Size: {x: 0.2, y: 0.3}
   m_EdgeRadius: 0
 --- !u!50 &1130151285
 Rigidbody2D:
@@ -15687,7 +15765,7 @@ MonoBehaviour:
   - {fileID: 1130151283}
   - {fileID: 1859268737}
   - {fileID: 2091146436}
-  resetMovement: 0.75
+  resetMovement: 1
 --- !u!114 &1172090280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18660,12 +18738,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c569f8a2acf98448fe9039a0b191f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.75
+  moveSpeed: 1
   throwDaggerStrength: 20
   dagger: {fileID: 0}
   parentMovePoint: {fileID: 2047819479}
   isDebug: 0
-  guardLineSight: 2
+  farLineSight: 5
+  nearLineSight: 2
 --- !u!61 &1243411606
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18690,7 +18769,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.3}
+  m_Size: {x: 0.2, y: 0.3}
   m_EdgeRadius: 0
 --- !u!50 &1243411607
 Rigidbody2D:
@@ -19889,7 +19968,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 2
+  MinDistance: 4
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -21069,6 +21148,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 467049389}
+  - {fileID: 368234557}
   m_Father: {fileID: 695736998}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21151,6 +21231,22 @@ MonoBehaviour:
         - m_Target: {fileID: 1024875397}
           m_TargetAssemblyTypeName: DuRound.Mabel, EscapingAlderWood
           m_MethodName: OnPointerExit
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1024875397}
+          m_TargetAssemblyTypeName: DuRound.Mabel, EscapingAlderWood
+          m_MethodName: OnPointerUp
           m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -22646,12 +22742,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c569f8a2acf98448fe9039a0b191f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.75
+  moveSpeed: 1
   throwDaggerStrength: 20
   dagger: {fileID: 0}
   parentMovePoint: {fileID: 1497412917}
   isDebug: 0
-  guardLineSight: 2
+  farLineSight: 5
+  nearLineSight: 2
 --- !u!61 &1798207612
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22676,7 +22773,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.3}
+  m_Size: {x: 0.2, y: 0.3}
   m_EdgeRadius: 0
 --- !u!50 &1798207613
 Rigidbody2D:
@@ -22820,12 +22917,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c569f8a2acf98448fe9039a0b191f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.75
+  moveSpeed: 1
   throwDaggerStrength: 20
   dagger: {fileID: 0}
   parentMovePoint: {fileID: 2078673581}
   isDebug: 0
-  guardLineSight: 2
+  farLineSight: 5
+  nearLineSight: 2
 --- !u!61 &1812819863
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22850,7 +22948,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.3}
+  m_Size: {x: 0.2, y: 0.3}
   m_EdgeRadius: 0
 --- !u!50 &1812819864
 Rigidbody2D:
@@ -23101,7 +23199,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825526499}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.17, y: -2, z: -10}
+  m_LocalPosition: {x: -6.19, y: -1.98, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23506,12 +23604,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c569f8a2acf98448fe9039a0b191f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.75
+  moveSpeed: 1
   throwDaggerStrength: 20
   dagger: {fileID: 0}
   parentMovePoint: {fileID: 63050201}
   isDebug: 0
-  guardLineSight: 2
+  farLineSight: 5
+  nearLineSight: 2
 --- !u!61 &1859268738
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23536,7 +23635,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.3}
+  m_Size: {x: 0.2, y: 0.3}
   m_EdgeRadius: 0
 --- !u!50 &1859268739
 Rigidbody2D:
@@ -24224,7 +24323,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.3}
+  m_Size: {x: 0.2, y: 0.3}
   m_EdgeRadius: 0
 --- !u!50 &1929281479
 Rigidbody2D:
@@ -24347,12 +24446,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c569f8a2acf98448fe9039a0b191f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.75
+  moveSpeed: 1
   throwDaggerStrength: 20
   dagger: {fileID: 0}
   parentMovePoint: {fileID: 1825314899}
   isDebug: 0
-  guardLineSight: 2
+  farLineSight: 6
+  nearLineSight: 2
 --- !u!1 &1931925072
 GameObject:
   m_ObjectHideFlags: 0
@@ -24660,7 +24760,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975791433}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -25571,12 +25671,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c569f8a2acf98448fe9039a0b191f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.75
+  moveSpeed: 1
   throwDaggerStrength: 20
   dagger: {fileID: 0}
   parentMovePoint: {fileID: 1214884499}
   isDebug: 0
-  guardLineSight: 2
+  farLineSight: 5
+  nearLineSight: 2
 --- !u!61 &2091146437
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25601,7 +25702,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.3}
+  m_Size: {x: 0.2, y: 0.3}
   m_EdgeRadius: 0
 --- !u!50 &2091146438
 Rigidbody2D:
@@ -26154,11 +26255,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5514750267364985319, guid: 1eeca63af1f8a7b4796d442082c2eab2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.28
+      value: -7.31
       objectReference: {fileID: 0}
     - target: {fileID: 5514750267364985319, guid: 1eeca63af1f8a7b4796d442082c2eab2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.98
+      value: -3.08
       objectReference: {fileID: 0}
     - target: {fileID: 5514750267364985319, guid: 1eeca63af1f8a7b4796d442082c2eab2, type: 3}
       propertyPath: m_LocalPosition.z

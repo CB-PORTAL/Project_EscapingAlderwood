@@ -17,7 +17,7 @@ namespace DuRound
         protected Animator m_animator { get; set; }
         protected Rigidbody2D m_rigidBody2D { get; set; }
         protected bool isCollide { get; set; } = false;
-        public  int  m_hitPoints { get; set; } = 3;
+        public int m_hitPoints { get; set; } = 3;
         public bool hasThomas { get { return m_hasThomas; } }
         public bool disableMovement { get; set; } = false;
         protected bool m_hasThomas { get; set; } = false;
@@ -36,6 +36,7 @@ namespace DuRound
         protected BoxCollider2D m_boxCollider2D { get; set; }
 
         private GameObject [] guardList { get; set; }
+        private bool m_Mobile, m_Window = false;
         protected virtual void Awake()
         {
             _miniCanvas = GameObject.FindWithTag("MiniGame").GetComponent<CanvasGroup>();
@@ -63,18 +64,20 @@ namespace DuRound
             m_movement = Vector2.zero;
             MabelStartMove();
             guardList = GameObject.FindGameObjectsWithTag("Guard");
-<<<<<<< Updated upstream
-=======
             //Touch.onFingerDown += SwipeIn;
             //Touch.onFingerUp += SwipeOut;
-            moveSpeed = walkSpeed;
+            //moveSpeed = walkSpeed;
             if (GameManager.Instance.isBegin)
             {
                 tempDetectGuard = false;
             }
-
+            PlatformInit();
             isAnalog = 0;
->>>>>>> Stashed changes
+        }
+        private void PlatformInit()
+        {
+            if (Application.isMobilePlatform) m_Mobile = true;
+            else m_Window = true;
         }
         protected Vector2 ConvertIntoInteger(Vector2 currentPos)
         {
@@ -89,7 +92,7 @@ namespace DuRound
             int steps = 0;
             foreach (var t in touch)
             {
-                Debug.Log(t.screenPosition + "dagger");
+                //Debug.Log(t.screenPosition + "dagger");
                 Vector2Int positionInteger = new Vector2Int(Mathf.RoundToInt(lastPosition.x), Mathf.RoundToInt(lastPosition.y));
                 Vector2Int screenPosition = new Vector2Int(Mathf.RoundToInt(t.screenPosition.x), Mathf.RoundToInt(t.screenPosition.y));
                 if (t.screenPosition.x > lastPosition.x && t.screenPosition.y == lastPosition.y)
@@ -157,7 +160,7 @@ namespace DuRound
                     foreach (var g in guardList)
                     {
                         var distance = Vector2.Distance(this.transform.position, g.transform.position);
-                        if (distance >= 4)
+                        if (distance <= 5)
                         {
                             tempDetectGuard = true;
                             Instruction.instance.SetAvoidingGuardText();
@@ -176,7 +179,6 @@ namespace DuRound
         }
         protected virtual  void FixedUpdate()
         {
-
            
         }
         private void OnDestroy()
@@ -188,13 +190,14 @@ namespace DuRound
         }
         private void UpdateMabelAnimationAndMovement()
         {
+            return;
             m_movement = Vector2.zero;
             var touch = Touch.activeFingers;
             
             foreach (var t in touch)
             {
                 m_movement = t.screenPosition;
-                Debug.Log(m_movement + "movement");
+                //Debug.Log(m_movement + "movement");
                 if (m_movement.x > 0)
                 {
                     //statRight = true;
@@ -255,12 +258,6 @@ namespace DuRound
                     var movement = new Vector2(m_rigidBody2D.position.x, currentPosition);
                     m_rigidBody2D.MovePosition(movement);
                 }
-<<<<<<< Updated upstream
-                else
-                {
-                    m_animator.SetBool("isMove", false);
-                }
-=======
             }
         }
        
@@ -333,14 +330,14 @@ namespace DuRound
         }
         public void SetMovement(Vector2 movement)
         {
+
             m_movement = movement;
 
            // Debug.LogWarning(xTemp + ", " + yTemp);
             //m_rigidBody2D.transform.position = new Vector2(xTemp, yTemp);
             if (GameManager.Instance.isBegin)
             {
-                instructionArrow.alpha = 0;
->>>>>>> Stashed changes
+               // instructionArrow.alpha = 0;
             }
         }
         private async void MabelStartMove()
@@ -348,7 +345,10 @@ namespace DuRound
             while (onGame)
             {
                 if (disableMovement) return;
-                UpdateMabelAnimationAndMovement();
+                //if (m_Mobile)
+                    UpdateMabelAnimationAndMovement();
+                //else if (m_Window)
+                    HorizontalMovement();
                 m_currentPath = ConvertIntoInteger(m_rigidBody2D.position);
                 await Task.Yield();
             }
@@ -357,7 +357,6 @@ namespace DuRound
         public void MabelMovement(InputAction.CallbackContext context)
         {
             m_movement = context.ReadValue<Vector2>();
-
         }
         public void MoveLeftDown(BaseEventData data)
         {
@@ -398,8 +397,6 @@ namespace DuRound
                 ThrowDagger();
             }
         }
-<<<<<<< Updated upstream
-=======
         public int isAnalog { get; set; } = -1;
         public void OnPointerEnter(BaseEventData data)
         {
@@ -417,7 +414,7 @@ namespace DuRound
         
         public void MeleeAttack(BaseEventData data)
         {
-            if (!m_hasDagger) return;
+           // if (!m_hasDagger) return;
             if (statRight)
             {
                 m_animator.SetTrigger("isAttack");
@@ -443,7 +440,6 @@ namespace DuRound
                 m_animator.SetFloat("MeleeX", 0);
             }
         }
->>>>>>> Stashed changes
         public GameObject dagger;
         private void ThrowDagger()
         {

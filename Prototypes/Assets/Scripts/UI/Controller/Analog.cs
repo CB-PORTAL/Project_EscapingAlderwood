@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,39 +12,61 @@ namespace DuRound
     {
         private Mabel mMabel { get; set; }
         private GameObject touchMid { get; set; }
+        private GameObject tempTouchMid { get; set; }
         private RectTransform touchMidRect { get; set; }
         private Vector2 touchMidOriginalPos { get; set; }
         private float touchMidDeltaX { get; set; }
         private float touchMidDeltaY { get; set; }
 
-        private float leftUpper { get; set; }
-        private float leftLower { get; set; }
-        private float rightUpper { get; set; }
-        private float rightLower { get; set; }
-        private float upperLeft { get; set; }
-        private float upperRight { get; set; }
-        private float lowerLeft { get; set; }
-        private float lowerRight { get; set; }
+        private Vector2 leftUpper { get; set; }
+        private Vector2 leftLower { get; set; }
+        private Vector2 rightUpper { get; set; }
+        private Vector2 rightLower { get; set; }
+        private Vector2 upperLeft { get; set; }
+        private Vector2 upperRight { get; set; }
+        private Vector2 lowerLeft { get; set; }
+        private Vector2 lowerRight { get; set; }
 
-
+        Vector2 screenMid { get; set; }
+        private bool currentOrientation { get; set; } = false;
         private void Awake()
         {
             mMabel = GameObject.FindWithTag("Mabel").GetComponent<Mabel>();
 
-            touchMid = transform.GetChild(0).gameObject;
-            touchMidRect = touchMid.GetComponent<RectTransform>();
-            touchMidOriginalPos = touchMid.transform.position;
-            touchMidDeltaX = touchMidOriginalPos.x / 2f;
-            touchMidDeltaY = touchMidOriginalPos.y / 2f;
+
+            //touchMidRect = touchMid.GetComponent<RectTransform>();
+            // var screenM = Camera.main.WorldToScreenPoint(touchMid.transform.position);
+            // Debug.LogWarning(screenM);
+
+
         }
         // Start is called before the first frame update
         void Start()
         {
-
+            touchMid = transform.GetChild(0).gameObject;
+            tempTouchMid = transform.GetChild(1).gameObject;
+            touchMidOriginalPos = tempTouchMid.transform.position;
+            touchMidDeltaX = touchMidOriginalPos.x / 2f;
+            touchMidDeltaY = touchMidOriginalPos.y / 2f;
         }
-        // Update is called once per frame
+        private void ScreenOrientationUpdate()
+        {
+            if (Screen.orientation == ScreenOrientation.Portrait || Screen.orientation == ScreenOrientation.PortraitUpsideDown)
+            {
+                touchMidOriginalPos = tempTouchMid.transform.position;
+            }
+            else if (Screen.orientation == ScreenOrientation.LandscapeLeft || Screen.orientation == ScreenOrientation.LandscapeRight)
+            {
+                touchMidOriginalPos = tempTouchMid.transform.position;
+            }
+        }
+
+
+
+            // Update is called once per frame
         void Update()
         {
+            ScreenOrientationUpdate();
             //var ts = Touchscreen.current;
             //if (mMabel.isAnalog == 1)
             //{
@@ -77,49 +100,54 @@ namespace DuRound
             //return;
             //ENHANCED TOUCH SCREEN
             var touch = Touch.activeFingers;
-            if(touch.Count > 0 ) 
+            if (touch.Count > 0)
             {
                 if (mMabel.isAnalog == 1)
                 {
                     foreach (var t in touch)
                     {
                         var screenPos = t.screen.position.value;
-                        
-                        touchMid.transform.position = screenPos;
-     
-
-                        leftUpper = touchMidOriginalPos.y + touchMidDeltaY;
-                        leftLower = touchMidOriginalPos.y - touchMidDeltaY;
-                        rightUpper = touchMidOriginalPos.y + touchMidDeltaY;
-                        rightLower = touchMidOriginalPos.y - touchMidDeltaY;
-                        upperLeft = touchMidOriginalPos.x - touchMidDeltaX;
-                        upperRight = touchMidOriginalPos.x + touchMidDeltaX;
-                        lowerLeft = touchMidOriginalPos.x - touchMidDeltaX;
-                        lowerRight = touchMidOriginalPos.x + touchMidDeltaX;
-
-                        if (screenPos.x < touchMidOriginalPos.x && screenPos.y < leftUpper && screenPos.y > leftLower)
+                        Vector2 worldScreen = Camera.main.ScreenToWorldPoint(screenPos);
+                        touchMid.transform.position = worldScreen;
+                        var analogLeft = touchMid.transform.position;
+                        //left side
+                        var UpperLeft0 = touchMidOriginalPos.y + 0.10f;
+                        var UpperLeft1 = touchMidOriginalPos.y + 0.20f;
+                        var DownLeft0 = touchMidOriginalPos.y - 0.10f;
+                        var DownLeft1 = touchMidOriginalPos.y - 0.20f;
+                        // Debug.Log(leftSideUpperMax + " left side uppermax " + leftSideUpperMin + " left side upper min");
+                        if (analogLeft.x <= touchMidOriginalPos.x && analogLeft.y <= UpperLeft0 && analogLeft.y >= touchMidOriginalPos.y ||
+                            analogLeft.x <= touchMidOriginalPos.x && analogLeft.y <= touchMidOriginalPos.y && analogLeft.y >= DownLeft0)
                         {
                             var newPos = new Vector2(-1, 0);
                             mMabel.SetMovement(newPos);
                         }
-                        else if (screenPos.x > touchMidOriginalPos.x && screenPos.y < rightUpper && screenPos.y > rightLower)
+                        else if (analogLeft.x >= touchMidOriginalPos.x && analogLeft.y <= UpperLeft0 && analogLeft.y >= touchMidOriginalPos.y ||
+                             analogLeft.x >= touchMidOriginalPos.x && analogLeft.y <= touchMidOriginalPos.y && analogLeft.y >= DownLeft0)
                         {
                             var newPos = new Vector2(1, 0);
                             mMabel.SetMovement(newPos);
                         }
-                        else if (screenPos.y < touchMidOriginalPos.y && screenPos.x > lowerLeft && screenPos.x < lowerRight)
+                        else if (analogLeft.y <= touchMidOriginalPos.y && analogLeft.x <= touchMidOriginalPos.x + 0.10f && analogLeft.x >= touchMidOriginalPos.x ||
+                            analogLeft.y <= touchMidOriginalPos.y && analogLeft.x <= touchMidOriginalPos.x && analogLeft.x >= touchMidOriginalPos.x - 0.10f)
                         {
                             var newPos = new Vector2(0, -1);
                             mMabel.SetMovement(newPos);
                         }
-                        else if (screenPos.y > touchMidOriginalPos.y && screenPos.x > upperLeft && screenPos.x < upperRight)
+                        else if (analogLeft.y >= touchMidOriginalPos.y && analogLeft.x <= touchMidOriginalPos.x + 0.10f && analogLeft.x >= touchMidOriginalPos.x ||
+                            analogLeft.y >= touchMidOriginalPos.y && analogLeft.x >= touchMidOriginalPos.x - 0.10f && analogLeft.x <= touchMidOriginalPos.x)
                         {
                             var newPos = new Vector2(0, 1);
                             mMabel.SetMovement(newPos);
                         }
+                       // else
+                       // {
+                       //     var newPos = new Vector2(0, -1);
+                       //     mMabel.SetMovement(newPos);
+                       // }
                     }
                 }
-                else if (mMabel.isAnalog == 0)
+                if (mMabel.isAnalog == 0)
                 {
                     touchMid.transform.position = touchMidOriginalPos;
                     mMabel.SetMovement(Vector2.zero);
@@ -132,7 +160,7 @@ namespace DuRound
                     //}
 
                 }
-                else if (mMabel.isAnalog == -1)
+                if (mMabel.isAnalog == -1)
                 {
                     touchMid.transform.position = touchMidOriginalPos;
                     mMabel.SetMovement(Vector2.zero);
@@ -140,5 +168,6 @@ namespace DuRound
 
             }
         }
+        
     }
 }

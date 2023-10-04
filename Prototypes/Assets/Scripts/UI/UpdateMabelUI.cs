@@ -38,6 +38,7 @@ namespace DuRound
             m_Thomas = transform.GetChild(0).transform.GetChild(1).GetComponent<Image>();
             m_Dagger = GameObject.Find("Weapon").transform.GetChild(0).GetComponent<Image>();
             m_Indicator = transform.GetChild(0).transform.GetChild(3).GetComponent<Image>();
+            hitPoint0.gameObject.SetActive(true);hitPoint1.gameObject.SetActive(true);hitPoint2.gameObject.SetActive(true);
         }
         private void Update()
         {
@@ -93,7 +94,7 @@ namespace DuRound
             }
         }
         public void UpdateThomas(bool condition) { m_Thomas.gameObject.SetActive(condition);m_Indicator.enabled = condition; if (!condition) UpdateIndicator(); }
-        public void UpdateDagger(bool condition) { m_Dagger.GetComponent<Image>().enabled = condition; _Mabel.SetMabelHasDagger(true); }
+        public void UpdateDagger(bool condition) { m_Dagger.GetComponent<Image>().enabled = condition; }// _Mabel.SetMabelHasDagger(true); }
         public void UpdateIndicator() { m_Indicator.enabled = false; }
     }
 }

@@ -40,6 +40,7 @@ namespace DuRound
         // Start is called before the first frame update
         public void Initialize()
         {
+            isAccursed = false;
             isCollide = false;
             moveIncrement = 0;
             isMoving = true;
@@ -113,14 +114,10 @@ namespace DuRound
         private bool m_checkForDistance { get; set; } = true;
         private bool m_moveToMabel { get; set; } = true;
         private bool trailMoving { get; set; } = false;
-<<<<<<< Updated upstream
-        private async Task CheckForDistance()
-=======
         //private bool b_finishLastMove { get; set; } = false;
         private bool m_MabelIsNear { get; set; } = false;
         
         private async void CheckForDistance()
->>>>>>> Stashed changes
         {
             while (m_checkForDistance)
             {
@@ -137,29 +134,10 @@ namespace DuRound
                     //  if (!m_foundMabel)
                     // {
                     //m_foundMabel = true;
-
                     //var found = mapTilePoints [guardPos];
                     if (!m_foundMabel)
                     {
                         m_foundMabel = true;
-<<<<<<< Updated upstream
-                        trailMoving = true;
-                        var isComplete = CheckMinusXPosition();
-                        if (isComplete.Result == true)
-                        {
-                            isMoving = false;
-                            shouldDestroy = true;
-                            //Debug.Log(firstMove);
-                            //Debug.Log(secondMove);
-                            //m_foundMabel = false;
-                            if (firstMove != Vector2.zero && secondMove != Vector2.zero)
-                            {
-                                var tempBeforeFirst = ConvertIntoInteger(m_rigidBody2D.position);
-                                lastPositionAfterTrack.Add(tempBeforeFirst);
-                                Vector2 movePosition = firstMove;
-                                while (m_moveToMabel)
-                                {
-=======
                         var isComplete = await CheckMinusXPosition();
                         if (isComplete == true)
                         {
@@ -189,15 +167,10 @@ namespace DuRound
                                             trailMoving = true;
                                         }
                                     }*/
->>>>>>> Stashed changes
                                     if (trailMoving)
                                     {
                                         for (int move = 0; move < NewGuardPosition.Count; move++)
                                         {
-<<<<<<< Updated upstream
-                                            m_MabelTrailPosition = currentMabelPath;
-                                            pathTrailAfterMabel.Add(m_MabelTrailPosition);
-=======
                                             m_lastPosition = m_rigidBody2D.position;
                                             var newPosition = NewGuardPosition [move];
                                             while (m_rigidBody2D.position != newPosition)
@@ -216,13 +189,16 @@ namespace DuRound
                                                         }
                                                     }
                                                 }
-                                                m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.transform.position, newPosition, moveSpeed * Time.fixedDeltaTime);
-                                                m_currentPosition = m_rigidBody2D.position;
+                                                if (isMoving)
+                                                {
+                                                    //Debug.Log("here " + newPosition);
+                                                    m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.transform.position, newPosition, moveSpeed * Time.fixedDeltaTime);
+                                                    m_currentPosition = m_rigidBody2D.position;
+                                                }
                                                 AddingTrailPath();
                                                 await Task.Yield();
                                             }
                                             await Task.Yield();
->>>>>>> Stashed changes
                                         }
                                         NewGuardPosition.Clear();
                                         AddingTrailPath();
@@ -237,10 +213,10 @@ namespace DuRound
                                                 //{
                                                 //    finishLastMove = m_MabelTrailPosition;
                                                 //}
-                                               // if (pathTrailAfterMabel.Contains(m_MabelTrailPosition))
-                                               // {
+                                                if (!pathTrailAfterMabel.Contains(m_MabelTrailPosition))
+                                                {
                                                     pathTrailAfterMabel.Add(m_MabelTrailPosition);
-                                               // }
+                                                }
                                             }
                                         }
                                         /*
@@ -267,20 +243,10 @@ namespace DuRound
                                         if (pathTrailAfterMabel.Count > 0)
                                         {
                                             var newPosition = pathTrailAfterMabel [0];
-
                                             if (m_rigidBody2D.position != newPosition)
                                             {
                                                 if (!m_MabelIsNear)
                                                 {
-<<<<<<< Updated upstream
-                                                    m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.position, newPosition, moveSpeed * Time.fixedDeltaTime);
-                                                }
-                                                else
-                                                {
-                                                    var tempPos = ConvertIntoInteger(m_rigidBody2D.position);
-                                                    lastPositionAfterTrack.Add(tempPos);
-                                                    pathTrailAfterMabel.RemoveAt(0);
-=======
                                                     var distance1 = CheckDistance();
                                                     if (distance1 <= nearLineSight)
                                                     {
@@ -293,17 +259,21 @@ namespace DuRound
                                                             pathTrailAfterMabel.Clear();
                                                         }
                                                     }
->>>>>>> Stashed changes
                                                 }
-                                                m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.transform.position, newPosition, moveSpeed * Time.fixedDeltaTime);
-                                                m_currentPosition = m_rigidBody2D.position;
+                                                if (isMoving)
+                                                {
+                                                    // Debug.Log("here 2" + newPosition);
+                                                    m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.transform.position, newPosition, moveSpeed * Time.fixedDeltaTime);
+                                                    m_currentPosition = m_rigidBody2D.position;
+                                                }
+
                                             }
                                             else
                                             {
                                                 m_lastPosition = m_rigidBody2D.position;
                                                 var tempPos = ConvertIntoInteger(m_rigidBody2D.position);
                                                 lastPositionAfterTrack.Add(tempPos);
-                                                pathTrailAfterMabel.Remove(m_rigidBody2D.position);
+                                                pathTrailAfterMabel.RemoveAt(0);
                                             }
                                         }
 
@@ -314,18 +284,13 @@ namespace DuRound
                         }
                         else if (isComplete == false)
                         {
-<<<<<<< Updated upstream
-                            firstMove = Vector2.zero;
-                            secondMove = Vector2.zero;
-                            isMoving = true;
-=======
->>>>>>> Stashed changes
                             m_foundMabel = false;
                         }
                     }
 
                 }
-                if(distance >= 3.5) m_MabelIsNear = false;
+                else if (distance >= 4) m_MabelIsNear = false;
+               // if(distance >= farLineSight) m_MabelIsNear = false;
                 await Task.Yield();
             }
         }
@@ -333,11 +298,6 @@ namespace DuRound
 
         private async Task<bool> CheckMinusXPosition()
         {
-<<<<<<< Updated upstream
-            //TODO FIX ALL
-            var guardPos = ConvertIntoInteger(m_rigidBody2D.position);
-            var mPos = ConvertIntoInteger(m_Mabel.currentPath);
-=======
             Vector2 guardPos = ConvertIntoInteger(m_rigidBody2D.position);
             Vector2 mPos = ConvertIntoInteger(m_Mabel.currentPath);
             #region "At certain position"
@@ -359,86 +319,11 @@ namespace DuRound
                 mPos.y -= 1; guardPos.y -= 1;
             }
             #endregion
->>>>>>> Stashed changes
             //Mabel position
             Vector2 xOne = new Vector2(1, 0);
             Vector2 yOne = new Vector2(0, 1);
             var distanceBetween = mPos - guardPos;
-<<<<<<< Updated upstream
-
-            //should keep 1, 1 or 2,0 not more than 2
-            //if (distanceBetween.x == guardLineSight && distanceBetween.y != 0 || distanceBetween.x == -guardLineSight && distanceBetween.y != 0 ||
-            //    distanceBetween.y == guardLineSight && distanceBetween.x != 0 || distanceBetween.y == -guardLineSight && distanceBetween.x != 0)
-            //{
-            //    return Task.CompletedTask;
-            //}
-            if (distanceBetween.x == 0 && distanceBetween.y == 0)
-            {
-                return Task.FromResult(false);
-            }
-            //var checkPosition = m_rigidBody2D.position.x + distanceBetween.x;
-            //Debug.Log(distanceBetween.x + " distance X");
-            //Debug.Log(distanceBetween.y + " distance Y");
-            //Debug.Log(distanceBetween.y != -guardLineSight);
-            //Debug.Log(distanceBetween.y != guardLineSight);
-            //Debug.Log(distanceBetween.x != -guardLineSight);
-            //Debug.Log(distanceBetween.x != guardLineSight);
-            if (distanceBetween.x != guardLineSight && distanceBetween.y != guardLineSight && distanceBetween.x != -guardLineSight && distanceBetween.y != -guardLineSight)
-            {
-                //  Debug.Log("move L");
-                if (guardPos.x > mPos.x)
-                {
-                   // var currentPosition = ConvertIntoInteger(m_rigidBody2D.position);
-                    var move = mapTilePoints [guardPos];
-                   if (move.Left)
-                    {
-                        var tempLeft = guardPos.x + distanceBetween.x;
-                        var newPosition = new Vector2(tempLeft, guardPos.y);
-                        firstMove = newPosition;
-                        var currentPosition1 = ConvertIntoInteger(newPosition);
-                        if (guardPos.y < mPos.y)
-                        {
-                            var move1 = mapTilePoints [currentPosition1];
-                            if (move1.Upper)
-                            {
-                                var tempDown = guardPos.y + distanceBetween.y;
-                                var newPosition1 = new Vector2(newPosition.x, tempDown);
-                                secondMove = newPosition1;
-                                return Task.FromResult(true);
-                            }
-                            else
-                            {
-                                return Task.FromResult(false);
-                            }
-                        }
-                        else if (guardPos.y > mPos.y)
-                        {
-                            var move1 = mapTilePoints [currentPosition1];
-                            if (move1.Down)
-                            {
-                                var tempUp = guardPos.y + distanceBetween.y;
-                                var newPosition1 = new Vector2(newPosition.x, tempUp);
-                                secondMove = newPosition1;
-                                return Task.FromResult(true);
-                            }
-                            else
-                            {
-                                return Task.FromResult(false);
-                            }
-                        }
-                        else
-                        {
-                            return Task.FromResult(false);
-                        }
-                    }
-                    else if (move.Upper)
-                    {
-                        var tempUpper = guardPos.y + distanceBetween.y;
-                        var newPosition = new Vector2(guardPos.x, tempUpper);
-                        firstMove = newPosition;
-                        var currentPosition1 = ConvertIntoInteger(newPosition);
-                        if (guardPos.x < mPos.x)
-=======
+            Debug.Log(distanceBetween);
             var saveDistanceBetween = distanceBetween;
             int tempDistX = (int)distanceBetween.x;
             int tempDistY = (int)distanceBetween.y;
@@ -511,7 +396,6 @@ namespace DuRound
                         var firstF = f;
                         var firstBlocks = new Vector2();
                         for (int df = f; df >= diffDistance; df--)
->>>>>>> Stashed changes
                         {
                             if (firstF == df)
                             {
@@ -533,40 +417,7 @@ namespace DuRound
                         {
                             bm.listMoves.Add(tempFirstRow [f2]);
                         }
-<<<<<<< Updated upstream
-                    }
-                    else if (move.Down)
-                    {
-                        var tempDown = guardPos.y + distanceBetween.y;
-                        var newPosition = new Vector2(guardPos.x, tempDown);
-                        firstMove = newPosition;
-                        var currentPosition1 = ConvertIntoInteger(newPosition);
-                        if (guardPos.x < mPos.x)
-                        {
-                            var move1 = mapTilePoints [currentPosition1];
-                            if (move1.Left)
-                            {
-                                var tempLeft = guardPos.x + distanceBetween.x;
-                                var newPosition1 = new Vector2(tempLeft, newPosition.y);
-                                secondMove = newPosition1;
-                                return Task.FromResult(true);
-                            }
-                            else
-                            {
-                                return Task.FromResult(false);
-                            }
-                        }
-                        else
-                        {
-                            return Task.FromResult(false);
-                        }
-                    }
-                    else
-                    {
-                        return Task.FromResult(false);
-=======
                         blocklist.Add(bm);
->>>>>>> Stashed changes
                     }
                 }
 
@@ -581,11 +432,6 @@ namespace DuRound
                 int decrementFirstNumAhead = firstNumAhead;
                 for (int involve = 0; involve < arrInvolve.Length; involve++)
                 {
-<<<<<<< Updated upstream
-                    var currentPosition = ConvertIntoInteger(m_rigidBody2D.position);
-                    var move = mapTilePoints [guardPos];
-                    if (move.Right)
-=======
                     arrInvolve [involve] = involve;
                 }
                 bool init = false;
@@ -593,7 +439,6 @@ namespace DuRound
                 while (true)
                 {
                     for (int cInvAr = arrInvolve.Length-1; cInvAr > -1; cInvAr--)
->>>>>>> Stashed changes
                     {
                         if (arrInvolve [arrInvolve.Length - 1] + 1 >= totalPosXY)
                         {
@@ -959,15 +804,7 @@ namespace DuRound
                     }
                     for (int reverseArr = reverseFourthRowArr.Count - 1; reverseArr > -1; reverseArr--)
                     {
-<<<<<<< Updated upstream
-                        var tempUpper = guardPos.y + distanceBetween.y;
-                        var newPosition = new Vector2(guardPos.x, tempUpper);
-                        firstMove = newPosition;
-                        var currentPosition1 = ConvertIntoInteger(newPosition);
-                        if (guardPos.x > mPos.x)
-=======
                         if (reverseArr == reverseFourthRowArr.Count - 1)
->>>>>>> Stashed changes
                         {
                             if (firstArr.Count > 0)
                             {
@@ -1077,7 +914,7 @@ namespace DuRound
             CheckForMapWithGivenPosition();
             NewGuardPosition.Clear();
             MovePosition.ForEach(Move => { NewGuardPosition.Add(Move); }) ;
-
+            
             if (NewGuardPosition.Count > 0)
             {
                 return await Task.FromResult(true);
@@ -1097,20 +934,12 @@ namespace DuRound
                     int maxMove = blocklist [currentBlocks].listMoves.Count;
                     for (int compareBlocks = 0; compareBlocks < blocklist.Count; compareBlocks++)
                     {
-<<<<<<< Updated upstream
-                        var tempDown = guardPos.y + distanceBetween.y;
-                        var newPosition = new Vector2(guardPos.x, tempDown);
-                        firstMove = newPosition;
-                        var currentPosition1 = ConvertIntoInteger(newPosition);
-                        if (guardPos.x > mPos.x)
-=======
                         if (currentBlocks == compareBlocks)
                             break;
 
                         var compareMove = blocklist [compareBlocks];
                         int incrementMove = 0;
                         for (int CM = 0; CM < blocklist [compareBlocks].listMoves.Count; CM++)
->>>>>>> Stashed changes
                         {
                             var compare = CheckForBlocks(currentMove.listMoves [CM], compareMove.listMoves [CM]);
                             if (compare)
@@ -1146,7 +975,7 @@ namespace DuRound
                 {
                     for (int moveList = 0; moveList < blocklist [bl].listMoves.Count; moveList++)
                     {
-                        //Debug.Log(blocklist [bl].listMoves [moveList] + " move list " + moveList);
+                       // Debug.Log(blocklist [bl].listMoves [moveList] + " move list " + moveList);
                     }
                 }
             }
@@ -1296,11 +1125,8 @@ namespace DuRound
             m_checkForDistance = false;
             //pursueMabel = false;
         }
-<<<<<<< Updated upstream
-=======
         //should guard finish las move
        // private Vector2 finishLastMove { get; set; }
->>>>>>> Stashed changes
         public async void GuardMoveForwards()
         {
             shouldDestroy = false;
@@ -1308,19 +1134,14 @@ namespace DuRound
             {
                 if (moveIncrement < movePoints.Length)
                 {
-<<<<<<< Updated upstream
-                    var movePos = movePoints [moveIncrement]; 
-=======
 
                     var movePos = movePoints [moveIncrement];
                     //finishLastMove = movePos.position;
                     trailMoving = false;//b_finishLastMove = false;
->>>>>>> Stashed changes
                     if (m_rigidBody2D.position != (Vector2)movePos.position)
                     {
                         if (isMoving)
                         {
-
                             m_rigidBody2D.position = 
                                 Vector2.MoveTowards(m_rigidBody2D.transform.position, movePos.position, moveSpeed * Time.fixedDeltaTime);
 
@@ -1364,11 +1185,8 @@ namespace DuRound
                 if (moveIncrement > -1)
                 {
                     var movePos = movePoints [moveIncrement];
-<<<<<<< Updated upstream
-=======
                    // finishLastMove = movePos.position;
                     trailMoving = false;//b_finishLastMove = false;
->>>>>>> Stashed changes
                     if (m_rigidBody2D.position != (Vector2)movePos.position)
                     {
                         if (isMoving)
@@ -1449,36 +1267,7 @@ namespace DuRound
         {
             m_hasThomas = false;
         }
-<<<<<<< Updated upstream
-        private async Task<Task> MoveToLastPatrolPosition()
-        {
-           for (int p = lastPositionAfterTrack.Count-1; p > 0 ; p--)
-           {
-                Debug.Log(lastPositionAfterTrack [p]);
-               // if (isMoving)
-               // {
-               //     var newPosition = lastPositionAfterTrack [p];
-               //     if (m_rigidBody2D.position != newPosition)
-               //     {
-               //         m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.position,
-               //             newPosition, moveSpeed * Time.fixedDeltaTime);
-               //     }
-               //     else
-               //     {
-               //         continue;
-               //     }
-               //     if (p == 0)
-               //     {
-               //         return Task.CompletedTask;
-               //     }
-               // }
-                await Task.Yield();
-            }
-            return Task.CompletedTask;
-        }
-=======
         private bool invisible { get; set; } = false;
->>>>>>> Stashed changes
         protected async void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag("Mabel"))
@@ -1558,14 +1347,9 @@ namespace DuRound
                             GameManager.Instance.EnableThomas();
                             await Fade.instance.StartFade(false);
                             m_Mabel.ResetPosition();
-<<<<<<< Updated upstream
-                            _miniCanvas.alpha = 0;
-                            text.enabled = false;
-=======
                            // _miniCanvas.alpha = 0;
                            if(text != null)
                                 text.enabled = false;
->>>>>>> Stashed changes
                             GuardController.instance.ResetAllGuard();
                             GuardController.instance.SetMovementSpeedAllGuard();
                         }
@@ -1614,7 +1398,6 @@ namespace DuRound
                         {
                             text.text = "Mabel to Old to continue this escape.";
                         }
-                
                     }
                 
                 }
@@ -1633,6 +1416,7 @@ namespace DuRound
             m_hitPoints--;
             isMoving = false;
             await Task.Delay(2000);
+
             if (m_hitPoints == 0)
             {
                 if (!isAccursed)
@@ -1640,6 +1424,7 @@ namespace DuRound
                     isAccursed = true;
                     if (trailMoving)
                         trailMoving = false;
+                    m_moveToMabel = false;
                     shouldDestroy = true;
                     m_spriteRenderer.color = new Color(1, 1, 1, 0);
                     gameObject.SetActive(false);
@@ -1648,7 +1433,9 @@ namespace DuRound
                     {
                         if (!trailMoving)
                             trailMoving = true;
-
+                        m_foundMabel = false;
+                        m_checkForDistance = true;
+                        CheckForDistance();
                         return;
                     }
                 }
@@ -1657,26 +1444,29 @@ namespace DuRound
         }
         public Task<bool> EmergeFromWall()
         {
-            var GoPos = m_Mabel.currentPath;
-            var CheckWall = mapTilePoints [GoPos];
+            //TODO MOVE TO MIDDLE POSITION
+            var GoPos = m_Mabel.transform.position;
+            var mapGO = m_Mabel.currentPath;
+            var CheckWall = mapTilePoints [mapGO];
             if (CheckWall.Upper == false)
             {
                 var spawnPos = new Vector2(GoPos.x, GoPos.y + .5f);
                 m_rigidBody2D.MovePosition(spawnPos);
                 gameObject.SetActive(true);
                 var increment = 0f;
-                while (m_rigidBody2D.position != GoPos)
+                while (true)
                 {
-                    increment += 0.2f * Time.fixedDeltaTime;
+                    increment += 0.01f * Time.fixedDeltaTime;
                     m_spriteRenderer.color = new Color(1, 1, 1, increment);
-                    m_rigidBody2D.position = new Vector2(m_rigidBody2D.position.x, m_rigidBody2D.position.y - moveSpeed * Time.fixedDeltaTime);
-                    Task.Yield();
-                    if (m_rigidBody2D.position == GoPos)
+
+                    if (increment >= 1)
                     {
                         m_spriteRenderer.color = new Color(1, 1, 1, 1);
                         m_hitPoints = 1;
                         return Task.FromResult(true);
                     }
+
+                    Task.Yield();
                 }
             }
             else if (CheckWall.Down == false)
@@ -1685,39 +1475,43 @@ namespace DuRound
                 m_rigidBody2D.MovePosition(spawnPos);
                 gameObject.SetActive(true);
                 var increment = 0f;
-                while (m_rigidBody2D.position != GoPos)
+                while (true)
                 {
-                    increment += 0.2f * Time.fixedDeltaTime;
+                    increment += 0.01f * Time.fixedDeltaTime;
                     m_spriteRenderer.color = new Color(1, 1, 1, increment);
-                    m_rigidBody2D.position = new Vector2(m_rigidBody2D.position.x, m_rigidBody2D.position.y + moveSpeed * Time.fixedDeltaTime);
-                    Task.Yield();
-                    if (m_rigidBody2D.position == GoPos)
+
+                    if (increment >= 1)
                     {
                         m_spriteRenderer.color = new Color(1, 1, 1, 1);
                         m_hitPoints = 1;
                         return Task.FromResult(true);
                     }
+
+                    Task.Yield();
                 }
             }
             else if (CheckWall.Right == false)
             {
                 var spawnPos = new Vector2(GoPos.x + .5f, GoPos.y);
-                m_rigidBody2D.MovePosition(spawnPos);
+                Debug.Log(spawnPos + " spawn pos");
+                m_rigidBody2D.transform.position = spawnPos;
                 gameObject.SetActive(true);
                 var increment = 0f;
-                while (m_rigidBody2D.position != GoPos)
+                while (true)
                 {
-                    increment += 0.2f * Time.fixedDeltaTime;
+                    increment += 0.01f * Time.fixedDeltaTime;
                     m_spriteRenderer.color = new Color(1, 1, 1, increment);
-                    m_rigidBody2D.position = new Vector2(m_rigidBody2D.position.x - moveSpeed * Time.fixedDeltaTime, m_rigidBody2D.position.y);
-                    Task.Yield();
-                    if (m_rigidBody2D.position == GoPos)
+
+                    if (increment >= 1)
                     {
                         m_spriteRenderer.color = new Color(1, 1, 1, 1);
                         m_hitPoints = 1;
                         return Task.FromResult(true);
                     }
+
+                    Task.Yield();
                 }
+            
             }
             else if (CheckWall.Left == false)
             {
@@ -1725,18 +1519,19 @@ namespace DuRound
                 m_rigidBody2D.MovePosition(spawnPos);
                 gameObject.SetActive(true);
                 var increment = 0f;
-                while (m_rigidBody2D.position != GoPos)
+                while (true)
                 {
-                    increment += 0.2f * Time.fixedDeltaTime;
+                    increment += 0.01f * Time.fixedDeltaTime;
                     m_spriteRenderer.color = new Color(1, 1, 1, increment);
-                    m_rigidBody2D.position = new Vector2(m_rigidBody2D.position.x + moveSpeed * Time.fixedDeltaTime, m_rigidBody2D.position.y);
-                    Task.Yield();
-                    if (m_rigidBody2D.position == GoPos)
+
+                    if (increment >= 1)
                     {
                         m_spriteRenderer.color = new Color(1, 1, 1, 1);
                         m_hitPoints = 1;
                         return Task.FromResult(true);
                     }
+
+                    Task.Yield();
                 }
             }
             return Task.FromResult(false);

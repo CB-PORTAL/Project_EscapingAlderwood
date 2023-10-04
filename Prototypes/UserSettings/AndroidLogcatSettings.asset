@@ -1,66 +1,42 @@
 {
     "m_SelectedDeviceId": "R58R13JXENA",
     "m_SelectedPackage": {
-        "deviceId": "R58R13JXENA",
-        "name": "com.DefaultCompany.Prototypes",
-        "processId": 10366,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
-    "m_SelectedPriority": 1,
+    "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "R58R13JXENA",
             "name": "com.sec.android.app.launcher",
-            "processId": 2982,
+            "processId": 2094,
             "exited": false
         },
         {
             "deviceId": "R58R13JXENA",
             "name": "com.DefaultCompany.Prototypes",
-            "processId": 30442,
+            "processId": 10500,
             "exited": true
         },
         {
             "deviceId": "R58R13JXENA",
             "name": "com.DefaultCompany.Prototypes",
-            "processId": 31272,
+            "processId": 14573,
             "exited": true
         },
         {
             "deviceId": "R58R13JXENA",
             "name": "com.DefaultCompany.Prototypes",
-            "processId": 988,
+            "processId": 16507,
             "exited": true
         },
         {
             "deviceId": "R58R13JXENA",
             "name": "com.DefaultCompany.Prototypes",
-            "processId": 1850,
+            "processId": 18860,
             "exited": true
-        },
-        {
-            "deviceId": "R58R13JXENA",
-            "name": "com.DefaultCompany.Prototypes",
-            "processId": 7200,
-            "exited": false
-        },
-        {
-            "deviceId": "R58R13JXENA",
-            "name": "com.DefaultCompany.Prototypes",
-            "processId": 7796,
-            "exited": false
-        },
-        {
-            "deviceId": "R58R13JXENA",
-            "name": "com.DefaultCompany.Prototypes",
-            "processId": 8441,
-            "exited": false
-        },
-        {
-            "deviceId": "R58R13JXENA",
-            "name": "com.DefaultCompany.Prototypes",
-            "processId": 10366,
-            "exited": false
         }
     ],
     "m_Tags": {

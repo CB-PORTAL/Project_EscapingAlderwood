@@ -64,7 +64,7 @@ namespace DuRound
         }
         private async Task<Task> WaitingTime()
         {
-            await Task.Delay(5000);
+            await Task.Delay(3000);
             return Task.CompletedTask;
         }
     }

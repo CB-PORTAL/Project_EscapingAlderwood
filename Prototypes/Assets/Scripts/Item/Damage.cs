@@ -20,7 +20,7 @@ namespace DuRound
         {
             if (collision.collider.CompareTag("Guard"))
             {
-                collision.collider.GetComponent<Guard>().StopMoving();
+               // collision.collider.GetComponent<Guard>().StopMoving();
                 collision.gameObject.SetActive(false);
                 gameObject.SetActive(false);
                 GetComponent<PickUp>().enabled = true;
