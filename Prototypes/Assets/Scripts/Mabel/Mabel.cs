@@ -36,7 +36,7 @@ namespace DuRound
         protected BoxCollider2D m_boxCollider2D { get; set; }
 
         private GameObject [] guardList { get; set; }
-        private bool m_Mobile, m_Window = false;
+        //private bool m_Mobile, m_Window = false;
         protected virtual void Awake()
         {
             _miniCanvas = GameObject.FindWithTag("MiniGame").GetComponent<CanvasGroup>();
@@ -76,8 +76,8 @@ namespace DuRound
         }
         private void PlatformInit()
         {
-            if (Application.isMobilePlatform) m_Mobile = true;
-            else m_Window = true;
+           // if (Application.isMobilePlatform) m_Mobile = true;
+           // else m_Window = true;
         }
         protected Vector2 ConvertIntoInteger(Vector2 currentPos)
         {
@@ -330,9 +330,8 @@ namespace DuRound
         }
         public void SetMovement(Vector2 movement)
         {
-
             m_movement = movement;
-
+            Debug.Log(m_movement);
            // Debug.LogWarning(xTemp + ", " + yTemp);
             //m_rigidBody2D.transform.position = new Vector2(xTemp, yTemp);
             if (GameManager.Instance.isBegin)
@@ -346,7 +345,7 @@ namespace DuRound
             {
                 if (disableMovement) return;
                 //if (m_Mobile)
-                    UpdateMabelAnimationAndMovement();
+                UpdateMabelAnimationAndMovement();
                 //else if (m_Window)
                     HorizontalMovement();
                 m_currentPath = ConvertIntoInteger(m_rigidBody2D.position);
@@ -511,7 +510,8 @@ namespace DuRound
             m_animator.SetFloat("IdleX", 0);
             m_animator.SetFloat("IdleY", -1);
             beingCaught = false;
-
+            onGame = true;
+            MabelStartMove();
         }
         private async void OnCollisionEnter2D(Collision2D collision)
         {

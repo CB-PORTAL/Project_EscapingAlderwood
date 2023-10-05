@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     {
         CheckBeginner();
         Thomas = GameObject.FindWithTag("Thomas");
+        Time.timeScale = 1;
     }
     private void CheckBeginner()
     {

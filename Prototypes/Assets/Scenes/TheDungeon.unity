@@ -1125,7 +1125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &138195422
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14427,7 +14427,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024875390}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.19, y: -1.98, z: 0}
+  m_LocalPosition: {x: -6.16, y: -2.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15193,7 +15193,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1116092732}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.19, y: -1.98, z: -10}
+  m_LocalPosition: {x: -6.16, y: -2.02, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23199,7 +23199,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825526499}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.19, y: -1.98, z: -10}
+  m_LocalPosition: {x: -6.16, y: -2.02, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24409,7 +24409,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 907643963, guid: 115ac4877d67bd74396611d701a1e350, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 10.2336235}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -26255,11 +26255,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5514750267364985319, guid: 1eeca63af1f8a7b4796d442082c2eab2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.31
+      value: -7.47
       objectReference: {fileID: 0}
     - target: {fileID: 5514750267364985319, guid: 1eeca63af1f8a7b4796d442082c2eab2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.08
+      value: -3.12
       objectReference: {fileID: 0}
     - target: {fileID: 5514750267364985319, guid: 1eeca63af1f8a7b4796d442082c2eab2, type: 3}
       propertyPath: m_LocalPosition.z

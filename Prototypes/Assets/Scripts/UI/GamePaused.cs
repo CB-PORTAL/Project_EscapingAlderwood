@@ -7,11 +7,15 @@ namespace DuRound
 {
     public class GamePaused : MonoBehaviour
     {
+        public static GamePaused instance;
+        private GameObject m_IconLayout { get; set; }
         private CanvasGroup _canvasGroup;
 
         private void Awake()
         {
-            _canvasGroup = transform.Find("GamePause").GetComponent<CanvasGroup>();
+            _canvasGroup = transform.GetChild(2).GetComponent<CanvasGroup>();
+            m_IconLayout = transform.GetChild(5).gameObject;
+            if (instance == null) instance = this;
         }
         // Start is called before the first frame update
         void Start()
@@ -43,9 +47,16 @@ namespace DuRound
                 _canvasGroup.blocksRaycasts = true;
             }
         }
+        public void SetGameEnd()
+        {
+            _canvasGroup.gameObject.transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
+            m_IconLayout.SetActive(false);
+            Time.timeScale = 1;
+            PauseStatus();
+        }
         public void RestartLevel()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex,LoadSceneMode.Single);
         }
     }
 }

@@ -64,6 +64,10 @@ namespace DuRound
                         break;
                 }
             }
+            if (GetHit() == 0)
+            {
+                GamePaused.instance.SetGameEnd();
+            }
         }
         private void IndicatorUpdate()
         {

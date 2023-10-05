@@ -19,6 +19,7 @@ namespace DuRound
         // private Transform [] exitPoints { get; set; }
         private int moveIncrement { get; set; } = 0;
         public bool isMoving { get; set; } = true;
+        private bool m_shouldBreak { get; set; } = false;
         private bool shouldDestroy { get; set; } = false;
         private bool shouldMoveBackward = false;
         private Vector2 m_lastPosition, m_currentPosition;
@@ -50,6 +51,7 @@ namespace DuRound
             lastPositionAfterTrack.Clear();
             m_lastPosition = m_rigidBody2D.position;
             CheckForDistance();
+            m_shouldBreak = false;
            // return Task.CompletedTask;
         }
         public void ResetMoveIncrement()
@@ -191,12 +193,19 @@ namespace DuRound
                                                 }
                                                 if (isMoving)
                                                 {
-                                                    //Debug.Log("here " + newPosition);
                                                     m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.transform.position, newPosition, moveSpeed * Time.fixedDeltaTime);
                                                     m_currentPosition = m_rigidBody2D.position;
                                                 }
+                                                if (m_shouldBreak)
+                                                {
+                                                    break;
+                                                }
                                                 AddingTrailPath();
                                                 await Task.Yield();
+                                            }
+                                            if (m_shouldBreak)
+                                            {
+                                                break;
                                             }
                                             await Task.Yield();
                                         }
@@ -262,7 +271,6 @@ namespace DuRound
                                                 }
                                                 if (isMoving)
                                                 {
-                                                    // Debug.Log("here 2" + newPosition);
                                                     m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.transform.position, newPosition, moveSpeed * Time.fixedDeltaTime);
                                                     m_currentPosition = m_rigidBody2D.position;
                                                 }
@@ -276,7 +284,10 @@ namespace DuRound
                                                 pathTrailAfterMabel.RemoveAt(0);
                                             }
                                         }
-
+                                        if (m_shouldBreak)
+                                        {
+                                            break;
+                                        }
                                     }
                                     await Task.Yield();
                                 }
@@ -323,7 +334,6 @@ namespace DuRound
             Vector2 xOne = new Vector2(1, 0);
             Vector2 yOne = new Vector2(0, 1);
             var distanceBetween = mPos - guardPos;
-            Debug.Log(distanceBetween);
             var saveDistanceBetween = distanceBetween;
             int tempDistX = (int)distanceBetween.x;
             int tempDistY = (int)distanceBetween.y;
@@ -975,7 +985,7 @@ namespace DuRound
                 {
                     for (int moveList = 0; moveList < blocklist [bl].listMoves.Count; moveList++)
                     {
-                       // Debug.Log(blocklist [bl].listMoves [moveList] + " move list " + moveList);
+                     //   Debug.Log(blocklist [bl].listMoves [moveList] + " move list " + moveList);
                     }
                 }
             }
@@ -1134,14 +1144,14 @@ namespace DuRound
             {
                 if (moveIncrement < movePoints.Length)
                 {
-
                     var movePos = movePoints [moveIncrement];
                     //finishLastMove = movePos.position;
-                    trailMoving = false;//b_finishLastMove = false;
+                    //b_finishLastMove = false;
                     if (m_rigidBody2D.position != (Vector2)movePos.position)
                     {
                         if (isMoving)
                         {
+                            if (trailMoving) trailMoving = false;
                             m_rigidBody2D.position = 
                                 Vector2.MoveTowards(m_rigidBody2D.transform.position, movePos.position, moveSpeed * Time.fixedDeltaTime);
 
@@ -1180,18 +1190,19 @@ namespace DuRound
         }
         private async void GuardMoveBackwards()
         {
+            shouldDestroy = false; 
             while (shouldMoveBackward && !shouldDestroy)
             {
                 if (moveIncrement > -1)
                 {
                     var movePos = movePoints [moveIncrement];
                    // finishLastMove = movePos.position;
-                    trailMoving = false;//b_finishLastMove = false;
+                    //b_finishLastMove = false;
                     if (m_rigidBody2D.position != (Vector2)movePos.position)
                     {
                         if (isMoving)
                         {
-
+                            if (trailMoving) trailMoving = false;
                             m_rigidBody2D.position =
                             Vector2.MoveTowards(m_rigidBody2D.transform.position, movePos.position, moveSpeed * Time.fixedDeltaTime);
 
@@ -1331,9 +1342,10 @@ namespace DuRound
                     if (beingCaught) return;
                     if (!beingCaught)
                         m_Mabel.beingCaught  = true;
+                    m_Mabel.disableMovement = true;
+                    m_foundMabel = true;
                     GuardController.instance.GuardAction(false);
                     _miniCanvas.alpha = 1;
-                    trailMoving = false;
                     var fadeIn = await Fade.instance.StartFade(true);
                     if (fadeIn.IsCompleted)
                     {
@@ -1350,6 +1362,7 @@ namespace DuRound
                            // _miniCanvas.alpha = 0;
                            if(text != null)
                                 text.enabled = false;
+                            trailMoving = false;
                             GuardController.instance.ResetAllGuard();
                             GuardController.instance.SetMovementSpeedAllGuard();
                         }
@@ -1406,13 +1419,16 @@ namespace DuRound
         }
         public new void ResetPosition()
         {
+            m_shouldBreak = true;
             shouldDestroy = true; shouldMoveBackward = false; isCollide = false;
-            m_rigidBody2D.position = (Vector2)movePoints [0].position;
-            moveIncrement = 0;
+            m_hitPoints = 3; NewGuardPosition.Clear();
+            pathTrailAfterMabel.Clear();m_foundMabel = false;
+            m_rigidBody2D.position = (Vector2)movePoints [0].position; moveIncrement = 0;
         }
         private bool isAccursed { get; set; } = false;
         public async void StopMoving()
         {
+            if (!isMoving) return;
             m_hitPoints--;
             isMoving = false;
             await Task.Delay(2000);
@@ -1426,23 +1442,24 @@ namespace DuRound
                         trailMoving = false;
                     m_moveToMabel = false;
                     shouldDestroy = true;
+
                     m_spriteRenderer.color = new Color(1, 1, 1, 0);
                     gameObject.SetActive(false);
-                    var isDone = EmergeFromWall();
-                    if (isDone.Result == true)
+                    var isDone = await EmergeFromWall();
+                    if (isDone == true)
                     {
-                        if (!trailMoving)
-                            trailMoving = true;
+                        NewGuardPosition.Clear();
+                        pathTrailAfterMabel.Clear();
                         m_foundMabel = false;
-                        m_checkForDistance = true;
-                        CheckForDistance();
+                        isMoving = true;
                         return;
                     }
                 }
+                else gameObject.SetActive(false);
             }
             isMoving = true;
         }
-        public Task<bool> EmergeFromWall()
+        public async Task<bool> EmergeFromWall()
         {
             //TODO MOVE TO MIDDLE POSITION
             var GoPos = m_Mabel.transform.position;
@@ -1451,90 +1468,105 @@ namespace DuRound
             if (CheckWall.Upper == false)
             {
                 var spawnPos = new Vector2(GoPos.x, GoPos.y + .5f);
-                m_rigidBody2D.MovePosition(spawnPos);
-                gameObject.SetActive(true);
-                var increment = 0f;
-                while (true)
-                {
-                    increment += 0.01f * Time.fixedDeltaTime;
-                    m_spriteRenderer.color = new Color(1, 1, 1, increment);
-
-                    if (increment >= 1)
-                    {
-                        m_spriteRenderer.color = new Color(1, 1, 1, 1);
-                        m_hitPoints = 1;
-                        return Task.FromResult(true);
-                    }
-
-                    Task.Yield();
-                }
-            }
-            else if (CheckWall.Down == false)
-            {
-                var spawnPos = new Vector2(GoPos.x, GoPos.y - .5f);
-                m_rigidBody2D.MovePosition(spawnPos);
-                gameObject.SetActive(true);
-                var increment = 0f;
-                while (true)
-                {
-                    increment += 0.01f * Time.fixedDeltaTime;
-                    m_spriteRenderer.color = new Color(1, 1, 1, increment);
-
-                    if (increment >= 1)
-                    {
-                        m_spriteRenderer.color = new Color(1, 1, 1, 1);
-                        m_hitPoints = 1;
-                        return Task.FromResult(true);
-                    }
-
-                    Task.Yield();
-                }
-            }
-            else if (CheckWall.Right == false)
-            {
-                var spawnPos = new Vector2(GoPos.x + .5f, GoPos.y);
-                Debug.Log(spawnPos + " spawn pos");
                 m_rigidBody2D.transform.position = spawnPos;
                 gameObject.SetActive(true);
                 var increment = 0f;
                 while (true)
                 {
-                    increment += 0.01f * Time.fixedDeltaTime;
+                    increment += 0.5f * Time.fixedDeltaTime;
                     m_spriteRenderer.color = new Color(1, 1, 1, increment);
-
-                    if (increment >= 1)
+                    if (m_rigidBody2D.position != (Vector2)GoPos)
                     {
-                        m_spriteRenderer.color = new Color(1, 1, 1, 1);
-                        m_hitPoints = 1;
-                        return Task.FromResult(true);
+                        m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.transform.position, GoPos, moveSpeed * Time.fixedDeltaTime);
                     }
-
-                    Task.Yield();
+                    else
+                    {
+                        if (increment <= 1)
+                            await Task.Yield();
+                        else
+                            return await Task.FromResult(true);
+                    }
+                    if (m_shouldBreak) break;
+                    await Task.Yield();
                 }
-            
             }
-            else if (CheckWall.Left == false)
+            else if (CheckWall.Down == false)
             {
-                var spawnPos = new Vector2(GoPos.x - .5f, GoPos.y);
-                m_rigidBody2D.MovePosition(spawnPos);
+                var spawnPos = new Vector2(GoPos.x, GoPos.y - .5f);
+                m_rigidBody2D.transform.position = spawnPos;
                 gameObject.SetActive(true);
                 var increment = 0f;
                 while (true)
                 {
-                    increment += 0.01f * Time.fixedDeltaTime;
+                    increment += 0.5f * Time.fixedDeltaTime;
                     m_spriteRenderer.color = new Color(1, 1, 1, increment);
-
-                    if (increment >= 1)
+                    if (m_rigidBody2D.position != (Vector2)GoPos)
                     {
-                        m_spriteRenderer.color = new Color(1, 1, 1, 1);
-                        m_hitPoints = 1;
-                        return Task.FromResult(true);
+                        m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.transform.position, GoPos, moveSpeed * Time.fixedDeltaTime);
                     }
-
-                    Task.Yield();
+                    else
+                    {
+                        if (increment <= 1)
+                            await Task.Yield();
+                        else
+                            return await Task.FromResult(true);
+                    }
+                    if (m_shouldBreak) break;
+                    await Task.Yield();
                 }
             }
-            return Task.FromResult(false);
+            if (CheckWall.Right == false)
+            {
+                m_hitPoints = 1;
+                var spawnPos = new Vector2(GoPos.x + .5f, GoPos.y);
+                m_rigidBody2D.transform.position = spawnPos;
+                gameObject.SetActive(true);
+                var increment = 0f;
+                while (true)
+                {
+                    increment += 0.5f * Time.fixedDeltaTime;
+                    m_spriteRenderer.color = new Color(1, 1, 1, increment);
+                    if (m_rigidBody2D.position != (Vector2)GoPos)
+                    {
+                        m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.transform.position, GoPos, moveSpeed * Time.fixedDeltaTime);
+                    }
+                    else
+                    {
+                        if (increment <= 1)
+                            await Task.Yield();
+                        else 
+                            return await Task.FromResult(true);
+                    }
+                    if (m_shouldBreak) break;
+                    await Task.Yield();
+                }
+            }
+            else if (CheckWall.Left == false)
+            {
+                var spawnPos = new Vector2(GoPos.x - .5f, GoPos.y);
+                m_rigidBody2D.transform.position = spawnPos;
+                gameObject.SetActive(true);
+                var increment = 0f;
+                while (true)
+                {
+                    increment += 0.5f * Time.fixedDeltaTime;
+                    m_spriteRenderer.color = new Color(1, 1, 1, increment);
+                    if (m_rigidBody2D.position != (Vector2)GoPos)
+                    {
+                        m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.transform.position, GoPos, moveSpeed * Time.fixedDeltaTime);
+                    }
+                    else
+                    {
+                        if (increment <= 1)
+                            await Task.Yield();
+                        else
+                            return await Task.FromResult(true);
+                    }
+                    if (m_shouldBreak) break;
+                    await Task.Yield();
+                }
+            }
+            return await Task.FromResult(false);
         }
     }
 }
