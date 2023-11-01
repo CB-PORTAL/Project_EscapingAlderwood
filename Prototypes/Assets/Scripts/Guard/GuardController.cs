@@ -66,9 +66,11 @@ namespace DuRound
                 guardList [g].RemoveThomas();
                 guardList [g].isMoving = false;
                 guardList [g].ResetPosition();
+                await Task.Delay(200);
+                guardList [g].ZeroPosition();
                 guardList [g].gameObject.SetActive(true);
-                
             }
+            await Task.Delay(500);
             await GuardOut();
         }
         public void SetMovementSpeedAllGuard()

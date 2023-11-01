@@ -46,7 +46,6 @@ namespace DuRound
             m_rigidBody2D = GetComponent<Rigidbody2D>(); startPosition = this.transform.position;
             m_spriteRenderer = GetComponent<SpriteRenderer>();m_boxCollider2D = GetComponent<BoxCollider2D>();
             m_hitPoints = 3;
-            
         }
         // Start is called before the first frame update
         protected virtual void Start()
@@ -54,6 +53,7 @@ namespace DuRound
             m_animator.SetFloat("IdleY", -1);
             PickThomas += UpdateMabelUI.instance.UpdateThomas;
             PickDagger += UpdateMabelUI.instance.UpdateDagger;
+            PickDagger.Invoke(false);
             m_hasThomas = false;
             disableMovement = false;
             statUp = false;
@@ -415,7 +415,7 @@ namespace DuRound
         
         public void MeleeAttack(BaseEventData data)
         {
-           // if (!m_hasDagger) return;
+            if (!m_hasDagger) return;
             if (statRight)
             {
                 m_animator.SetTrigger("isAttack");
@@ -514,6 +514,7 @@ namespace DuRound
             beingCaught = false;
             onGame = true;
             MabelStartMove();
+            UpdateMabelUI.instance.UpdateHealthMabel();
         }
         private async void OnCollisionEnter2D(Collision2D collision)
         {
@@ -534,6 +535,8 @@ namespace DuRound
                 }
             }
         }
+        public bool m_hasDagger { get; set; } = false;
+        public void SetMabelHasDagger(bool condition) { m_hasDagger = condition; }
 
     }
 

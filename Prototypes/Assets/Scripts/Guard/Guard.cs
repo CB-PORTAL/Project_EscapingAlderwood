@@ -41,6 +41,7 @@ namespace DuRound
         // Start is called before the first frame update
         public void Initialize()
         {
+            m_checkForDistance = true;
             isAccursed = false;
             isCollide = false;
             moveIncrement = 0;
@@ -50,12 +51,12 @@ namespace DuRound
             pathTrailAfterMabel.Clear();
             lastPositionAfterTrack.Clear();
             m_lastPosition = m_rigidBody2D.position;
-            CheckForDistance();
             m_shouldBreak = false;
             normalSpeed = moveSpeed;
             finishLastMove = Vector2.zero;
             currentLineSight = farLineSight;
-           // return Task.CompletedTask;
+            CheckForDistance();
+            // return Task.CompletedTask;
         }
         public void ResetMoveIncrement()
         {
@@ -141,13 +142,7 @@ namespace DuRound
                 if (m_MabelTrailPosition == Vector2.zero || m_MabelTrailPosition != currentMabelPath)
                 {
                     m_MabelTrailPosition = currentMabelPath;
-                    //if (!pathTrailAfterMabel.Contains(m_MabelTrailPosition))
-                    // {
-                    // Debug.LogWarning(m_MabelTrailPosition + " add trail" + gameObject.name);
                     pathTrailAfterMabel.Add(m_MabelTrailPosition);
-                    //}
-
-
                 }
             }
             while (m_checkForDistance)
@@ -227,7 +222,7 @@ namespace DuRound
                                             await Task.Yield();
                                         }
 
-                                        NewGuardPosition.ForEach(a => Debug.Log(a + " " + gameObject.name));
+                                       // NewGuardPosition.ForEach(a => Debug.Log(a + " " + gameObject.name));
                                         for (int move = 0; move < NewGuardPosition.Count; move++)
                                         {
                                             AddingTrailPath();
@@ -369,6 +364,10 @@ namespace DuRound
                                             break;
                                         }
                                     }
+                                    if (m_shouldBreak)
+                                    {
+                                        break;
+                                    }
                                     await Task.Yield();
                                 }
                             }
@@ -379,6 +378,10 @@ namespace DuRound
                         }
                     }
 
+                }
+                if (m_shouldBreak)
+                {
+                    break;
                 }
                 await Task.Yield();
             }
@@ -1373,6 +1376,7 @@ namespace DuRound
             if (collision.CompareTag("Mabel"))
             { 
                 isCollide = true;
+                m_shouldBreak = true;
                 var m_Mabel = collision.gameObject.GetComponent<Mabel>();
                 var beingCaught = m_Mabel.beingCaught;
                 if (beingCaught) return;
@@ -1394,14 +1398,15 @@ namespace DuRound
                         m_Mabel.m_hitPoints -= 1;
                         GameManager.Instance.EnableThomas();
                         await Fade.instance.StartFade(false);
-                        m_Mabel.ResetPosition();
+
                         // _miniCanvas.alpha = 0;
                         if (text != null)
                             text.enabled = false;
                         trailMoving = false;
                         GuardController.instance.ResetAllGuard();
                         GuardController.instance.SetMovementSpeedAllGuard();
-                        UpdateMabelUI.instance.UpdateHealthMabel();
+                        m_Mabel.ResetPosition();
+                        //UpdateMabelUI.instance.UpdateHealthMabel();
                     }
                     //else
                     //{
@@ -1513,11 +1518,15 @@ namespace DuRound
         }
         public new void ResetPosition()
         {
-            m_shouldBreak = true;
+            m_shouldBreak = true;trailMoving = false;
             shouldDestroy = true; shouldMoveBackward = false; isCollide = false;
             m_hitPoints = 3; NewGuardPosition.Clear();
             pathTrailAfterMabel.Clear();m_foundMabel = false;
-            m_rigidBody2D.position = (Vector2)movePoints [0].position; moveIncrement = 0;
+            moveIncrement = 0;
+        }
+        public void ZeroPosition()
+        {
+            m_rigidBody2D.position = (Vector2)movePoints [0].position;
         }
         private bool isAccursed { get; set; } = false;
         public async void StopMoving()

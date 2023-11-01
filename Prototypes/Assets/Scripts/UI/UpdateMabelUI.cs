@@ -27,8 +27,11 @@ namespace DuRound
         private float adjustCold, adjustWarm, adjustHot,normal;
         private void Awake()
         {
-            if(instance == null )
+            if (instance == null)
+            {
                 instance = this;
+            }
+
             _Mabel = GameObject.FindWithTag("Mabel").GetComponent<Mabel>();
             _Thomas = GameObject.FindWithTag("Thomas").GetComponent<Thomas>();
             var parentMabelHit = transform.GetChild(0).GetChild(0);
@@ -47,6 +50,7 @@ namespace DuRound
                 IndicatorUpdate();
             }
         }
+
         public  void UpdateHealthMabel()
         {
             if (GetHit() >= 0) 
@@ -97,8 +101,8 @@ namespace DuRound
                 m_Indicator.color = new Color(newColor, 0.2f, 0);
             }
         }
-        public void UpdateThomas(bool condition) { m_Thomas.gameObject.SetActive(condition);m_Indicator.enabled = condition; if (!condition) UpdateIndicator(); }
-        public void UpdateDagger(bool condition) { m_Dagger.GetComponent<Image>().enabled = condition; }// _Mabel.SetMabelHasDagger(true); }
+        public void UpdateThomas(bool condition) { m_Thomas.gameObject.SetActive(condition);}
+        public void UpdateDagger(bool condition) { m_Dagger.GetComponent<Image>().enabled = condition;  _Mabel.SetMabelHasDagger(condition); }
         public void UpdateIndicator() { m_Indicator.enabled = false; }
     }
 }
