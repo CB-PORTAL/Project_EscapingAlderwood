@@ -23,6 +23,8 @@ namespace DuRound
         protected bool m_hasThomas { get; set; } = false;
 
         public float moveSpeed = 2f;
+        public float shortDistanceSpeed = 5;
+        public float normalSpeed;
         public float throwDaggerStrength = 20f;
         private Vector2 m_movement { get; set; }
         private Vector2 startPosition { get; set; }
@@ -331,7 +333,7 @@ namespace DuRound
         public void SetMovement(Vector2 movement)
         {
             m_movement = movement;
-            Debug.Log(m_movement);
+            //Debug.Log(m_movement);
            // Debug.LogWarning(xTemp + ", " + yTemp);
             //m_rigidBody2D.transform.position = new Vector2(xTemp, yTemp);
             if (GameManager.Instance.isBegin)
@@ -480,12 +482,12 @@ namespace DuRound
         public virtual void RemoveThomas()
         {
             m_hasThomas = false;
-            PickThomas.Invoke(false);
+            PickThomas?.Invoke(false);
         }
         public virtual void AddThomas()
         {
             m_hasThomas = true;
-            PickThomas.Invoke(true);
+            PickThomas?.Invoke(true);
         }
 
         public void AddDagger()

@@ -95,4 +95,8 @@ Prototypes/Library/Bee/TundraBuildState.state
 Prototypes/Logs/shadercompiler-UnityShaderCompiler.exe0.log
 Prototypes/AndroidBuild
 Prototypes/Library/Artifacts
+Prototypes\IosBuild
+Prototypes\AndroidBuild
 
+*.cpp
+Prototypes/AndroidBuild/PrototypeBuild_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/__Generated.cpp

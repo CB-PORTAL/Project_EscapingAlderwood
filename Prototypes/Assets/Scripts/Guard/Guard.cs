@@ -52,6 +52,9 @@ namespace DuRound
             m_lastPosition = m_rigidBody2D.position;
             CheckForDistance();
             m_shouldBreak = false;
+            normalSpeed = moveSpeed;
+            finishLastMove = Vector2.zero;
+            currentLineSight = farLineSight;
            // return Task.CompletedTask;
         }
         public void ResetMoveIncrement()
@@ -112,6 +115,7 @@ namespace DuRound
         public float farLineSight = 5f;
         [Range(0f,2f,order = 1)]
         public float nearLineSight = 2f;
+        private float currentLineSight { get; set; }
         private int lastIncrement { get; set; } = 0;
         private bool m_checkForDistance { get; set; } = true;
         private bool m_moveToMabel { get; set; } = true;
@@ -121,12 +125,34 @@ namespace DuRound
         
         private async void CheckForDistance()
         {
-            while (m_checkForDistance)
+
+            float CheckDistance()
             {
-                float CheckDistance()
+                if (m_Mabel != null)
                 {
                     return Vector2.Distance(m_rigidBody2D.transform.position, m_Mabel.transform.position);
                 }
+                else return 0;
+            }
+            void AddingTrailPath()
+            {
+                //adding Mabel trail to guard memory
+                var currentMabelPath = m_Mabel.currentPath;
+                if (m_MabelTrailPosition == Vector2.zero || m_MabelTrailPosition != currentMabelPath)
+                {
+                    m_MabelTrailPosition = currentMabelPath;
+                    //if (!pathTrailAfterMabel.Contains(m_MabelTrailPosition))
+                    // {
+                    // Debug.LogWarning(m_MabelTrailPosition + " add trail" + gameObject.name);
+                    pathTrailAfterMabel.Add(m_MabelTrailPosition);
+                    //}
+
+
+                }
+            }
+            while (m_checkForDistance)
+            {
+
                 var distance = CheckDistance();
                 if (distance <= farLineSight)
                 {
@@ -143,14 +169,16 @@ namespace DuRound
                         var isComplete = await CheckMinusXPosition();
                         if (isComplete == true)
                         {
+                            pathTrailAfterMabel.Clear();
+                            AddingTrailPath();
                             m_moveToMabel = true;
                             shouldDestroy = true;
                             //enable trail in here
                             trailMoving = true;
                             if (NewGuardPosition.Count > 0)
                             {
-                                var tempBeforeFirst = ConvertIntoInteger(m_rigidBody2D.position);
-                                lastPositionAfterTrack.Add(tempBeforeFirst);
+                                //var tempBeforeFirst = ConvertIntoInteger(m_rigidBody2D.position);
+                                //lastPositionAfterTrack.Add(tempBeforeFirst);
                                 await Task.Delay(500);
                                 while (m_moveToMabel)
                                 {
@@ -171,89 +199,126 @@ namespace DuRound
                                     }*/
                                     if (trailMoving)
                                     {
-                                        for (int move = 0; move < NewGuardPosition.Count; move++)
+                                        AddingTrailPath();
+                                        //finish last move during patrol
+                                        while (finishLastMove != Vector2.zero)
                                         {
-                                            m_lastPosition = m_rigidBody2D.position;
-                                            var newPosition = NewGuardPosition [move];
-                                            while (m_rigidBody2D.position != newPosition)
+                                            if (isMoving)
                                             {
-                                                if (!m_MabelIsNear)
+                                                AddingTrailPath();
+                                                moveSpeed = normalSpeed * shortDistanceSpeed;
+                                                if (m_rigidBody2D.position != finishLastMove)
+                                                    m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.transform.position, finishLastMove, moveSpeed * Time.fixedDeltaTime);
+                                                else
                                                 {
-                                                    var distance1 = CheckDistance();
-                                                    if (distance1 <= nearLineSight)
-                                                    {
-                                                        var isComplete2 = await CheckMinusXPosition();
-                                                        if (isComplete2 == true)
-                                                        {
-                                                            m_MabelIsNear = true;
-                                                            m_moveToMabel = false;
-                                                            m_foundMabel = false;
-                                                        }
-                                                    }
-                                                }
-                                                if (isMoving)
-                                                {
-                                                    m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.transform.position, newPosition, moveSpeed * Time.fixedDeltaTime);
-                                                    m_currentPosition = m_rigidBody2D.position;
+                                                    //if (pathTrailAfterMabel.Contains(finishLastMove))
+                                                    //{
+                                                    //    Debug.Log(finishLastMove);
+                                                    //    pathTrailAfterMabel.Remove(finishLastMove);
+                                                    //}
+                                                    finishLastMove = Vector2.zero;
+                                                    break;
                                                 }
                                                 if (m_shouldBreak)
                                                 {
                                                     break;
                                                 }
+                                            }
+                                            await Task.Yield();
+                                        }
+
+                                        NewGuardPosition.ForEach(a => Debug.Log(a + " " + gameObject.name));
+                                        for (int move = 0; move < NewGuardPosition.Count; move++)
+                                        {
+                                            AddingTrailPath();
+                                            m_lastPosition = m_rigidBody2D.position;
+                                            var newPosition = NewGuardPosition [move];
+                                            //Debug.Log("new guard position " + newPosition + gameObject.name);
+                                            moveSpeed = normalSpeed * shortDistanceSpeed;
+                                            while (m_rigidBody2D?.position != newPosition)
+                                            {
                                                 AddingTrailPath();
+                                                if (!m_MabelIsNear)
+                                                {
+                                                    var distance1 = CheckDistance();
+                                                    if (distance1 <= currentLineSight)
+                                                    {
+                                                        //var isComplete2 = await CheckMinusXPosition();
+                                                        //if (isComplete2 == true)
+                                                        //{
+                                                        //    //currentLineSight--;
+                                                        //  m_MabelIsNear = true;
+                                                        //  m_moveToMabel = false;
+                                                        //  m_foundMabel = false;
+                                                        //  trailMoving = false;
+                                                        //  pathTrailAfterMabel.Clear();
+                                                        //  break;
+                                                        //}
+                                                    }
+                                                    if (m_shouldBreak)
+                                                    {
+                                                        break;
+                                                    }
+                                                }
+                                                if (isMoving)
+                                                {
+                                                    m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.transform.position, newPosition, moveSpeed * Time.fixedDeltaTime);
+                                                   // Debug.Log("is moving " + gameObject.name + newPosition + " " + m_rigidBody2D.position);
+                                                    m_currentPosition = m_rigidBody2D.position;
+                                                     
+                                                    if (m_rigidBody2D.position == newPosition)
+                                                    {
+                                                       // if(pathTrailAfterMabel.Count > 0)
+                                                         //   pathTrailAfterMabel.RemoveAt(0);
+                                                        //if (pathTrailAfterMabel.Contains(newPosition))
+                                                        //{
+;                                                       //
+                                                        //    pathTrailAfterMabel.Remove(newPosition);
+                                                        //}
+                                                        break;
+                                                    }
+                                                }
+                                                if (m_shouldBreak)
+                                                {
+                                                    break;
+                                                }
+
                                                 await Task.Yield();
                                             }
                                             if (m_shouldBreak)
                                             {
                                                 break;
                                             }
+
                                             await Task.Yield();
                                         }
+                                        //var distance3 = CheckDistance();
+                                        //if (distance3 <= currentLineSight)
+                                        //{
+                                        //    var isComplete2 = await CheckMinusXPosition();
+                                        //    if (isComplete2 == true)
+                                        //    {
+                                        //        //currentLineSight--;
+                                        //        m_MabelIsNear = true;
+                                        //        m_moveToMabel = false;
+                                        //        m_foundMabel = false;
+                                        //        trailMoving = false;
+                                        //        pathTrailAfterMabel.Clear();
+                                        //        break;
+                                        //    }
+                                        //}
                                         NewGuardPosition.Clear();
                                         AddingTrailPath();
-                                        void AddingTrailPath()
-                                        {
-                                            //adding Mabel trail to guard memory
-                                            var currentMabelPath = m_Mabel.currentPath;
-                                            if (m_MabelTrailPosition == Vector2.zero || m_MabelTrailPosition != currentMabelPath)
-                                            {
-                                                m_MabelTrailPosition = currentMabelPath;
-                                                //if (m_MabelTrailPosition != finishLastMove)
-                                                //{
-                                                //    finishLastMove = m_MabelTrailPosition;
-                                                //}
-                                                if (!pathTrailAfterMabel.Contains(m_MabelTrailPosition))
-                                                {
-                                                    pathTrailAfterMabel.Add(m_MabelTrailPosition);
-                                                }
-                                            }
-                                        }
-                                        /*
-                                        if (movePosition != Vector2.zero)
-                                        {
-                                            if (m_rigidBody2D.position != movePosition)
-                                            {
-                                                m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.position, movePosition, moveSpeed * Time.fixedDeltaTime);
-                                            }
-                                            else
-                                            {
-                                                var tempPos = ConvertIntoInteger(m_rigidBody2D.position);
-                                                lastPositionAfterTrack.Add(tempPos);
-                                                movePosition = secondMove;
-                                            }
-                                        }
-                                        if (m_rigidBody2D.position == secondMove)
-                                        {
-                                            var tempPos = ConvertIntoInteger(m_rigidBody2D.position);
-                                            lastPositionAfterTrack.Add(tempPos);
-                                            movePosition = Vector2.zero;
-                                        }
-                                        */
+
                                         if (pathTrailAfterMabel.Count > 0)
                                         {
+
                                             var newPosition = pathTrailAfterMabel [0];
+                                            //Debug.Log(newPosition + gameObject.name + pathTrailAfterMabel.Count); 
+                                            moveSpeed = normalSpeed;
                                             if (m_rigidBody2D.position != newPosition)
                                             {
+                                                AddingTrailPath();
                                                 if (!m_MabelIsNear)
                                                 {
                                                     var distance1 = CheckDistance();
@@ -265,23 +330,38 @@ namespace DuRound
                                                             m_MabelIsNear = true;
                                                             m_moveToMabel = false;
                                                             m_foundMabel = false;
-                                                            pathTrailAfterMabel.Clear();
+                                                            trailMoving = false;
+                                                          pathTrailAfterMabel.Clear();
+                                                            break;
                                                         }
                                                     }
                                                 }
                                                 if (isMoving)
                                                 {
                                                     m_rigidBody2D.position = Vector2.MoveTowards(m_rigidBody2D.transform.position, newPosition, moveSpeed * Time.fixedDeltaTime);
+
                                                     m_currentPosition = m_rigidBody2D.position;
+                                                    distance = CheckDistance();
+                                                    if (distance >= 4)
+                                                    {
+                                                        m_MabelIsNear = false;
+                                                    }
                                                 }
 
+                                                if (m_shouldBreak)
+                                                {
+                                                    break;
+                                                }
+                                                //await Task.Yield();
                                             }
                                             else
                                             {
-                                                m_lastPosition = m_rigidBody2D.position;
-                                                var tempPos = ConvertIntoInteger(m_rigidBody2D.position);
-                                                lastPositionAfterTrack.Add(tempPos);
-                                                pathTrailAfterMabel.RemoveAt(0);
+                                               if (pathTrailAfterMabel.Count > 0)
+                                               {
+                                                   pathTrailAfterMabel.Remove(pathTrailAfterMabel [0]);
+                                               }
+                                               m_lastPosition = m_rigidBody2D.position;
+  
                                             }
                                         }
                                         if (m_shouldBreak)
@@ -300,8 +380,6 @@ namespace DuRound
                     }
 
                 }
-                else if (distance >= 4) m_MabelIsNear = false;
-               // if(distance >= farLineSight) m_MabelIsNear = false;
                 await Task.Yield();
             }
         }
@@ -310,6 +388,7 @@ namespace DuRound
         private async Task<bool> CheckMinusXPosition()
         {
             Vector2 guardPos = ConvertIntoInteger(m_rigidBody2D.position);
+            if (finishLastMove != Vector2.zero) guardPos = ConvertIntoInteger(finishLastMove);
             Vector2 mPos = ConvertIntoInteger(m_Mabel.currentPath);
             #region "At certain position"
             //position on outside edge screen of game
@@ -923,7 +1002,7 @@ namespace DuRound
             MovePosition.Clear();
             CheckForMapWithGivenPosition();
             NewGuardPosition.Clear();
-            MovePosition.ForEach(Move => { NewGuardPosition.Add(Move); }) ;
+            MovePosition.ForEach(Move => { NewGuardPosition.Add(Move); });
             
             if (NewGuardPosition.Count > 0)
             {
@@ -1136,7 +1215,7 @@ namespace DuRound
             //pursueMabel = false;
         }
         //should guard finish las move
-       // private Vector2 finishLastMove { get; set; }
+        private Vector2 finishLastMove { get; set; }
         public async void GuardMoveForwards()
         {
             shouldDestroy = false;
@@ -1149,6 +1228,7 @@ namespace DuRound
                     //b_finishLastMove = false;
                     if (m_rigidBody2D.position != (Vector2)movePos.position)
                     {
+                        finishLastMove = movePos.position;
                         if (isMoving)
                         {
                             if (trailMoving) trailMoving = false;
@@ -1176,6 +1256,10 @@ namespace DuRound
                     GuardMoveBackwards();             
                     break;
                 }
+                if (m_shouldBreak)
+                {
+                    break;
+                }
                 await Task.Yield();
 
             }
@@ -1200,6 +1284,7 @@ namespace DuRound
                     //b_finishLastMove = false;
                     if (m_rigidBody2D.position != (Vector2)movePos.position)
                     {
+                        finishLastMove = movePos.position;
                         if (isMoving)
                         {
                             if (trailMoving) trailMoving = false;
@@ -1226,6 +1311,10 @@ namespace DuRound
                     isCollide = false;
                     moveIncrement++;
                     GuardMoveForwards();
+                    break;
+                }
+                if (m_shouldBreak)
+                {
                     break;
                 }
                 await Task.Yield();
@@ -1285,95 +1374,100 @@ namespace DuRound
             { 
                 isCollide = true;
                 var m_Mabel = collision.gameObject.GetComponent<Mabel>();
-                /*
-                if (this.hasThomas)
+                var beingCaught = m_Mabel.beingCaught;
+                if (beingCaught) return;
+                if (!beingCaught)
+                    m_Mabel.beingCaught = true;
+                m_Mabel.disableMovement = true;
+                m_foundMabel = true;
+                GuardController.instance.GuardAction(false);
+                _miniCanvas.alpha = 1;
+                var fadeIn = await Fade.instance.StartFade(true);
+                if (fadeIn.IsCompleted)
                 {
-                    if (m_Mabel.disableMovement)
-                        return;
-                    GuardController.instance.GuardAction(false);
-                    this.m_hasThomas = false;
-                    m_Mabel.disableMovement = true;
-                
-                    _miniCanvas.alpha = 1;
-                    _miniCanvas.interactable = true;
-                    _miniCanvas.blocksRaycasts = true;
-                    var cgPanel = _miniCanvas.transform.GetChild(0).GetComponent<CanvasGroup>();
-                    cgPanel.alpha = 1;
-                    cgPanel.blocksRaycasts = true;
-                    cgPanel.interactable = true;
-                    _miniCanvas.transform.GetChild(0).GetChild(0).GetComponent<GuardWalk>().StartMove();
-                    GuardController.instance.CurrentGuardHasThomas(this);
-                    return;
-                }*/
-                if (m_Mabel.hasThomas)
-                {
-                   m_Mabel.disableMovement = true;
-                   moveSpeed = 0.8f;
-                   m_Mabel.RemoveThomas();
-                   this.m_hasThomas = true;/*
-                   //TODO remove guard going back exit
-                   if (m_checkForDistance)
-                   {
-                       m_checkForDistance = false;
-                   }
-                   if (m_moveToMabel)
-                   {
-                       m_moveToMabel = false;
-                       var isComplete = await MoveToLastPatrolPosition();
-                       if (isComplete.IsCompleted)
-                       {
-                           //TODO
-                           moveIncrement--;
-                           shouldMoveBackward = true;
-                           // GuardMoveBackwards();
-                           //GuardMoveExit();
-                           return;
-                       }
-                   }
-                    moveIncrement--;
-                    shouldMoveBackward = true;
-                    GuardMoveBackwards();
-                    GuardMoveExit();*/
-                   return;
-                }
-                else
-                {
-                    var beingCaught = m_Mabel.beingCaught;
-                    if (beingCaught) return;
-                    if (!beingCaught)
-                        m_Mabel.beingCaught  = true;
-                    m_Mabel.disableMovement = true;
-                    m_foundMabel = true;
-                    GuardController.instance.GuardAction(false);
-                    _miniCanvas.alpha = 1;
-                    var fadeIn = await Fade.instance.StartFade(true);
-                    if (fadeIn.IsCompleted)
+                    var text = _miniCanvas.transform.GetChild(1).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+                    text.enabled = true;
+                    if (UpdateMabelUI.instance._health >= 0)
                     {
-                        var text = _miniCanvas.transform.GetChild(1).transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-                        text.enabled = true;
-                        if (UpdateMabelUI.instance._health >=0)
-                        {
-                            text.text = "The Guard Caught Mabel";
-                            m_Mabel.m_hitPoints -= 1;
-                            UpdateMabelUI.instance.UpdateHealthMabel();
-                            GameManager.Instance.EnableThomas();
-                            await Fade.instance.StartFade(false);
-                            m_Mabel.ResetPosition();
-                           // _miniCanvas.alpha = 0;
-                           if(text != null)
-                                text.enabled = false;
-                            trailMoving = false;
-                            GuardController.instance.ResetAllGuard();
-                            GuardController.instance.SetMovementSpeedAllGuard();
-                        }
-                        else
-                        {
-                            Fade.instance.transform.GetChild(1).gameObject.SetActive(true);
-                            text.text = "Mabel lost to escape";
-                        }
-
+                        m_Mabel.RemoveThomas();
+                        text.text = "The Guard Caught Mabel";
+                        m_Mabel.m_hitPoints -= 1;
+                        GameManager.Instance.EnableThomas();
+                        await Fade.instance.StartFade(false);
+                        m_Mabel.ResetPosition();
+                        // _miniCanvas.alpha = 0;
+                        if (text != null)
+                            text.enabled = false;
+                        trailMoving = false;
+                        GuardController.instance.ResetAllGuard();
+                        GuardController.instance.SetMovementSpeedAllGuard();
+                        UpdateMabelUI.instance.UpdateHealthMabel();
                     }
+                    //else
+                    //{
+                    //    Fade.instance.transform.GetChild(1).gameObject.SetActive(true);
+                    //    text.text = "Mabel lost to escape";
+                    //}
                 }
+            }
+                    /*
+                    if (this.hasThomas)
+                    {
+                        if (m_Mabel.disableMovement)
+                            return;
+                        GuardController.instance.GuardAction(false);
+                        this.m_hasThomas = false;
+                        m_Mabel.disableMovement = true;
+
+                        _miniCanvas.alpha = 1;
+                        _miniCanvas.interactable = true;
+                        _miniCanvas.blocksRaycasts = true;
+                        var cgPanel = _miniCanvas.transform.GetChild(0).GetComponent<CanvasGroup>();
+                        cgPanel.alpha = 1;
+                        cgPanel.blocksRaycasts = true;
+                        cgPanel.interactable = true;
+                        _miniCanvas.transform.GetChild(0).GetChild(0).GetComponent<GuardWalk>().StartMove();
+                        GuardController.instance.CurrentGuardHasThomas(this);
+                        return;
+                    }*/
+                    //  if (m_Mabel.hasThomas)
+                    // {
+                    //m_Mabel.disableMovement = true;
+                    //moveSpeed = 0.8f;
+                    //m_Mabel.RemoveThomas();
+                    //this.m_hasThomas = true;
+                    /*
+                       //TODO remove guard going back exit
+                       if (m_checkForDistance)
+                       {
+                           m_checkForDistance = false;
+                       }
+                       if (m_moveToMabel)
+                       {
+                           m_moveToMabel = false;
+                           var isComplete = await MoveToLastPatrolPosition();
+                           if (isComplete.IsCompleted)
+                           {
+                               //TODO
+                               moveIncrement--;
+                               shouldMoveBackward = true;
+                               // GuardMoveBackwards();
+                               //GuardMoveExit();
+                               return;
+                           }
+                       }
+                        moveIncrement--;
+                        shouldMoveBackward = true;
+                        GuardMoveBackwards();
+                        GuardMoveExit();*/
+                  //  return;
+              //  }
+               // else
+                 {
+
+
+                  //  }
+             //   }
             }
             /*
             else if (collision.CompareTag("Exit"))
@@ -1445,17 +1539,24 @@ namespace DuRound
 
                     m_spriteRenderer.color = new Color(1, 1, 1, 0);
                     gameObject.SetActive(false);
+                    m_boxCollider2D.enabled = false;
                     var isDone = await EmergeFromWall();
                     if (isDone == true)
                     {
                         NewGuardPosition.Clear();
                         pathTrailAfterMabel.Clear();
+                        trailMoving = true;
                         m_foundMabel = false;
                         isMoving = true;
+                        m_boxCollider2D.enabled = true;
                         return;
                     }
                 }
-                else gameObject.SetActive(false);
+                else 
+                { 
+                    gameObject.SetActive(false);
+                    return;
+                }
             }
             isMoving = true;
         }
@@ -1467,13 +1568,14 @@ namespace DuRound
             var CheckWall = mapTilePoints [mapGO];
             if (CheckWall.Upper == false)
             {
+                m_hitPoints = 1;
                 var spawnPos = new Vector2(GoPos.x, GoPos.y + .5f);
                 m_rigidBody2D.transform.position = spawnPos;
                 gameObject.SetActive(true);
                 var increment = 0f;
                 while (true)
                 {
-                    increment += 0.5f * Time.fixedDeltaTime;
+                    increment += 0.8f * Time.fixedDeltaTime;
                     m_spriteRenderer.color = new Color(1, 1, 1, increment);
                     if (m_rigidBody2D.position != (Vector2)GoPos)
                     {
@@ -1492,13 +1594,14 @@ namespace DuRound
             }
             else if (CheckWall.Down == false)
             {
+                m_hitPoints = 1;
                 var spawnPos = new Vector2(GoPos.x, GoPos.y - .5f);
                 m_rigidBody2D.transform.position = spawnPos;
                 gameObject.SetActive(true);
                 var increment = 0f;
                 while (true)
                 {
-                    increment += 0.5f * Time.fixedDeltaTime;
+                    increment += 0.8f * Time.fixedDeltaTime;
                     m_spriteRenderer.color = new Color(1, 1, 1, increment);
                     if (m_rigidBody2D.position != (Vector2)GoPos)
                     {
@@ -1524,7 +1627,7 @@ namespace DuRound
                 var increment = 0f;
                 while (true)
                 {
-                    increment += 0.5f * Time.fixedDeltaTime;
+                    increment += 0.8f * Time.fixedDeltaTime;
                     m_spriteRenderer.color = new Color(1, 1, 1, increment);
                     if (m_rigidBody2D.position != (Vector2)GoPos)
                     {
@@ -1543,13 +1646,14 @@ namespace DuRound
             }
             else if (CheckWall.Left == false)
             {
+                m_hitPoints = 1;
                 var spawnPos = new Vector2(GoPos.x - .5f, GoPos.y);
                 m_rigidBody2D.transform.position = spawnPos;
                 gameObject.SetActive(true);
                 var increment = 0f;
                 while (true)
                 {
-                    increment += 0.5f * Time.fixedDeltaTime;
+                    increment += 0.8f * Time.fixedDeltaTime;
                     m_spriteRenderer.color = new Color(1, 1, 1, increment);
                     if (m_rigidBody2D.position != (Vector2)GoPos)
                     {

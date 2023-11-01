@@ -69,15 +69,18 @@ namespace DuRound
             var increment = 0f;
             while (increment <= 1f)
             {
-                m_image.color = new Color(m_image.color.r, m_image.color.g, m_image.color.b, increment);
-                increment += 0.5f * Time.deltaTime;
-                
-                if (increment >= 1f)
+                if (m_image != null)
                 {
-                    m_image.color = new Color(m_image.color.r, m_image.color.g, m_image.color.b, 1);
-                    return Task.CompletedTask;
+                    m_image.color = new Color(m_image.color.r, m_image.color.g, m_image.color.b, increment);
+                    increment += 0.5f * Time.deltaTime;
+
+                    if (increment >= 1f)
+                    {
+                        m_image.color = new Color(m_image.color.r, m_image.color.g, m_image.color.b, 1);
+                        return Task.CompletedTask;
+                    }
+                    await Task.Yield();
                 }
-                await Task.Yield();
             }
             return Task.CompletedTask;
         }
